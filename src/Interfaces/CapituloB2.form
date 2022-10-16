@@ -235,7 +235,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel7">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Cana,palma,tronco"/>
+        <Property name="text" type="java.lang.String" value="Ca&#xf1;a,palma,tronco"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel8">

@@ -78,7 +78,7 @@ public class CapituloB2 extends javax.swing.JFrame {
 
         jLabel6.setText("Madera");
 
-        jLabel7.setText("Cana,palma,tronco");
+        jLabel7.setText("Caña,palma,tronco");
 
         jLabel8.setText("Otro");
 
