@@ -313,6 +313,11 @@ public class CapituloF1 extends javax.swing.JFrame {
         });
 
         jButton2.setText("Siguiete");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         jLabel12.setText("caja de salud (CNS, COSSMIL, u otras)?");
@@ -1128,8 +1133,16 @@ public class CapituloF1 extends javax.swing.JFrame {
     }//GEN-LAST:event_jRadioButton39ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        //BOTON ATRAS
+        this.setVisible(false);
+        new CapituloE().setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // BOTON SIQUIENTE
+        this.setVisible(false);
+        new CapituloF2().setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
