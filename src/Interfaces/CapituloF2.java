@@ -27,6 +27,14 @@ public class CapituloF2 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
+        buttonGroup2 = new javax.swing.ButtonGroup();
+        buttonGroup3 = new javax.swing.ButtonGroup();
+        buttonGroup4 = new javax.swing.ButtonGroup();
+        buttonGroup5 = new javax.swing.ButtonGroup();
+        buttonGroup6 = new javax.swing.ButtonGroup();
+        buttonGroup7 = new javax.swing.ButtonGroup();
+        buttonGroup8 = new javax.swing.ButtonGroup();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator9 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
@@ -141,6 +149,7 @@ public class CapituloF2 extends javax.swing.JFrame {
 
         jLabel1.setText("34. ¿Dónde vivía hace 5 años?");
 
+        buttonGroup1.add(jRadioButton1);
         jRadioButton1.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         jRadioButton1.setText("Aquí");
         jRadioButton1.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
@@ -150,10 +159,12 @@ public class CapituloF2 extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup1.add(jRadioButton2);
         jRadioButton2.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         jRadioButton2.setText("En otro lugar del país");
         jRadioButton2.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
 
+        buttonGroup1.add(jRadioButton3);
         jRadioButton3.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         jRadioButton3.setText("En el exterior");
         jRadioButton3.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
@@ -163,6 +174,7 @@ public class CapituloF2 extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup1.add(jRadioButton4);
         jRadioButton4.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         jRadioButton4.setText("Aún no había nacido");
         jRadioButton4.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
@@ -183,16 +195,19 @@ public class CapituloF2 extends javax.swing.JFrame {
 
         jLabel7.setText("35. ¿Sabe leer y escribir?");
 
+        buttonGroup2.add(jRadioButton5);
         jRadioButton5.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         jRadioButton5.setText("Si");
         jRadioButton5.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
 
+        buttonGroup2.add(jRadioButton6);
         jRadioButton6.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         jRadioButton6.setText("No");
         jRadioButton6.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
 
         jLabel8.setText("36. Actualmente, ¿asiste a una escuela o colegio?");
 
+        buttonGroup3.add(jRadioButton7);
         jRadioButton7.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         jRadioButton7.setText("Sí, a una pública");
         jRadioButton7.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
@@ -202,14 +217,17 @@ public class CapituloF2 extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup3.add(jRadioButton8);
         jRadioButton8.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         jRadioButton8.setText("Sí, a una privada");
         jRadioButton8.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
 
+        buttonGroup3.add(jRadioButton9);
         jRadioButton9.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         jRadioButton9.setText("Sí, a una de convenio");
         jRadioButton9.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
 
+        buttonGroup3.add(jRadioButton10);
         jRadioButton10.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         jRadioButton10.setText("No asiste");
         jRadioButton10.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
@@ -218,8 +236,10 @@ public class CapituloF2 extends javax.swing.JFrame {
 
         jLabel10.setText("aprobó?");
 
+        buttonGroup4.add(jRadioButton12);
         jRadioButton12.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         jRadioButton12.setText("Ninguno");
+        jRadioButton12.setFocusCycleRoot(true);
         jRadioButton12.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
         jRadioButton12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -227,8 +247,10 @@ public class CapituloF2 extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup4.add(jRadioButton13);
         jRadioButton13.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         jRadioButton13.setText("Curso de alfabetización");
+        jRadioButton13.setFocusCycleRoot(true);
         jRadioButton13.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
         jRadioButton13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -236,8 +258,10 @@ public class CapituloF2 extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup4.add(jRadioButton14);
         jRadioButton14.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         jRadioButton14.setText("Inicial (Pre kínder, kínder)");
+        jRadioButton14.setFocusCycleRoot(true);
         jRadioButton14.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
         jRadioButton14.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -248,8 +272,10 @@ public class CapituloF2 extends javax.swing.JFrame {
         jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         jLabel11.setText("Nivel");
 
+        buttonGroup4.add(jRadioButton11);
         jRadioButton11.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         jRadioButton11.setText("Básico (1 a 5 años)");
+        jRadioButton11.setFocusCycleRoot(true);
         jRadioButton11.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
         jRadioButton11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -259,8 +285,10 @@ public class CapituloF2 extends javax.swing.JFrame {
 
         jLabel12.setText("Sistema Antiguo");
 
+        buttonGroup4.add(jRadioButton15);
         jRadioButton15.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         jRadioButton15.setText("Intermedio (1 a 3 años)");
+        jRadioButton15.setFocusCycleRoot(true);
         jRadioButton15.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
         jRadioButton15.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -268,8 +296,10 @@ public class CapituloF2 extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup4.add(jRadioButton16);
         jRadioButton16.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         jRadioButton16.setText("Medio (1 a 4 años)");
+        jRadioButton16.setFocusCycleRoot(true);
         jRadioButton16.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
         jRadioButton16.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -279,8 +309,10 @@ public class CapituloF2 extends javax.swing.JFrame {
 
         jLabel13.setText("Sistema Anterior");
 
+        buttonGroup4.add(jRadioButton17);
         jRadioButton17.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         jRadioButton17.setText("Primaria (1 a 8 años)");
+        jRadioButton17.setFocusCycleRoot(true);
         jRadioButton17.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
         jRadioButton17.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -288,8 +320,10 @@ public class CapituloF2 extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup4.add(jRadioButton18);
         jRadioButton18.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         jRadioButton18.setText("Secundaria (1 a 4 años)");
+        jRadioButton18.setFocusCycleRoot(true);
         jRadioButton18.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
         jRadioButton18.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -299,8 +333,10 @@ public class CapituloF2 extends javax.swing.JFrame {
 
         jLabel14.setText("Sistema Actual");
 
+        buttonGroup4.add(jRadioButton19);
         jRadioButton19.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         jRadioButton19.setText("Primaria (1 a 6 años)");
+        jRadioButton19.setFocusCycleRoot(true);
         jRadioButton19.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
         jRadioButton19.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -308,8 +344,10 @@ public class CapituloF2 extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup4.add(jRadioButton20);
         jRadioButton20.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         jRadioButton20.setText("Secundaria (1 a 6 años)");
+        jRadioButton20.setFocusCycleRoot(true);
         jRadioButton20.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
         jRadioButton20.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -319,8 +357,10 @@ public class CapituloF2 extends javax.swing.JFrame {
 
         jLabel15.setText("Universitario");
 
+        buttonGroup4.add(jRadioButton21);
         jRadioButton21.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         jRadioButton21.setText("Técnico universitario");
+        jRadioButton21.setFocusCycleRoot(true);
         jRadioButton21.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
         jRadioButton21.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -328,8 +368,10 @@ public class CapituloF2 extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup4.add(jRadioButton22);
         jRadioButton22.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         jRadioButton22.setText("Licenciatura");
+        jRadioButton22.setFocusCycleRoot(true);
         jRadioButton22.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
         jRadioButton22.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -337,8 +379,10 @@ public class CapituloF2 extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup4.add(jRadioButton23);
         jRadioButton23.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         jRadioButton23.setText("Maestría");
+        jRadioButton23.setFocusCycleRoot(true);
         jRadioButton23.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
         jRadioButton23.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -346,8 +390,10 @@ public class CapituloF2 extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup4.add(jRadioButton24);
         jRadioButton24.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         jRadioButton24.setText("Doctorado");
+        jRadioButton24.setFocusCycleRoot(true);
         jRadioButton24.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
         jRadioButton24.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -357,8 +403,10 @@ public class CapituloF2 extends javax.swing.JFrame {
 
         jLabel16.setText("No universitario");
 
+        buttonGroup4.add(jRadioButton25);
         jRadioButton25.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         jRadioButton25.setText("Normal Superior");
+        jRadioButton25.setFocusCycleRoot(true);
         jRadioButton25.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
         jRadioButton25.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -366,8 +414,10 @@ public class CapituloF2 extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup4.add(jRadioButton26);
         jRadioButton26.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         jRadioButton26.setText("Militar o Policial");
+        jRadioButton26.setFocusCycleRoot(true);
         jRadioButton26.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
         jRadioButton26.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -375,8 +425,10 @@ public class CapituloF2 extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup4.add(jRadioButton27);
         jRadioButton27.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         jRadioButton27.setText("Técnico de Instituto");
+        jRadioButton27.setFocusCycleRoot(true);
         jRadioButton27.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
         jRadioButton27.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -384,8 +436,10 @@ public class CapituloF2 extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup4.add(jRadioButton28);
         jRadioButton28.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         jRadioButton28.setText("Otro");
+        jRadioButton28.setFocusCycleRoot(true);
         jRadioButton28.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
         jRadioButton28.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -395,18 +449,22 @@ public class CapituloF2 extends javax.swing.JFrame {
 
         jLabel17.setText("38. Para ingresar a ese nivel, ¿cuál fue el nivel y curso de ");
 
+        buttonGroup5.add(jRadioButton29);
         jRadioButton29.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         jRadioButton29.setText("Básico (1 a 5 años)");
         jRadioButton29.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
 
+        buttonGroup5.add(jRadioButton30);
         jRadioButton30.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         jRadioButton30.setText("Intermedio (1 a 3 años)");
         jRadioButton30.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
 
+        buttonGroup5.add(jRadioButton31);
         jRadioButton31.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         jRadioButton31.setText("Secundaria (1 a 4 años)");
         jRadioButton31.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
 
+        buttonGroup5.add(jRadioButton32);
         jRadioButton32.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         jRadioButton32.setText("Primaria (1 a 6 años)");
         jRadioButton32.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
@@ -416,6 +474,7 @@ public class CapituloF2 extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup5.add(jRadioButton33);
         jRadioButton33.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         jRadioButton33.setText("Secundaria (1 a 4 años)");
         jRadioButton33.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
@@ -425,10 +484,12 @@ public class CapituloF2 extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup5.add(jRadioButton34);
         jRadioButton34.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         jRadioButton34.setText("Primaria (1 a 6 años)");
         jRadioButton34.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
 
+        buttonGroup5.add(jRadioButton35);
         jRadioButton35.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         jRadioButton35.setText("Secundaria (1 a 6 años)");
         jRadioButton35.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
@@ -453,10 +514,12 @@ public class CapituloF2 extends javax.swing.JFrame {
 
         jLabel23.setText("39. Durante la semana pasada ¿trabajó?");
 
+        buttonGroup6.add(jRadioButton36);
         jRadioButton36.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         jRadioButton36.setText("Si");
         jRadioButton36.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
 
+        buttonGroup6.add(jRadioButton37);
         jRadioButton37.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         jRadioButton37.setText("No");
         jRadioButton37.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
@@ -466,6 +529,7 @@ public class CapituloF2 extends javax.swing.JFrame {
 
         jLabel25.setText("40. Durante la semana pasada,...");
 
+        buttonGroup7.add(jRadioButton38);
         jRadioButton38.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         jRadioButton38.setText("1");
         jRadioButton38.addActionListener(new java.awt.event.ActionListener() {
@@ -483,6 +547,7 @@ public class CapituloF2 extends javax.swing.JFrame {
         jLabel28.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         jLabel28.setText("¿atendió o ayudó en los cultivos agrícolas o en la crianza de animales?");
 
+        buttonGroup7.add(jRadioButton39);
         jRadioButton39.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         jRadioButton39.setText("2");
 
@@ -495,17 +560,21 @@ public class CapituloF2 extends javax.swing.JFrame {
         jLabel31.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         jLabel31.setText("¿No trabajó?");
 
+        buttonGroup7.add(jRadioButton40);
         jRadioButton40.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         jRadioButton40.setText("3");
 
+        buttonGroup7.add(jRadioButton41);
         jRadioButton41.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         jRadioButton41.setText("4");
 
+        buttonGroup7.add(jRadioButton42);
         jRadioButton42.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         jRadioButton42.setText("5");
 
         jLabel32.setText("41. Durante la semana pasada, ...");
 
+        buttonGroup8.add(jRadioButton43);
         jRadioButton43.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         jRadioButton43.setText("¿buscó trabajo habiendo trabajado antes?");
         jRadioButton43.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
@@ -515,22 +584,27 @@ public class CapituloF2 extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup8.add(jRadioButton45);
         jRadioButton45.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         jRadioButton45.setText("¿buscó trabajo por primera vez?");
         jRadioButton45.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
 
+        buttonGroup8.add(jRadioButton46);
         jRadioButton46.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         jRadioButton46.setText("¿estuvo estudiando?");
         jRadioButton46.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
 
+        buttonGroup8.add(jRadioButton47);
         jRadioButton47.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         jRadioButton47.setText("¿realizó labores de casa?");
         jRadioButton47.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
 
+        buttonGroup8.add(jRadioButton48);
         jRadioButton48.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         jRadioButton48.setText("¿es jubilado, pensionista o rentista?");
         jRadioButton48.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
 
+        buttonGroup8.add(jRadioButton49);
         jRadioButton49.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         jRadioButton49.setText("otra");
         jRadioButton49.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
@@ -1021,6 +1095,7 @@ public class CapituloF2 extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
@@ -1167,6 +1242,14 @@ public class CapituloF2 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.ButtonGroup buttonGroup3;
+    private javax.swing.ButtonGroup buttonGroup4;
+    private javax.swing.ButtonGroup buttonGroup5;
+    private javax.swing.ButtonGroup buttonGroup6;
+    private javax.swing.ButtonGroup buttonGroup7;
+    private javax.swing.ButtonGroup buttonGroup8;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
