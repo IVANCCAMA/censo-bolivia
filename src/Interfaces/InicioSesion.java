@@ -8,16 +8,89 @@ package Interfaces;
  *
  * @author ARMAGEDON
  */
+import javax.swing.table.DefaultTableModel;
+import dba.Mysql;
+import java.sql.Array.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+
 public class InicioSesion extends javax.swing.JFrame {
-
-    /**
-     * Creates new form Inicio
-     */
-    public InicioSesion() {
+    
+    DefaultTableModel model;
+    Connection conn;
+    Statement sent;
+            
+    ArrayList <String> listTUsuario;
+    ArrayList <String> listUsr;
+    ArrayList <String> listContr;
+     
+    public InicioSesion(){
+        
         initComponents();
+        conn = Mysql.getConnection();
+        listTUsuario = new ArrayList<>();
+        listUsr = new ArrayList<>();
+        listContr = new ArrayList<>();
         //this.setSize(500, 400);
+        
+        llenarTUsr(); // para llenar la lista de Tusr
+        llenarUsr();
+        llenarContr();
     }
-
+    private void llenarTUsr(){
+       try {
+            conn = Mysql.getConnection(); //conexion con sql
+            String sql = "select tipoUsr from censo.usuario";
+            sent = conn.createStatement(); // para procesar la sentencia sql y obtener los resultados
+            ResultSet rs = sent.executeQuery(sql); //obiene los resultados de la consulta sql
+            
+            while(rs.next()){
+                listTUsuario.add(rs.getString("tipoUsr"));
+                //System.out.println(rs.getString("tipoUsr"));
+            }
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    private void llenarUsr(){
+       try {
+            conn = Mysql.getConnection(); //conexion con sql
+            String sql = "select codUsr from censo.usuario";
+            sent = conn.createStatement(); // para procesar la sentencia sql y obtener los resultados
+            ResultSet rs = sent.executeQuery(sql); //obiene los resultados de la consulta sql
+            
+            while(rs.next()){
+                listTUsuario.add(rs.getString("codUsr"));
+                //System.out.println(rs.getString("codUsr"));
+            }
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    private void llenarContr(){
+       try {
+            conn = Mysql.getConnection(); //conexion con sql
+            String sql = "select contrUsr from censo.usuario";
+            sent = conn.createStatement(); // para procesar la sentencia sql y obtener los resultados
+            ResultSet rs = sent.executeQuery(sql); //obiene los resultados de la consulta sql
+            
+            while(rs.next()){
+                listTUsuario.add(rs.getString("contrUsr"));
+                //System.out.println(rs.getString("contrUsr"));
+            }
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -78,8 +151,19 @@ public class InicioSesion extends javax.swing.JFrame {
         jLabel6.setText("para nueva cuenta registrate aqui");
 
         jButton3.setText("Registrarse");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jLabel3.setText("Usuario");
+
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -168,25 +252,54 @@ public class InicioSesion extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        //boton iniciar
-        String usr = jTextField1.getText(); //recuperamos el usr
-        String contra = jTextField2.getText();
-        String sql1;
-        String sql = "Select codEnc From usuario Where codEnc = " +  usr;
-        if(usr == "123" && contra == "1231"){
+        //boton iniciar sesion
+                
+        String tip    = jComboBox1.getSelectedItem().toString(); //recuperamos tipo usr
+        String usr    = jTextField1.getText(); //recuperamos el usr
+        String contra = jTextField2.getText(); //recuperadmos contraseña
+        
+        
+        
+        int num = 0;
+        
+        while(num<listUsr.size()){ //busqueda de datos
             
-        }else{
-            
+           String tipoUsr    = listTUsuario.get(num);
+           String usuario    = listUsr.get(num);
+           String contraseña = listContr.get(num);
+           
+           System.out.println(tipoUsr); //porque no imprime
+           
+           if(tip.equals(tipoUsr) && usr.equals(usuario) && contra.equals(contraseña)){
+               new Encuestador().setVisible(true);
+               this.setVisible(false); // lo destruye xd
+               break;
+            }else{
+                JOptionPane.showMessageDialog(null,"datos erroneos, revise los datos introducidos porfavor ",
+                   " error al ingresar ",JOptionPane.ERROR_MESSAGE);
+            }
+           num++;
+           
         }
         
-        new Encuestador().setVisible(true);
-        this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    
+            
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         new Bienvenida().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        new Registrarse().setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
     /**
      * @param args the command line arguments
