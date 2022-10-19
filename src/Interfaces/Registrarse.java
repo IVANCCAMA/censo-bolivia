@@ -34,20 +34,21 @@ public class Registrarse extends javax.swing.JFrame {
     void Llenar(){
         try {
             conn = Mysql.getConnection();
-            String[]titulos = {"id", "Nombre", "Dirección", "Teléfono", "Correo","tipoUsuario"}; 
+            String[]titulos = {"id", "Nombre", "Dirección", "Teléfono", "Correo","tipoUsuario", "contraseña"}; 
             String sql = "select * from usuario";
             model = new DefaultTableModel(null, titulos);
             sent= conn.createStatement();
             ResultSet rs=sent.executeQuery(sql);
             
-            String[]fila = new String[6];
+            String[]fila = new String[7];
             while(rs.next()){
-                fila[0]=rs.getString("codEnc");
-                fila[1]=rs.getString("nombreEnc");
-                fila[2]=rs.getString("dirEnc");
-                fila[3]=rs.getString("telfEnc");
-                fila[4]=rs.getString("correoEnc");
+                fila[0]=rs.getString("codUsr");
+                fila[1]=rs.getString("nombreUsr");
+                fila[2]=rs.getString("dirUsr");
+                fila[3]=rs.getString("telfUsr");
+                fila[4]=rs.getString("correoUsr");
                 fila[5]=rs.getString("tipoUsr");
+                fila[6]=rs.getString("contrUsr");
                 model.addRow(fila);
             }
             //jTable1.setModel(model);
@@ -180,14 +181,15 @@ public class Registrarse extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try {
-            String sql = "insert into usuario (nombreEnc, dirEnc, telfEnc, correoEnc, tipoUsr)"+
-                    "values(?,?,?,?,?)";
+            String sql = "insert into usuario (nombreUsr, dirUsr, telfUsr, correoUsr, tipoUsr, contrUsr)"+
+                    "values(?,?,?,?,?,?)";
             PreparedStatement ps = conn.prepareCall(sql);
             ps.setString(1, jTextField1.getText());
             ps.setString(2, jTextField2.getText());
             ps.setString(3, jTextField3.getText());
             ps.setString(4, jTextField4.getText());
             ps.setString(5, jComboBox1.getSelectedItem().toString());
+            ps.setString(6, jTextField5.getText());
             
             int n = ps.executeUpdate();
             if(n>0){
