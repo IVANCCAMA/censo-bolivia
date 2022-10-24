@@ -271,10 +271,12 @@ public class InicioSesion extends javax.swing.JFrame {
            //System.out.println(tipoUsr); //porque no imprime
            
            if(tip.equals(tipoUsr) && usr.equals(usuario) && contra.equals(contraseña)){
-               new Encuestador().setVisible(true);
+               //new Encuestador().setVisible(true);
+               verificarVentana();
                this.setVisible(false); // lo destruye xd
                break;
-            }else{
+            }//revisar esdta parte
+           if(num+1 == listUsr.size()){
                 JOptionPane.showMessageDialog(null,"datos erroneos, revise los datos introducidos porfavor ",
                    " error al ingresar ",JOptionPane.ERROR_MESSAGE);
                 
@@ -285,7 +287,26 @@ public class InicioSesion extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    
+   private void verificarVentana(){
+        String admi = "Administrador";
+        String jefeZ = "Jefe de Zona";
+        String enc = "Encuestador";
+        String jefeF= "Jefe de Familia";
+        
+        String cargo = jComboBox1.getSelectedItem().toString(); 
+               
+        
+        if(admi.equals(cargo)){
+            new Administrador().setVisible(true);
+        }else if(jefeF.equals(cargo)){
+            new JefeFamilia().setVisible(true);
+        }else if(jefeZ.equals(cargo)){
+            new JefeZona().setVisible(true);
+        }else if(enc.equals(cargo)){
+            new Encuestador().setVisible(true);
+        }
+        
+    } 
             
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         new Bienvenida().setVisible(true);

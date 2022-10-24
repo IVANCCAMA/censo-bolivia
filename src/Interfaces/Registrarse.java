@@ -101,7 +101,7 @@ public class Registrarse extends javax.swing.JFrame {
 
         jLabel5.setText("Tipo de Usuario");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Jefe de zona", "Encuestador", "Jefe de familia" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Jefe de Zona", "Encuestador", "Jefe de Familia" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
@@ -200,7 +200,8 @@ public class Registrarse extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null,"Error"+ e.getMessage());
         }
         Llenar();
-        //Limpiar();
+        //generarCod();
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
