@@ -134,7 +134,7 @@ public class InicioSesion extends javax.swing.JFrame {
 
         jLabel5.setText("Bienvenido!");
 
-        jButton1.setText("Iniciar Seción");
+        jButton1.setText("Iniciar Sesión");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
