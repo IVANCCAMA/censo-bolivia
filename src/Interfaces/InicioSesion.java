@@ -66,7 +66,7 @@ public class InicioSesion extends javax.swing.JFrame {
             ResultSet rs = sent.executeQuery(sql); //obiene los resultados de la consulta sql
             
             while(rs.next()){
-                listTUsuario.add(rs.getString("codUsr"));
+                listUsr.add(rs.getString("codUsr"));
                 //System.out.println(rs.getString("codUsr"));
             }
         }
@@ -83,7 +83,7 @@ public class InicioSesion extends javax.swing.JFrame {
             ResultSet rs = sent.executeQuery(sql); //obiene los resultados de la consulta sql
             
             while(rs.next()){
-                listTUsuario.add(rs.getString("contrUsr"));
+                listContr.add(rs.getString("contrUsr"));
                 //System.out.println(rs.getString("contrUsr"));
             }
         }
@@ -268,7 +268,7 @@ public class InicioSesion extends javax.swing.JFrame {
            String usuario    = listUsr.get(num);
            String contraseña = listContr.get(num);
            
-           System.out.println(tipoUsr); //porque no imprime
+           //System.out.println(tipoUsr); //porque no imprime
            
            if(tip.equals(tipoUsr) && usr.equals(usuario) && contra.equals(contraseña)){
                new Encuestador().setVisible(true);
@@ -277,6 +277,7 @@ public class InicioSesion extends javax.swing.JFrame {
             }else{
                 JOptionPane.showMessageDialog(null,"datos erroneos, revise los datos introducidos porfavor ",
                    " error al ingresar ",JOptionPane.ERROR_MESSAGE);
+                
             }
            num++;
            
