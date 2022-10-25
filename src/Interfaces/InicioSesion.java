@@ -275,7 +275,7 @@ public class InicioSesion extends javax.swing.JFrame {
                verificarVentana();
                this.setVisible(false); // lo destruye xd
                break;
-            }//revisar esdta parte
+            }//revisar esta parte
            if(num+1 == listUsr.size()){
                 JOptionPane.showMessageDialog(null,"datos erroneos, revise los datos introducidos porfavor ",
                    " error al ingresar ",JOptionPane.ERROR_MESSAGE);
