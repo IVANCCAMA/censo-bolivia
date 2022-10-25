@@ -50,8 +50,7 @@ public class InicioSesion extends javax.swing.JFrame {
             
             while(rs.next()){
                 listTUsuario.add(rs.getString("tipoUsr"));
-                //System.out.println(rs.getString("tipoUsr"));
-            }
+            }   
         }
         catch (Exception e) {
             e.printStackTrace();
@@ -267,8 +266,6 @@ public class InicioSesion extends javax.swing.JFrame {
            String tipoUsr    = listTUsuario.get(num);
            String usuario    = listUsr.get(num);
            String contraseña = listContr.get(num);
-           
-           //System.out.println(tipoUsr); //porque no imprime
            
            if(tip.equals(tipoUsr) && usr.equals(usuario) && contra.equals(contraseña)){
                //new Encuestador().setVisible(true);

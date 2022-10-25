@@ -34,16 +34,16 @@ public class CapituloA extends javax.swing.JFrame {
     void Llenar(){
         try {
             conn = Mysql.getConnection();
-            String[]titulos = {"codVivienda", "codMunicipal", "distrito", "ciudad", "zonaCensal","sector", "segmento"
+            String[]titulos = {"codVivienda","codMunicipal", "distrito", "ciudad", "zonaCensal","sector", "segmento"
             ,"manzana", "direcVivienda" , "comunidad", "localidad", "barrio", "calle", "numPuerta", "piso", "numDepartamento"
-                    , "nomEdificio", "nomOrdVivienda", "numBoleta", "numPersonas", "totalPersonas", "hombres", "mujeres"
+                    , "nomEdificio", "numOrdVivienda", "numBoleta", "numPersonas", "totalPersonas", "hombres", "mujeres"
             }; 
             String sql = "select * from cap_a";
             model = new DefaultTableModel(null, titulos);
             sent= conn.createStatement();
             ResultSet rs=sent.executeQuery(sql);
             
-            String[]fila = new String[7];
+            String[]fila = new String[23];
             while(rs.next()){
                 fila[0]=rs.getString("codVivienda");
                 fila[1]=rs.getString("codMunicipal");
@@ -62,7 +62,7 @@ public class CapituloA extends javax.swing.JFrame {
                 fila[14]=rs.getString("piso");
                 fila[15]=rs.getString("numDepartamento");
                 fila[16]=rs.getString("nomEdificio");
-                fila[17]=rs.getString("numOrdVvivienda");
+                fila[17]=rs.getString("numOrdVivienda");
                 fila[18]=rs.getString("numBoleta");
                 fila[19]=rs.getString("numPersonas");
                 fila[20]=rs.getString("totalPersonas");
@@ -143,9 +143,9 @@ public class CapituloA extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jLabel27 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 51, 255));
 
         jLabel1.setText("CAPÍTULO UBICACIÓN GEOGRÁFICA DE LA VIVIENDA");
 
@@ -236,13 +236,6 @@ public class CapituloA extends javax.swing.JFrame {
             }
         });
 
-        jButton4.setText("Guardar");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -258,9 +251,8 @@ public class CapituloA extends javax.swing.JFrame {
                             .addContainerGap()
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(jLabel19)
-                                        .addComponent(jButton4))
+                                    .addGap(2, 2, 2)
+                                    .addComponent(jLabel19)
                                     .addGap(18, 18, 18)
                                     .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -478,14 +470,13 @@ public class CapituloA extends javax.swing.JFrame {
                                     .addComponent(jButton1)))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel26)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel19)
                                     .addComponent(jLabel20)
                                     .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton4))))
+                                .addGap(34, 34, 34))))
                     .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
@@ -511,37 +502,40 @@ public class CapituloA extends javax.swing.JFrame {
     
     
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // boton siguiente
+        // boton siguiente y guarda datos
         this.setVisible(false);
         new CapituloB().setVisible(true);
         
-         try {
-            String sql = "insert into usuario (nombreUsr, dirUsr, telfUsr, correoUsr, tipoUsr, contrUsr)"+
-                    "values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        try {
+            String sql = "insert into cap_a (codMunicipal, distrito, ciudad, zonaCensal, "
+                    + " sector , segmento, manzana , direcVivienda , comunidad , localidad, barrio, calle,"
+                    + " numPuerta, piso, numDepartamento, nomEdificio, numOrdVivienda, numBoleta, numPersonas, "
+                    + " totalPersonas, hombres, mujeres )" +
+                    "values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
             PreparedStatement ps = conn.prepareCall(sql);
             ps.setString(1, jTextField1.getText());
             ps.setString(2, jTextField2.getText());
             ps.setString(3, jTextField3.getText());
             ps.setString(4, jTextField4.getText());
-            ps.setString(5, jTextField5.getText());
-            ps.setString(6, jTextField6.getText());
-            ps.setString(7, jTextField1.getText());
-            ps.setString(8, jTextField2.getText());
-            ps.setString(9, jTextField3.getText());
-            ps.setString(10, jTextField4.getText());
-            ps.setString(11, jTextField5.getText());
-            ps.setString(12, jTextField6.getText());
-            ps.setString(13, jTextField1.getText());
-            ps.setString(14, jTextField2.getText());
-            ps.setString(15, jTextField3.getText());
-            ps.setString(16, jTextField4.getText());
+            ps.setString(5, jTextField17.getText());
+            ps.setString(6, jTextField18.getText());
+            ps.setString(7, jTextField19.getText());
+            ps.setString(8, jTextField8.getText());
+            ps.setString(9, jTextField9.getText());
+            ps.setString(10, jTextField10.getText());
+            ps.setString(11, jTextField11.getText());
+            ps.setString(12, jTextField12.getText());
+            ps.setString(13, jTextField16.getText());
+            ps.setString(14, jTextField13.getText());
+            ps.setString(15, jTextField14.getText());
+            ps.setString(16, jTextField15.getText());
             ps.setString(17, jTextField5.getText());
             ps.setString(18, jTextField6.getText());
-            ps.setString(19, jTextField1.getText());
-            ps.setString(20, jTextField2.getText());
-            ps.setString(21, jTextField3.getText());
-            ps.setString(22, jTextField4.getText());
-            ps.setString(23, jTextField5.getText());
+            ps.setString(19, jTextField7.getText());
+            ps.setString(20, jTextField20.getText());
+            ps.setString(21, jTextField21.getText());
+            ps.setString(22, jTextField22.getText());
+          
           
             
             int n = ps.executeUpdate();
@@ -553,15 +547,12 @@ public class CapituloA extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null,"Error"+ e.getMessage());
         }
         Llenar();
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -603,7 +594,6 @@ public class CapituloA extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
