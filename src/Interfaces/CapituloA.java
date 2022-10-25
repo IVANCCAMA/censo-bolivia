@@ -34,21 +34,41 @@ public class CapituloA extends javax.swing.JFrame {
     void Llenar(){
         try {
             conn = Mysql.getConnection();
-            String[]titulos = {"id", "Nombre", "Dirección", "Teléfono", "Correo","tipoUsuario", "contraseña"}; 
-            String sql = "select * from usuario";
+            String[]titulos = {"codVivienda", "codMunicipal", "distrito", "ciudad", "zonaCensal","sector", "segmento"
+            ,"manzana", "direcVivienda" , "comunidad", "localidad", "barrio", "calle", "numPuerta", "piso", "numDepartamento"
+                    , "nomEdificio", "nomOrdVivienda", "numBoleta", "numPersonas", "totalPersonas", "hombres", "mujeres"
+            }; 
+            String sql = "select * from cap_a";
             model = new DefaultTableModel(null, titulos);
             sent= conn.createStatement();
             ResultSet rs=sent.executeQuery(sql);
             
             String[]fila = new String[7];
             while(rs.next()){
-                fila[0]=rs.getString("codUsr");
-                fila[1]=rs.getString("nombreUsr");
-                fila[2]=rs.getString("dirUsr");
-                fila[3]=rs.getString("telfUsr");
-                fila[4]=rs.getString("correoUsr");
-                fila[5]=rs.getString("tipoUsr");
-                fila[6]=rs.getString("contrUsr");
+                fila[0]=rs.getString("codVivienda");
+                fila[1]=rs.getString("codMunicipal");
+                fila[2]=rs.getString("distrito");
+                fila[3]=rs.getString("ciudad");
+                fila[4]=rs.getString("zonaCensal");
+                fila[5]=rs.getString("sector");
+                fila[6]=rs.getString("segmento");
+                fila[7]=rs.getString("manzana");
+                fila[8]=rs.getString("direcVivienda");
+                fila[9]=rs.getString("comunidad");
+                fila[10]=rs.getString("localidad");
+                fila[11]=rs.getString("barrio");
+                fila[12]=rs.getString("calle");
+                fila[13]=rs.getString("numPuerta");
+                fila[14]=rs.getString("piso");
+                fila[15]=rs.getString("numDepartamento");
+                fila[16]=rs.getString("nomEdificio");
+                fila[17]=rs.getString("numOrdVvivienda");
+                fila[18]=rs.getString("numBoleta");
+                fila[19]=rs.getString("numPersonas");
+                fila[20]=rs.getString("totalPersonas");
+                fila[21]=rs.getString("hombres");
+                fila[22]=rs.getString("mujeres");
+                
                 model.addRow(fila);
             }
             //jTable1.setModel(model);
@@ -497,14 +517,32 @@ public class CapituloA extends javax.swing.JFrame {
         
          try {
             String sql = "insert into usuario (nombreUsr, dirUsr, telfUsr, correoUsr, tipoUsr, contrUsr)"+
-                    "values(?,?,?,?,?,?)";
+                    "values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
             PreparedStatement ps = conn.prepareCall(sql);
             ps.setString(1, jTextField1.getText());
             ps.setString(2, jTextField2.getText());
             ps.setString(3, jTextField3.getText());
             ps.setString(4, jTextField4.getText());
-            ps.setString(5, jComboBox1.getSelectedItem().toString());
-            ps.setString(6, jTextField5.getText());
+            ps.setString(5, jTextField5.getText());
+            ps.setString(6, jTextField6.getText());
+            ps.setString(7, jTextField1.getText());
+            ps.setString(8, jTextField2.getText());
+            ps.setString(9, jTextField3.getText());
+            ps.setString(10, jTextField4.getText());
+            ps.setString(11, jTextField5.getText());
+            ps.setString(12, jTextField6.getText());
+            ps.setString(13, jTextField1.getText());
+            ps.setString(14, jTextField2.getText());
+            ps.setString(15, jTextField3.getText());
+            ps.setString(16, jTextField4.getText());
+            ps.setString(17, jTextField5.getText());
+            ps.setString(18, jTextField6.getText());
+            ps.setString(19, jTextField1.getText());
+            ps.setString(20, jTextField2.getText());
+            ps.setString(21, jTextField3.getText());
+            ps.setString(22, jTextField4.getText());
+            ps.setString(23, jTextField5.getText());
+          
             
             int n = ps.executeUpdate();
             if(n>0){
