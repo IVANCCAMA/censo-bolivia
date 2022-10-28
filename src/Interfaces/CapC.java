@@ -4,6 +4,15 @@
  */
 package Interfaces;
 
+
+import javax.swing.table.DefaultTableModel;
+import dba.Mysql;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author User
@@ -13,10 +22,71 @@ public class CapC extends javax.swing.JFrame {
     /**
      * Creates new form CapC
      */
+    private int cantidad;
+    private int i;
+    private boolean codViv;
+    
+    DefaultTableModel model;
+    Connection conn;
+    Statement sent;
+    
     public CapC() {
         initComponents();
+        
+        conn = Mysql.getConnection();
+        Llenar();
+        i = 1;
+        cantidad = 0;
     }
-
+    
+    private void Llenar(){
+        try {
+            conn = Mysql.getConnection();
+            String[]titulos = {"codVivienda","personaOtroPais","cantPersonas"}; 
+            String sql = "select * from cap_c";
+            model = new DefaultTableModel(null, titulos);
+            sent = conn.createStatement();
+            ResultSet rs = sent.executeQuery(sql);
+            
+            String[]fila = new String[3];
+            while(rs.next()){
+                fila[0]=rs.getString("codVivienda");
+                fila[1]=rs.getString("personaOtroPais");
+                fila[2]=rs.getString("cantPersonas");
+                model.addRow(fila);
+            }
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    private void LlenarPersonasFuera(){
+        try {
+            conn = Mysql.getConnection();
+            String[]titulos = {"codVivienda","numPersona","nomPersona","sexo"
+                              ,"añoSalida","edadSalida","paisActual"}; 
+            String sql = "select * from personas_fuera";
+            model = new DefaultTableModel(null, titulos);
+            sent = conn.createStatement();
+            ResultSet rs = sent.executeQuery(sql);
+            
+            String[]fila = new String[7];
+            while(rs.next()){
+                fila[0]=rs.getString("codVivienda");
+                fila[1]=rs.getString("numPersona");
+                fila[2]=rs.getString("nomPersona");
+                fila[3]=rs.getString("sexo");
+                fila[4]=rs.getString("añoSalida");
+                fila[5]=rs.getString("edadSalida");
+                fila[6]=rs.getString("paisActual");
+                model.addRow(fila);
+            }
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -26,21 +96,464 @@ public class CapC extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
+        buttonGroup2 = new javax.swing.ButtonGroup();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+        jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        JtxfCodV = new javax.swing.JTextField();
+        jPanel3 = new javax.swing.JPanel();
+        JrbSi = new javax.swing.JRadioButton();
+        jLabel3 = new javax.swing.JLabel();
+        JtxfCanP = new javax.swing.JTextField();
+        JrbNo = new javax.swing.JRadioButton();
+        jButton1 = new javax.swing.JButton();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        JtxfNumero = new javax.swing.JTextField();
+        Jtxf2NomP = new javax.swing.JTextField();
+        JtxfAnioSalida = new javax.swing.JTextField();
+        JtxfEdad = new javax.swing.JTextField();
+        JtxfPais = new javax.swing.JTextField();
+        JrbHombre = new javax.swing.JRadioButton();
+        JrbMujer = new javax.swing.JRadioButton();
+        jButton4 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel1.setText("CAPÍTULO C. EMIGRACIÓN INTERNACIONAL ");
+
+        jLabel2.setText("Codigo Vivienda");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(39, 39, 39)
+                .addComponent(jLabel1)
+                .addGap(35, 35, 35)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(JtxfCodV, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2)
+                    .addComponent(JtxfCodV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(12, Short.MAX_VALUE))
+        );
+
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("20. Desde 2001 a la fecha, alguna persona que vivía con ustedes en este hogar, ¿actualmente vive en otro país?"));
+
+        buttonGroup1.add(JrbSi);
+        JrbSi.setText("Si");
+
+        jLabel3.setText("¿Cuántas personas?");
+
+        buttonGroup1.add(JrbNo);
+        JrbNo.setText("No");
+
+        jButton1.setText("Pase a la pregunta 21 ");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(39, 39, 39)
+                .addComponent(JrbSi)
+                .addGap(48, 48, 48)
+                .addComponent(jLabel3)
+                .addGap(18, 18, 18)
+                .addComponent(JtxfCanP, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(69, 69, 69)
+                .addComponent(JrbNo)
+                .addGap(28, 28, 28)
+                .addComponent(jButton1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(JrbSi)
+                    .addComponent(jLabel3)
+                    .addComponent(JtxfCanP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JrbNo)
+                    .addComponent(jButton1))
+                .addContainerGap(20, Short.MAX_VALUE))
+        );
+
+        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("(Anote en el siguiente cuadro, los datos de cada una de las personas que actualmente viven en otro pais)"));
+
+        jLabel4.setText("N°");
+
+        jLabel5.setText("Nombre de la Persona");
+
+        jLabel6.setText("La persona es:");
+
+        jLabel7.setText("Año de salida del país");
+
+        jLabel8.setText("A qué edad se fue");
+
+        jLabel9.setText("País donde vive actualmente");
+
+        JtxfNumero.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JtxfNumeroActionPerformed(evt);
+            }
+        });
+
+        Jtxf2NomP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Jtxf2NomPActionPerformed(evt);
+            }
+        });
+
+        buttonGroup2.add(JrbHombre);
+        JrbHombre.setText("Hombre");
+        JrbHombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JrbHombreActionPerformed(evt);
+            }
+        });
+
+        buttonGroup2.add(JrbMujer);
+        JrbMujer.setText("Mujer");
+        JrbMujer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JrbMujerActionPerformed(evt);
+            }
+        });
+
+        jButton4.setText("Guardar");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4)
+                    .addComponent(JtxfNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(Jtxf2NomP, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(32, 32, 32)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6)
+                            .addComponent(JrbHombre))
+                        .addGap(32, 32, 32)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(JtxfAnioSalida))
+                        .addGap(30, 30, 30)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(JtxfEdad))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(JtxfPais)))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(JrbMujer)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton4)))
+                .addContainerGap(21, Short.MAX_VALUE))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel9))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(JtxfNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Jtxf2NomP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(JrbHombre)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(JrbMujer))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(JtxfEdad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(JtxfAnioSalida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(JtxfPais, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton4)))
+                .addContainerGap(8, Short.MAX_VALUE))
+        );
+
+        jButton2.setText("Atras");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jButton3.setText("Siguiente");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(144, 144, 144)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jButton2)
+                        .addGap(14, 14, 14)
+                        .addComponent(jButton3)))
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton2)
+                    .addComponent(jButton3))
+                .addGap(7, 7, 7))
+        );
+
+        jTabbedPane1.addTab("Capítulo C", jPanel1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1200, Short.MAX_VALUE)
+            .addComponent(jTabbedPane1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 750, Short.MAX_VALUE)
+            .addComponent(jTabbedPane1)
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void Jtxf2NomPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jtxf2NomPActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Jtxf2NomPActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // BOTON SIGUIENTE
+        
+        if(JtxfCodV.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Ingrese Codigo de Vivienda porfavor");
+        }else{
+            this.setVisible(false);
+            new CapD().setVisible(true);
+            // Guardar datos en bd
+            try {
+            String sql = "insert into cap_c values(?,?,?)";
+            PreparedStatement ps = conn.prepareCall(sql);
+            ps.setString(1, JtxfCodV.getText());
+            ps.setString(2, seleccionado());
+            ps.setString(3, JtxfCanP.getText());
+ 
+            int n = ps.executeUpdate();
+            if(n>0){
+                JOptionPane.showMessageDialog(null, "Datos guardados correctamente");
+            }
+
+            } catch (Exception e) {
+                //JOptionPane.showMessageDialog(null,"Error ");
+                JOptionPane.showMessageDialog(null,"Error "+ e.getMessage());
+            }
+            Llenar();
+        }
+        
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private String seleccionado(){
+        String sel;
+        if(JrbSi.isSelected()){
+            sel = "Si";
+        }else if(JrbNo.isSelected()){
+            sel = "No";
+        }else{
+            sel = "";
+        }
+        return sel;
+    }
+    
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // BOTON GUARDAR datos en tabla PersonasFuera en bd
+
+        codViv = JtxfCodV.getText().isEmpty();
+        boolean hayCantidadP = JtxfCanP.getText().isEmpty();  // verifica si esta vacio en campo de cantidad de personas
+        
+        if(JrbSi.isSelected() && (hayCantidadP != true) && (codViv != true)){
+            cantidad = Integer.parseInt(JtxfCanP.getText()); // cantidad de personas fuera del pais
+            if(i <= cantidad){
+                // Guardar datos en bd
+                    try {
+                        String sql = "insert into  personas_fuera values(?,?,?,?,?,?,?)";
+                        PreparedStatement ps = conn.prepareCall(sql);
+                        ps.setString(1, JtxfCodV.getText());       
+                        ps.setString(2, JtxfNumero.getText()); 
+                        ps.setString(3, Jtxf2NomP.getText()); 
+                        ps.setString(4, getSexo());                  
+                        ps.setString(5, JtxfAnioSalida.getText()); 
+                        ps.setString(6, JtxfEdad.getText());
+                        ps.setString(7, JtxfPais.getText()); 
+
+                        int n = ps.executeUpdate();
+                        if(n>0){
+                            JOptionPane.showMessageDialog(null, "Datos guardados correctamente");
+                        }
+                    } catch (Exception e) {
+                        JOptionPane.showMessageDialog(null,"Error"+ e.getMessage());
+                    }
+                    LlenarPersonasFuera();
+                    limpiar();  // limpiar datos 
+                    i++;
+            }else{
+                JOptionPane.showMessageDialog(null, "ya no puede llenar mas");
+            }
+            
+        }else{
+            if(codViv){
+                JOptionPane.showMessageDialog(null, "Por favor ingrese Codigo de vivienda");
+            }else{
+                JOptionPane.showMessageDialog(null, "Por favor seleccione la opcion (si) y ingrese la cantidad");
+            }
+            
+        }
+        
+    }//GEN-LAST:event_jButton4ActionPerformed
+    
+    private void limpiar(){
+        
+        JtxfNumero.setText("");
+        Jtxf2NomP.setText("");
+        JtxfAnioSalida.setText("");
+        JtxfEdad.setText("");
+        JtxfPais.setText("");
+    }
+    
+    private String getSexo(){
+        String  sexo;
+        if(JrbHombre.isSelected()){
+            sexo = "Hombre";
+        }else if(JrbMujer.isSelected()){
+            sexo = "Mujer";
+        }else{
+            sexo = " ";
+        }
+        return sexo;
+    }
+    
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // BOTON PASAR A LA PREGUNTA 21
+        codViv = JtxfCodV.getText().isEmpty(); // Poner codVivienda
+        
+        if(JrbNo.isSelected() && (codViv != true)){
+            this.setVisible(false);
+            new CapD().setVisible(true);
+            // Guardar datos en bd
+            try {
+            String sql = "insert into cap_c values(?,?,?)";
+            PreparedStatement ps = conn.prepareCall(sql);
+            ps.setString(1, JtxfCodV.getText());
+            ps.setString(2, seleccionado());
+            ps.setString(3, "0");
+ 
+            int n = ps.executeUpdate();
+            if(n>0){
+                JOptionPane.showMessageDialog(null, "Datos guardados correctamente");
+            }
+
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null,"Error"+ e.getMessage());
+            }
+            Llenar();
+        }else{
+            String mensaje = "No puede pasar a la pregunta 21";
+            JOptionPane.showMessageDialog(null, mensaje);
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void JtxfNumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JtxfNumeroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JtxfNumeroActionPerformed
+
+    private void JrbMujerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JrbMujerActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JrbMujerActionPerformed
+
+    private void JrbHombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JrbHombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JrbHombreActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        new CapB().setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +591,36 @@ public class CapC extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JRadioButton JrbHombre;
+    private javax.swing.JRadioButton JrbMujer;
+    private javax.swing.JRadioButton JrbNo;
+    private javax.swing.JRadioButton JrbSi;
+    private javax.swing.JTextField Jtxf2NomP;
+    private javax.swing.JTextField JtxfAnioSalida;
+    private javax.swing.JTextField JtxfCanP;
+    private javax.swing.JTextField JtxfCodV;
+    private javax.swing.JTextField JtxfEdad;
+    private javax.swing.JTextField JtxfNumero;
+    private javax.swing.JTextField JtxfPais;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JTabbedPane jTabbedPane1;
     // End of variables declaration//GEN-END:variables
 }
