@@ -2888,7 +2888,7 @@ public class CapF extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel74)
-                        .addGap(73, 73, 73)
+                        .addGap(55, 55, 55)
                         .addComponent(jLabel51)
                         .addGap(18, 18, 18)
                         .addComponent(jTextField27, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))

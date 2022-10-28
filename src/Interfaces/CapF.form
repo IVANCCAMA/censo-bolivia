@@ -70,7 +70,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="jLabel74" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
                       <Component id="jLabel51" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jTextField27" min="-2" pref="74" max="-2" attributes="0"/>
