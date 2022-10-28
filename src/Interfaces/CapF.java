@@ -8,13 +8,24 @@ import java.awt.Graphics;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+import dba.Mysql;
+import java.sql.Array.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author User
  */
 public class CapF extends javax.swing.JFrame {
-
+    DefaultTableModel model;
+    Connection conn;
+    Statement sent;
     /**
      * Creates new form CapF
      */
@@ -25,7 +36,69 @@ public class CapF extends javax.swing.JFrame {
         this.setContentPane(fondo);
         
         initComponents();
+        
+        conn=Mysql.getConnection();
+        Llenar();
     }
+    
+    void Llenar(){
+        
+        try {
+            conn = Mysql.getConnection();
+            String[]titulos = {"codVivienda","numPersona", "nomPersona", "parentesco", "sexo","edad", "nacInscrito"
+            ,"carnet", "problemaSaludAcude" , "indigenaOriginario", "primerIdioma", "hablaIdiomas", "dondeNacio", "dondeVive", "viviaHace", "leerEscribir"
+                    , "acudeColegio", "nivelEstudio", "nivelAprobado", "trabajo", "trabajoSemana", "duranteSemana", "ocupacion", "ocupacionTrabajo", "produceVende"
+                    , "estadoCivil", "hijos", "hijoViven", "ultHijoNacio", "vive", "lugarParto"
+            }; 
+            String sql = "select * from cap_f";
+            model = new DefaultTableModel(null, titulos);
+            sent= conn.createStatement();
+            ResultSet rs=sent.executeQuery(sql);
+            
+            String[]fila = new String[31];
+            while(rs.next()){
+                fila[0]=rs.getString("codVivienda");
+                fila[1]=rs.getString("numPersona");
+                fila[2]=rs.getString("nomPersona");
+                fila[3]=rs.getString("parentesco");
+                fila[4]=rs.getString("sexo");
+                fila[5]=rs.getString("edad");
+                fila[6]=rs.getString("nacInscrito");
+                fila[7]=rs.getString("carnet");
+                fila[8]=rs.getString("problemaSaludAcude");
+                fila[9]=rs.getString("indigenaOriginario");
+                fila[10]=rs.getString("primerIdioma");
+                fila[11]=rs.getString("hablaIdiomas");
+                fila[12]=rs.getString("dondeNacio");
+                fila[13]=rs.getString("dondeVive");
+                fila[14]=rs.getString("viviaHace");
+                fila[15]=rs.getString("leerEscribir");
+                fila[16]=rs.getString("acudeColegio");
+                fila[17]=rs.getString("nivelEstudio");
+                fila[18]=rs.getString("nivelAprobado");
+                fila[19]=rs.getString("trabajo");
+                fila[20]=rs.getString("trabajoSemana");
+                fila[21]=rs.getString("duranteSemana");
+                fila[22]=rs.getString("ocupacion");
+                fila[23]=rs.getString("ocupacionTrabajo");
+                fila[24]=rs.getString("produceVende");
+                fila[25]=rs.getString("estadoCivil");
+                fila[26]=rs.getString("hijos");
+                fila[27]=rs.getString("hijoViven");
+                fila[28]=rs.getString("ultHijoNacio");
+                fila[29]=rs.getString("vive");
+                fila[30]=rs.getString("lugarParto");
+                
+                }
+                
+                model.addRow(fila);
+            }
+            //jTable1.setModel(model);
+            catch (Exception e) {
+            e.printStackTrace();
+            }
+        }
+        
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -36,6 +109,26 @@ public class CapF extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
+        buttonGroup2 = new javax.swing.ButtonGroup();
+        buttonGroup3 = new javax.swing.ButtonGroup();
+        buttonGroup4 = new javax.swing.ButtonGroup();
+        buttonGroup5 = new javax.swing.ButtonGroup();
+        buttonGroup6 = new javax.swing.ButtonGroup();
+        buttonGroup7 = new javax.swing.ButtonGroup();
+        buttonGroup8 = new javax.swing.ButtonGroup();
+        buttonGroup9 = new javax.swing.ButtonGroup();
+        buttonGroup10 = new javax.swing.ButtonGroup();
+        buttonGroup11 = new javax.swing.ButtonGroup();
+        buttonGroup12 = new javax.swing.ButtonGroup();
+        buttonGroup13 = new javax.swing.ButtonGroup();
+        buttonGroup14 = new javax.swing.ButtonGroup();
+        buttonGroup15 = new javax.swing.ButtonGroup();
+        buttonGroup16 = new javax.swing.ButtonGroup();
+        buttonGroup17 = new javax.swing.ButtonGroup();
+        buttonGroup18 = new javax.swing.ButtonGroup();
+        buttonGroup19 = new javax.swing.ButtonGroup();
+        buttonGroup20 = new javax.swing.ButtonGroup();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
@@ -108,7 +201,6 @@ public class CapF extends javax.swing.JFrame {
         jPanel14 = new javax.swing.JPanel();
         jLabel23 = new javax.swing.JLabel();
         jTextField5 = new javax.swing.JTextField();
-        jRadioButton37 = new javax.swing.JRadioButton();
         jPanel15 = new javax.swing.JPanel();
         jLabel27 = new javax.swing.JLabel();
         jTextField6 = new javax.swing.JTextField();
@@ -211,16 +303,11 @@ public class CapF extends javax.swing.JFrame {
         jLabel49 = new javax.swing.JLabel();
         jPanel28 = new javax.swing.JPanel();
         jLabel50 = new javax.swing.JLabel();
-        jLabel51 = new javax.swing.JLabel();
+        jRadioButton37 = new javax.swing.JRadioButton();
         jRadioButton74 = new javax.swing.JRadioButton();
-        jLabel53 = new javax.swing.JLabel();
         jRadioButton75 = new javax.swing.JRadioButton();
-        jLabel54 = new javax.swing.JLabel();
-        jLabel55 = new javax.swing.JLabel();
-        jLabel56 = new javax.swing.JLabel();
-        jRadioButton76 = new javax.swing.JRadioButton();
-        jRadioButton77 = new javax.swing.JRadioButton();
-        jRadioButton78 = new javax.swing.JRadioButton();
+        jRadioButton102 = new javax.swing.JRadioButton();
+        jRadioButton103 = new javax.swing.JRadioButton();
         jPanel29 = new javax.swing.JPanel();
         jTextField10 = new javax.swing.JTextField();
         jLabel59 = new javax.swing.JLabel();
@@ -271,7 +358,11 @@ public class CapF extends javax.swing.JFrame {
         jRadioButton99 = new javax.swing.JRadioButton();
         jRadioButton100 = new javax.swing.JRadioButton();
         jRadioButton101 = new javax.swing.JRadioButton();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         jLabel74 = new javax.swing.JLabel();
+        jTextField27 = new javax.swing.JTextField();
+        jLabel51 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -281,6 +372,7 @@ public class CapF extends javax.swing.JFrame {
 
         jLabel1.setText("23.¿Qué relación o parentesco tiene con la jefa o jefe del hogar? ");
 
+        buttonGroup1.add(jRadioButton1);
         jRadioButton1.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jRadioButton1.setText("Jefa o jefe del hogar");
         jRadioButton1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -291,14 +383,17 @@ public class CapF extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup1.add(jRadioButton2);
         jRadioButton2.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jRadioButton2.setText("Esposo/a, conviviente o concubino/a");
         jRadioButton2.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
 
+        buttonGroup1.add(jRadioButton3);
         jRadioButton3.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jRadioButton3.setText("Hija o hijo");
         jRadioButton3.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
 
+        buttonGroup1.add(jRadioButton4);
         jRadioButton4.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jRadioButton4.setText("Nuera o Yerno");
         jRadioButton4.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
@@ -308,30 +403,37 @@ public class CapF extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup1.add(jRadioButton5);
         jRadioButton5.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jRadioButton5.setText("Nieta o nieto");
         jRadioButton5.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
 
+        buttonGroup1.add(jRadioButton6);
         jRadioButton6.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jRadioButton6.setText("Hermana/o o cuñada/o");
         jRadioButton6.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
 
+        buttonGroup1.add(jRadioButton7);
         jRadioButton7.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jRadioButton7.setText("Padre, madre, suegra/o");
         jRadioButton7.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
 
+        buttonGroup1.add(jRadioButton8);
         jRadioButton8.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jRadioButton8.setText("Otro pariente");
         jRadioButton8.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
 
+        buttonGroup1.add(jRadioButton9);
         jRadioButton9.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jRadioButton9.setText("Trabajador/a del hogar");
         jRadioButton9.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
 
+        buttonGroup1.add(jRadioButton10);
         jRadioButton10.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jRadioButton10.setText("Otro no pariente");
         jRadioButton10.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
 
+        buttonGroup1.add(jRadioButton11);
         jRadioButton11.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jRadioButton11.setText("Persona en vivienda colectiva");
         jRadioButton11.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
@@ -400,6 +502,7 @@ public class CapF extends javax.swing.JFrame {
 
         jLabel18.setText("24. ¿Es mujer u hombre?");
 
+        buttonGroup2.add(jRadioButton12);
         jRadioButton12.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jRadioButton12.setText("Mujer");
         jRadioButton12.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
@@ -409,6 +512,7 @@ public class CapF extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup2.add(jRadioButton13);
         jRadioButton13.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jRadioButton13.setText("Hombre");
         jRadioButton13.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -530,12 +634,14 @@ public class CapF extends javax.swing.JFrame {
 
         jPanel7.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jLabel9.setText("25. ¿Cuántos años cumplidos tiene?");
+        jLabel9.setText("26. ¿Su nacimiento está inscrito en el registro civil o cívico?");
 
+        buttonGroup3.add(jRadioButton16);
         jRadioButton16.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jRadioButton16.setText("No");
         jRadioButton16.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
 
+        buttonGroup3.add(jRadioButton17);
         jRadioButton17.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jRadioButton17.setText("Si");
         jRadioButton17.setFocusCycleRoot(true);
@@ -546,15 +652,11 @@ public class CapF extends javax.swing.JFrame {
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jRadioButton16)
                     .addComponent(jRadioButton17)
-                    .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel7Layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(jLabel9))
-                        .addGroup(jPanel7Layout.createSequentialGroup()
-                            .addGap(205, 205, 205)
-                            .addComponent(jRadioButton16))))
+                    .addComponent(jLabel9))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
@@ -573,10 +675,12 @@ public class CapF extends javax.swing.JFrame {
 
         jLabel10.setText("27. ¿Tiene carnet o cédula de identidad?");
 
+        buttonGroup4.add(jRadioButton18);
         jRadioButton18.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jRadioButton18.setText("Si");
         jRadioButton18.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
 
+        buttonGroup4.add(jRadioButton19);
         jRadioButton19.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jRadioButton19.setText("No");
         jRadioButton19.setFocusCycleRoot(true);
@@ -620,8 +724,9 @@ public class CapF extends javax.swing.JFrame {
 
         jLabel11.setText("28. Cuando tiene problemas de salud, ¿acude a...");
 
+        buttonGroup5.add(jRadioButton20);
         jRadioButton20.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-        jRadioButton20.setText("caja de salud (CNS, COSSMIL, u otras)?");
+        jRadioButton20.setText("caja de salud (CNS, COSSMIL, u otras)");
         jRadioButton20.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jRadioButton20.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
         jRadioButton20.addActionListener(new java.awt.event.ActionListener() {
@@ -630,33 +735,39 @@ public class CapF extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup5.add(jRadioButton21);
         jRadioButton21.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-        jRadioButton21.setText("seguro de salud privado?");
+        jRadioButton21.setText("seguro de salud privado");
         jRadioButton21.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jRadioButton21.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
 
+        buttonGroup5.add(jRadioButton22);
         jRadioButton22.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-        jRadioButton22.setText("establecimiento de salud privado?");
+        jRadioButton22.setText("establecimiento de salud privado");
         jRadioButton22.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jRadioButton22.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
 
+        buttonGroup5.add(jRadioButton23);
         jRadioButton23.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-        jRadioButton23.setText("establecimiento de salud publico?");
+        jRadioButton23.setText("establecimiento de salud publico");
         jRadioButton23.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jRadioButton23.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
 
+        buttonGroup5.add(jRadioButton24);
         jRadioButton24.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-        jRadioButton24.setText("medico tradicional?");
+        jRadioButton24.setText("medico tradicional");
         jRadioButton24.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jRadioButton24.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
 
+        buttonGroup5.add(jRadioButton25);
         jRadioButton25.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-        jRadioButton25.setText("soluciones caceras?");
+        jRadioButton25.setText("soluciones caceras");
         jRadioButton25.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jRadioButton25.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
 
+        buttonGroup5.add(jRadioButton26);
         jRadioButton26.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-        jRadioButton26.setText("la farmacia o se automedica?");
+        jRadioButton26.setText("la farmacia o se automedica");
         jRadioButton26.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jRadioButton26.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
 
@@ -777,12 +888,14 @@ public class CapF extends javax.swing.JFrame {
 
         jLabel21.setText(" originario campesino o afroboliviano?");
 
+        buttonGroup6.add(jRadioButton33);
         jRadioButton33.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jRadioButton33.setText("Si");
         jRadioButton33.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
 
         jLabel22.setText("A cual?");
 
+        buttonGroup6.add(jRadioButton34);
         jRadioButton34.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jRadioButton34.setText("No pertenece");
         jRadioButton34.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
@@ -792,6 +905,7 @@ public class CapF extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup6.add(jRadioButton35);
         jRadioButton35.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jRadioButton35.setText("No soy boliviana o boliviano");
         jRadioButton35.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
@@ -854,6 +968,7 @@ public class CapF extends javax.swing.JFrame {
 
         jLabel28.setText("32. ¿Dónde nació?");
 
+        buttonGroup7.add(jRadioButton38);
         jRadioButton38.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jRadioButton38.setText("Aqui");
         jRadioButton38.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
@@ -863,6 +978,7 @@ public class CapF extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup7.add(jRadioButton39);
         jRadioButton39.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jRadioButton39.setText("En otro lugar del pais");
         jRadioButton39.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
@@ -884,6 +1000,7 @@ public class CapF extends javax.swing.JFrame {
 
         jLabel31.setText("Departamento");
 
+        buttonGroup7.add(jRadioButton40);
         jRadioButton40.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jRadioButton40.setText("En el exterior");
         jRadioButton40.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
@@ -911,10 +1028,6 @@ public class CapF extends javax.swing.JFrame {
                         .addGap(39, 39, 39)
                         .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel13Layout.createSequentialGroup()
-                                .addComponent(jLabel29)
-                                .addGap(27, 27, 27)
-                                .addComponent(jTextField11))
-                            .addGroup(jPanel13Layout.createSequentialGroup()
                                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel30)
                                     .addComponent(jLabel31))
@@ -927,12 +1040,14 @@ public class CapF extends javax.swing.JFrame {
                                 .addGap(34, 34, 34)
                                 .addComponent(jLabel32)
                                 .addGap(18, 18, 18)
-                                .addComponent(jTextField14)))))
+                                .addComponent(jTextField14))
+                            .addGroup(jPanel13Layout.createSequentialGroup()
+                                .addComponent(jLabel29)
+                                .addGap(27, 27, 27)
+                                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jRadioButton39, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jTextField11))))))
                 .addGap(59, 59, 59))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel13Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jRadioButton39, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(154, 154, 154))
         );
         jPanel13Layout.setVerticalGroup(
             jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -967,23 +1082,10 @@ public class CapF extends javax.swing.JFrame {
 
         jLabel23.setText("30. ¿Cuál es el primer idioma que aprendió a hablar en su niñez?");
 
-        jRadioButton37.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-        jRadioButton37.setText("No habla");
-        jRadioButton37.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
-        jRadioButton37.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton37ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
         jPanel14.setLayout(jPanel14Layout);
         jPanel14Layout.setHorizontalGroup(
             jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel14Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jRadioButton37)
-                .addGap(116, 116, 116))
             .addGroup(jPanel14Layout.createSequentialGroup()
                 .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel14Layout.createSequentialGroup()
@@ -1001,9 +1103,7 @@ public class CapF extends javax.swing.JFrame {
                 .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jRadioButton37)
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
 
         jPanel15.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -1053,6 +1153,7 @@ public class CapF extends javax.swing.JFrame {
 
         jLabel33.setText("33. ¿Dónde vive habitualmente?");
 
+        buttonGroup8.add(jRadioButton41);
         jRadioButton41.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jRadioButton41.setText("Aqui");
         jRadioButton41.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
@@ -1062,6 +1163,7 @@ public class CapF extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup8.add(jRadioButton42);
         jRadioButton42.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jRadioButton42.setText("En otro lugar del pais");
         jRadioButton42.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
@@ -1083,6 +1185,7 @@ public class CapF extends javax.swing.JFrame {
 
         jLabel36.setText("Departamento");
 
+        buttonGroup8.add(jRadioButton43);
         jRadioButton43.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jRadioButton43.setText("En el exterior");
         jRadioButton43.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
@@ -1110,10 +1213,6 @@ public class CapF extends javax.swing.JFrame {
                         .addGap(39, 39, 39)
                         .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel16Layout.createSequentialGroup()
-                                .addComponent(jLabel34)
-                                .addGap(27, 27, 27)
-                                .addComponent(jTextField15))
-                            .addGroup(jPanel16Layout.createSequentialGroup()
                                 .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel35)
                                     .addComponent(jLabel36))
@@ -1126,12 +1225,14 @@ public class CapF extends javax.swing.JFrame {
                                 .addGap(34, 34, 34)
                                 .addComponent(jLabel37)
                                 .addGap(18, 18, 18)
-                                .addComponent(jTextField18)))))
+                                .addComponent(jTextField18))
+                            .addGroup(jPanel16Layout.createSequentialGroup()
+                                .addComponent(jLabel34)
+                                .addGap(27, 27, 27)
+                                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jRadioButton42, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jTextField15))))))
                 .addGap(59, 59, 59))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel16Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jRadioButton42, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(154, 154, 154))
         );
         jPanel16Layout.setVerticalGroup(
             jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1185,16 +1286,16 @@ public class CapF extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
                         .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(16, 16, 16)
                         .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
                         .addGap(32, 32, 32)
                         .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addContainerGap(69, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Capítulo F2", jPanel2);
@@ -1203,6 +1304,7 @@ public class CapF extends javax.swing.JFrame {
 
         jLabel38.setText("34. ¿Dónde vivía hace 5 años?");
 
+        buttonGroup9.add(jRadioButton44);
         jRadioButton44.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jRadioButton44.setText("Aqui");
         jRadioButton44.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
@@ -1212,6 +1314,7 @@ public class CapF extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup9.add(jRadioButton45);
         jRadioButton45.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jRadioButton45.setText("En otro lugar del pais");
         jRadioButton45.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
@@ -1233,6 +1336,7 @@ public class CapF extends javax.swing.JFrame {
 
         jLabel41.setText("Departamento");
 
+        buttonGroup9.add(jRadioButton46);
         jRadioButton46.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jRadioButton46.setText("En el exterior");
         jRadioButton46.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
@@ -1244,6 +1348,7 @@ public class CapF extends javax.swing.JFrame {
 
         jLabel42.setText("Nombre país");
 
+        buttonGroup9.add(jRadioButton27);
         jRadioButton27.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jRadioButton27.setText("Aún no había nacido");
         jRadioButton27.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
@@ -1346,6 +1451,7 @@ public class CapF extends javax.swing.JFrame {
 
         jLabel12.setText("36. Actualmente, ¿asiste a una escuela o colegio?");
 
+        buttonGroup11.add(jRadioButton28);
         jRadioButton28.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jRadioButton28.setText("Sí, a una pública");
         jRadioButton28.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
@@ -1355,14 +1461,17 @@ public class CapF extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup11.add(jRadioButton29);
         jRadioButton29.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jRadioButton29.setText("Sí, a una privada");
         jRadioButton29.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
 
+        buttonGroup11.add(jRadioButton30);
         jRadioButton30.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jRadioButton30.setText("Sí, a una de convenio");
         jRadioButton30.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
 
+        buttonGroup11.add(jRadioButton31);
         jRadioButton31.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jRadioButton31.setText("No asiste");
         jRadioButton31.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
@@ -1405,10 +1514,12 @@ public class CapF extends javax.swing.JFrame {
 
         jLabel13.setText("35. ¿Sabe leer y escribir?");
 
+        buttonGroup10.add(jRadioButton32);
         jRadioButton32.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jRadioButton32.setText("Si");
         jRadioButton32.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
 
+        buttonGroup10.add(jRadioButton36);
         jRadioButton36.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jRadioButton36.setText("No");
         jRadioButton36.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
@@ -1445,6 +1556,7 @@ public class CapF extends javax.swing.JFrame {
 
         jLabel14.setText("37. ¿Cuál fue el nivel y curso más alto de instrucción que aprobó?");
 
+        buttonGroup12.add(jRadioButton47);
         jRadioButton47.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         jRadioButton47.setText("Ninguno");
         jRadioButton47.setFocusCycleRoot(true);
@@ -1455,6 +1567,7 @@ public class CapF extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup12.add(jRadioButton48);
         jRadioButton48.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         jRadioButton48.setText("Curso de alfabetización");
         jRadioButton48.setFocusCycleRoot(true);
@@ -1465,6 +1578,7 @@ public class CapF extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup12.add(jRadioButton49);
         jRadioButton49.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         jRadioButton49.setText("Inicial (Pre kínder, kínder)");
         jRadioButton49.setFocusCycleRoot(true);
@@ -1475,6 +1589,7 @@ public class CapF extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup12.add(jRadioButton50);
         jRadioButton50.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         jRadioButton50.setText("Básico (1 a 5 años)");
         jRadioButton50.setFocusCycleRoot(true);
@@ -1485,6 +1600,7 @@ public class CapF extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup12.add(jRadioButton51);
         jRadioButton51.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         jRadioButton51.setText("Intermedio (1 a 3 años)");
         jRadioButton51.setFocusCycleRoot(true);
@@ -1495,6 +1611,7 @@ public class CapF extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup12.add(jRadioButton52);
         jRadioButton52.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         jRadioButton52.setText("Medio (1 a 4 años)");
         jRadioButton52.setFocusCycleRoot(true);
@@ -1505,6 +1622,7 @@ public class CapF extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup12.add(jRadioButton53);
         jRadioButton53.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         jRadioButton53.setText("Primaria (1 a 8 años)");
         jRadioButton53.setFocusCycleRoot(true);
@@ -1515,6 +1633,7 @@ public class CapF extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup12.add(jRadioButton54);
         jRadioButton54.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         jRadioButton54.setText("Secundaria (1 a 4 años)");
         jRadioButton54.setFocusCycleRoot(true);
@@ -1525,6 +1644,7 @@ public class CapF extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup12.add(jRadioButton55);
         jRadioButton55.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         jRadioButton55.setText("Primaria (1 a 6 años)");
         jRadioButton55.setFocusCycleRoot(true);
@@ -1535,6 +1655,7 @@ public class CapF extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup12.add(jRadioButton56);
         jRadioButton56.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         jRadioButton56.setText("Secundaria (1 a 6 años)");
         jRadioButton56.setFocusCycleRoot(true);
@@ -1545,6 +1666,7 @@ public class CapF extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup12.add(jRadioButton57);
         jRadioButton57.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         jRadioButton57.setText("Técnico universitario");
         jRadioButton57.setFocusCycleRoot(true);
@@ -1555,6 +1677,7 @@ public class CapF extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup12.add(jRadioButton58);
         jRadioButton58.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         jRadioButton58.setText("Licenciatura");
         jRadioButton58.setFocusCycleRoot(true);
@@ -1565,6 +1688,7 @@ public class CapF extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup12.add(jRadioButton59);
         jRadioButton59.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         jRadioButton59.setText("Maestría");
         jRadioButton59.setFocusCycleRoot(true);
@@ -1575,6 +1699,7 @@ public class CapF extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup12.add(jRadioButton60);
         jRadioButton60.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         jRadioButton60.setText("Doctorado");
         jRadioButton60.setFocusCycleRoot(true);
@@ -1585,6 +1710,7 @@ public class CapF extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup12.add(jRadioButton61);
         jRadioButton61.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         jRadioButton61.setText("Normal Superior");
         jRadioButton61.setFocusCycleRoot(true);
@@ -1595,6 +1721,7 @@ public class CapF extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup12.add(jRadioButton62);
         jRadioButton62.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         jRadioButton62.setText("Militar o Policial");
         jRadioButton62.setFocusCycleRoot(true);
@@ -1605,6 +1732,7 @@ public class CapF extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup12.add(jRadioButton63);
         jRadioButton63.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         jRadioButton63.setText("Técnico de Instituto");
         jRadioButton63.setFocusCycleRoot(true);
@@ -1615,6 +1743,7 @@ public class CapF extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup12.add(jRadioButton64);
         jRadioButton64.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         jRadioButton64.setText("Otro");
         jRadioButton64.setFocusCycleRoot(true);
@@ -1680,28 +1809,30 @@ public class CapF extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel14)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jRadioButton47)
-                .addGap(0, 0, 0)
-                .addComponent(jRadioButton48)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jRadioButton49)
-                .addGroup(jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel22Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel15)
-                        .addGap(80, 80, 80)
-                        .addComponent(jLabel16))
-                    .addGroup(jPanel22Layout.createSequentialGroup()
+                        .addComponent(jRadioButton47)
+                        .addGap(0, 0, 0)
+                        .addComponent(jRadioButton48)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jRadioButton49)
                         .addGap(17, 17, 17)
                         .addComponent(jRadioButton50)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jRadioButton51)
+                        .addComponent(jRadioButton51))
+                    .addComponent(jLabel15))
+                .addGroup(jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel22Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jRadioButton52)
                         .addGap(18, 18, 18)
                         .addComponent(jRadioButton53)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jRadioButton54)))
+                        .addComponent(jRadioButton54))
+                    .addGroup(jPanel22Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                        .addComponent(jLabel16)
+                        .addGap(39, 39, 39)))
                 .addGroup(jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel22Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
@@ -1772,20 +1903,24 @@ public class CapF extends javax.swing.JFrame {
 
         jLabel44.setText("38. Para ingresar a ese nivel, ¿cuál fue el nivel y curso de educación escolar que aprobó?");
 
+        buttonGroup13.add(jRadioButton65);
         jRadioButton65.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jRadioButton65.setText("Básico (1 a 5 años)");
         jRadioButton65.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
 
+        buttonGroup13.add(jRadioButton66);
         jRadioButton66.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jRadioButton66.setText("Intermedio (1 a 3 años)");
         jRadioButton66.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
 
+        buttonGroup13.add(jRadioButton67);
         jRadioButton67.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jRadioButton67.setText("Secundaria (1 a 4 años)");
         jRadioButton67.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
 
+        buttonGroup13.add(jRadioButton68);
         jRadioButton68.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-        jRadioButton68.setText("Primaria (1 a 6 años)");
+        jRadioButton68.setText("Primaria (1 a 8 años)");
         jRadioButton68.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
         jRadioButton68.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1793,6 +1928,7 @@ public class CapF extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup13.add(jRadioButton69);
         jRadioButton69.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jRadioButton69.setText("Secundaria (1 a 4 años)");
         jRadioButton69.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
@@ -1802,10 +1938,12 @@ public class CapF extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup13.add(jRadioButton70);
         jRadioButton70.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jRadioButton70.setText("Primaria (1 a 6 años)");
         jRadioButton70.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
 
+        buttonGroup13.add(jRadioButton71);
         jRadioButton71.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jRadioButton71.setText("Secundaria (1 a 6 años)");
         jRadioButton71.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
@@ -1890,8 +2028,9 @@ public class CapF extends javax.swing.JFrame {
 
         jLabel57.setText("41. Durante la semana pasada, ...");
 
+        buttonGroup16.add(jRadioButton79);
         jRadioButton79.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-        jRadioButton79.setText("¿buscó trabajo habiendo trabajado antes?");
+        jRadioButton79.setText("Buscó trabajo habiendo trabajado antes");
         jRadioButton79.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
         jRadioButton79.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1899,22 +2038,27 @@ public class CapF extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup16.add(jRadioButton80);
         jRadioButton80.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-        jRadioButton80.setText("¿buscó trabajo por primera vez?");
+        jRadioButton80.setText("Buscó trabajo por primera vez");
         jRadioButton80.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
 
+        buttonGroup16.add(jRadioButton81);
         jRadioButton81.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-        jRadioButton81.setText("¿estuvo estudiando?");
+        jRadioButton81.setText("Estuvo estudiando");
         jRadioButton81.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
 
+        buttonGroup16.add(jRadioButton82);
         jRadioButton82.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-        jRadioButton82.setText("¿realizó labores de casa?");
+        jRadioButton82.setText("Realizó labores de casa");
         jRadioButton82.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
 
+        buttonGroup16.add(jRadioButton83);
         jRadioButton83.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-        jRadioButton83.setText("¿es jubilado, pensionista o rentista?");
+        jRadioButton83.setText("Es jubilado, pensionista o rentista");
         jRadioButton83.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
 
+        buttonGroup16.add(jRadioButton84);
         jRadioButton84.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jRadioButton84.setText("otra");
         jRadioButton84.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
@@ -1990,10 +2134,12 @@ public class CapF extends javax.swing.JFrame {
 
         jLabel48.setText("39. Durante la semana pasada ¿trabajó?");
 
+        buttonGroup14.add(jRadioButton72);
         jRadioButton72.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jRadioButton72.setText("Si");
         jRadioButton72.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
 
+        buttonGroup14.add(jRadioButton73);
         jRadioButton73.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jRadioButton73.setText("No");
         jRadioButton73.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
@@ -2011,11 +2157,11 @@ public class CapF extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jLabel48))
                     .addGroup(jPanel27Layout.createSequentialGroup()
-                        .addGap(159, 159, 159)
-                        .addGroup(jPanel27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jRadioButton73, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jRadioButton72, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(61, 61, 61)
+                        .addGap(161, 161, 161)
+                        .addGroup(jPanel27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jRadioButton73)
+                            .addComponent(jRadioButton72))
+                        .addGap(59, 59, 59)
                         .addComponent(jLabel49)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -2028,117 +2174,97 @@ public class CapF extends javax.swing.JFrame {
                 .addGroup(jPanel27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jRadioButton72)
                     .addComponent(jLabel49))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jRadioButton73)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         jPanel28.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel50.setText("40. Durante la semana pasada,...");
 
-        jLabel51.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
-        jLabel51.setText("¿Tenia trabajo, pero no trabajó por que estuvo de vacacion, enfermo o por falta de materiales?");
+        buttonGroup15.add(jRadioButton37);
+        jRadioButton37.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        jRadioButton37.setText("Tenia trabajo, pero no trabajó por que estuvo de vacacion, enfermo o por falta de materiales");
+        jRadioButton37.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton37ActionPerformed(evt);
+            }
+        });
 
-        jRadioButton74.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
-        jRadioButton74.setText("1");
+        buttonGroup15.add(jRadioButton74);
+        jRadioButton74.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        jRadioButton74.setText("Atendió o ayudó en los cultivos agrícolas o en la crianza de animales");
         jRadioButton74.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRadioButton74ActionPerformed(evt);
             }
         });
 
-        jLabel53.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
-        jLabel53.setText("¿atendió o ayudó en los cultivos agrícolas o en la crianza de animales?");
+        buttonGroup15.add(jRadioButton75);
+        jRadioButton75.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        jRadioButton75.setText("Atendió o ayudó en algún negocio propio o familiar");
+        jRadioButton75.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton75ActionPerformed(evt);
+            }
+        });
 
-        jRadioButton75.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
-        jRadioButton75.setText("2");
+        buttonGroup15.add(jRadioButton102);
+        jRadioButton102.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        jRadioButton102.setText("Realizó alguna actividad por ingreso");
+        jRadioButton102.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton102ActionPerformed(evt);
+            }
+        });
 
-        jLabel54.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
-        jLabel54.setText("¿atendió o ayudó en algún negocio propio o familiar?");
-
-        jLabel55.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
-        jLabel55.setText("¿realizó alguna actividad por ingreso?");
-
-        jLabel56.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
-        jLabel56.setText("¿No trabajó?");
-
-        jRadioButton76.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
-        jRadioButton76.setText("3");
-
-        jRadioButton77.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
-        jRadioButton77.setText("4");
-
-        jRadioButton78.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
-        jRadioButton78.setText("5");
+        buttonGroup15.add(jRadioButton103);
+        jRadioButton103.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        jRadioButton103.setText("No trabajó");
+        jRadioButton103.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton103ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel28Layout = new javax.swing.GroupLayout(jPanel28);
         jPanel28.setLayout(jPanel28Layout);
         jPanel28Layout.setHorizontalGroup(
             jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel28Layout.createSequentialGroup()
-                .addGroup(jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel28Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel28Layout.createSequentialGroup()
-                                .addComponent(jLabel51)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jRadioButton74))
-                            .addGroup(jPanel28Layout.createSequentialGroup()
-                                .addComponent(jLabel54)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jRadioButton76))
-                            .addGroup(jPanel28Layout.createSequentialGroup()
-                                .addGroup(jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel55)
-                                    .addComponent(jLabel56))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jRadioButton77, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jRadioButton78, javax.swing.GroupLayout.Alignment.TRAILING)))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel28Layout.createSequentialGroup()
+            .addGroup(jPanel28Layout.createSequentialGroup()
+                .addGroup(jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel28Layout.createSequentialGroup()
                         .addGap(16, 16, 16)
-                        .addComponent(jLabel50, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addComponent(jLabel50, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel28Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel53)
-                        .addGap(129, 129, 129)
-                        .addComponent(jRadioButton75)))
-                .addGap(26, 26, 26))
+                        .addGroup(jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jRadioButton37)
+                            .addComponent(jRadioButton74)
+                            .addComponent(jRadioButton75)
+                            .addComponent(jRadioButton102)
+                            .addGroup(jPanel28Layout.createSequentialGroup()
+                                .addComponent(jRadioButton103)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 420, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(0, 18, Short.MAX_VALUE))
         );
         jPanel28Layout.setVerticalGroup(
             jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel28Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(16, Short.MAX_VALUE)
                 .addComponent(jLabel50)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel28Layout.createSequentialGroup()
-                        .addGroup(jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel51)
-                            .addComponent(jRadioButton74))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel53))
-                    .addComponent(jRadioButton75))
+                .addComponent(jRadioButton37)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel28Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel54)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel55)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel56)
-                        .addGap(26, 26, 26))
-                    .addGroup(jPanel28Layout.createSequentialGroup()
-                        .addComponent(jRadioButton76)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jRadioButton77)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jRadioButton78)
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                .addComponent(jRadioButton74)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jRadioButton75)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jRadioButton102)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jRadioButton103)
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         jPanel29.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -2172,6 +2298,7 @@ public class CapF extends javax.swing.JFrame {
 
         jLabel6.setText("43. En esa ocupación, ¿usted trabajo como...");
 
+        buttonGroup17.add(jRadioButton85);
         jRadioButton85.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jRadioButton85.setText("obrera/o o empleada/o");
         jRadioButton85.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
@@ -2181,22 +2308,27 @@ public class CapF extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup17.add(jRadioButton86);
         jRadioButton86.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jRadioButton86.setText("trabajadora/or por cuenta propia");
         jRadioButton86.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
 
+        buttonGroup17.add(jRadioButton87);
         jRadioButton87.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jRadioButton87.setText("empleada/or o socia/o");
         jRadioButton87.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
 
+        buttonGroup17.add(jRadioButton88);
         jRadioButton88.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jRadioButton88.setText("trabajador familiar o aprendiz sin remuneración");
         jRadioButton88.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
 
+        buttonGroup17.add(jRadioButton89);
         jRadioButton89.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jRadioButton89.setText("trabajador del hogar");
         jRadioButton89.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
 
+        buttonGroup17.add(jRadioButton90);
         jRadioButton90.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jRadioButton90.setText("cooperativista de produccion/servicios");
         jRadioButton90.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
@@ -2281,7 +2413,7 @@ public class CapF extends javax.swing.JFrame {
         jPanel23Layout.setHorizontalGroup(
             jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel23Layout.createSequentialGroup()
-                .addContainerGap(45, Short.MAX_VALUE)
+                .addContainerGap(25, Short.MAX_VALUE)
                 .addGroup(jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jPanel27, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel26, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -2307,7 +2439,7 @@ public class CapF extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel28, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jPanel28, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel23Layout.createSequentialGroup()
                         .addGap(7, 7, 7)
                         .addComponent(jPanel25, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2317,7 +2449,7 @@ public class CapF extends javax.swing.JFrame {
                         .addComponent(jPanel30, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel31, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Capítulo F4", jPanel23);
@@ -2368,10 +2500,12 @@ public class CapF extends javax.swing.JFrame {
 
         jLabel63.setText("45. ¿Cuál es su estado civil o conyugal?");
 
+        buttonGroup18.add(jRadioButton91);
         jRadioButton91.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jRadioButton91.setText("Soltera/o");
         jRadioButton91.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
 
+        buttonGroup18.add(jRadioButton92);
         jRadioButton92.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jRadioButton92.setText("Casada/o");
         jRadioButton92.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
@@ -2381,18 +2515,22 @@ public class CapF extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup18.add(jRadioButton93);
         jRadioButton93.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jRadioButton93.setText("Conviviente o concubina/o");
         jRadioButton93.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
 
+        buttonGroup18.add(jRadioButton94);
         jRadioButton94.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jRadioButton94.setText("Separada/o");
         jRadioButton94.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
 
+        buttonGroup18.add(jRadioButton95);
         jRadioButton95.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jRadioButton95.setText("Divorciada/o");
         jRadioButton95.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
 
+        buttonGroup18.add(jRadioButton96);
         jRadioButton96.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jRadioButton96.setText("Viuda/o");
         jRadioButton96.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
@@ -2558,24 +2696,29 @@ public class CapF extends javax.swing.JFrame {
 
         jLabel70.setText("49. a) Ésta última hija o hijo ¿vive actualmente?");
 
+        buttonGroup19.add(jRadioButton97);
         jRadioButton97.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jRadioButton97.setText("Si");
         jRadioButton97.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
 
+        buttonGroup19.add(jRadioButton98);
         jRadioButton98.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jRadioButton98.setText("No");
         jRadioButton98.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
 
         jLabel72.setText("b) ¿Dónde tuvo lugar su último parto?");
 
+        buttonGroup20.add(jRadioButton99);
         jRadioButton99.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jRadioButton99.setText("En un establecimiento de salud");
         jRadioButton99.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
 
+        buttonGroup20.add(jRadioButton100);
         jRadioButton100.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jRadioButton100.setText("En un domicilio");
         jRadioButton100.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
 
+        buttonGroup20.add(jRadioButton101);
         jRadioButton101.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jRadioButton101.setText("En otro lugar");
         jRadioButton101.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
@@ -2620,6 +2763,20 @@ public class CapF extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jButton1.setText("Guardar Datos");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Nuevo");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel32Layout = new javax.swing.GroupLayout(jPanel32);
         jPanel32.setLayout(jPanel32Layout);
         jPanel32Layout.setHorizontalGroup(
@@ -2632,11 +2789,19 @@ public class CapF extends javax.swing.JFrame {
                     .addComponent(jPanel34, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel35, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel33, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(26, 26, 26)
                 .addGroup(jPanel32Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel38, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel39, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(35, Short.MAX_VALUE))
+                    .addGroup(jPanel32Layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addGroup(jPanel32Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanel38, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanel39, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(35, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel32Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel32Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addGap(39, 39, 39))))
         );
         jPanel32Layout.setVerticalGroup(
             jPanel32Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2650,14 +2815,19 @@ public class CapF extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jPanel34, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel36, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jPanel36, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel37, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(45, Short.MAX_VALUE))
                     .addGroup(jPanel32Layout.createSequentialGroup()
                         .addComponent(jPanel38, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(26, 26, 26)
-                        .addComponent(jPanel39, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel37, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(26, Short.MAX_VALUE))
+                        .addComponent(jPanel39, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton2)
+                        .addGap(116, 116, 116))))
         );
 
         jTabbedPane1.addTab("Capítulo F5", jPanel32);
@@ -2665,27 +2835,38 @@ public class CapF extends javax.swing.JFrame {
         jLabel74.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel74.setText("CAPÍTULO F. PRINCIPALES CARACTERÍSTICAS DE LA PERSONA");
 
+        jLabel51.setText("codigo de Vivienda");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(74, 74, 74)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1051, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(75, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel74)
-                .addGap(382, 382, 382))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel74)
+                        .addGap(155, 155, 155)
+                        .addComponent(jLabel51)
+                        .addGap(18, 18, 18)
+                        .addComponent(jTextField27, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGap(72, 72, 72)
+                        .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1051, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(77, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(39, 39, 39)
-                .addComponent(jLabel74)
-                .addGap(27, 27, 27)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel74)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jTextField27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel51)))
+                .addGap(18, 18, 18)
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(47, Short.MAX_VALUE))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
 
         pack();
@@ -2735,10 +2916,6 @@ public class CapF extends javax.swing.JFrame {
     private void jRadioButton35ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton35ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButton35ActionPerformed
-
-    private void jRadioButton37ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton37ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton37ActionPerformed
 
     private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
         // TODO add your handling code here:
@@ -2880,10 +3057,6 @@ public class CapF extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButton71ActionPerformed
 
-    private void jRadioButton74ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton74ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton74ActionPerformed
-
     private void jRadioButton79ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton79ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButton79ActionPerformed
@@ -2895,6 +3068,222 @@ public class CapF extends javax.swing.JFrame {
     private void jRadioButton92ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton92ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButton92ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        //23
+        jRadioButton1.setActionCommand("Jefa o jefe del hogar");
+        jRadioButton2.setActionCommand("Esposo/a, conviviente o concubino/a");
+        jRadioButton3.setActionCommand("Hija o hijo");
+        jRadioButton4.setActionCommand("Nuera o Yerno");
+        jRadioButton5.setActionCommand("Nieta o nieto");
+        jRadioButton6.setActionCommand("Hermana/o o cuñada/o");
+        jRadioButton7.setActionCommand("Padre, madre, suegra/o");
+        jRadioButton8.setActionCommand("Otro pariente");
+        jRadioButton9.setActionCommand("Trabajador/a del hogar");
+        jRadioButton10.setActionCommand("Otro no pariente");
+        jRadioButton11.setActionCommand("Persona en vivienda colectiva");
+        //24
+        jRadioButton12.setActionCommand("Mujer");
+        jRadioButton12.setActionCommand("Hombre");
+        //26
+        jRadioButton17.setActionCommand("Si");
+        jRadioButton16.setActionCommand("No");
+        //27
+        jRadioButton18.setActionCommand("Si");
+        jRadioButton19.setActionCommand("No");
+        //28
+        jRadioButton20.setActionCommand("caja de salud (CNS, COSSMIL, u otras)");
+        jRadioButton21.setActionCommand("seguro desalud privado");
+        jRadioButton22.setActionCommand("establecimiento de salud privado");
+        jRadioButton23.setActionCommand("establecimiento de salud publico");
+        jRadioButton24.setActionCommand("medico tradicional");
+        jRadioButton25.setActionCommand("soluciones caceras");
+        jRadioButton26.setActionCommand("la farmacia o se automedica");
+        //29
+        jRadioButton33.setActionCommand("Si");
+        jRadioButton34.setActionCommand("No pertenece");
+        jRadioButton35.setActionCommand("No soy boliviana o boliviano");
+        //32
+        jRadioButton38.setActionCommand("Aqui");
+        jRadioButton39.setActionCommand("En otro lugar del pais");
+        jRadioButton40.setActionCommand("En el exterior");
+        //33
+        jRadioButton41.setActionCommand("Aqui");
+        jRadioButton42.setActionCommand("En otro lugar del pais");
+        jRadioButton43.setActionCommand("En el exterior");
+        //34
+        jRadioButton44.setActionCommand("Aqui");
+        jRadioButton45.setActionCommand("En otro lugar del pais");
+        jRadioButton46.setActionCommand("En el exterior");
+        jRadioButton46.setActionCommand("Aún no había nacido");
+        //35
+        jRadioButton32.setActionCommand("Si");
+        jRadioButton36.setActionCommand("No");
+        //36
+        jRadioButton28.setActionCommand("Sí, a una pública");
+        jRadioButton29.setActionCommand("Sí, a una privada");
+        jRadioButton30.setActionCommand("Sí, a una de convenio");
+        jRadioButton31.setActionCommand("No asiste");
+        //37
+        jRadioButton47.setActionCommand("Ninguno");
+        jRadioButton48.setActionCommand("Curso de alfabetización");
+        jRadioButton49.setActionCommand("Inicial (Pre kínder, kínder)");
+        jRadioButton50.setActionCommand("Básico (1 a 5 años)");
+        jRadioButton51.setActionCommand("Intermedio (1 a 3 años)");
+        jRadioButton52.setActionCommand("Medio (1 a 4 años)");
+        jRadioButton53.setActionCommand("Primaria (1 a 8 años)");
+        jRadioButton54.setActionCommand("Secundaria (1 a 4 años)");
+        jRadioButton55.setActionCommand("Primaria (1 a 6 años)");
+        jRadioButton56.setActionCommand("Secundaria (1 a 6 años)");
+        jRadioButton57.setActionCommand("Técnico universitario");
+        jRadioButton58.setActionCommand("Licenciatura");
+        jRadioButton59.setActionCommand("Maestría");
+        jRadioButton60.setActionCommand("Doctorado");
+        jRadioButton61.setActionCommand("Normal Superior");
+        jRadioButton62.setActionCommand("Militar o Policial");
+        jRadioButton63.setActionCommand("Técnico de Instituto");
+        jRadioButton64.setActionCommand("Otro");
+        //38
+        jRadioButton65.setActionCommand("Básico (1 a 5 años)");
+        jRadioButton66.setActionCommand("Intermedio (1 a 3 años)");
+        jRadioButton67.setActionCommand("Medio (1 a 4 años)");
+        jRadioButton68.setActionCommand("Primaria (1 a 8 años)");
+        jRadioButton69.setActionCommand("Secundaria (1 a 4 años)");
+        jRadioButton70.setActionCommand("Primaria (1 a 6 años)");
+        jRadioButton71.setActionCommand("Secundaria (1 a 6 años)");
+        //39
+        jRadioButton72.setActionCommand("Si");
+        jRadioButton73.setActionCommand("No");
+        //40
+        jRadioButton37.setActionCommand("Tenia trabajo, pero no trabajó por que estuvo de vacacion, enfermo o por falta de materiales");
+        jRadioButton74.setActionCommand("Atendió o ayudó en los cultivos agrícolas o en la crianza de animales");
+        jRadioButton75.setActionCommand("Atendió o ayudó en algún negocio propio o familiar");
+        jRadioButton102.setActionCommand("Realizó alguna actividad por ingreso");
+        jRadioButton103.setActionCommand("No trabajó");
+        //41
+        jRadioButton79.setActionCommand("Buscó trabajo habiendo trabajado antes");
+        jRadioButton80.setActionCommand("Buscó trabajo por primera vez");
+        jRadioButton81.setActionCommand("Estuvo estudiando");
+        jRadioButton82.setActionCommand("Realizó labores de casa");
+        jRadioButton83.setActionCommand("Es jubilado, pensionista o rentista");
+        jRadioButton84.setActionCommand("Otra");
+        //43
+        jRadioButton85.setActionCommand("obrera/o o empleada/o");
+        jRadioButton86.setActionCommand("trabajadora/or por cuenta propia");
+        jRadioButton87.setActionCommand("empleada/or o socia/o");
+        jRadioButton88.setActionCommand("trabajador familiar o aprendiz sin remuneración");
+        jRadioButton89.setActionCommand("trabajador del hogar");
+        jRadioButton90.setActionCommand("cooperativista de produccion/servicios");
+        //45
+        jRadioButton91.setActionCommand("Soltera/o");
+        jRadioButton92.setActionCommand("Casada/o");
+        jRadioButton93.setActionCommand("Conviviente o concubina/o");
+        jRadioButton94.setActionCommand("Separada/o");
+        jRadioButton95.setActionCommand("Divorciada/o");
+        jRadioButton96.setActionCommand("Viuda/o");
+        //49
+        jRadioButton97.setActionCommand("Si");
+        jRadioButton98.setActionCommand("No");
+        
+        jRadioButton99.setActionCommand("En un establecimiento de salud");
+        jRadioButton100.setActionCommand("En un domicilio");
+        jRadioButton101.setActionCommand("En otro lugar");
+        
+        
+        
+        try {
+            String sql = "insert into cap_f (codVivienda, numPersona, nomPersona, parentesco,"
+                    + " sexo , edad, nacInscrito , carnet , problemaSaludAcude , indigenaOriginario, primerIdioma, hablaIdiomas,"
+                    + " dondeNacio, dondeVive, viviaHace, leerEscribir, acudeColegio, nivelEstudio, nivelAprobado, "
+                    + " trabajo, trabajoSemana, duranteSemana, ocupacion, ocupacionTrabajo, produceVende, estadoCivil," 
+                    + " hijos, hijoViven, ultHijoNacio, vive, lugarParto )"
+                    +" values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            PreparedStatement ps = conn.prepareCall(sql);
+            ps.setString(1, jTextField27.getText());
+            ps.setString(2, jTextField1.getText());
+            ps.setString(3, jTextField2.getText());
+            ps.setString(4, buttonGroup1.getSelection().getActionCommand());
+            ps.setString(5, buttonGroup2.getSelection().getActionCommand());
+            ps.setString(6, jTextField3.getText());
+            ps.setString(7, buttonGroup3.getSelection().getActionCommand());
+            ps.setString(8, buttonGroup4.getSelection().getActionCommand());
+            ps.setString(9, buttonGroup5.getSelection().getActionCommand());
+            ps.setString(10, buttonGroup6.getSelection().getActionCommand());
+            ps.setString(11, jTextField5.getText());
+            ps.setString(12, jTextField6.getText());
+            ps.setString(13, buttonGroup7.getSelection().getActionCommand());
+            ps.setString(14, buttonGroup8.getSelection().getActionCommand());
+            ps.setString(15, buttonGroup9.getSelection().getActionCommand());
+            ps.setString(16, buttonGroup10.getSelection().getActionCommand());
+            ps.setString(17, buttonGroup11.getSelection().getActionCommand());
+            ps.setString(18, buttonGroup12.getSelection().getActionCommand());
+            ps.setString(19, buttonGroup13.getSelection().getActionCommand());
+            ps.setString(20, buttonGroup14.getSelection().getActionCommand());
+            ps.setString(21, buttonGroup15.getSelection().getActionCommand());
+            ps.setString(22, buttonGroup16.getSelection().getActionCommand());
+            ps.setString(23, jTextField10.getText());
+            ps.setString(24, buttonGroup17.getSelection().getActionCommand());
+            ps.setString(25, jTextField23.getText());
+            ps.setString(26, buttonGroup18.getSelection().getActionCommand());
+            ps.setString(27, jTextField24.getText());
+            ps.setString(28, jTextField25.getText());
+            ps.setString(29, jTextField26.getText());
+            ps.setString(30, buttonGroup19.getSelection().getActionCommand());
+            ps.setString(31, buttonGroup20.getSelection().getActionCommand());
+          
+          
+            
+            int n = ps.executeUpdate();
+            if(n>0){
+                JOptionPane.showMessageDialog(null, "Datos guardados correctamente");
+            }
+
+        } catch (Exception e) {
+                JOptionPane.showMessageDialog(null,"Error"+ e.getMessage());
+        }
+        Llenar();
+
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jRadioButton74ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton74ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton74ActionPerformed
+
+    private void jRadioButton75ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton75ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton75ActionPerformed
+
+    private void jRadioButton102ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton102ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton102ActionPerformed
+
+    private void jRadioButton103ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton103ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton103ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        
+        jRadioButton1.setActionCommand("Jefa o jefe del hogar");
+        jRadioButton2.setActionCommand("Esposo/a, conviviente o concubino/a");
+        jRadioButton3.setActionCommand("Hija o hijo");
+        jRadioButton4.setActionCommand("Nuera o Yerno");
+        jRadioButton5.setActionCommand("Nieta o nieto");
+        jRadioButton6.setActionCommand("Hermana/o o cuñada/o");
+        jRadioButton7.setActionCommand("Padre, madre, suegra/o");
+        jRadioButton8.setActionCommand("Otro pariente");
+        jRadioButton9.setActionCommand("Trabajador/a del hogar");
+        jRadioButton10.setActionCommand("Otro no pariente");
+        jRadioButton11.setActionCommand("Persona en vivienda colectiva");
+        
+        
+        
+        System.out.println(buttonGroup1.getSelection().getActionCommand());
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jRadioButton37ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton37ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton37ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -2932,6 +3321,28 @@ public class CapF extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroup10;
+    private javax.swing.ButtonGroup buttonGroup11;
+    private javax.swing.ButtonGroup buttonGroup12;
+    private javax.swing.ButtonGroup buttonGroup13;
+    private javax.swing.ButtonGroup buttonGroup14;
+    private javax.swing.ButtonGroup buttonGroup15;
+    private javax.swing.ButtonGroup buttonGroup16;
+    private javax.swing.ButtonGroup buttonGroup17;
+    private javax.swing.ButtonGroup buttonGroup18;
+    private javax.swing.ButtonGroup buttonGroup19;
+    private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.ButtonGroup buttonGroup20;
+    private javax.swing.ButtonGroup buttonGroup3;
+    private javax.swing.ButtonGroup buttonGroup4;
+    private javax.swing.ButtonGroup buttonGroup5;
+    private javax.swing.ButtonGroup buttonGroup6;
+    private javax.swing.ButtonGroup buttonGroup7;
+    private javax.swing.ButtonGroup buttonGroup8;
+    private javax.swing.ButtonGroup buttonGroup9;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -2980,10 +3391,6 @@ public class CapF extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel50;
     private javax.swing.JLabel jLabel51;
     private javax.swing.JLabel jLabel52;
-    private javax.swing.JLabel jLabel53;
-    private javax.swing.JLabel jLabel54;
-    private javax.swing.JLabel jLabel55;
-    private javax.swing.JLabel jLabel56;
     private javax.swing.JLabel jLabel57;
     private javax.swing.JLabel jLabel58;
     private javax.swing.JLabel jLabel59;
@@ -3048,6 +3455,8 @@ public class CapF extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioButton10;
     private javax.swing.JRadioButton jRadioButton100;
     private javax.swing.JRadioButton jRadioButton101;
+    private javax.swing.JRadioButton jRadioButton102;
+    private javax.swing.JRadioButton jRadioButton103;
     private javax.swing.JRadioButton jRadioButton11;
     private javax.swing.JRadioButton jRadioButton12;
     private javax.swing.JRadioButton jRadioButton13;
@@ -3119,9 +3528,6 @@ public class CapF extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioButton73;
     private javax.swing.JRadioButton jRadioButton74;
     private javax.swing.JRadioButton jRadioButton75;
-    private javax.swing.JRadioButton jRadioButton76;
-    private javax.swing.JRadioButton jRadioButton77;
-    private javax.swing.JRadioButton jRadioButton78;
     private javax.swing.JRadioButton jRadioButton79;
     private javax.swing.JRadioButton jRadioButton8;
     private javax.swing.JRadioButton jRadioButton80;
@@ -3165,6 +3571,7 @@ public class CapF extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField24;
     private javax.swing.JTextField jTextField25;
     private javax.swing.JTextField jTextField26;
+    private javax.swing.JTextField jTextField27;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
