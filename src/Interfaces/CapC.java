@@ -4,17 +4,13 @@
  */
 package Interfaces;
 
-import java.sql.PreparedStatement;
-import javax.swing.JOptionPane;
+
 import javax.swing.table.DefaultTableModel;
 import dba.Mysql;
-import java.awt.JobAttributes;
-import java.sql.Array.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
@@ -26,21 +22,24 @@ public class CapC extends javax.swing.JFrame {
     /**
      * Creates new form CapC
      */
-    int cantidad;
-    int i;
+    private int cantidad;
+    private int i;
+    private boolean codViv;
     
     DefaultTableModel model;
     Connection conn;
     Statement sent;
+    
     public CapC() {
         initComponents();
         
-        conn=Mysql.getConnection();
+        conn = Mysql.getConnection();
         Llenar();
-        i = 0;
+        i = 1;
+        cantidad = 0;
     }
     
-    void Llenar(){
+    private void Llenar(){
         try {
             conn = Mysql.getConnection();
             String[]titulos = {"codVivienda","personaOtroPais","cantPersonas"}; 
@@ -62,7 +61,7 @@ public class CapC extends javax.swing.JFrame {
         }
     }
     
-    void LlenarPersonasFuera(){
+    private void LlenarPersonasFuera(){
         try {
             conn = Mysql.getConnection();
             String[]titulos = {"codVivienda","numPersona","nomPersona","sexo"
@@ -104,12 +103,12 @@ public class CapC extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        Jtxf1 = new javax.swing.JTextField();
+        JtxfCodV = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
-        Jrb1 = new javax.swing.JRadioButton();
+        JrbSi = new javax.swing.JRadioButton();
         jLabel3 = new javax.swing.JLabel();
-        Jtxf2 = new javax.swing.JTextField();
-        Jrb2 = new javax.swing.JRadioButton();
+        JtxfCanP = new javax.swing.JTextField();
+        JrbNo = new javax.swing.JRadioButton();
         jButton1 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
@@ -118,13 +117,13 @@ public class CapC extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
-        Jrb3 = new javax.swing.JRadioButton();
-        Jrb4 = new javax.swing.JRadioButton();
+        JtxfNumero = new javax.swing.JTextField();
+        Jtxf2NomP = new javax.swing.JTextField();
+        JtxfAnioSalida = new javax.swing.JTextField();
+        JtxfEdad = new javax.swing.JTextField();
+        JtxfPais = new javax.swing.JTextField();
+        JrbHombre = new javax.swing.JRadioButton();
+        JrbMujer = new javax.swing.JRadioButton();
         jButton4 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -146,7 +145,7 @@ public class CapC extends javax.swing.JFrame {
                 .addGap(35, 35, 35)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(Jtxf1, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(JtxfCodV, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26))
         );
         jPanel2Layout.setVerticalGroup(
@@ -156,19 +155,19 @@ public class CapC extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jLabel2)
-                    .addComponent(Jtxf1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(JtxfCodV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(12, Short.MAX_VALUE))
         );
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("20. Desde 2001 a la fecha, alguna persona que vivía con ustedes en este hogar, ¿actualmente vive en otro país?"));
 
-        buttonGroup1.add(Jrb1);
-        Jrb1.setText("Si");
+        buttonGroup1.add(JrbSi);
+        JrbSi.setText("Si");
 
         jLabel3.setText("¿Cuántas personas?");
 
-        buttonGroup1.add(Jrb2);
-        Jrb2.setText("No");
+        buttonGroup1.add(JrbNo);
+        JrbNo.setText("No");
 
         jButton1.setText("Pase a la pregunta 21 ");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -183,13 +182,13 @@ public class CapC extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(39, 39, 39)
-                .addComponent(Jrb1)
+                .addComponent(JrbSi)
                 .addGap(48, 48, 48)
                 .addComponent(jLabel3)
                 .addGap(18, 18, 18)
-                .addComponent(Jtxf2, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(JtxfCanP, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(69, 69, 69)
-                .addComponent(Jrb2)
+                .addComponent(JrbNo)
                 .addGap(28, 28, 28)
                 .addComponent(jButton1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -199,10 +198,10 @@ public class CapC extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Jrb1)
+                    .addComponent(JrbSi)
                     .addComponent(jLabel3)
-                    .addComponent(Jtxf2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Jrb2)
+                    .addComponent(JtxfCanP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JrbNo)
                     .addComponent(jButton1))
                 .addContainerGap(20, Short.MAX_VALUE))
         );
@@ -221,23 +220,33 @@ public class CapC extends javax.swing.JFrame {
 
         jLabel9.setText("País donde vive actualmente");
 
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+        JtxfNumero.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                JtxfNumeroActionPerformed(evt);
             }
         });
 
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+        Jtxf2NomP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
+                Jtxf2NomPActionPerformed(evt);
             }
         });
 
-        buttonGroup2.add(Jrb3);
-        Jrb3.setText("Hombre");
+        buttonGroup2.add(JrbHombre);
+        JrbHombre.setText("Hombre");
+        JrbHombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JrbHombreActionPerformed(evt);
+            }
+        });
 
-        buttonGroup2.add(Jrb4);
-        Jrb4.setText("Mujer");
+        buttonGroup2.add(JrbMujer);
+        JrbMujer.setText("Mujer");
+        JrbMujer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JrbMujerActionPerformed(evt);
+            }
+        });
 
         jButton4.setText("Guardar");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -254,31 +263,33 @@ public class CapC extends javax.swing.JFrame {
                 .addGap(21, 21, 21)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(JtxfNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextField4))
-                .addGap(38, 38, 38)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(Jtxf2NomP, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(32, 32, 32)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel6)
-                            .addComponent(Jrb3))
+                            .addComponent(JrbHombre))
                         .addGap(32, 32, 32)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jTextField5))
+                            .addComponent(JtxfAnioSalida))
                         .addGap(30, 30, 30)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jTextField6))
+                            .addComponent(JtxfEdad))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jTextField7)))
+                            .addComponent(JtxfPais)))
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(Jrb4)
+                        .addComponent(JrbMujer)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton4)))
                 .addContainerGap(21, Short.MAX_VALUE))
@@ -297,23 +308,28 @@ public class CapC extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(JtxfNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Jtxf2NomP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(Jrb3)
+                        .addComponent(JrbHombre)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Jrb4))
+                        .addComponent(JrbMujer))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(JtxfEdad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(JtxfAnioSalida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(JtxfPais, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton4)))
                 .addContainerGap(8, Short.MAX_VALUE))
         );
 
         jButton2.setText("Atras");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Siguiente");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -378,21 +394,133 @@ public class CapC extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+    private void Jtxf2NomPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jtxf2NomPActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
+    }//GEN-LAST:event_Jtxf2NomPActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // BOTON SIGUIENTE
-        this.setVisible(false);
-        new CapD().setVisible(true);
-        // Guardar datos en bd
-        try {
+        
+        if(JtxfCodV.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Ingrese Codigo de Vivienda porfavor");
+        }else{
+            this.setVisible(false);
+            new CapD().setVisible(true);
+            // Guardar datos en bd
+            try {
             String sql = "insert into cap_c values(?,?,?)";
             PreparedStatement ps = conn.prepareCall(sql);
-            ps.setString(1, Jtxf1.getText());
-            ps.setString(2, Jrb2.getText());
-            ps.setString(3, Jtxf2.getText());
+            ps.setString(1, JtxfCodV.getText());
+            ps.setString(2, seleccionado());
+            ps.setString(3, JtxfCanP.getText());
+ 
+            int n = ps.executeUpdate();
+            if(n>0){
+                JOptionPane.showMessageDialog(null, "Datos guardados correctamente");
+            }
+
+            } catch (Exception e) {
+                //JOptionPane.showMessageDialog(null,"Error ");
+                JOptionPane.showMessageDialog(null,"Error "+ e.getMessage());
+            }
+            Llenar();
+        }
+        
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private String seleccionado(){
+        String sel;
+        if(JrbSi.isSelected()){
+            sel = "Si";
+        }else if(JrbNo.isSelected()){
+            sel = "No";
+        }else{
+            sel = "";
+        }
+        return sel;
+    }
+    
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // BOTON GUARDAR datos en tabla PersonasFuera en bd
+
+        codViv = JtxfCodV.getText().isEmpty();
+        boolean hayCantidadP = JtxfCanP.getText().isEmpty();  // verifica si esta vacio en campo de cantidad de personas
+        
+        if(JrbSi.isSelected() && (hayCantidadP != true) && (codViv != true)){
+            cantidad = Integer.parseInt(JtxfCanP.getText()); // cantidad de personas fuera del pais
+            if(i <= cantidad){
+                // Guardar datos en bd
+                    try {
+                        String sql = "insert into  personas_fuera values(?,?,?,?,?,?,?)";
+                        PreparedStatement ps = conn.prepareCall(sql);
+                        ps.setString(1, JtxfCodV.getText());       
+                        ps.setString(2, JtxfNumero.getText()); 
+                        ps.setString(3, Jtxf2NomP.getText()); 
+                        ps.setString(4, getSexo());                  
+                        ps.setString(5, JtxfAnioSalida.getText()); 
+                        ps.setString(6, JtxfEdad.getText());
+                        ps.setString(7, JtxfPais.getText()); 
+
+                        int n = ps.executeUpdate();
+                        if(n>0){
+                            JOptionPane.showMessageDialog(null, "Datos guardados correctamente");
+                        }
+                    } catch (Exception e) {
+                        JOptionPane.showMessageDialog(null,"Error"+ e.getMessage());
+                    }
+                    LlenarPersonasFuera();
+                    limpiar();  // limpiar datos 
+                    i++;
+            }else{
+                JOptionPane.showMessageDialog(null, "ya no puede llenar mas");
+            }
+            
+        }else{
+            if(codViv){
+                JOptionPane.showMessageDialog(null, "Por favor ingrese Codigo de vivienda");
+            }else{
+                JOptionPane.showMessageDialog(null, "Por favor seleccione la opcion (si) y ingrese la cantidad");
+            }
+            
+        }
+        
+    }//GEN-LAST:event_jButton4ActionPerformed
+    
+    private void limpiar(){
+        
+        JtxfNumero.setText("");
+        Jtxf2NomP.setText("");
+        JtxfAnioSalida.setText("");
+        JtxfEdad.setText("");
+        JtxfPais.setText("");
+    }
+    
+    private String getSexo(){
+        String  sexo;
+        if(JrbHombre.isSelected()){
+            sexo = "Hombre";
+        }else if(JrbMujer.isSelected()){
+            sexo = "Mujer";
+        }else{
+            sexo = " ";
+        }
+        return sexo;
+    }
+    
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // BOTON PASAR A LA PREGUNTA 21
+        codViv = JtxfCodV.getText().isEmpty(); // Poner codVivienda
+        
+        if(JrbNo.isSelected() && (codViv != true)){
+            this.setVisible(false);
+            new CapD().setVisible(true);
+            // Guardar datos en bd
+            try {
+            String sql = "insert into cap_c values(?,?,?)";
+            PreparedStatement ps = conn.prepareCall(sql);
+            ps.setString(1, JtxfCodV.getText());
+            ps.setString(2, seleccionado());
+            ps.setString(3, "0");
  
             int n = ps.executeUpdate();
             if(n>0){
@@ -403,71 +531,29 @@ public class CapC extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null,"Error"+ e.getMessage());
             }
             Llenar();
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // BOTON GUARDAR datos en tabla PersonasFuera en bd
-        limpiar();  // limpiar datos 
-        
-        Jrb3.setActionCommand("Hombre");
-        Jrb4.setActionCommand("mujer");
-        
-        if(Jrb1.isSelected()){
-            cantidad = Integer.parseInt(Jtxf2.getText()); // cantidad de personas fuera del pais
-            if(i < cantidad){
-                // Guardar datos en bd
-                String sexo = buttonGroup2.getSelection().getActionCommand();
-                //System.out.print(sexo);
-                try {
-                String sql = "insert into  personas_fuera values(?,?,?,?,?,?,?)";
-                PreparedStatement ps = conn.prepareCall(sql);
-                ps.setString(1, Jtxf1.getText());       //codVivienda
-                ps.setString(2, jTextField3.getText()); //N
-                ps.setString(3, jTextField4.getText()); //NomPersona
-                ps.setString(4, sexo);                  //Sexo
-                ps.setString(5, jTextField5.getText()); //salida
-                ps.setString(6, jTextField6.getText()); //edad fuera
-                ps.setString(7, jTextField7.getText()); // pasi
-
-                int n = ps.executeUpdate();
-                if(n>0){
-                    JOptionPane.showMessageDialog(null, "Datos guardados correctamente");
-                }
-
-                } catch (Exception e) {
-                    JOptionPane.showMessageDialog(null,"Error"+ e.getMessage());
-                }
-                LlenarPersonasFuera();
-                i++;
-            }else{
-                JOptionPane.showMessageDialog(null, "ya no puede llenar mas");
-            }
-            
-        }else{
-            JOptionPane.showMessageDialog(null, "No seleciono la opcion (si)");
-        }
-        
-    }//GEN-LAST:event_jButton4ActionPerformed
-    
-    public void limpiar(){
-        
-    }
-    
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // BOTON PASAR A LA PREGUNTA 21
-        
-        if(Jrb2.isSelected()){
-            this.setVisible(false);
-            new CapD().setVisible(true);
         }else{
             String mensaje = "No puede pasar a la pregunta 21";
             JOptionPane.showMessageDialog(null, mensaje);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+    private void JtxfNumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JtxfNumeroActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    }//GEN-LAST:event_JtxfNumeroActionPerformed
+
+    private void JrbMujerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JrbMujerActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JrbMujerActionPerformed
+
+    private void JrbHombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JrbHombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JrbHombreActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        new CapB().setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -505,12 +591,17 @@ public class CapC extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JRadioButton Jrb1;
-    private javax.swing.JRadioButton Jrb2;
-    private javax.swing.JRadioButton Jrb3;
-    private javax.swing.JRadioButton Jrb4;
-    private javax.swing.JTextField Jtxf1;
-    private javax.swing.JTextField Jtxf2;
+    private javax.swing.JRadioButton JrbHombre;
+    private javax.swing.JRadioButton JrbMujer;
+    private javax.swing.JRadioButton JrbNo;
+    private javax.swing.JRadioButton JrbSi;
+    private javax.swing.JTextField Jtxf2NomP;
+    private javax.swing.JTextField JtxfAnioSalida;
+    private javax.swing.JTextField JtxfCanP;
+    private javax.swing.JTextField JtxfCodV;
+    private javax.swing.JTextField JtxfEdad;
+    private javax.swing.JTextField JtxfNumero;
+    private javax.swing.JTextField JtxfPais;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JButton jButton1;
@@ -531,10 +622,5 @@ public class CapC extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
     // End of variables declaration//GEN-END:variables
 }

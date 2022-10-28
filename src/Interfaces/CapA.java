@@ -165,8 +165,8 @@ public class CapA extends javax.swing.JFrame {
                 .addGap(29, 29, 29)
                 .addComponent(jLabel28)
                 .addGap(18, 18, 18)
-                .addComponent(Jtxf1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(Jtxf1, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(14, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -501,9 +501,6 @@ public class CapA extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton2))
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(64, 64, 64)
-                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addGap(6, 6, 6)
@@ -512,6 +509,10 @@ public class CapA extends javax.swing.JFrame {
                             .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap(50, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(137, 137, 137))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -536,7 +537,7 @@ public class CapA extends javax.swing.JFrame {
         jPanel3.getAccessibleContext().setAccessibleName("1.");
         jPanel5.getAccessibleContext().setAccessibleName("2. ");
 
-        jTabbedPane1.addTab("Capítulo 1", jPanel1);
+        jTabbedPane1.addTab("Capítulo A", jPanel1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -575,7 +576,10 @@ public class CapA extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // boton siguiente y guarda datos
-        this.setVisible(false);
+        if(Jtxf1.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Ingrese Codigo de Vivienda porfavor");
+        }else{
+            this.setVisible(false);
         new CapituloB().setVisible(true);
         
         try {
@@ -612,8 +616,8 @@ public class CapA extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null,"Error"+ e.getMessage());
         }
         Llenar();
-        
-        
+        }
+       
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jtxf20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxf20ActionPerformed
