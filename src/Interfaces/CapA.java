@@ -10,21 +10,28 @@ package Interfaces;
  */
 import javax.swing.table.DefaultTableModel;
 import dba.Mysql;
-import java.sql.Array.*;
+import java.awt.Graphics;
+import java.awt.Image;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.sql.ResultSet; 
 import java.sql.Statement;
-import java.util.ArrayList;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+
 public class CapA extends javax.swing.JFrame {
     /**
      * Creates new form CapA
      */
+    fondoPanel fondo = new fondoPanel();
+    
     DefaultTableModel model;
     Connection conn;
     Statement sent;
     public CapA() {
+        this.setContentPane(fondo);
+        
         initComponents();
         conn=Mysql.getConnection();
         Llenar();
@@ -659,6 +666,8 @@ public class CapA extends javax.swing.JFrame {
             }
         });
     }
+    
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Jtxf1;
@@ -718,4 +727,17 @@ public class CapA extends javax.swing.JFrame {
     private javax.swing.JTextField jtxf8;
     private javax.swing.JTextField jtxf9;
     // End of variables declaration//GEN-END:variables
+    class fondoPanel extends JPanel{
+        private Image imagen;
+        
+        @Override
+        public void paint(Graphics g){
+            imagen = new ImageIcon(getClass().getResource("/imagenes/fondoFrame.jpg")).getImage();
+            g.drawImage(imagen, 0, 0,getWidth() , getHeight(),this);
+            setOpaque(false);
+            
+            super.paint(g);
+        }
+    }
+            
 }
