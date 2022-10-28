@@ -370,6 +370,7 @@ public class CapF extends javax.swing.JFrame {
 
         jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel1.setText("23.¿Qué relación o parentesco tiene con la jefa o jefe del hogar? ");
 
         buttonGroup1.add(jRadioButton1);
@@ -500,6 +501,7 @@ public class CapF extends javax.swing.JFrame {
 
         jPanel4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        jLabel18.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel18.setText("24. ¿Es mujer u hombre?");
 
         buttonGroup2.add(jRadioButton12);
@@ -553,6 +555,7 @@ public class CapF extends javax.swing.JFrame {
 
         jPanel5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel7.setText("25. ¿Cuántos años cumplidos tiene?");
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
@@ -634,6 +637,7 @@ public class CapF extends javax.swing.JFrame {
 
         jPanel7.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel9.setText("26. ¿Su nacimiento está inscrito en el registro civil o cívico?");
 
         buttonGroup3.add(jRadioButton16);
@@ -657,7 +661,7 @@ public class CapF extends javax.swing.JFrame {
                     .addComponent(jRadioButton16)
                     .addComponent(jRadioButton17)
                     .addComponent(jLabel9))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(132, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -673,6 +677,7 @@ public class CapF extends javax.swing.JFrame {
 
         jPanel9.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel10.setText("27. ¿Tiene carnet o cédula de identidad?");
 
         buttonGroup4.add(jRadioButton18);
@@ -722,6 +727,7 @@ public class CapF extends javax.swing.JFrame {
 
         jPanel10.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel11.setText("28. Cuando tiene problemas de salud, ¿acude a...");
 
         buttonGroup5.add(jRadioButton20);
@@ -790,7 +796,7 @@ public class CapF extends javax.swing.JFrame {
                             .addComponent(jRadioButton24, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jRadioButton25, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jRadioButton26, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(128, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -816,6 +822,7 @@ public class CapF extends javax.swing.JFrame {
 
         jPanel11.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel2.setText("F 1. PARA TODAS LAS PERSONAS");
 
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
@@ -884,8 +891,10 @@ public class CapF extends javax.swing.JFrame {
 
         jPanel12.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        jLabel20.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel20.setText("29. Como boliviana o boliviano ¿Pertenece a alguna nacion o pueblo indigena");
 
+        jLabel21.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel21.setText(" originario campesino o afroboliviano?");
 
         buttonGroup6.add(jRadioButton33);
@@ -966,6 +975,7 @@ public class CapF extends javax.swing.JFrame {
 
         jPanel13.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        jLabel28.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel28.setText("32. ¿Dónde nació?");
 
         buttonGroup7.add(jRadioButton38);
@@ -1080,6 +1090,7 @@ public class CapF extends javax.swing.JFrame {
 
         jPanel14.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        jLabel23.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel23.setText("30. ¿Cuál es el primer idioma que aprendió a hablar en su niñez?");
 
         javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
@@ -1108,6 +1119,7 @@ public class CapF extends javax.swing.JFrame {
 
         jPanel15.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        jLabel27.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel27.setText("31. ¿Qué idiomas habla?");
 
         jTextField6.addActionListener(new java.awt.event.ActionListener() {
@@ -1151,6 +1163,7 @@ public class CapF extends javax.swing.JFrame {
 
         jPanel16.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        jLabel33.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel33.setText("33. ¿Dónde vive habitualmente?");
 
         buttonGroup8.add(jRadioButton41);
@@ -1277,7 +1290,7 @@ public class CapF extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1295,13 +1308,14 @@ public class CapF extends javax.swing.JFrame {
                         .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(69, Short.MAX_VALUE))
+                .addContainerGap(62, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Capítulo F2", jPanel2);
 
         jPanel18.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        jLabel38.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel38.setText("34. ¿Dónde vivía hace 5 años?");
 
         buttonGroup9.add(jRadioButton44);
@@ -1443,12 +1457,13 @@ public class CapF extends javax.swing.JFrame {
             jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel19Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
         jPanel20.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel12.setText("36. Actualmente, ¿asiste a una escuela o colegio?");
 
         buttonGroup11.add(jRadioButton28);
@@ -1507,11 +1522,12 @@ public class CapF extends javax.swing.JFrame {
                 .addComponent(jRadioButton30)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jRadioButton31)
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel21.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel13.setText("35. ¿Sabe leer y escribir?");
 
         buttonGroup10.add(jRadioButton32);
@@ -1554,6 +1570,7 @@ public class CapF extends javax.swing.JFrame {
 
         jPanel22.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        jLabel14.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel14.setText("37. ¿Cuál fue el nivel y curso más alto de instrucción que aprobó?");
 
         buttonGroup12.add(jRadioButton47);
@@ -1754,14 +1771,19 @@ public class CapF extends javax.swing.JFrame {
             }
         });
 
+        jLabel15.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel15.setText("Sistema Antiguo");
 
+        jLabel16.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel16.setText("Sistema Anterior");
 
+        jLabel17.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel17.setText("Sistema Actual");
 
+        jLabel24.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel24.setText("Universitario");
 
+        jLabel25.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel25.setText("No universitario");
 
         javax.swing.GroupLayout jPanel22Layout = new javax.swing.GroupLayout(jPanel22);
@@ -1830,39 +1852,43 @@ public class CapF extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jRadioButton54))
                     .addGroup(jPanel22Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
                         .addComponent(jLabel16)
                         .addGap(39, 39, 39)))
-                .addGroup(jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(1, 1, 1)
+                .addGroup(jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel17)
                     .addGroup(jPanel22Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
                         .addComponent(jRadioButton55)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jRadioButton56))
+                        .addComponent(jRadioButton56)))
+                .addGroup(jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel22Layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addComponent(jLabel17)))
-                .addGap(18, 18, 18)
-                .addComponent(jRadioButton57)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioButton58)
-                    .addComponent(jLabel24))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jRadioButton59)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jRadioButton60)
-                .addGap(18, 18, 18)
-                .addComponent(jRadioButton61)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioButton62)
-                    .addComponent(jLabel25))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jRadioButton63)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jRadioButton64)
-                .addContainerGap())
+                        .addGap(61, 61, 61)
+                        .addComponent(jLabel24))
+                    .addGroup(jPanel22Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jRadioButton57)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jRadioButton58)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jRadioButton59)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jRadioButton60)))
+                .addGroup(jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel22Layout.createSequentialGroup()
+                        .addGap(61, 61, 61)
+                        .addComponent(jLabel25))
+                    .addGroup(jPanel22Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jRadioButton61)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jRadioButton62)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jRadioButton63)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jRadioButton64)))
+                .addGap(26, 26, 26))
         );
 
         javax.swing.GroupLayout jPanel17Layout = new javax.swing.GroupLayout(jPanel17);
@@ -1870,7 +1896,7 @@ public class CapF extends javax.swing.JFrame {
         jPanel17Layout.setHorizontalGroup(
             jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel17Layout.createSequentialGroup()
-                .addContainerGap(30, Short.MAX_VALUE)
+                .addContainerGap(23, Short.MAX_VALUE)
                 .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel19, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel18, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1893,14 +1919,15 @@ public class CapF extends javax.swing.JFrame {
                         .addComponent(jPanel21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jPanel22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                    .addComponent(jPanel22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Capítulo F3", jPanel17);
 
         jPanel24.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        jLabel44.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel44.setText("38. Para ingresar a ese nivel, ¿cuál fue el nivel y curso de educación escolar que aprobó?");
 
         buttonGroup13.add(jRadioButton65);
@@ -1978,23 +2005,22 @@ public class CapF extends javax.swing.JFrame {
                         .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jRadioButton71)
                             .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(jPanel24Layout.createSequentialGroup()
-                                    .addGap(16, 16, 16)
-                                    .addComponent(jRadioButton70))
                                 .addComponent(jRadioButton66, javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jRadioButton67)
+                                .addComponent(jRadioButton69)
                                 .addGroup(jPanel24Layout.createSequentialGroup()
                                     .addGap(16, 16, 16)
-                                    .addComponent(jRadioButton68))
-                                .addComponent(jRadioButton67)
-                                .addComponent(jRadioButton69))))
+                                    .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jRadioButton70)
+                                        .addComponent(jRadioButton68))))))
                     .addGroup(jPanel24Layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jRadioButton65)))
                 .addGap(164, 164, 164))
             .addGroup(jPanel24Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel44, javax.swing.GroupLayout.PREFERRED_SIZE, 471, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jLabel44, javax.swing.GroupLayout.PREFERRED_SIZE, 491, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(24, Short.MAX_VALUE))
         );
         jPanel24Layout.setVerticalGroup(
             jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2026,6 +2052,7 @@ public class CapF extends javax.swing.JFrame {
 
         jPanel25.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        jLabel57.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel57.setText("41. Durante la semana pasada, ...");
 
         buttonGroup16.add(jRadioButton79);
@@ -2111,6 +2138,7 @@ public class CapF extends javax.swing.JFrame {
 
         jPanel26.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        jLabel43.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel43.setText("F 3. SÓLO PARA PERSONAS DE 7 AÑOS O MÁS DE EDAD");
 
         javax.swing.GroupLayout jPanel26Layout = new javax.swing.GroupLayout(jPanel26);
@@ -2132,6 +2160,7 @@ public class CapF extends javax.swing.JFrame {
 
         jPanel27.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        jLabel48.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel48.setText("39. Durante la semana pasada ¿trabajó?");
 
         buttonGroup14.add(jRadioButton72);
@@ -2181,6 +2210,7 @@ public class CapF extends javax.swing.JFrame {
 
         jPanel28.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        jLabel50.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel50.setText("40. Durante la semana pasada,...");
 
         buttonGroup15.add(jRadioButton37);
@@ -2244,10 +2274,8 @@ public class CapF extends javax.swing.JFrame {
                             .addComponent(jRadioButton74)
                             .addComponent(jRadioButton75)
                             .addComponent(jRadioButton102)
-                            .addGroup(jPanel28Layout.createSequentialGroup()
-                                .addComponent(jRadioButton103)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 420, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(0, 18, Short.MAX_VALUE))
+                            .addComponent(jRadioButton103))))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel28Layout.setVerticalGroup(
             jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2269,6 +2297,7 @@ public class CapF extends javax.swing.JFrame {
 
         jPanel29.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        jLabel59.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel59.setText("42. ¿Cuál fue su ocupación, trabajo u oficio principal durante la semana pasada?");
 
         javax.swing.GroupLayout jPanel29Layout = new javax.swing.GroupLayout(jPanel29);
@@ -2296,6 +2325,7 @@ public class CapF extends javax.swing.JFrame {
 
         jPanel30.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel6.setText("43. En esa ocupación, ¿usted trabajo como...");
 
         buttonGroup17.add(jRadioButton85);
@@ -2375,8 +2405,10 @@ public class CapF extends javax.swing.JFrame {
 
         jPanel31.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        jLabel26.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel26.setText("44. ¿Qué produce, vende o a que actividad económica se dedica principalmente");
 
+        jLabel60.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel60.setText("el lugar o establecimiento donde trabaja?");
 
         javax.swing.GroupLayout jPanel31Layout = new javax.swing.GroupLayout(jPanel31);
@@ -2413,7 +2445,7 @@ public class CapF extends javax.swing.JFrame {
         jPanel23Layout.setHorizontalGroup(
             jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel23Layout.createSequentialGroup()
-                .addContainerGap(25, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jPanel27, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel26, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -2449,13 +2481,14 @@ public class CapF extends javax.swing.JFrame {
                         .addComponent(jPanel30, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel31, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Capítulo F4", jPanel23);
 
         jPanel33.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        jLabel61.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel61.setText("F 4. SÓLO PARA PERSONAS DE 15 AÑOS O MÁS DE EDAD");
 
         javax.swing.GroupLayout jPanel33Layout = new javax.swing.GroupLayout(jPanel33);
@@ -2477,6 +2510,7 @@ public class CapF extends javax.swing.JFrame {
 
         jPanel34.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        jLabel62.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel62.setText("F 5. SÓLO PARA MUJERES DE 15 AÑOS O MÁS DE EDAD");
 
         javax.swing.GroupLayout jPanel34Layout = new javax.swing.GroupLayout(jPanel34);
@@ -2498,6 +2532,7 @@ public class CapF extends javax.swing.JFrame {
 
         jPanel35.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        jLabel63.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel63.setText("45. ¿Cuál es su estado civil o conyugal?");
 
         buttonGroup18.add(jRadioButton91);
@@ -2577,8 +2612,10 @@ public class CapF extends javax.swing.JFrame {
 
         jPanel36.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        jLabel52.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel52.setText("46. En total, ¿cuántas hijas e hijos nacidos vivos ha tenido usted, incluyendo fallecidos");
 
+        jLabel64.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel64.setText("fallecidos o ausentes?");
 
         jLabel65.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
@@ -2605,7 +2642,7 @@ public class CapF extends javax.swing.JFrame {
                         .addComponent(jLabel67)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jTextField24, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel36Layout.setVerticalGroup(
             jPanel36Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2629,6 +2666,7 @@ public class CapF extends javax.swing.JFrame {
 
         jLabel66.setText("número");
 
+        jLabel68.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel68.setText("47. De sus hijas e hijos nacidos vivos, ¿cuántos viven actualmente?");
 
         javax.swing.GroupLayout jPanel37Layout = new javax.swing.GroupLayout(jPanel37);
@@ -2661,6 +2699,7 @@ public class CapF extends javax.swing.JFrame {
 
         jPanel38.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        jLabel69.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel69.setText("48. ¿En qué mes y año nació su última hija o hijo nacido vivo?");
 
         jLabel71.setText("Mes/Año");
@@ -2694,6 +2733,7 @@ public class CapF extends javax.swing.JFrame {
 
         jPanel39.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        jLabel70.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel70.setText("49. a) Ésta última hija o hijo ¿vive actualmente?");
 
         buttonGroup19.add(jRadioButton97);
@@ -2706,6 +2746,7 @@ public class CapF extends javax.swing.JFrame {
         jRadioButton98.setText("No");
         jRadioButton98.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
 
+        jLabel72.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel72.setText("b) ¿Dónde tuvo lugar su último parto?");
 
         buttonGroup20.add(jRadioButton99);
@@ -2795,7 +2836,7 @@ public class CapF extends javax.swing.JFrame {
                         .addGroup(jPanel32Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jPanel38, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jPanel39, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(35, Short.MAX_VALUE))
+                        .addContainerGap(30, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel32Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel32Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2818,7 +2859,7 @@ public class CapF extends javax.swing.JFrame {
                         .addComponent(jPanel36, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel37, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(45, Short.MAX_VALUE))
+                        .addContainerGap(38, Short.MAX_VALUE))
                     .addGroup(jPanel32Layout.createSequentialGroup()
                         .addComponent(jPanel38, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(26, 26, 26)
@@ -2832,10 +2873,11 @@ public class CapF extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Capítulo F5", jPanel32);
 
-        jLabel74.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel74.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        jLabel74.setForeground(new java.awt.Color(0, 51, 153));
         jLabel74.setText("CAPÍTULO F. PRINCIPALES CARACTERÍSTICAS DE LA PERSONA");
 
-        jLabel51.setText("codigo de Vivienda");
+        jLabel51.setText("Código Vivienda");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -2846,7 +2888,7 @@ public class CapF extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel74)
-                        .addGap(155, 155, 155)
+                        .addGap(73, 73, 73)
                         .addComponent(jLabel51)
                         .addGap(18, 18, 18)
                         .addComponent(jTextField27, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -2858,15 +2900,14 @@ public class CapF extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(39, 39, 39)
+                .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel74)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jTextField27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel51)))
-                .addGap(18, 18, 18)
+                    .addComponent(jLabel51)
+                    .addComponent(jTextField27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21)
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
         pack();
@@ -3276,9 +3317,9 @@ public class CapF extends javax.swing.JFrame {
         jRadioButton10.setActionCommand("Otro no pariente");
         jRadioButton11.setActionCommand("Persona en vivienda colectiva");
         
+        String tiene = buttonGroup1.getSelection().getActionCommand()+buttonGroup1.getSelection().getActionCommand();
         
-        
-        System.out.println(buttonGroup1.getSelection().getActionCommand());
+        System.out.println(""+tiene);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jRadioButton37ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton37ActionPerformed
@@ -3353,7 +3394,6 @@ public class CapF extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
@@ -3449,7 +3489,6 @@ public class CapF extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
-    private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton10;
@@ -3460,8 +3499,6 @@ public class CapF extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioButton11;
     private javax.swing.JRadioButton jRadioButton12;
     private javax.swing.JRadioButton jRadioButton13;
-    private javax.swing.JRadioButton jRadioButton14;
-    private javax.swing.JRadioButton jRadioButton15;
     private javax.swing.JRadioButton jRadioButton16;
     private javax.swing.JRadioButton jRadioButton17;
     private javax.swing.JRadioButton jRadioButton18;
