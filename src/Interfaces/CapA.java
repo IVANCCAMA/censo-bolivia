@@ -587,7 +587,7 @@ public class CapA extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Ingrese Codigo de Vivienda porfavor");
         }else{
             this.setVisible(false);
-        new CapituloB().setVisible(true);
+        new CapB().setVisible(true);
         
         try {
             String sql = "insert into cap_a values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
