@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Interfaces;
-
+//
 import dba.Mysql;
 import java.awt.Graphics;
 import java.awt.Image;
