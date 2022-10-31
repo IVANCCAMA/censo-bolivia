@@ -2219,7 +2219,11 @@ void Llenar()
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-	jRadioButton1.setActionCommand("Casa/Choza/Pahuichi");
+	
+        this.setVisible(false);
+        new CapC().setVisible(true);
+        
+        jRadioButton1.setActionCommand("Casa/Choza/Pahuichi");
         jRadioButton2.setActionCommand("Departamento");
         jRadioButton3.setActionCommand("Cuarto(s)o habitacion(es) suelta(s)");
         jRadioButton4.setActionCommand("Vivienda improvisada");
