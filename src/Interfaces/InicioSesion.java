@@ -83,7 +83,6 @@ public class InicioSesion extends javax.swing.JFrame {
             
             while(rs.next()){
                 listContr.add(rs.getString("contrUsr"));
-                //System.out.println(rs.getString("contrUsr"));
             }
         }
         catch (Exception e) {
@@ -252,36 +251,32 @@ public class InicioSesion extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         //boton iniciar sesion
-                
+        boolean NoEncontrado = true;
+        
         String tip    = jComboBox1.getSelectedItem().toString(); //recuperamos tipo usr
         String usr    = jTextField1.getText(); //recuperamos el usr
         String contra = jTextField2.getText(); //recuperadmos contraseña
-        
-        
-        
+             
         int num = 0;
         
-        while(num<listUsr.size()){ //busqueda de datos
+        while(num<listUsr.size() && NoEncontrado){ //busqueda de datos
             
-           String tipoUsr    = listTUsuario.get(num);
-           String usuario    = listUsr.get(num);
-           String contraseña = listContr.get(num);
-           
-           if(tip.equals(tipoUsr) && usr.equals(usuario) && contra.equals(contraseña)){
-               //new Encuestador().setVisible(true);
-               verificarVentana();
-               this.setVisible(false); // lo destruye xd
-               break;
-            }//revisar esta parte
-           if(num+1 == listUsr.size()){
-                JOptionPane.showMessageDialog(null,"datos erroneos, revise los datos introducidos porfavor ",
-                   " error al ingresar ",JOptionPane.ERROR_MESSAGE);
-                
+            String tipoUsr    = listTUsuario.get(num);
+            String usuario    = listUsr.get(num);
+            String contraseña = listContr.get(num);
+            
+            if(tip.equals(tipoUsr) && usr.equals(usuario) && contra.equals(contraseña)){
+                NoEncontrado = false;
+                verificarVentana();
+                this.setVisible(false); // lo destruye xd
+            }else{
+                if(num == listUsr.size()){
+                    JOptionPane.showMessageDialog(null,"datos erroneos, revise los datos introducidos porfavor ",
+                                                " error al ingresar ",JOptionPane.ERROR_MESSAGE);
+                }
+                num++;
             }
-           num++;
-           
         }
-        
     }//GEN-LAST:event_jButton1ActionPerformed
 
    private void verificarVentana(){
@@ -301,6 +296,9 @@ public class InicioSesion extends javax.swing.JFrame {
             new JefeZona().setVisible(true);
         }else if(enc.equals(cargo)){
             new Encuestador().setVisible(true);
+        }else{
+            JOptionPane.showMessageDialog(null,"datos erroneos, revise los datos introducidos porfavor ",
+                                                " error al ingresar ",JOptionPane.ERROR_MESSAGE);
         }
         
     } 
