@@ -74,7 +74,7 @@ public class CapC extends javax.swing.JFrame {
             conn = Mysql.getConnection();
             String[]titulos = {"codVivienda","numPersona","nomPersona","sexo"
                               ,"añoSalida","edadSalida","paisActual"}; 
-            String sql = "select * from personas_fuera";
+            String sql = "select * from cap_cpersfuera";
             model = new DefaultTableModel(null, titulos);
             sent = conn.createStatement();
             ResultSet rs = sent.executeQuery(sql);
@@ -470,7 +470,7 @@ public class CapC extends javax.swing.JFrame {
             if(i <= cantidad){
                 // Guardar datos en bd
                     try {
-                        String sql = "insert into  personas_fuera values(?,?,?,?,?,?,?)";
+                        String sql = "insert into cap_cpersfuera values(?,?,?,?,?,?,?)";
                         PreparedStatement ps = conn.prepareCall(sql);
                         ps.setString(1, JtxfCodV.getText());       
                         ps.setString(2, JtxfNumero.getText()); 
@@ -551,7 +551,12 @@ public class CapC extends javax.swing.JFrame {
             }
             Llenar();
         }else{
-            String mensaje = "No puede pasar a la pregunta 21";
+            String mensaje;
+            if(codViv){
+                mensaje = "Ingrese codigo vivienda por favor";
+            }else{
+                mensaje = "selecciones opcion (no) para pasar a pregunta 23";
+            }
             JOptionPane.showMessageDialog(null, mensaje);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
