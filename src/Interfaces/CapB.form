@@ -205,7 +205,7 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="jRadioButton2" min="-2" pref="204" max="-2" attributes="0"/>
-                                  <Component id="jRadioButton1" alignment="0" min="-2" pref="205" max="-2" attributes="0"/>
+                                  <Component id="preg1" alignment="0" min="-2" pref="205" max="-2" attributes="0"/>
                                   <Component id="jLabel8" alignment="0" min="-2" pref="54" max="-2" attributes="0"/>
                                   <Component id="jRadioButton8" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel12" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -231,7 +231,7 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jRadioButton1" min="-2" pref="15" max="-2" attributes="0"/>
+                          <Component id="preg1" min="-2" pref="15" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jRadioButton2" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
@@ -266,7 +266,7 @@
                     <Property name="text" type="java.lang.String" value="Vivienda colectiva"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JRadioButton" name="jRadioButton1">
+                <Component class="javax.swing.JRadioButton" name="preg1">
                   <Properties>
                     <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                       <ComponentRef name="buttonGroup1"/>
@@ -274,7 +274,7 @@
                     <Property name="text" type="java.lang.String" value="Casa/Choza/Pahuichi"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButton1ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="preg1ActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JRadioButton" name="jRadioButton2">
@@ -2625,6 +2625,9 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Si"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButton95ActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JRadioButton" name="jRadioButton96">
                   <Properties>

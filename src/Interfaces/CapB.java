@@ -154,7 +154,7 @@ void Llenar()
         jRadioButton94.setActionCommand("Si");
         jRadioButton89.setActionCommand("No");
         
-        String result;
+        String result ;
         String veh;
         String bici;
         String moto;
@@ -224,7 +224,7 @@ void Llenar()
         jPanel5 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jRadioButton8 = new javax.swing.JRadioButton();
-        jRadioButton1 = new javax.swing.JRadioButton();
+        preg1 = new javax.swing.JRadioButton();
         jRadioButton2 = new javax.swing.JRadioButton();
         jRadioButton3 = new javax.swing.JRadioButton();
         jRadioButton4 = new javax.swing.JRadioButton();
@@ -401,11 +401,11 @@ void Llenar()
         buttonGroup1.add(jRadioButton8);
         jRadioButton8.setText("Vivienda colectiva");
 
-        buttonGroup1.add(jRadioButton1);
-        jRadioButton1.setText("Casa/Choza/Pahuichi");
-        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+        buttonGroup1.add(preg1);
+        preg1.setText("Casa/Choza/Pahuichi");
+        preg1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton1ActionPerformed(evt);
+                preg1ActionPerformed(evt);
             }
         });
 
@@ -480,7 +480,7 @@ void Llenar()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jRadioButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jRadioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(preg1, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jRadioButton8)
                         .addComponent(jLabel12)
@@ -502,7 +502,7 @@ void Llenar()
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jRadioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(preg1, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jRadioButton2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1021,7 +1021,7 @@ void Llenar()
         jPanel12Layout.setVerticalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel12Layout.createSequentialGroup()
-                .addContainerGap(34, Short.MAX_VALUE)
+                .addContainerGap(40, Short.MAX_VALUE)
                 .addComponent(jLabel25)
                 .addGap(18, 18, 18)
                 .addComponent(jRadioButton43, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1665,7 +1665,7 @@ void Llenar()
                 .addComponent(jRadioButton77)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jRadioButton78)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 5, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
                 .addComponent(jRadioButton72)
                 .addContainerGap())
             .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1835,7 +1835,7 @@ void Llenar()
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel24Layout.createSequentialGroup()
                                         .addComponent(jRadioButton112)
                                         .addGap(0, 0, Short.MAX_VALUE))
-                                    .addComponent(jRadioButton114, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)))
+                                    .addComponent(jRadioButton114, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)))
                             .addGroup(jPanel24Layout.createSequentialGroup()
                                 .addComponent(jLabel41, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1930,6 +1930,11 @@ void Llenar()
 
         buttonGroup24.add(jRadioButton95);
         jRadioButton95.setText("Si");
+        jRadioButton95.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton95ActionPerformed(evt);
+            }
+        });
 
         buttonGroup23.add(jRadioButton96);
         jRadioButton96.setText("Si");
@@ -1970,7 +1975,7 @@ void Llenar()
                     .addComponent(jLabel33, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel35, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(156, Short.MAX_VALUE))
+                .addContainerGap(160, Short.MAX_VALUE))
             .addGroup(jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel22Layout.createSequentialGroup()
                     .addGap(15, 15, 15)
@@ -2223,7 +2228,7 @@ void Llenar()
         this.setVisible(false);
         new CapC().setVisible(true);
         
-        jRadioButton1.setActionCommand("Casa/Choza/Pahuichi");
+        preg1.setActionCommand("Casa/Choza/Pahuichi");
         jRadioButton2.setActionCommand("Departamento");
         jRadioButton3.setActionCommand("Cuarto(s)o habitacion(es) suelta(s)");
         jRadioButton4.setActionCommand("Vivienda improvisada");
@@ -2273,10 +2278,10 @@ void Llenar()
         jRadioButton41.setActionCommand("lluvia, río, vertiente, acequia?");
         jRadioButton42.setActionCommand("lago, laguna, curichi?");
         //8
-        jRadioButton44.setActionCommand("por cañería dentro de la vivienda?");
-        jRadioButton45.setActionCommand("por cañería fuera de la vivienda pero dentro del lote o terreno?");
-        jRadioButton46.setActionCommand("por cañería fuera de la vivienda y del lote o terreno? ");
-        jRadioButton47.setActionCommand(" no se distribuye por cañería?");
+        jRadioButton44.setActionCommand("por cañería dentro de la vivienda");
+        jRadioButton45.setActionCommand("por cañería fuera de la vivienda pero dentro del lote o terreno");
+        jRadioButton46.setActionCommand("por cañería fuera de la vivienda y del lote o terreno");
+        jRadioButton47.setActionCommand(" no se distribuye por cañería");
         //9
         jRadioButton50.setActionCommand("Sí, de uso privado");
         jRadioButton48.setActionCommand("Sí, de uso compartido");
@@ -2630,9 +2635,9 @@ void Llenar()
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButton2ActionPerformed
 
-    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+    private void preg1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_preg1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton1ActionPerformed
+    }//GEN-LAST:event_preg1ActionPerformed
 
     private void jRadioButton47ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton47ActionPerformed
         // TODO add your handling code here:
@@ -2661,6 +2666,10 @@ void Llenar()
     private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField5ActionPerformed
+
+    private void jRadioButton95ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton95ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton95ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -2788,7 +2797,6 @@ void Llenar()
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
-    private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton10;
     private javax.swing.JRadioButton jRadioButton100;
     private javax.swing.JRadioButton jRadioButton101;
@@ -2897,6 +2905,7 @@ void Llenar()
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField5;
+    private javax.swing.JRadioButton preg1;
     // End of variables declaration//GEN-END:variables
 }
 class FondoPanel extends JPanel{
