@@ -373,6 +373,7 @@ public class CapC extends javax.swing.JFrame {
         jTabbedPane1.addTab("Capítulo C", jPanel1);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 51, 255));
         jLabel1.setText("CAPÍTULO C. EMIGRACIÓN INTERNACIONAL ");
 
         jLabel2.setText("Codigo Vivienda");

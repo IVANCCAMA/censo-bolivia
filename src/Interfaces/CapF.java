@@ -98,8 +98,75 @@ public class CapF extends javax.swing.JFrame {
             e.printStackTrace();
             }
         }
-        
     
+    private String preg31(){
+        String result = jTextField6+", "+jTextField7+", "+jTextField8+", "+jTextField9;
+        
+        return result;
+    }
+    
+    private String preg32(){
+        jRadioButton38.setActionCommand("Aqui");
+        jRadioButton39.setActionCommand("En otro lugar del pais");
+        jRadioButton40.setActionCommand("En el exterior");
+        
+        String result = "";
+       
+           
+           if(buttonGroup7.getSelection().getActionCommand()=="Aqui"){
+               result = "Aqui";
+           }else if(buttonGroup7.getSelection().getActionCommand()=="En otro lugar del pais"){
+               result = "En otro lugar del pais, "+jTextField13+", "+jTextField12+", "+jTextField11;
+           }else if(buttonGroup7.getSelection().getActionCommand()=="En el exterior"){
+               result = "En el exterior, "+  jTextField14;
+           }
+           
+           return result;
+    }
+    
+    private String preg33(){
+        //33
+        jRadioButton41.setActionCommand("Aqui");
+        jRadioButton42.setActionCommand("En otro lugar del pais");
+        jRadioButton43.setActionCommand("En el exterior");
+        
+        String result = "";
+      
+           
+           if(buttonGroup8.getSelection().getActionCommand()=="Aqui"){
+               result = "Aqui";
+           }else if(buttonGroup8.getSelection().getActionCommand()=="En otro lugar del pais"){
+               result = "En otro lugar del pais, "+jTextField17+", "+jTextField16+", "+jTextField15;
+           }else if(buttonGroup8.getSelection().getActionCommand()=="En el exterior"){
+               result = "En el exterior, "+  jTextField18;
+           }
+           
+           return result;
+    }
+    
+    private String preg34(){
+        
+        //34
+        jRadioButton44.setActionCommand("Aqui");
+        jRadioButton45.setActionCommand("En otro lugar del pais");
+        jRadioButton46.setActionCommand("En el exterior");
+        jRadioButton46.setActionCommand("Aún no había nacido");
+        
+        String result = "";
+       
+           
+           if(buttonGroup9.getSelection().getActionCommand()=="Aqui"){
+               result = "Aqui";
+           }else if(buttonGroup9.getSelection().getActionCommand()=="En otro lugar del pais"){
+               result = "En otro lugar del pais, "+jTextField21+", "+jTextField20+", "+jTextField19;
+           }else if(buttonGroup9.getSelection().getActionCommand()=="En el exterior"){
+               result = "En el exterior, "+  jTextField18;
+           }else if(buttonGroup9.getSelection().getActionCommand()=="Aún no había nacido"){
+               result = "Aún no había nacido";
+           }
+           
+           return result;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -861,7 +928,7 @@ public class CapF extends javax.swing.JFrame {
                             .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(45, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1374,12 +1441,6 @@ public class CapF extends javax.swing.JFrame {
             .addGroup(jPanel18Layout.createSequentialGroup()
                 .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel18Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel38)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jRadioButton44, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(86, 86, 86))
-                    .addGroup(jPanel18Layout.createSequentialGroup()
                         .addGap(39, 39, 39)
                         .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel18Layout.createSequentialGroup()
@@ -1402,12 +1463,19 @@ public class CapF extends javax.swing.JFrame {
                                 .addGap(34, 34, 34)
                                 .addComponent(jLabel42)
                                 .addGap(18, 18, 18)
-                                .addComponent(jTextField22)))))
+                                .addComponent(jTextField22, javax.swing.GroupLayout.DEFAULT_SIZE, 232, Short.MAX_VALUE))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel18Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel18Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(jRadioButton45))
+                            .addGroup(jPanel18Layout.createSequentialGroup()
+                                .addComponent(jLabel38)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jRadioButton44, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(86, 86, 86)))
                 .addGap(59, 59, 59))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel18Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jRadioButton45, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(154, 154, 154))
         );
         jPanel18Layout.setVerticalGroup(
             jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1457,7 +1525,7 @@ public class CapF extends javax.swing.JFrame {
             jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel19Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
+                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1852,7 +1920,7 @@ public class CapF extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jRadioButton54))
                     .addGroup(jPanel22Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel16)
                         .addGap(39, 39, 39)))
                 .addGap(1, 1, 1)
@@ -1896,7 +1964,7 @@ public class CapF extends javax.swing.JFrame {
         jPanel17Layout.setHorizontalGroup(
             jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel17Layout.createSequentialGroup()
-                .addContainerGap(23, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel19, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel18, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -3143,19 +3211,9 @@ public class CapF extends javax.swing.JFrame {
         jRadioButton33.setActionCommand("Si");
         jRadioButton34.setActionCommand("No pertenece");
         jRadioButton35.setActionCommand("No soy boliviana o boliviano");
-        //32
-        jRadioButton38.setActionCommand("Aqui");
-        jRadioButton39.setActionCommand("En otro lugar del pais");
-        jRadioButton40.setActionCommand("En el exterior");
-        //33
-        jRadioButton41.setActionCommand("Aqui");
-        jRadioButton42.setActionCommand("En otro lugar del pais");
-        jRadioButton43.setActionCommand("En el exterior");
-        //34
-        jRadioButton44.setActionCommand("Aqui");
-        jRadioButton45.setActionCommand("En otro lugar del pais");
-        jRadioButton46.setActionCommand("En el exterior");
-        jRadioButton46.setActionCommand("Aún no había nacido");
+        
+     
+        
         //35
         jRadioButton32.setActionCommand("Si");
         jRadioButton36.setActionCommand("No");
@@ -3250,10 +3308,10 @@ public class CapF extends javax.swing.JFrame {
             ps.setString(9, buttonGroup5.getSelection().getActionCommand());
             ps.setString(10, buttonGroup6.getSelection().getActionCommand());
             ps.setString(11, jTextField5.getText());
-            ps.setString(12, jTextField6.getText());
-            ps.setString(13, buttonGroup7.getSelection().getActionCommand());
-            ps.setString(14, buttonGroup8.getSelection().getActionCommand());
-            ps.setString(15, buttonGroup9.getSelection().getActionCommand());
+            ps.setString(12, preg31());
+            ps.setString(13, preg32());
+            ps.setString(14, preg33());
+            ps.setString(15, preg34());
             ps.setString(16, buttonGroup10.getSelection().getActionCommand());
             ps.setString(17, buttonGroup11.getSelection().getActionCommand());
             ps.setString(18, buttonGroup12.getSelection().getActionCommand());
