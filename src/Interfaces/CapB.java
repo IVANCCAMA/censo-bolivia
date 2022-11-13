@@ -104,7 +104,6 @@ void Llenar()
         jRadioButton113.setActionCommand("No");
         jRadioButton107.setActionCommand("Si");
         jRadioButton112.setActionCommand("No");
-        
         String result;
         String radio;
         String tele;
