@@ -143,8 +143,8 @@
                               <Component id="jPanel9" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
-                              <Component id="jPanel1" min="-2" pref="366" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" max="-2" attributes="0"/>
+                              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="jPanel8" alignment="1" pref="0" max="32767" attributes="0"/>
                                   <Component id="jPanel2" alignment="1" max="32767" attributes="0"/>
@@ -182,7 +182,7 @@
                           </Group>
                           <Component id="jPanel1" min="-2" pref="337" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="40" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -204,27 +204,29 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jLabel2" min="-2" pref="97" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="jRadioButton2" min="-2" pref="204" max="-2" attributes="0"/>
-                                      <Component id="preg1" alignment="0" min="-2" pref="205" max="-2" attributes="0"/>
-                                      <Component id="jLabel8" alignment="0" min="-2" pref="54" max="-2" attributes="0"/>
-                                      <Component id="jRadioButton8" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel12" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jRadioButton6" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="jRadioButton7" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel11" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="jLabel7" alignment="0" min="-2" pref="97" max="-2" attributes="0"/>
-                                      <Component id="jRadioButton4" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jRadioButton3" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jRadioButton5" alignment="0" max="32767" attributes="0"/>
-                                  </Group>
+                                  <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
                                   <Component id="jButton3" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jLabel2" alignment="0" min="-2" pref="97" max="-2" attributes="0"/>
+                                      <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="jRadioButton2" min="-2" pref="204" max="-2" attributes="0"/>
+                                          <Component id="preg1" alignment="0" min="-2" pref="205" max="-2" attributes="0"/>
+                                          <Component id="jLabel8" alignment="0" min="-2" pref="54" max="-2" attributes="0"/>
+                                          <Component id="jRadioButton8" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jRadioButton6" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="jRadioButton7" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel11" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="jLabel7" alignment="0" min="-2" pref="97" max="-2" attributes="0"/>
+                                          <Component id="jRadioButton4" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jRadioButton3" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jRadioButton5" alignment="0" max="32767" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <EmptySpace min="37" pref="157" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>

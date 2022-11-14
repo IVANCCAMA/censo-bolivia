@@ -43,7 +43,7 @@ public class Bienvenida extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("Cerrar");
+        jButton2.setText("SALIR");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
