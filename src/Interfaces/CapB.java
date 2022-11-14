@@ -2727,9 +2727,14 @@ jRadioButton51.setActionCommand("");
     }//GEN-LAST:event_jRadioButton95ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-new CapF().setVisible(true); 
-this.setVisible(false);
-preg1.setActionCommand("Casa/Choza/Pahuichi");
+if(jTextField5.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Ingrese Codigo de Vivienda porfavor");
+        }else{
+           /* this.setVisible(false);
+            new CapB().setVisible(true);*/	
+        this.setVisible(false);
+        new CapF().setVisible(true);
+        preg1.setActionCommand("Casa/Choza/Pahuichi");
         jRadioButton2.setActionCommand("Departamento");
         jRadioButton3.setActionCommand("Cuarto(s)o habitacion(es) suelta(s)");
         jRadioButton4.setActionCommand("Vivienda improvisada");
@@ -2782,6 +2787,13 @@ preg1.setActionCommand("Casa/Choza/Pahuichi");
                 JOptionPane.showMessageDialog(null,"Error"+ e.getMessage());
         }
         Llenar();
+                                       
+        
+        
+        /*new CapF().setVisible(true); 
+this.setVisible(false);*/ 
+            
+        }
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jRadioButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton8ActionPerformed
