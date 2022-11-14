@@ -243,9 +243,9 @@ public class InicioSesion extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(73, Short.MAX_VALUE)
+                .addContainerGap(71, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addGap(27, 27, 27)
+                .addGap(29, 29, 29)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
@@ -337,8 +337,13 @@ public class InicioSesion extends javax.swing.JFrame {
                 this.setVisible(false); // lo destruye xd
             }else{
                 if(num == listUsr.size()){
-                    JOptionPane.showMessageDialog(null,"datos erroneos, revise los datos introducidos porfavor ",
+                    if(tip.equals(tipoUsr) == false){
+                    JOptionPane.showMessageDialog(null,"Tipo de usuario incorrecto",
                                                 " error al ingresar ",JOptionPane.ERROR_MESSAGE);
+                    } else {
+                    JOptionPane.showMessageDialog(null,"usuario o contraseña incorrectos, revise los datos introducidos porfavor ",
+                                                " error al ingresar ",JOptionPane.ERROR_MESSAGE);
+                    }
                 }
                 num++;
             }
