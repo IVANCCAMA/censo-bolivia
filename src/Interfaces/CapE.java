@@ -610,6 +610,8 @@ public class CapE extends javax.swing.JFrame {
         jTextField4.setText("");
         jTextField1.setText("");
         jTextField2.setText("");
+        buttonGroup2.clearSelection();
+        buttonGroup3.clearSelection();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
