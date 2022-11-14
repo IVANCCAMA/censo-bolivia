@@ -12,9 +12,7 @@ import javax.swing.table.DefaultTableModel;
 import dba.Mysql;
 import java.awt.Graphics;
 import java.awt.Image;
-import java.sql.Array.*;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -29,7 +27,10 @@ public class InicioSesion extends javax.swing.JFrame {
     DefaultTableModel model;
     Connection conn;
     Statement sent;
-            
+    
+    public static int codUsuario; //codUsr
+    public static String zona;
+    
     ArrayList <String> listTUsuario;
     ArrayList <String> listUsr;
     ArrayList <String> listContr;
@@ -37,18 +38,47 @@ public class InicioSesion extends javax.swing.JFrame {
     public InicioSesion(){
         
         this.setContentPane(fondo);
-        
         initComponents();
+        
         conn = Mysql.getConnection();
+        
+        //codUsuario = getCodUsuario();
+        //zona = getZona();
         listTUsuario = new ArrayList<>();
         listUsr = new ArrayList<>();
         listContr = new ArrayList<>();
-        //this.setSize(500, 400);
+        
         
         llenarTUsr(); // para llenar la lista de Tusr
         llenarUsr();
         llenarContr();
     }
+    
+    public void setCodUsuario(int codigo){
+        codUsuario = codigo;
+    }
+    
+    public int getCodUsuario(){
+        return codUsuario;
+    }
+    
+    public void setZona(){
+        try {
+                String sql = "select ZonaCensal from censo.usuario where codUsr = " +  codUsuario;
+                sent = conn.createStatement();
+                ResultSet rs = sent.executeQuery(sql);
+                rs.next(); // SI O SI PONER PARA LO RESULTADOS
+                zona = rs.getString("ZonaCensal");
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+    }
+    
+    public String getZona(){
+        return zona;
+    }
+    
     private void llenarTUsr(){
        try {
             conn = Mysql.getConnection(); //conexion con sql
@@ -74,7 +104,7 @@ public class InicioSesion extends javax.swing.JFrame {
             
             while(rs.next()){
                 listUsr.add(rs.getString("codUsr"));
-                //System.out.println(rs.getString("codUsr"));
+                
             }
         }
         catch (Exception e) {
@@ -179,38 +209,41 @@ public class InicioSesion extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addGap(83, 83, 83))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jButton3)
+                        .addGap(132, 132, 132))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(50, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(26, 26, 26)
-                                .addComponent(jButton1))
-                            .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(jLabel3)
+                                    .addGap(92, 92, 92)
+                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel2)
+                                        .addComponent(jLabel4))
+                                    .addGap(48, 48, 48)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel1)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(jButton3)
-                                .addGap(50, 50, 50)))
-                        .addGap(16, 16, 16))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(jLabel3)
-                            .addGap(92, 92, 92)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel2)
-                                .addComponent(jLabel4))
-                            .addGap(48, 48, 48)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel1)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(jLabel5)
+                                .addGap(117, 117, 117)))
+                        .addGap(50, 50, 50))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(120, 120, 120)
-                        .addComponent(jLabel5)
-                        .addGap(117, 117, 117)))
-                .addGap(50, 50, 50))
+                        .addComponent(jButton1)
+                        .addGap(131, 131, 131))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -273,8 +306,10 @@ public class InicioSesion extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        //boton iniciar sesion
+        //boton INICIAR SECION
         boolean NoEncontrado = true;
+        setCodUsuario(Integer.parseInt(jTextField1.getText()));
+        setZona();
         
         String tip    = jComboBox1.getSelectedItem().toString(); //recuperamos tipo usr
         String usr    = jTextField1.getText(); //recuperamos el usr
@@ -409,7 +444,4 @@ public class InicioSesion extends javax.swing.JFrame {
             super.paint(g);
         }
     }
-    
-
-
 }

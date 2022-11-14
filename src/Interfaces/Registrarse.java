@@ -10,7 +10,6 @@ package Interfaces;
  */
 import javax.swing.table.DefaultTableModel;
 import dba.Mysql;
-import java.sql.Array.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -27,20 +26,20 @@ public class Registrarse extends javax.swing.JFrame {
         initComponents();
         
         conn=Mysql.getConnection();
-        //Deshabilitar();
+        jTextField6.setEditable(false);
         Llenar();
         
     }
     void Llenar(){
         try {
             conn = Mysql.getConnection();
-            String[]titulos = {"id", "Nombre", "Dirección", "Teléfono", "Correo","tipoUsuario", "contraseña"}; 
+            String[]titulos = {"id", "Nombre", "Dirección", "Teléfono", "Correo","tipoUsuario", "contraseña", "Zona Censal"}; 
             String sql = "select * from usuario";
             model = new DefaultTableModel(null, titulos);
             sent= conn.createStatement();
             ResultSet rs=sent.executeQuery(sql);
             
-            String[]fila = new String[7];
+            String[]fila = new String[8];
             while(rs.next()){
                 fila[0]=rs.getString("codUsr");
                 fila[1]=rs.getString("nombreUsr");
@@ -49,6 +48,7 @@ public class Registrarse extends javax.swing.JFrame {
                 fila[4]=rs.getString("correoUsr");
                 fila[5]=rs.getString("tipoUsr");
                 fila[6]=rs.getString("contrUsr");
+                fila[7]=rs.getString("ZonaCensal");
                 model.addRow(fila);
             }
             //jTable1.setModel(model);
@@ -81,6 +81,8 @@ public class Registrarse extends javax.swing.JFrame {
         jComboBox1 = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
         jTextField5 = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        jTextField6 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -110,39 +112,58 @@ public class Registrarse extends javax.swing.JFrame {
 
         jLabel6.setText("Contraseña");
 
+        jLabel7.setText("Zona censal");
+
+        jTextField6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField6ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(125, Short.MAX_VALUE)
+                .addContainerGap(124, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4)
                             .addComponent(jLabel5)
-                            .addComponent(jLabel6))
-                        .addGap(21, 21, 21)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabel7)
+                                .addComponent(jLabel2)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jTextField4)
-                                .addComponent(jTextField1)
-                                .addComponent(jTextField2)
-                                .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE))
-                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(50, 50, 50))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(22, 22, 22)
+                                .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(21, 21, 21)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextField2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jComboBox1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(67, 67, 67))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jButton1)
-                        .addGap(208, 208, 208))))
+                        .addGap(219, 219, 219))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel6))
+                        .addGap(21, 21, 21)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTextField5, javax.swing.GroupLayout.DEFAULT_SIZE, 222, Short.MAX_VALUE)
+                            .addComponent(jTextField4)
+                            .addComponent(jTextField3))
+                        .addGap(67, 67, 67))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(78, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(72, 72, 72)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -154,7 +175,11 @@ public class Registrarse extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jTextField6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -166,9 +191,9 @@ public class Registrarse extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(36, 36, 36)
                 .addComponent(jButton1)
-                .addGap(41, 41, 41))
+                .addGap(49, 49, 49))
         );
 
         pack();
@@ -176,13 +201,21 @@ public class Registrarse extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here:
+        if(jComboBox1.getSelectedItem() == "Jefe de Zona"){
+            jTextField6.setEditable(true);
+        }else{
+            jTextField6.setEditable(false);
+        }
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        regitrar();
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+    public void regitrar(){
         try {
             String sql = "insert into usuario (nombreUsr, dirUsr, telfUsr, correoUsr, tipoUsr, contrUsr)"+
-                    "values(?,?,?,?,?,?)";
+                    "values(?,?,?,?,?,?,?)";
             PreparedStatement ps = conn.prepareCall(sql);
             ps.setString(1, jTextField1.getText());
             ps.setString(2, jTextField2.getText());
@@ -190,6 +223,7 @@ public class Registrarse extends javax.swing.JFrame {
             ps.setString(4, jTextField4.getText());
             ps.setString(5, jComboBox1.getSelectedItem().toString());
             ps.setString(6, jTextField5.getText());
+            ps.setString(7, jTextField6.getText());
             
             int n = ps.executeUpdate();
             if(n>0){
@@ -200,9 +234,11 @@ public class Registrarse extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null,"Error"+ e.getMessage());
         }
         Llenar();
-        //generarCod();
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }
+    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField6ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -248,10 +284,12 @@ public class Registrarse extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField jTextField6;
     // End of variables declaration//GEN-END:variables
 }

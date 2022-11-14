@@ -8,6 +8,7 @@ import java.sql.ResultSet;
 import dba.Mysql;
 import java.sql.Connection;
 import java.sql.Statement;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -16,24 +17,42 @@ import java.sql.Statement;
 public class JefeZonaTabla extends javax.swing.JFrame {
 
     Connection conn;
+    DefaultTableModel model;
     Statement sent;
     public JefeZonaTabla() {
         initComponents();
+        conn=Mysql.getConnection();
+        Llenar();
     }
     
-    public void recuperarDatos(){
+    private void Llenar(){
         try {
-                String sql = "select codUsr, nombreUsr, dirUsr, telfUsr, correoUsr from censo.usuario where tipoUsr = 'Jefe de Zona'";
-                sent = conn.createStatement();
-                ResultSet rs = sent.executeQuery(sql);
-                rs.next(); // SI O SI PONER PARA LO RESULTADOS
-                //jTextField1.setText(rs.getString("nombreUsr"));
-                //jTextField2.setText(rs.getString("dirUsr"));
-                //jTextField3.setText(rs.getString("telfUsr"));
-
-            } catch (Exception e) {
-                e.printStackTrace();
+            
+            conn = Mysql.getConnection();
+            String[]titulos = {"codUsr", "nombreUsr", "dirUsr", "telfUsr", "correoUsr", "ZonaCensal"}; // colocar mismos nombres de la tabla
+            String sql = "select codUsr,nombreUsr,dirUsr,telfUsr,correoUsr,ZonaCensal from usuario "
+                    + "where tipoUsr = 'Encuestador' AND ZonaCensal = " + "'" + InicioSesion.zona + "'";
+            model = new DefaultTableModel(null, titulos);
+            sent = conn.createStatement(); //sent = estado para ejecutar sql
+            ResultSet rs = sent.executeQuery(sql); // 
+            
+            String[]fila = new String[6];
+            while(rs.next()){
+                fila[0]=rs.getString("codUsr"); //No colocar repetidos
+                fila[1]=rs.getString("nombreUsr");
+                fila[2]=rs.getString("dirUsr");
+                fila[3]=rs.getString("telfUsr");
+                fila[4]=rs.getString("correoUsr");
+                fila[5]=rs.getString("ZonaCensal");
+                model.addRow(fila);
             }
+            jTable1.setModel(model);
+            jTable1.setEnabled(false);
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+    
     }
     
     @SuppressWarnings("unchecked")
@@ -42,6 +61,8 @@ public class JefeZonaTabla extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -58,25 +79,51 @@ public class JefeZonaTabla extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabel1.setText("DATOS DE ENCUESTADORES");
+
+        jButton1.setText("ATRAS");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(50, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1020, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton1)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(361, 361, 361)
+                            .addComponent(jLabel1))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(87, 87, 87)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1020, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(126, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(50, 50, 50)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(37, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(40, 40, 40)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 572, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton1)
+                .addGap(12, 12, 12))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -113,6 +160,8 @@ public class JefeZonaTabla extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
