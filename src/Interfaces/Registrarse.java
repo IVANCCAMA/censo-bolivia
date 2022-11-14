@@ -229,13 +229,14 @@ public class Registrarse extends javax.swing.JFrame {
             int n = ps.executeUpdate();
             if(n>0){
                 JOptionPane.showMessageDialog(null, "Datos guardados correctamente");
+                this.setVisible(false);
+                new InicioSesion().setVisible(true);
             }
 
         } catch (Exception e) {
                 JOptionPane.showMessageDialog(null,"Error"+ e.getMessage());
         }
         Llenar();
-        
     }
     private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
         // TODO add your handling code here:
