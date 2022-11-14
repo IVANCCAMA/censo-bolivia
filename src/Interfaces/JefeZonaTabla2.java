@@ -96,7 +96,7 @@ public class JefeZonaTabla2 extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 26)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jLabel1.setText("ESTADO DE ZONA CENSAL");
 
         jLabel2.setText("Numero de viviendas censadas:");
@@ -137,7 +137,7 @@ public class JefeZonaTabla2 extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 547, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton1)
-                .addContainerGap(10, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
