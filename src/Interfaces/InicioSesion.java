@@ -30,6 +30,7 @@ public class InicioSesion extends javax.swing.JFrame {
     
     public static int codUsuario; //codUsr
     public static String zona;
+    public static String nombreUrs;
     
     ArrayList <String> listTUsuario;
     ArrayList <String> listUsr;
@@ -42,8 +43,6 @@ public class InicioSesion extends javax.swing.JFrame {
         
         conn = Mysql.getConnection();
         
-        //codUsuario = getCodUsuario();
-        //zona = getZona();
         listTUsuario = new ArrayList<>();
         listUsr = new ArrayList<>();
         listContr = new ArrayList<>();
@@ -69,6 +68,19 @@ public class InicioSesion extends javax.swing.JFrame {
                 ResultSet rs = sent.executeQuery(sql);
                 rs.next(); // SI O SI PONER PARA LO RESULTADOS
                 zona = rs.getString("ZonaCensal");
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+    }
+    
+    public void setNombre(){
+        try {
+                String sql = "select nombreUsr from censo.usuario where codUsr = " +  codUsuario;
+                sent = conn.createStatement();
+                ResultSet rs = sent.executeQuery(sql);
+                rs.next(); // SI O SI PONER PARA LO RESULTADOS
+                nombreUrs = rs.getString("nombreUsr");
 
             } catch (Exception e) {
                 e.printStackTrace();
@@ -163,6 +175,7 @@ public class InicioSesion extends javax.swing.JFrame {
             }
         });
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         jButton1.setText("Iniciar Sesión");
@@ -318,6 +331,7 @@ public class InicioSesion extends javax.swing.JFrame {
         boolean NoEncontrado = true;
         setCodUsuario(Integer.parseInt(jTextField1.getText()));
         setZona();
+        setNombre();
         
         String tip    = jComboBox1.getSelectedItem().toString(); //recuperamos tipo usr
         String usr    = jTextField1.getText(); //recuperamos el usr
