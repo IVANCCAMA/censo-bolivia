@@ -169,12 +169,12 @@ public class Administrador extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        BotonAtras = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         BotonEncuestador = new javax.swing.JButton();
         BotonCenso = new javax.swing.JButton();
         BotonJefes = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
+        BotonAtras = new javax.swing.JButton();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         panelJefe = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -200,14 +200,6 @@ public class Administrador extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         jLabel1.setText("ADMINISTRADOR");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 20, -1, -1));
-
-        BotonAtras.setText("Atras");
-        BotonAtras.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotonAtrasActionPerformed(evt);
-            }
-        });
-        jPanel1.add(BotonAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 715, -1, -1));
 
         jPanel2.setBackground(new java.awt.Color(0, 102, 255));
         jPanel2.setForeground(new java.awt.Color(51, 102, 255));
@@ -239,6 +231,14 @@ public class Administrador extends javax.swing.JFrame {
 
         jButton5.setText("VER ESTADO DE JEFES DE ZONA");
         jPanel2.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 260, 120));
+
+        BotonAtras.setText("Atras");
+        BotonAtras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonAtrasActionPerformed(evt);
+            }
+        });
+        jPanel2.add(BotonAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 720, -1, -1));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 290, 750));
 

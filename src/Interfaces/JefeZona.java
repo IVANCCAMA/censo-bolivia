@@ -175,7 +175,7 @@ public class JefeZona extends javax.swing.JFrame {
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel4.setText("ZONA DEL JEFE:");
-        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 20, 142, -1));
+        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 20, 142, -1));
 
         jButton2.setText("ATRAS");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
