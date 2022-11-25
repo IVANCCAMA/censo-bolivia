@@ -135,25 +135,36 @@ public class CapE extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jTabbedPane2.setBackground(new java.awt.Color(255, 255, 255));
+        jTabbedPane2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jTabbedPane2.setPreferredSize(new java.awt.Dimension(1045, 649));
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(1043, 616));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         jLabel2.setText("22. ¿Hay en este hogar alguna persona con dificultad permanente para...");
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 21, 530, -1));
 
         jLabel3.setText("ver, aun si usa anteojos o lentes?");
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 54, -1, -1));
 
         jLabel4.setText("oír, aun si usa audífono?");
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 81, -1, -1));
 
         jLabel5.setText("hablar, comunicarse o conversar?");
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 112, -1, -1));
 
         jLabel6.setText("caminar o subir escalones?");
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 143, -1, -1));
 
         jLabel7.setText("recordar o concentrarse?");
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 174, -1, -1));
 
         buttonGroup1.add(jRadioButton1);
         jRadioButton1.setText("Sí");
@@ -162,9 +173,11 @@ public class CapE extends javax.swing.JFrame {
                 jRadioButton1ActionPerformed(evt);
             }
         });
+        jPanel2.add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 110, -1, 22));
 
         buttonGroup1.add(jRadioButton2);
         jRadioButton2.setText("No");
+        jPanel2.add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(723, 114, -1, 16));
 
         jButton1.setText("Pase a la preg. 23");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -172,97 +185,53 @@ public class CapE extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 110, -1, -1));
 
         jTextField3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField3ActionPerformed(evt);
             }
         });
+        jPanel2.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(535, 108, 120, -1));
 
         jLabel13.setText("¿Cuántas personas?");
+        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 70, -1, -1));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel6)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addComponent(jLabel5)
-                                        .addGap(191, 191, 191)
-                                        .addComponent(jRadioButton1))
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel3))
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addGap(64, 64, 64)
-                                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(135, 135, 135)
-                                        .addComponent(jRadioButton2))
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addGap(34, 34, 34)
-                                        .addComponent(jLabel13)))))
-                        .addGap(0, 248, Short.MAX_VALUE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel7)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1)
-                        .addGap(20, 20, 20))))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jRadioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jRadioButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(jButton1))
-                .addContainerGap(13, Short.MAX_VALUE))
-        );
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 1120, 210));
 
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         jLabel8.setText("Nombre de la persona");
+        jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 40, -1, -1));
 
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         jLabel9.setText("Edad");
+        jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 40, -1, -1));
 
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         jLabel10.setText("La persona es:");
+        jPanel3.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 40, -1, -1));
 
+        jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         jLabel11.setText("La dificultad permanente es para...");
+        jPanel3.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 40, 270, -1));
 
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
             }
         });
+        jPanel3.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, 210, -1));
 
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField2ActionPerformed(evt);
             }
         });
+        jPanel3.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 80, 40, -1));
 
         buttonGroup2.add(jRadioButton3);
         jRadioButton3.setText("Mujer");
@@ -271,6 +240,7 @@ public class CapE extends javax.swing.JFrame {
                 jRadioButton3ActionPerformed(evt);
             }
         });
+        jPanel3.add(jRadioButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 80, -1, -1));
 
         buttonGroup2.add(jRadioButton4);
         jRadioButton4.setText("Hombre");
@@ -279,6 +249,7 @@ public class CapE extends javax.swing.JFrame {
                 jRadioButton4ActionPerformed(evt);
             }
         });
+        jPanel3.add(jRadioButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 110, -1, -1));
 
         buttonGroup3.add(jRadioButton5);
         jRadioButton5.setText("ver, aun si usa anteojos o lentes?");
@@ -287,6 +258,7 @@ public class CapE extends javax.swing.JFrame {
                 jRadioButton5ActionPerformed(evt);
             }
         });
+        jPanel3.add(jRadioButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 80, -1, -1));
 
         buttonGroup3.add(jRadioButton6);
         jRadioButton6.setText("oír, aun si usa audífono?");
@@ -295,6 +267,7 @@ public class CapE extends javax.swing.JFrame {
                 jRadioButton6ActionPerformed(evt);
             }
         });
+        jPanel3.add(jRadioButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 110, -1, -1));
 
         buttonGroup3.add(jRadioButton7);
         jRadioButton7.setText("hablar, comunicarse o conversar?");
@@ -303,12 +276,15 @@ public class CapE extends javax.swing.JFrame {
                 jRadioButton7ActionPerformed(evt);
             }
         });
+        jPanel3.add(jRadioButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 140, -1, -1));
 
         buttonGroup3.add(jRadioButton8);
         jRadioButton8.setText("caminar o subir escalones?");
+        jPanel3.add(jRadioButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 80, -1, -1));
 
         buttonGroup3.add(jRadioButton9);
         jRadioButton9.setText("recordar o concentrarse?");
+        jPanel3.add(jRadioButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 110, 200, -1));
 
         jButton2.setText("Guardar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -316,88 +292,14 @@ public class CapE extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
+        jPanel3.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 180, -1, -1));
+        jPanel3.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 50, -1));
 
+        jLabel14.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         jLabel14.setText("  N°");
+        jPanel3.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 31, -1));
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addGap(65, 65, 65)
-                        .addComponent(jLabel8)
-                        .addGap(31, 31, 31)))
-                .addGap(28, 28, 28)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9))
-                .addGap(29, 29, 29)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(270, 270, 270)
-                        .addComponent(jLabel11))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jRadioButton4)
-                            .addComponent(jLabel10)
-                            .addComponent(jRadioButton3))
-                        .addGap(27, 27, 27)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jRadioButton6)
-                            .addComponent(jRadioButton5)
-                            .addComponent(jRadioButton7))
-                        .addGap(33, 33, 33)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jRadioButton8)
-                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jButton2)
-                                .addComponent(jRadioButton9)))))
-                .addContainerGap(9, Short.MAX_VALUE))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel9)
-                            .addComponent(jLabel10)
-                            .addComponent(jLabel14)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel11)))
-                .addGap(33, 33, 33)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jRadioButton5)
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jRadioButton3)
-                        .addComponent(jRadioButton8)
-                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jRadioButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jRadioButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jRadioButton9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jRadioButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton2)
-                .addContainerGap(12, Short.MAX_VALUE))
-        );
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, 1110, 290));
 
         jButton3.setText("Siguiente");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -405,33 +307,7 @@ public class CapE extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(7, 7, 7))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButton3)
-                .addContainerGap())
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(58, 58, 58)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
-                .addComponent(jButton3)
-                .addContainerGap(35, Short.MAX_VALUE))
-        );
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 570, -1, -1));
 
         jTabbedPane2.addTab("Capítulo E", jPanel1);
 
@@ -439,6 +315,7 @@ public class CapE extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(0, 0, 255));
         jLabel1.setText("CAPÍTULO E. PERSONAS CON ALGUNA DIFICULTAD PERMANENTE");
 
+        jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         jLabel12.setText("Código vivienda");
 
         jTextField7.addActionListener(new java.awt.event.ActionListener() {
@@ -452,31 +329,28 @@ public class CapE extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(238, 238, 238)
+                .addGap(218, 218, 218)
                 .addComponent(jLabel1)
-                .addGap(36, 36, 36)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
                 .addComponent(jLabel12)
                 .addGap(18, 18, 18)
                 .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 23, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 1045, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(72, 72, 72))
+                .addContainerGap())
+            .addComponent(jTabbedPane2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(21, 21, 21)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addComponent(jLabel12))
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 662, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                        .addGap(7, 7, 7)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel12)
+                            .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jTabbedPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 662, Short.MAX_VALUE))
         );
 
         pack();
