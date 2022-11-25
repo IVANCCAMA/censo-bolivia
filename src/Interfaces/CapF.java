@@ -38,67 +38,8 @@ public class CapF extends javax.swing.JFrame {
         initComponents();
         
         conn=Mysql.getConnection();
-        Llenar();
     }
-    
-    void Llenar(){
-        
-        try {
-            conn = Mysql.getConnection();
-            String[]titulos = {"codVivienda","numPersona", "nomPersona", "parentesco", "sexo","edad", "nacInscrito"
-            ,"carnet", "problemaSaludAcude" , "indigenaOriginario", "primerIdioma", "hablaIdiomas", "dondeNacio", "dondeVive", "viviaHace", "leerEscribir"
-                    , "acudeColegio", "nivelEstudio", "nivelAprobado", "trabajo", "trabajoSemana", "duranteSemana", "ocupacion", "ocupacionTrabajo", "produceVende"
-                    , "estadoCivil", "hijos", "hijoViven", "ultHijoNacio", "vive", "lugarParto"
-            }; 
-            String sql = "select * from cap_f";
-            model = new DefaultTableModel(null, titulos);
-            sent= conn.createStatement();
-            ResultSet rs=sent.executeQuery(sql);
-            
-            String[]fila = new String[31];
-            while(rs.next()){
-                fila[0]=rs.getString("codVivienda");
-                fila[1]=rs.getString("numPersona");
-                fila[2]=rs.getString("nomPersona");
-                fila[3]=rs.getString("parentesco");
-                fila[4]=rs.getString("sexo");
-                fila[5]=rs.getString("edad");
-                fila[6]=rs.getString("nacInscrito");
-                fila[7]=rs.getString("carnet");
-                fila[8]=rs.getString("problemaSaludAcude");
-                fila[9]=rs.getString("indigenaOriginario");
-                fila[10]=rs.getString("primerIdioma");
-                fila[11]=rs.getString("hablaIdiomas");
-                fila[12]=rs.getString("dondeNacio");
-                fila[13]=rs.getString("dondeVive");
-                fila[14]=rs.getString("viviaHace");
-                fila[15]=rs.getString("leerEscribir");
-                fila[16]=rs.getString("acudeColegio");
-                fila[17]=rs.getString("nivelEstudio");
-                fila[18]=rs.getString("nivelAprobado");
-                fila[19]=rs.getString("trabajo");
-                fila[20]=rs.getString("trabajoSemana");
-                fila[21]=rs.getString("duranteSemana");
-                fila[22]=rs.getString("ocupacion");
-                fila[23]=rs.getString("ocupacionTrabajo");
-                fila[24]=rs.getString("produceVende");
-                fila[25]=rs.getString("estadoCivil");
-                fila[26]=rs.getString("hijos");
-                fila[27]=rs.getString("hijoViven");
-                fila[28]=rs.getString("ultHijoNacio");
-                fila[29]=rs.getString("vive");
-                fila[30]=rs.getString("lugarParto");
-                
-                }
-                
-                model.addRow(fila);
-            }
-            //jTable1.setModel(model);
-            catch (Exception e) {
-            e.printStackTrace();
-            }
-        }
-    
+  
     private String preg31(){
         String result = jTextField6+", "+jTextField7+", "+jTextField8+", "+jTextField9;
         
@@ -2952,17 +2893,18 @@ public class CapF extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(72, 72, 72)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1051, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(77, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel74)
-                .addGap(84, 84, 84)
-                .addComponent(jLabel51)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField27, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(61, 61, 61))
+                .addContainerGap(80, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel74)
+                        .addGap(84, 84, 84)
+                        .addComponent(jLabel51)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextField27, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(61, 61, 61))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1051, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(69, 69, 69))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2972,9 +2914,9 @@ public class CapF extends javax.swing.JFrame {
                     .addComponent(jLabel74)
                     .addComponent(jLabel51)
                     .addComponent(jTextField27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21)
+                .addGap(18, 18, 18)
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
         pack();
@@ -3339,7 +3281,6 @@ public class CapF extends javax.swing.JFrame {
         } catch (Exception e) {
                 JOptionPane.showMessageDialog(null,"Error"+ e.getMessage());
         }
-        Llenar();
 
         
     }//GEN-LAST:event_jButton1ActionPerformed
