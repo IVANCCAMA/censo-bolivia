@@ -6,8 +6,10 @@ package Interfaces;
 
 import dba.Mysql;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -135,7 +137,6 @@ public class Administrador extends javax.swing.JFrame {
     
     private void llenarTablaJefes(){
         try {
-            
             conn = Mysql.getConnection();
             String[]titulos = {"codUsr", "nombreUsr", "dirUsr", "telfUsr", "correoUsr", "ZonaCensal"}; // colocar mismos nombres de la tabla
             String sql = "select codUsr,nombreUsr,dirUsr,telfUsr,correoUsr,ZonaCensal from usuario "
@@ -154,13 +155,30 @@ public class Administrador extends javax.swing.JFrame {
                 fila[5]=rs.getString("ZonaCensal");
                 model.addRow(fila);
             }
-            tablaJefes.setModel(model);
-            tablaJefes.setEnabled(false);
+            tablaJefes.setModel(model);//la tabla sql adoptará el modelo "model", establecido anteriormente
+            //tablaJefes.setEnabled(false);
         }
         catch (Exception e) {
             e.printStackTrace();
         }
     
+    }
+    public void actualizarRegistro(){
+        int fila = tablaJefes.getSelectedRow();//obtenemos el nro de la fila seleccionada
+        int id = Integer.parseInt(tablaJefes.getValueAt(fila, 0).toString());
+        String nombreUser = tablaJefes.getValueAt(fila, 1).toString();
+        String dirUser = tablaJefes.getValueAt(fila, 2).toString();
+        String telfUser = tablaJefes.getValueAt(fila, 3).toString();
+        String correoUser = tablaJefes.getValueAt(fila, 4).toString();
+        String zonaCensal = tablaJefes.getValueAt(fila, 5).toString();
+        try {
+            conn = Mysql.getConnection();
+            PreparedStatement actualizar = conn.prepareStatement("UPDATE usuario SET nombreUsr='"+nombreUser+"',dirUsr='"+dirUser+"',telfUsr='"+telfUser+"',correoUsr='"+correoUser+"',ZonaCensal='"+zonaCensal+"' WHERE codUsr = '"+id+"'");
+            actualizar.executeUpdate();
+            llenarTablaJefes();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
     
     @SuppressWarnings("unchecked")
@@ -181,6 +199,9 @@ public class Administrador extends javax.swing.JFrame {
         tablaJefes = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
         textNombre = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
         panelEncuestador = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tablaEncuestador = new javax.swing.JTable();
@@ -256,7 +277,15 @@ public class Administrador extends javax.swing.JFrame {
             new String [] {
                 "codUrs", "NomUrs", "dirUrs", "telfUsr", "correo", "Zona Censal"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, true, true, true, true, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(tablaJefes);
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -265,6 +294,27 @@ public class Administrador extends javax.swing.JFrame {
         textNombre.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         textNombre.setBorder(null);
 
+        jButton1.setText("Añadir nuevo");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Eliminar ");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jButton3.setText("Actualizar");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelJefeLayout = new javax.swing.GroupLayout(panelJefe);
         panelJefe.setLayout(panelJefeLayout);
         panelJefeLayout.setHorizontalGroup(
@@ -272,13 +322,20 @@ public class Administrador extends javax.swing.JFrame {
             .addGroup(panelJefeLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panelJefeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 898, Short.MAX_VALUE)
+                    .addGroup(panelJefeLayout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 898, Short.MAX_VALUE)
+                        .addContainerGap())
                     .addGroup(panelJefeLayout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addGap(18, 18, 18)
                         .addComponent(textNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton1)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton3)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton2)
+                        .addGap(31, 31, 31))))
         );
         panelJefeLayout.setVerticalGroup(
             panelJefeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -286,10 +343,13 @@ public class Administrador extends javax.swing.JFrame {
                 .addGap(7, 7, 7)
                 .addGroup(panelJefeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(textNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(textNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2)
+                    .addComponent(jButton3))
                 .addGap(10, 10, 10)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 569, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("JEFES DE ZONA", panelJefe);
@@ -330,11 +390,11 @@ public class Administrador extends javax.swing.JFrame {
         panelEncuestadorLayout.setVerticalGroup(
             panelEncuestadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelEncuestadorLayout.createSequentialGroup()
-                .addGap(8, 8, 8)
+                .addGap(9, 9, 9)
                 .addGroup(panelEncuestadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(textNumEnc, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE))
-                .addGap(9, 9, 9)
+                    .addComponent(textNumEnc))
+                .addGap(11, 11, 11)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 591, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -429,6 +489,36 @@ public class Administrador extends javax.swing.JFrame {
         jTabbedPane1.getSelectedIndex();
     }//GEN-LAST:event_BotonJefesActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        new Registrarse().setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        try {
+            //String id = JOptionPane.showInputDialog("Ingrese el id del usuario a eliminar");
+
+            conn = Mysql.getConnection();
+            String consulta = "DELETE FROM usuario WHERE nombreUsr = 783";
+            sent = conn.createStatement();
+            sent.executeQuery(consulta);
+            llenarTablaJefes();
+
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        int r =JOptionPane.showOptionDialog(this, "¿Está seguro de modificar la fila seleccionada?", "Registro", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, new Object[] {"Si", "No"}, "No");
+        if (r == 0){
+            actualizarRegistro();
+        } else {
+            llenarTablaJefes();
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -469,6 +559,9 @@ public class Administrador extends javax.swing.JFrame {
     private javax.swing.JButton BotonCenso;
     private javax.swing.JButton BotonEncuestador;
     private javax.swing.JButton BotonJefes;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
