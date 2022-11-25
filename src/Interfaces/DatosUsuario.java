@@ -19,10 +19,11 @@ public class DatosUsuario {
     Connection conn;
     Statement sent;
     
+    
     public static String usuario;
     public static String nombre;
     public static String zona;
-    public static String codVivienda;
+    public static String codVivienda; 
     
     public DatosUsuario(String usr){
         conn = Mysql.getConnection();
