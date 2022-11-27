@@ -29,6 +29,7 @@ public class Administrador extends javax.swing.JFrame {
         
         conn=Mysql.getConnection();
         
+        Deshabilitar();
         llenarTablaJefes();
         llenarTablaEncuestador();
         llenarTablaCenso();
@@ -97,7 +98,7 @@ public class Administrador extends javax.swing.JFrame {
                 fila[5]=rs.getString("ZonaCensal");
                 model.addRow(fila);
             }
-            //tablaEncuestador.setModel(model);
+            tablaEncuestador.setModel(model);
             //tablaEncuestador.setEnabled(false);
         }
         catch (Exception e) {
@@ -155,13 +156,39 @@ public class Administrador extends javax.swing.JFrame {
                 fila[5]=rs.getString("ZonaCensal");
                 model.addRow(fila);
             }
-            //tablaJefes.setModel(model);//la tabla sql adoptará el modelo "model", establecido anteriormente
+            tablaJefes.setModel(model);//la tabla sql adoptará el modelo "model", establecido anteriormente
             //tablaJefes.setEnabled(false);
         }
         catch (Exception e) {
             e.printStackTrace();
         }
     
+    }
+    
+    void Deshabilitar(){
+       jTextField1.setEditable(false);
+       jTextField2.setEditable(false);
+       jTextField3.setEditable(false);
+       jTextField4.setEditable(false);
+       jTextField13.setEditable(false);
+       jTextField16.setEditable(false);
+    }
+     void Limpiar(){
+        jTextField1.setText("");
+        jTextField2.setText("");
+        jTextField3.setText("");
+        jTextField4.setText("");
+        jTextField13.setText("");
+        jTextField16.setText("");
+    }
+    void Habilitar(boolean modContra){
+       jTextField1.setEditable(true);
+       jTextField2.setEditable(true);
+       jTextField3.setEditable(true);
+       jTextField4.setEditable(true);
+       jTextField13.setEditable(true);
+       if (modContra) jTextField16.setEditable(true);
+       jTextField1.requestFocus();
     }
     public void actualizarRegistro(){
         /*int fila = tablaJefes.getSelectedRow();//obtenemos el nro de la fila seleccionada
@@ -212,12 +239,14 @@ public class Administrador extends javax.swing.JFrame {
         jTextField3 = new javax.swing.JTextField();
         jTextField4 = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tablaJefes = new javax.swing.JTable();
         jLabel18 = new javax.swing.JLabel();
         textNumJefesZona = new javax.swing.JTextField();
         jLabel20 = new javax.swing.JLabel();
         jTextField13 = new javax.swing.JTextField();
         jLabel21 = new javax.swing.JLabel();
+        jTextField16 = new javax.swing.JTextField();
+        jLabel26 = new javax.swing.JLabel();
         panelEncuestador = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         textNumEnc = new javax.swing.JTextField();
@@ -235,7 +264,7 @@ public class Administrador extends javax.swing.JFrame {
         jTextField11 = new javax.swing.JTextField();
         jTextField12 = new javax.swing.JTextField();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
+        tablaEncuestador = new javax.swing.JTable();
         jLabel24 = new javax.swing.JLabel();
         jTextField15 = new javax.swing.JTextField();
         jLabel25 = new javax.swing.JLabel();
@@ -356,7 +385,7 @@ public class Administrador extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        panelJefe.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 560, -1, -1));
+        panelJefe.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 630, 100, -1));
 
         jButton2.setText("Guardar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -364,7 +393,7 @@ public class Administrador extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        panelJefe.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 560, -1, -1));
+        panelJefe.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 630, 100, -1));
 
         jButton3.setText("Actualizar");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -372,7 +401,7 @@ public class Administrador extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-        panelJefe.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 560, -1, -1));
+        panelJefe.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 630, -1, -1));
 
         jButton6.setText("Eliminar");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
@@ -380,7 +409,7 @@ public class Administrador extends javax.swing.JFrame {
                 jButton6ActionPerformed(evt);
             }
         });
-        panelJefe.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 560, -1, -1));
+        panelJefe.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 630, -1, -1));
 
         jButton7.setText("Cerrar");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
@@ -388,16 +417,16 @@ public class Administrador extends javax.swing.JFrame {
                 jButton7ActionPerformed(evt);
             }
         });
-        panelJefe.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 560, 122, -1));
+        panelJefe.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(1022, 630, 100, -1));
 
         jLabel6.setText("Nombre");
-        panelJefe.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 140, -1, -1));
+        panelJefe.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 130, -1, -1));
 
-        jLabel7.setText("Direccion");
-        panelJefe.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 190, -1, -1));
+        jLabel7.setText("Dirección");
+        panelJefe.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 180, -1, -1));
 
-        jLabel8.setText("Telefono");
-        panelJefe.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 240, -1, -1));
+        jLabel8.setText("Teléfono");
+        panelJefe.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 230, -1, -1));
         panelJefe.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 130, 490, -1));
         panelJefe.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 180, 490, -1));
         panelJefe.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 230, 490, -1));
@@ -409,7 +438,7 @@ public class Administrador extends javax.swing.JFrame {
         });
         panelJefe.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 280, 490, -1));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tablaJefes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -420,15 +449,15 @@ public class Administrador extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jTable1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+        tablaJefes.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        tablaJefes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTable1MouseClicked(evt);
+                tablaJefesMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tablaJefes);
 
-        panelJefe.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 400, 580, 147));
+        panelJefe.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 470, 580, 147));
 
         jLabel18.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel18.setText("JEFES DE ZONA:");
@@ -444,11 +473,15 @@ public class Administrador extends javax.swing.JFrame {
         panelJefe.add(textNumJefesZona, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 50, 113, -1));
 
         jLabel20.setText("Correo");
-        panelJefe.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 280, -1, -1));
+        panelJefe.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 280, -1, -1));
         panelJefe.add(jTextField13, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 330, 490, -1));
 
         jLabel21.setText("Zona Censal");
-        panelJefe.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 330, -1, -1));
+        panelJefe.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 330, -1, -1));
+        panelJefe.add(jTextField16, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 380, 490, -1));
+
+        jLabel26.setText("Contraseña");
+        panelJefe.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 380, -1, -1));
 
         jTabbedPane1.addTab("JZ", panelJefe);
 
@@ -525,7 +558,7 @@ public class Administrador extends javax.swing.JFrame {
         });
         panelEncuestador.add(jTextField12, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 320, 490, -1));
 
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+        tablaEncuestador.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -536,13 +569,13 @@ public class Administrador extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jTable3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jTable3.addMouseListener(new java.awt.event.MouseAdapter() {
+        tablaEncuestador.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        tablaEncuestador.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTable3MouseClicked(evt);
+                tablaEncuestadorMouseClicked(evt);
             }
         });
-        jScrollPane4.setViewportView(jTable3);
+        jScrollPane4.setViewportView(tablaEncuestador);
 
         panelEncuestador.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 440, 580, 147));
 
@@ -721,69 +754,73 @@ public class Administrador extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // BOTON NUEVO
-        //Limpiar();
-        //Habilitar();
+        Limpiar();
+        Habilitar(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // BOTON GUARDAR
         try {
-            String sql = "insert into contactos (nombre, direccion, telefono, correo)"+
-            "values(?,?,?,?)";
+            String sql = "insert into usuario (nombreUsr,dirUsr,telfUsr,correoUsr,tipoUsr, contrUsr,ZonaCensal)"+
+            "values(?,?,?,?,?,?,?)";
             PreparedStatement ps = conn.prepareCall(sql);
             ps.setString(1, jTextField1.getText());
             ps.setString(2, jTextField2.getText());
             ps.setString(3, jTextField3.getText());
             ps.setString(4, jTextField4.getText());
+            ps.setString(5, "Jefe de Zona");
+            ps.setString(6, jTextField16.getText());
+            ps.setString(7, jTextField13.getText());
 
             int n = ps.executeUpdate();
             if(n>0){
-                JOptionPane.showMessageDialog(null, "Datos guardados correctamente");
+                JOptionPane.showMessageDialog(null, "Registro guardado correctamente");
             }
-
+            llenarTablaJefes();
+            
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null,"Error"+ e.getMessage());
         }
-        //Llenar();
-        //Limpiar();
+        llenarTablaJefes();
+        Limpiar();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // BOTON ACTUALIZAR
         try {
-            String sql = "update contactos set nombre=?, direccion=?, telefono=?, correo=?"
-            + "where idCliente=?";
-            int fila = jTable1.getSelectedRow();
-            String dao = (String)jTable1.getValueAt(fila, 0);
+            String sql = "UPDATE usuario set nombreUsr=?, dirUsr=?, telfUsr=?, correoUsr=?, ZonaCensal=?"
+            + "where codUsr=?";
+            int fila = tablaJefes.getSelectedRow();
+            String id = (String)tablaJefes.getValueAt(fila, 0);
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, jTextField1.getText());
             ps.setString(2, jTextField2.getText());
             ps.setString(3, jTextField3.getText());
             ps.setString(4, jTextField4.getText());
-            ps.setString(5, dao);
+            ps.setString(5, jTextField13.getText());
+            ps.setString(6, id);
             int n = ps.executeUpdate();
             if(n>0){ // Si se ejecuto
-                //Limpiar();
-                //Llenar();
-                JOptionPane.showMessageDialog(null,"Datos modificados");
+                Limpiar();
+                llenarTablaJefes();
+                JOptionPane.showMessageDialog(null,"Registro modificado");
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null,"Error"+ e.getMessage());
-
         }
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // BOTON ELIMINAR
         try {
-            int fila = jTable1.getSelectedRow();
-            String sql = "delete from contactos where idCliente="+jTable1.getValueAt(fila, 0);
+            int fila = tablaJefes.getSelectedRow();
+            String sql = "DELETE from usuario where codUsr="+tablaJefes.getValueAt(fila, 0);
             sent=conn.createStatement();
             int n = sent.executeUpdate(sql);
             if(n>0){
-                //Llenar();
-                JOptionPane.showMessageDialog(null, "Datos Eliminados");
-                //Limpiar();
+                llenarTablaJefes();
+                JOptionPane.showMessageDialog(null, "Registro Eliminado");
+                Limpiar();
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null,"Error"+ e.getMessage());
@@ -792,29 +829,35 @@ public class Administrador extends javax.swing.JFrame {
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // BOTON CERRAR
-
+        int r =JOptionPane.showOptionDialog(this, "¿Está seguro de cerrar la sesión?", "Cerrar sesión", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, new Object[] {"Si", "No"}, "No");
+        if (r == 0){
+            this.setVisible(false);
+            new InicioSesion().setVisible(true);
+        }
     }//GEN-LAST:event_jButton7ActionPerformed
 
-    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+    private void tablaJefesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaJefesMouseClicked
         // MOUSE CLICLED
         if (evt.getButton()==1){
-            int fila = jTable1.getSelectedRow();
+            int fila = tablaJefes.getSelectedRow();
             try {
-                //Habilitar();
-                String sql = "select * from contactos where idCliente="+jTable1.getValueAt(fila,0);
+                Habilitar(false);
+                String sql = "SELECT codUsr,nombreUsr,dirUsr,telfUsr,correoUsr,contrUsr,ZonaCensal from usuario where codUsr="+tablaJefes.getValueAt(fila,0);
                 sent = conn.createStatement();
                 ResultSet rs = sent.executeQuery(sql);
                 rs.next(); // SI O SI PONER PARA LO RESULTADOS
-                jTextField1.setText(rs.getString("nombre"));
-                jTextField2.setText(rs.getString("direccion"));
-                jTextField3.setText(rs.getString("telefono"));
-                jTextField4.setText(rs.getString("correo"));
+                jTextField1.setText(rs.getString("nombreUsr"));
+                jTextField2.setText(rs.getString("dirUsr"));
+                jTextField3.setText(rs.getString("telfUsr"));
+                jTextField4.setText(rs.getString("correoUsr"));
+                jTextField13.setText(rs.getString("ZonaCensal"));
+                jTextField16.setText(rs.getString("contrUsr"));
 
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
-    }//GEN-LAST:event_jTable1MouseClicked
+    }//GEN-LAST:event_tablaJefesMouseClicked
 
     private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
         // TODO add your handling code here:
@@ -844,9 +887,9 @@ public class Administrador extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField12ActionPerformed
 
-    private void jTable3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable3MouseClicked
+    private void tablaEncuestadorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaEncuestadorMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTable3MouseClicked
+    }//GEN-LAST:event_tablaEncuestadorMouseClicked
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         jTabbedPane1.setSelectedIndex(3);
@@ -974,6 +1017,7 @@ public class Administrador extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -987,9 +1031,7 @@ public class Administrador extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
-    private javax.swing.JTable jTable3;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
@@ -997,6 +1039,7 @@ public class Administrador extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField13;
     private javax.swing.JTextField jTextField14;
     private javax.swing.JTextField jTextField15;
+    private javax.swing.JTextField jTextField16;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
@@ -1008,6 +1051,8 @@ public class Administrador extends javax.swing.JFrame {
     private javax.swing.JPanel panelEncuestador;
     private javax.swing.JPanel panelJefe;
     private javax.swing.JTable tablaCenso;
+    private javax.swing.JTable tablaEncuestador;
+    private javax.swing.JTable tablaJefes;
     private javax.swing.JTextField textNombre;
     private javax.swing.JTextField textNumEnc;
     private javax.swing.JTextField textNumJefesFam;
