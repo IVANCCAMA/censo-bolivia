@@ -129,7 +129,7 @@ public class JefeZona extends javax.swing.JFrame {
        jTextField26.setEditable(true);
        jTextField27.setEditable(true);
     }
-    void limpiarrJefeF(){
+    void limpiarJefeF(){
        jTextField13.setText("");
        jTextField14.setText("");
        jTextField15.setText("");
@@ -295,6 +295,10 @@ public class JefeZona extends javax.swing.JFrame {
         jTextField27 = new javax.swing.JTextField();
         jButton19 = new javax.swing.JButton();
         jLabel39 = new javax.swing.JLabel();
+        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -316,11 +320,23 @@ public class JefeZona extends javax.swing.JFrame {
         jTabbedPane1.setBackground(new java.awt.Color(255, 255, 255));
         jTabbedPane1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null},
@@ -365,8 +381,8 @@ public class JefeZona extends javax.swing.JFrame {
                     .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 19, Short.MAX_VALUE)
                     .addComponent(textNumViv, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 516, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(162, 162, 162))
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 571, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(107, 107, 107))
         );
 
         jTabbedPane1.addTab("ESTADO DE ZONA CENSAL", jPanel2);
@@ -382,7 +398,7 @@ public class JefeZona extends javax.swing.JFrame {
                 {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Código Usuario", "Nombre", "Telf/Cel", "Dirección", "Correo", "ZonaCensal", "Contraseña"
+                "Código Usuario", "Nombre", "Dirección", "Telf/Cel", "Correo", "ZonaCensal", "Contraseña"
             }
         ));
         jTable3.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -409,6 +425,7 @@ public class JefeZona extends javax.swing.JFrame {
         jLabel27.setText("Zona Censal");
 
         jLabel28.setText("EDITAR DATOS DEL JEFE DE FAMILIA");
+        jLabel28.setPreferredSize(new java.awt.Dimension(185, 16));
 
         jLabel29.setText("Código Usuario");
 
@@ -424,6 +441,11 @@ public class JefeZona extends javax.swing.JFrame {
         });
 
         jButton16.setText("Guardar Cambios");
+        jButton16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton16ActionPerformed(evt);
+            }
+        });
 
         jButton17.setText("Guardar Nuevo");
         jButton17.addActionListener(new java.awt.event.ActionListener() {
@@ -439,40 +461,12 @@ public class JefeZona extends javax.swing.JFrame {
             }
         });
 
-        jLabel31.setText("Jefes de Familia:");
+        jLabel31.setText("JEFES DE FAMILIA");
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
         jPanel9Layout.setHorizontalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel9Layout.createSequentialGroup()
-                .addGap(217, 217, 217)
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel9Layout.createSequentialGroup()
-                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel27)
-                            .addComponent(jLabel30)
-                            .addComponent(jLabel26)
-                            .addComponent(jLabel25))
-                        .addGap(45, 45, 45)
-                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField15)
-                            .addComponent(jTextField16)
-                            .addComponent(jTextField17)
-                            .addComponent(jTextField19)))
-                    .addGroup(jPanel9Layout.createSequentialGroup()
-                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel29)
-                            .addComponent(jLabel24)
-                            .addComponent(jLabel6))
-                        .addGap(51, 51, 51)
-                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField18)
-                            .addComponent(jTextField14)
-                            .addComponent(jTextField13, javax.swing.GroupLayout.Alignment.TRAILING))))
-                .addGap(36, 36, 36)
-                .addComponent(jButton14)
-                .addGap(93, 93, 93))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
                 .addGap(0, 426, Short.MAX_VALUE)
                 .addComponent(jButton15)
@@ -484,32 +478,63 @@ public class JefeZona extends javax.swing.JFrame {
                 .addComponent(jButton18)
                 .addContainerGap())
             .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel28)
-                .addGap(358, 358, 358))
             .addGroup(jPanel9Layout.createSequentialGroup()
-                .addGap(56, 56, 56)
-                .addComponent(jLabel31)
-                .addGap(29, 29, 29)
-                .addComponent(jTextField20, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addComponent(jLabel31)
+                        .addGap(18, 18, 18)
+                        .addComponent(jTextField20, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addGap(201, 201, 201)
+                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
+                                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel27)
+                                    .addComponent(jLabel30)
+                                    .addComponent(jLabel26)
+                                    .addComponent(jLabel25))
+                                .addGap(50, 50, 50)
+                                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextField17, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jTextField16, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jTextField15)
+                                    .addComponent(jTextField19)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
+                                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel24)
+                                    .addComponent(jLabel6))
+                                .addGap(88, 88, 88)
+                                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextField13)
+                                    .addComponent(jTextField14)))
+                            .addGroup(jPanel9Layout.createSequentialGroup()
+                                .addComponent(jLabel29)
+                                .addGap(56, 56, 56)
+                                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextField18)
+                                    .addGroup(jPanel9Layout.createSequentialGroup()
+                                        .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE)))))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton14)
+                .addGap(128, 128, 128))
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
+                .addContainerGap()
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel31)
                     .addComponent(jTextField20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
-                .addComponent(jLabel28)
-                .addGap(18, 18, 18)
+                .addGap(38, 38, 38)
+                .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel29)
                     .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton14)
-                    .addComponent(jLabel29))
-                .addGap(10, 10, 10)
+                    .addComponent(jButton14))
+                .addGap(14, 14, 14)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
@@ -533,8 +558,8 @@ public class JefeZona extends javax.swing.JFrame {
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel30)
                     .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton15)
@@ -631,6 +656,29 @@ public class JefeZona extends javax.swing.JFrame {
 
         jLabel39.setText("EDITAR DATOS DEL ENCUESTADOR");
 
+        jButton4.setText("Nuevo");
+
+        jButton5.setText("Guardar Nuevo");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
+        jButton6.setText("Guardar Cambios");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+
+        jButton7.setText("Eliminar Seleccionado");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -638,38 +686,49 @@ public class JefeZona extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(203, 203, 203)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel32)
-                            .addComponent(jLabel33)
-                            .addComponent(jLabel34)
-                            .addComponent(jLabel35)
-                            .addComponent(jLabel36)
-                            .addComponent(jLabel37)
-                            .addComponent(jLabel38))
-                        .addGap(45, 45, 45)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextField24, javax.swing.GroupLayout.DEFAULT_SIZE, 322, Short.MAX_VALUE)
-                                    .addComponent(jTextField21)
-                                    .addComponent(jTextField22)
-                                    .addComponent(jTextField23)
-                                    .addComponent(jTextField25, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jTextField26))
-                                .addGap(29, 29, 29)
-                                .addComponent(jButton19))
-                            .addComponent(jTextField27, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel39)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(jLabel2)
-                        .addGap(18, 18, 18)
-                        .addComponent(textNumEnc, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 883, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(43, Short.MAX_VALUE))
+                                .addGap(203, 203, 203)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel32)
+                                    .addComponent(jLabel33)
+                                    .addComponent(jLabel34)
+                                    .addComponent(jLabel35)
+                                    .addComponent(jLabel36)
+                                    .addComponent(jLabel37)
+                                    .addComponent(jLabel38))
+                                .addGap(45, 45, 45)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(jTextField24, javax.swing.GroupLayout.DEFAULT_SIZE, 322, Short.MAX_VALUE)
+                                            .addComponent(jTextField21)
+                                            .addComponent(jTextField22)
+                                            .addComponent(jTextField23)
+                                            .addComponent(jTextField25, javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jTextField26))
+                                        .addGap(29, 29, 29)
+                                        .addComponent(jButton19))
+                                    .addComponent(jTextField27, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel39)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(jLabel2)
+                                .addGap(18, 18, 18)
+                                .addComponent(textNumEnc, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(421, 421, 421)
+                .addComponent(jButton4)
+                .addGap(18, 18, 18)
+                .addComponent(jButton5)
+                .addGap(18, 18, 18)
+                .addComponent(jButton6)
+                .addGap(18, 18, 18)
+                .addComponent(jButton7)
+                .addContainerGap(7, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -711,6 +770,12 @@ public class JefeZona extends javax.swing.JFrame {
                     .addComponent(jTextField27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton4)
+                    .addComponent(jButton5)
+                    .addComponent(jButton6)
+                    .addComponent(jButton7))
                 .addContainerGap())
         );
 
@@ -904,7 +969,20 @@ public class JefeZona extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton13ActionPerformed
 
     private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
-        // TODO add your handling code here:
+        // BOTON ELIMINAR JEFES DE FAMILIA
+            try {
+            int fila = jTable3.getSelectedRow();
+            String sql = "delete from usuario where codUsr="+jTable3.getValueAt(fila, 0);
+            sent=conn.createStatement();
+            int n = sent.executeUpdate(sql);
+            if(n>0){
+                LlenarJefesF();
+                JOptionPane.showMessageDialog(null, "Datos Eliminados");
+                limpiarJefeF();
+            } 
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,"Error"+ e.getMessage());
+        }
     }//GEN-LAST:event_jButton18ActionPerformed
 
     private void jTextField13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField13ActionPerformed
@@ -937,7 +1015,7 @@ public class JefeZona extends javax.swing.JFrame {
 
     private void jTable3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable3MouseClicked
         //TablaJefeFamilia clicked
-                if (evt.getButton()==1){
+        if (evt.getButton()==1){
             int fila = jTable3.getSelectedRow();
             try {
                 habilitarJefeF();
@@ -984,20 +1062,29 @@ public class JefeZona extends javax.swing.JFrame {
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
-      limpiarrJefeF();
+      limpiarJefeF();
       habilitarJefeF();
     }//GEN-LAST:event_jButton15ActionPerformed
 
+private String getTipoUsuarioJF(){
+    String resp =  "Jefe de Familia";
+    return resp;
+}    
+    
     private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
-        // BOTON GUARDAR
+        // BOTON GUARDAR JEFE DE FAMILIA
            try {
-            String sql = "insert into usuario (codUsr, nombreUsr, dirUsr, telfUsr,tipoUsr contrUsr, ZonaCensal)"+
-                    "values(?,?,?,?,?,?,?)";
+            String sql = "insert into usuario (codUsr, nombreUsr, dirUsr, telfUsr, correoUsr ,tipoUsr, contrUsr, ZonaCensal)"+
+                    "values(?,?,?,?,?,?,?,?)";
             PreparedStatement ps = conn.prepareCall(sql);
-            /*ps.setString(1,jTextField1.getText() );
-            ps.setString(2, jTextField2.getText());
-            ps.setString(3, jTextField3.getText());
-            ps.setString(4, jTextField4.getText());*/
+            ps.setString(1, jTextField18.getText() );
+            ps.setString(2, jTextField13.getText());
+            ps.setString(3, jTextField14.getText());
+            ps.setString(4, jTextField15.getText());
+            ps.setString(5, jTextField16.getText());
+            ps.setString(6, getTipoUsuarioJF());
+            ps.setString(7, jTextField19.getText());
+            ps.setString(8, jTextField17.getText());
             
             int n = ps.executeUpdate();
             if(n>0){
@@ -1008,13 +1095,118 @@ public class JefeZona extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null,"Error"+ e.getMessage());
         }
         LlenarJefesF();
-        limpiarrJefeF();
+        limpiarJefeF();
     }//GEN-LAST:event_jButton17ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         jTabbedPane1.setSelectedIndex(0);
         jTabbedPane1.getSelectedIndex();
     }//GEN-LAST:event_jButton3ActionPerformed
+private String getTipoUsuarioEnc(){
+    String resp =  "Encuestador";
+    return resp;
+}
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // BOTON GUARDAR ENCUESTADOR
+           try {
+            String sql = "insert into usuario (codUsr, nombreUsr, dirUsr, telfUsr, correoUsr ,tipoUsr, contrUsr, ZonaCensal)"+
+                    "values(?,?,?,?,?,?,?,?)";
+            PreparedStatement ps = conn.prepareCall(sql);
+            ps.setString(1, jTextField21.getText() );
+            ps.setString(2, jTextField22.getText());
+            ps.setString(3, jTextField23.getText());
+            ps.setString(4, jTextField24.getText());
+            ps.setString(5, jTextField25.getText());
+            ps.setString(6, getTipoUsuarioEnc());
+            ps.setString(7, jTextField27.getText());
+            ps.setString(8, jTextField26.getText());
+            
+            int n = ps.executeUpdate();
+            if(n>0){
+                JOptionPane.showMessageDialog(null, "Datos guardados correctamente");
+            }
+
+        } catch (Exception e) {
+                JOptionPane.showMessageDialog(null,"Error"+ e.getMessage());
+        }
+        LlenarEnc();
+        limpiarEnc();
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
+       // BOTON ACTUALIZAR CAMBIOS DE JEFES DE FAMILIA
+            try {
+            String sql = "update usuario set codUrs=?, nombreUrs=?, dirUrs=?, telfUrs=?, correoUrs=?, tipoUsr=?, contrUrs=?, ZonaCensal=?"
+                    + "where codUsr=?";
+            int fila = jTable3.getSelectedRow();
+            String dao = (String)jTable3.getValueAt(fila, 0);
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, jTextField18.getText());
+            ps.setString(2, jTextField13.getText());
+            ps.setString(3, jTextField14.getText());
+            ps.setString(4, jTextField15.getText());
+            ps.setString(5, jTextField16.getText());
+            ps.setString(6, getTipoUsuarioJF());
+            ps.setString(7, jTextField19.getText());
+            ps.setString(8, jTextField17.getText());
+            ps.setString(9, dao);
+            int n = ps.executeUpdate();
+            if(n>0){ // Si se ejecuto
+                limpiarJefeF();
+                LlenarJefesF();
+                JOptionPane.showMessageDialog(null,"Datos modificados");
+            }
+        } catch (Exception e) {
+                JOptionPane.showMessageDialog(null,"Error"+ e.getMessage());
+
+        }
+    }//GEN-LAST:event_jButton16ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // BOTON ACTUALIZAR CAMBIOS DE ENCUESTADORES
+            try {
+            String sql = "update usuario set codUrs=?, nombreUrs=?, dirUrs=?, telfUrs=?, correoUrs=?, tipoUsr=?, contrUrs=?, ZonaCensal=?"
+                    + "where codUsr=?";
+            int fila = jTable1.getSelectedRow();
+            String dao = (String)jTable1.getValueAt(fila, 0);
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, jTextField21.getText());
+            ps.setString(2, jTextField22.getText());
+            ps.setString(3, jTextField23.getText());
+            ps.setString(4, jTextField24.getText());
+            ps.setString(5, jTextField25.getText());
+            ps.setString(6, getTipoUsuarioEnc());
+            ps.setString(7, jTextField27.getText());
+            ps.setString(8, jTextField26.getText());
+            ps.setString(9, dao);
+            int n = ps.executeUpdate();
+            if(n>0){ // Si se ejecuto
+                limpiarEnc();
+                LlenarEnc();
+                JOptionPane.showMessageDialog(null,"Datos modificados");
+            }
+        } catch (Exception e) {
+                JOptionPane.showMessageDialog(null,"Error"+ e.getMessage());
+
+        }
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // BOTON ELIMINAR ENCUESTADOR
+            try {
+            int fila = jTable1.getSelectedRow();
+            String sql = "delete from usuario where codUsr="+jTable1.getValueAt(fila, 0);
+            sent=conn.createStatement();
+            int n = sent.executeUpdate(sql);
+            if(n>0){
+                LlenarEnc();
+                JOptionPane.showMessageDialog(null, "Datos Eliminados");
+                limpiarEnc();
+            } 
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,"Error"+ e.getMessage());
+        }
+    }//GEN-LAST:event_jButton7ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1062,6 +1254,10 @@ public class JefeZona extends javax.swing.JFrame {
     private javax.swing.JButton jButton19;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel23;
