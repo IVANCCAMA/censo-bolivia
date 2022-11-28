@@ -35,6 +35,7 @@ public class Administrador extends javax.swing.JFrame {
         llenarTablaEncuestador();
         llenarTablaCenso();
         setNumViviendas();
+        setNumJefesZ();
         setNumEnc();
         setNombreAdm();
         //jTextField1.setText(InicioSesion.zona);
@@ -58,19 +59,30 @@ public class Administrador extends javax.swing.JFrame {
     }
     
     private void setNumEnc(){
+        String total = setNumUsr("Encuestador");
+        textNumEnc.setText(total);
+        textNumEnc.setEditable(false);
+    }
+    
+    private void setNumJefesZ(){
+        String total = setNumUsr("Jefe de Zona");
+        textNumJefesZona.setText(total);
+        textNumJefesZona.setEditable(false);
+    }
+    
+    public String setNumUsr(String tipoUsr){
         String total = "" ;
         try {
-                String sql = "SELECT COUNT(codUsr) as cantEnc FROM censo.usuario Where tipoUsr = 'Encuestador'";
+                String sql = "SELECT COUNT(codUsr) as cant FROM censo.usuario Where tipoUsr = " + "'"+tipoUsr+"'";
                 sent = conn.createStatement();
                 ResultSet rs = sent.executeQuery(sql);
                 rs.next(); // SI O SI PONER PARA LO RESULTADOS
-                total = rs.getString("cantEnc");
+                total = rs.getString("cant");
 
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        textNumEnc.setText(total);
-        textNumEnc.setEditable(false);
+        return total;
     }
     
     private void setNombreAdm(){
@@ -251,7 +263,6 @@ public class Administrador extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         panelJefe = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -266,13 +277,15 @@ public class Administrador extends javax.swing.JFrame {
         jTextField4 = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaJefes = new javax.swing.JTable();
-        jLabel18 = new javax.swing.JLabel();
         textNumJefesZona = new javax.swing.JTextField();
         jLabel20 = new javax.swing.JLabel();
         jTextField13 = new javax.swing.JTextField();
         jLabel21 = new javax.swing.JLabel();
         jTextField16 = new javax.swing.JTextField();
         jLabel26 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
+        jLabel30 = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
         panelEncuestador = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         textNumEnc = new javax.swing.JTextField();
@@ -296,6 +309,7 @@ public class Administrador extends javax.swing.JFrame {
         jLabel25 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
         jTextField17 = new javax.swing.JTextField();
+        jLabel29 = new javax.swing.JLabel();
         PanelViviendas = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tablaCenso = new javax.swing.JTable();
@@ -388,6 +402,7 @@ public class Administrador extends javax.swing.JFrame {
         PanelNavegador.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, -1, -1));
 
         textNombre.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        textNombre.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         textNombre.setBorder(null);
         PanelNavegador.add(textNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 250, 28));
 
@@ -404,67 +419,72 @@ public class Administrador extends javax.swing.JFrame {
         panelJefe.setBackground(new java.awt.Color(255, 255, 255));
         panelJefe.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setText("DATOS USUARIO");
-        panelJefe.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 90, -1, -1));
-
+        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jButton1.setText("Nuevo");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        panelJefe.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 630, 100, -1));
+        panelJefe.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 640, 100, -1));
 
+        jButton2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jButton2.setText("Guardar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-        panelJefe.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 630, 100, -1));
+        panelJefe.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 640, 100, -1));
 
+        jButton3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jButton3.setText("Actualizar");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
-        panelJefe.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 630, -1, -1));
+        panelJefe.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 640, -1, -1));
 
+        jButton6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jButton6.setText("Eliminar");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);
             }
         });
-        panelJefe.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 630, -1, -1));
+        panelJefe.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 640, -1, -1));
 
+        jButton7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jButton7.setText("Cerrar");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton7ActionPerformed(evt);
             }
         });
-        panelJefe.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(1022, 630, 100, -1));
+        panelJefe.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 640, 100, -1));
 
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel6.setText("Nombre");
-        panelJefe.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 130, -1, -1));
+        panelJefe.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 150, -1, -1));
 
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel7.setText("Dirección");
-        panelJefe.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 180, -1, -1));
+        panelJefe.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 190, -1, -1));
 
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel8.setText("Teléfono");
-        panelJefe.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 230, -1, -1));
-        panelJefe.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 130, 490, -1));
-        panelJefe.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 180, 490, -1));
-        panelJefe.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 230, 490, -1));
+        panelJefe.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 240, -1, -1));
+        panelJefe.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 140, 490, -1));
+        panelJefe.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 190, 490, -1));
+        panelJefe.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 240, 490, -1));
 
         jTextField4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField4ActionPerformed(evt);
             }
         });
-        panelJefe.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 280, 490, -1));
+        panelJefe.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 290, 490, -1));
 
         tablaJefes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -485,11 +505,7 @@ public class Administrador extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tablaJefes);
 
-        panelJefe.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 470, 580, 147));
-
-        jLabel18.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel18.setText("JEFES DE ZONA:");
-        panelJefe.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 50, -1, -1));
+        panelJefe.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 447, 610, 180));
 
         textNumJefesZona.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         textNumJefesZona.setBorder(null);
@@ -498,34 +514,50 @@ public class Administrador extends javax.swing.JFrame {
                 textNumJefesZonaActionPerformed(evt);
             }
         });
-        panelJefe.add(textNumJefesZona, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 50, 113, -1));
+        panelJefe.add(textNumJefesZona, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 700, 160, -1));
 
+        jLabel20.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel20.setText("Correo");
-        panelJefe.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 280, -1, -1));
-        panelJefe.add(jTextField13, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 330, 490, -1));
+        panelJefe.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 290, -1, -1));
+        panelJefe.add(jTextField13, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 340, 490, -1));
 
+        jLabel21.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel21.setText("Zona Censal");
-        panelJefe.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 330, -1, -1));
-        panelJefe.add(jTextField16, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 380, 490, -1));
+        panelJefe.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 340, -1, -1));
+        panelJefe.add(jTextField16, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 390, 490, -1));
 
+        jLabel26.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel26.setText("Contraseña");
-        panelJefe.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 380, -1, -1));
+        panelJefe.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 390, -1, -1));
+
+        jLabel28.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel28.setText("TOTAL JEFES DE ZONA:");
+        panelJefe.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 700, -1, -1));
+
+        jLabel30.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel30.setText("JEFES DE ZONA");
+        panelJefe.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 40, -1, -1));
+
+        jLabel31.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel31.setText("DATOS USUARIO");
+        panelJefe.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 100, -1, -1));
 
         jTabbedPane1.addTab("JZ", panelJefe);
 
         panelEncuestador.setBackground(new java.awt.Color(255, 255, 255));
         panelEncuestador.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel5.setText("ENCUESTADORES:");
-        panelEncuestador.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 110, -1, -1));
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel5.setText("ENCUESTADORES");
+        panelEncuestador.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 60, -1, -1));
 
         textNumEnc.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         textNumEnc.setBorder(null);
-        panelEncuestador.add(textNumEnc, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 110, 113, -1));
+        panelEncuestador.add(textNumEnc, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 700, 150, 20));
 
+        jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel13.setText("DATOS USUARIO");
-        panelEncuestador.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 130, -1, -1));
+        panelEncuestador.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 120, -1, -1));
 
         jButton13.setText("Nuevo");
         jButton13.addActionListener(new java.awt.event.ActionListener() {
@@ -533,7 +565,7 @@ public class Administrador extends javax.swing.JFrame {
                 jButton13ActionPerformed(evt);
             }
         });
-        panelEncuestador.add(jButton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 650, 100, -1));
+        panelEncuestador.add(jButton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 650, 100, -1));
 
         jButton14.setText("Guardar");
         jButton14.addActionListener(new java.awt.event.ActionListener() {
@@ -541,7 +573,7 @@ public class Administrador extends javax.swing.JFrame {
                 jButton14ActionPerformed(evt);
             }
         });
-        panelEncuestador.add(jButton14, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 650, 90, -1));
+        panelEncuestador.add(jButton14, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 650, 90, -1));
 
         jButton15.setText("Actualizar");
         jButton15.addActionListener(new java.awt.event.ActionListener() {
@@ -549,7 +581,7 @@ public class Administrador extends javax.swing.JFrame {
                 jButton15ActionPerformed(evt);
             }
         });
-        panelEncuestador.add(jButton15, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 650, -1, -1));
+        panelEncuestador.add(jButton15, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 650, -1, -1));
 
         jButton16.setText("Eliminar");
         jButton16.addActionListener(new java.awt.event.ActionListener() {
@@ -557,7 +589,7 @@ public class Administrador extends javax.swing.JFrame {
                 jButton16ActionPerformed(evt);
             }
         });
-        panelEncuestador.add(jButton16, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 650, 100, -1));
+        panelEncuestador.add(jButton16, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 650, 100, -1));
 
         jButton17.setText("Cerrar");
         jButton17.addActionListener(new java.awt.event.ActionListener() {
@@ -565,26 +597,29 @@ public class Administrador extends javax.swing.JFrame {
                 jButton17ActionPerformed(evt);
             }
         });
-        panelEncuestador.add(jButton17, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 650, 110, -1));
+        panelEncuestador.add(jButton17, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 650, 110, -1));
 
-        jLabel14.setText("Nombre:");
-        panelEncuestador.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 170, -1, -1));
+        jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel14.setText("Nombre");
+        panelEncuestador.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 170, -1, -1));
 
-        jLabel15.setText("Dirección:");
-        panelEncuestador.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 220, -1, -1));
+        jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel15.setText("Dirección");
+        panelEncuestador.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 220, -1, -1));
 
-        jLabel16.setText("Teléfono:");
-        panelEncuestador.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 270, -1, -1));
-        panelEncuestador.add(jTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 170, 490, -1));
-        panelEncuestador.add(jTextField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 220, 490, -1));
-        panelEncuestador.add(jTextField11, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 270, 490, -1));
+        jLabel16.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel16.setText("Teléfono");
+        panelEncuestador.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 270, -1, -1));
+        panelEncuestador.add(jTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 170, 490, -1));
+        panelEncuestador.add(jTextField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 220, 490, -1));
+        panelEncuestador.add(jTextField11, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 270, 490, -1));
 
         jTextField12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField12ActionPerformed(evt);
             }
         });
-        panelEncuestador.add(jTextField12, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 320, 490, -1));
+        panelEncuestador.add(jTextField12, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 320, 490, -1));
 
         tablaEncuestador.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -605,24 +640,31 @@ public class Administrador extends javax.swing.JFrame {
         });
         jScrollPane4.setViewportView(tablaEncuestador);
 
-        panelEncuestador.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 480, 580, 147));
+        panelEncuestador.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 467, 630, 160));
 
-        jLabel24.setText("Correo:");
-        panelEncuestador.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 320, -1, -1));
+        jLabel24.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel24.setText("Correo");
+        panelEncuestador.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 320, -1, -1));
 
         jTextField15.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField15ActionPerformed(evt);
             }
         });
-        panelEncuestador.add(jTextField15, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 370, 490, -1));
+        panelEncuestador.add(jTextField15, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 370, 490, -1));
 
-        jLabel25.setText("Zona Censal:");
-        panelEncuestador.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 370, -1, -1));
+        jLabel25.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel25.setText("Zona Censal");
+        panelEncuestador.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 370, -1, -1));
 
-        jLabel27.setText("Contraseña:");
-        panelEncuestador.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 420, 90, 30));
-        panelEncuestador.add(jTextField17, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 420, 500, -1));
+        jLabel27.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel27.setText("Contraseña");
+        panelEncuestador.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 420, 110, 30));
+        panelEncuestador.add(jTextField17, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 420, 500, -1));
+
+        jLabel29.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel29.setText("TOTAL ENCUESTADORES:");
+        panelEncuestador.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 700, -1, 20));
 
         jTabbedPane1.addTab("ENC", panelEncuestador);
 
@@ -1131,9 +1173,7 @@ public class Administrador extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
@@ -1142,7 +1182,11 @@ public class Administrador extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
