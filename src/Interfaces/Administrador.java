@@ -514,7 +514,7 @@ public class Administrador extends javax.swing.JFrame {
                 textNumJefesZonaActionPerformed(evt);
             }
         });
-        panelJefe.add(textNumJefesZona, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 700, 160, -1));
+        panelJefe.add(textNumJefesZona, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 700, 160, -1));
 
         jLabel20.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel20.setText("Correo");
