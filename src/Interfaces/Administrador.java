@@ -28,12 +28,13 @@ public class Administrador extends javax.swing.JFrame {
         initComponents();
         
         conn=Mysql.getConnection();
-        
+        DeshabilitarTablaReporte();
         DeshabilitarTablaJefeZona();
         DeshabilitarTablaEncuestadores();
         llenarTablaJefes();
         llenarTablaEncuestador();
         llenarTablaCenso();
+        llenarTablaReporte();
         setNumViviendas();
         setNumJefesZ();
         setNumEnc();
@@ -177,6 +178,31 @@ public class Administrador extends javax.swing.JFrame {
         }
     
     }
+    private void llenarTablaReporte(){
+        try {
+            conn = Mysql.getConnection();
+            String[]titulos = {"codUsr", "reporte"}; // colocar mismos nombres de la tabla
+            String sql = "select codUsr , reporte from reporte  ";
+                    
+            model = new DefaultTableModel(null, titulos);
+            sent = conn.createStatement(); //sent = estado para ejecutar sql
+            ResultSet rs = sent.executeQuery(sql); // 
+            
+            String[]fila = new String[2];
+            while(rs.next()){
+                fila[0]=rs.getString("codUsr"); //No colocar repetidos
+                fila[1]=rs.getString("reporte");
+                
+                model.addRow(fila);
+            }
+            TablaReporte.setModel(model);//la tabla sql adoptará el modelo "model", establecido anteriormente
+            //tablaJefes.setEnabled(false);
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+    
+    }
     
     void DeshabilitarTablaJefeZona(){
        jTextField1.setEditable(false);
@@ -210,6 +236,11 @@ public class Administrador extends javax.swing.JFrame {
        jTextField12.setEditable(false);
        jTextField15.setEditable(false);
        jTextField17.setEditable(false);
+    }
+    void DeshabilitarTablaReporte(){
+       jTextArea1.setEditable(false);
+       txtCodUsr.setEditable(false);
+       
     }
      void LimpiarTablaEncuestadores(){
         jTextField9.setText("");
@@ -317,6 +348,12 @@ public class Administrador extends javax.swing.JFrame {
         textNumViviendas = new javax.swing.JTextField();
         PanelReportes = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        TablaReporte = new javax.swing.JTable();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        txtCodUsr = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
         PanelJefesFam = new javax.swing.JPanel();
         textNumJefesFam = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
@@ -334,7 +371,7 @@ public class Administrador extends javax.swing.JFrame {
         jTextField7 = new javax.swing.JTextField();
         jTextField8 = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        TablaJefFam = new javax.swing.JTable();
         jLabel22 = new javax.swing.JLabel();
         jTextField14 = new javax.swing.JTextField();
         jLabel23 = new javax.swing.JLabel();
@@ -784,7 +821,43 @@ public class Administrador extends javax.swing.JFrame {
 
         jLabel19.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jLabel19.setText("REPORTES");
-        PanelReportes.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 70, 190, 50));
+        PanelReportes.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 80, 190, 50));
+
+        TablaReporte.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        TablaReporte.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TablaReporteMouseClicked(evt);
+            }
+        });
+        jScrollPane5.setViewportView(TablaReporte);
+
+        PanelReportes.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 460, 540, 250));
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane6.setViewportView(jTextArea1);
+
+        PanelReportes.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 150, 540, 260));
+
+        txtCodUsr.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCodUsrActionPerformed(evt);
+            }
+        });
+        PanelReportes.add(txtCodUsr, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 90, 160, -1));
+
+        jLabel2.setText("codUsr");
+        PanelReportes.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 90, -1, -1));
 
         jTabbedPane1.addTab("REP", PanelReportes);
 
@@ -845,7 +918,7 @@ public class Administrador extends javax.swing.JFrame {
             }
         });
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        TablaJefFam.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -856,13 +929,13 @@ public class Administrador extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jTable2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jTable2.addMouseListener(new java.awt.event.MouseAdapter() {
+        TablaJefFam.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        TablaJefFam.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTable2MouseClicked(evt);
+                TablaJefFamMouseClicked(evt);
             }
         });
-        jScrollPane2.setViewportView(jTable2);
+        jScrollPane2.setViewportView(TablaJefFam);
 
         jLabel22.setText("Correo");
 
@@ -1240,9 +1313,9 @@ public class Administrador extends javax.swing.JFrame {
         jTabbedPane1.getSelectedIndex();
     }//GEN-LAST:event_jButton5ActionPerformed
 
-    private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
+    private void TablaJefFamMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TablaJefFamMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTable2MouseClicked
+    }//GEN-LAST:event_TablaJefFamMouseClicked
 
     private void jTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField8ActionPerformed
         // TODO add your handling code here:
@@ -1271,6 +1344,29 @@ public class Administrador extends javax.swing.JFrame {
     private void jTextField15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField15ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField15ActionPerformed
+
+    private void TablaReporteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TablaReporteMouseClicked
+ 
+        if (evt.getButton()==1){
+            int fila = TablaReporte.getSelectedRow();
+            try {
+               
+                String sql = "SELECT codUsr,reporte from reporte where codUsr ="+TablaReporte.getValueAt(fila,0);
+                sent = conn.createStatement();
+                ResultSet rs = sent.executeQuery(sql);
+                rs.next(); // SI O SI PONER PARA LO RESULTADOS
+                jTextArea1.setText(rs.getString("reporte"));
+                txtCodUsr.setText(rs.getString ("codUsr"));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+                                                     // TODO add your handling code here:
+    }//GEN-LAST:event_TablaReporteMouseClicked
+
+    private void txtCodUsrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodUsrActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCodUsrActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1316,6 +1412,8 @@ public class Administrador extends javax.swing.JFrame {
     private javax.swing.JPanel PanelNavegador;
     private javax.swing.JPanel PanelReportes;
     private javax.swing.JPanel PanelViviendas;
+    private javax.swing.JTable TablaJefFam;
+    private javax.swing.JTable TablaReporte;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
@@ -1343,6 +1441,7 @@ public class Administrador extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
@@ -1367,8 +1466,10 @@ public class Administrador extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable2;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
@@ -1396,5 +1497,6 @@ public class Administrador extends javax.swing.JFrame {
     private javax.swing.JTextField textNumJefesFam;
     private javax.swing.JTextField textNumJefesZona;
     private javax.swing.JTextField textNumViviendas;
+    private javax.swing.JTextField txtCodUsr;
     // End of variables declaration//GEN-END:variables
 }
