@@ -31,12 +31,15 @@ public class Administrador extends javax.swing.JFrame {
         DeshabilitarTablaReporte();
         DeshabilitarTablaJefeZona();
         DeshabilitarTablaEncuestadores();
+        DeshabilitarTablaJefFam();
         llenarTablaJefes();
         llenarTablaEncuestador();
         llenarTablaCenso();
         llenarTablaReporte();
+        llenarTablaJefFam();
         setNumViviendas();
         setNumJefesZ();
+        setNumJefFam();
         setNumEnc();
         setNombreAdm();
         //jTextField1.setText(InicioSesion.zona);
@@ -70,7 +73,11 @@ public class Administrador extends javax.swing.JFrame {
         textNumJefesZona.setText(total);
         textNumJefesZona.setEditable(false);
     }
-    
+    private void setNumJefFam(){
+        String total = setNumUsr("Jefe de Familia");
+        txtNumJefeFam.setText(total);
+        txtNumJefeFam.setEditable(false);
+    }
     public String setNumUsr(String tipoUsr){
         String total = "" ;
         try {
@@ -89,8 +96,12 @@ public class Administrador extends javax.swing.JFrame {
     private void setNombreAdm(){
         textNombre.setText(InicioSesion.nombreUrs);
         textNombre.setEditable(false);
-    }
     
+    /*private void setNombreJefFam(){
+        String total =setNumUsr("Jefe de Familia");
+        textNumJefFam.setText(total);
+        textNumJefesZona.setEditable(false);*/
+    }
     private void llenarTablaEncuestador(){
         try {
             
@@ -113,6 +124,36 @@ public class Administrador extends javax.swing.JFrame {
                 model.addRow(fila);
             }
             tablaEncuestador.setModel(model);
+            //tablaEncuestador.setEnabled(false);
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+    
+    }
+    private void llenarTablaJefFam(){
+        try {
+            
+            conn = Mysql.getConnection();
+            String[]titulos = {"codUsr", "nombreUsr", "dirUsr", "telfUsr", "correoUsr", "ZonaCensal","ContrUsr"}; // colocar mismos nombres de la tabla
+            String sql = "select codUsr,nombreUsr,dirUsr,telfUsr,correoUsr,ZonaCensal,ContrUsr from usuario "
+                    + "where tipoUsr = 'Jefe de Familia'";
+            model = new DefaultTableModel(null, titulos);
+            sent = conn.createStatement(); //sent = estado para ejecutar sql
+            ResultSet rs = sent.executeQuery(sql); // 
+            
+            String[]fila = new String[7];
+            while(rs.next()){
+                fila[0]=rs.getString("codUsr"); //No colocar repetidos
+                fila[1]=rs.getString("nombreUsr");
+                fila[2]=rs.getString("dirUsr");
+                fila[3]=rs.getString("telfUsr");
+                fila[4]=rs.getString("correoUsr");
+                fila[5]=rs.getString("ZonaCensal");
+                fila[6]=rs.getString("ContrUsr");
+                model.addRow(fila);
+            }
+            TablaJefeFamilia.setModel(model);
             //tablaEncuestador.setEnabled(false);
         }
         catch (Exception e) {
@@ -212,6 +253,14 @@ public class Administrador extends javax.swing.JFrame {
        jTextField13.setEditable(false);
        jTextField16.setEditable(false);
     }
+       void DeshabilitarTablaJefFam(){
+       jTextField5.setEditable(false);
+       jTextField6.setEditable(false);
+       jTextField7.setEditable(false);
+       jTextField8.setEditable(false);
+       jTextField14.setEditable(false);
+       jTextField18.setEditable(false);
+    }
      void LimpiarTablaJefeZona(){
         jTextField1.setText("");
         jTextField2.setText("");
@@ -219,6 +268,14 @@ public class Administrador extends javax.swing.JFrame {
         jTextField4.setText("");
         jTextField13.setText("");
         jTextField16.setText("");
+    }
+     void LimpiarTablaJefFam(){
+        jTextField5.setText("");
+        jTextField6.setText("");
+        jTextField7.setText("");
+        jTextField8.setText("");
+        jTextField14.setText("");
+        jTextField18.setText("");
     }
     void HabilitarTablaJefeZona(boolean modContra){
        jTextField1.setEditable(true);
@@ -228,6 +285,16 @@ public class Administrador extends javax.swing.JFrame {
        jTextField13.setEditable(true);
        if (modContra) jTextField16.setEditable(true);
        jTextField1.requestFocus();
+    }
+    void HabilitarTablaJefFam(boolean modContra){
+       jTextField5.setEditable(true);
+       jTextField6.setEditable(true);
+       jTextField7.setEditable(true);
+       jTextField8.setEditable(true);
+       jTextField14.setEditable(true);
+       jTextField18.setEditable(true);
+       if (modContra) jTextField16.setEditable(true);
+       jTextField5.requestFocus();
     }
     void DeshabilitarTablaEncuestadores(){
        jTextField9.setEditable(false);
@@ -371,10 +438,14 @@ public class Administrador extends javax.swing.JFrame {
         jTextField7 = new javax.swing.JTextField();
         jTextField8 = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
-        TablaJefFam = new javax.swing.JTable();
+        TablaJefeFamilia = new javax.swing.JTable();
         jLabel22 = new javax.swing.JLabel();
         jTextField14 = new javax.swing.JTextField();
         jLabel23 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jTextField18 = new javax.swing.JTextField();
+        jLabel32 = new javax.swing.JLabel();
+        txtNumJefeFam = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -503,6 +574,18 @@ public class Administrador extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel8.setText("Teléfono");
 
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+
+        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField2ActionPerformed(evt);
+            }
+        });
+
         jTextField4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField4ActionPerformed(evt);
@@ -541,6 +624,12 @@ public class Administrador extends javax.swing.JFrame {
 
         jLabel21.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel21.setText("Zona Censal");
+
+        jTextField16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField16ActionPerformed(evt);
+            }
+        });
 
         jLabel26.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel26.setText("Contraseña");
@@ -647,9 +736,9 @@ public class Administrador extends javax.swing.JFrame {
                 .addGroup(panelJefeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel26)
                     .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(13, 13, 13)
+                .addGap(32, 32, 32)
                 .addGroup(panelJefeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton1)
                     .addComponent(jButton2)
@@ -866,11 +955,13 @@ public class Administrador extends javax.swing.JFrame {
         textNumJefesFam.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         textNumJefesFam.setBorder(null);
 
-        jLabel17.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel17.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jLabel17.setText("JEFES DE FAMILIA:");
 
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel9.setText("DATOS USUARIO");
 
+        jButton8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jButton8.setText("Nuevo");
         jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -878,6 +969,7 @@ public class Administrador extends javax.swing.JFrame {
             }
         });
 
+        jButton9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jButton9.setText("Guardar");
         jButton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -885,6 +977,7 @@ public class Administrador extends javax.swing.JFrame {
             }
         });
 
+        jButton10.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jButton10.setText("Actualizar");
         jButton10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -892,6 +985,7 @@ public class Administrador extends javax.swing.JFrame {
             }
         });
 
+        jButton11.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jButton11.setText("Eliminar");
         jButton11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -899,6 +993,7 @@ public class Administrador extends javax.swing.JFrame {
             }
         });
 
+        jButton12.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jButton12.setText("Cerrar");
         jButton12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -906,11 +1001,20 @@ public class Administrador extends javax.swing.JFrame {
             }
         });
 
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel10.setText("Nombre");
 
+        jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel11.setText("Direccion");
 
+        jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel12.setText("Telefono");
+
+        jTextField5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField5ActionPerformed(evt);
+            }
+        });
 
         jTextField8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -918,7 +1022,8 @@ public class Administrador extends javax.swing.JFrame {
             }
         });
 
-        TablaJefFam.setModel(new javax.swing.table.DefaultTableModel(
+        TablaJefeFamilia.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        TablaJefeFamilia.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -926,85 +1031,125 @@ public class Administrador extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "codUsr", "Title 2", "Title 3", "Title 4"
             }
         ));
-        TablaJefFam.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        TablaJefFam.addMouseListener(new java.awt.event.MouseAdapter() {
+        TablaJefeFamilia.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        TablaJefeFamilia.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                TablaJefFamMouseClicked(evt);
+                TablaJefeFamiliaMouseClicked(evt);
             }
         });
-        jScrollPane2.setViewportView(TablaJefFam);
+        jScrollPane2.setViewportView(TablaJefeFamilia);
 
+        jLabel22.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel22.setText("Correo");
 
+        jTextField14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField14ActionPerformed(evt);
+            }
+        });
+
+        jLabel23.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel23.setText("Zona Censal");
+
+        jLabel18.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel18.setText("Contraseña");
+
+        jTextField18.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField18ActionPerformed(evt);
+            }
+        });
+
+        jLabel32.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel32.setText("TOTAL JEFES DE FAMILIA :");
+
+        txtNumJefeFam.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtNumJefeFam.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNumJefeFamActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout PanelJefesFamLayout = new javax.swing.GroupLayout(PanelJefesFam);
         PanelJefesFam.setLayout(PanelJefesFamLayout);
         PanelJefesFamLayout.setHorizontalGroup(
-            PanelJefesFamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelJefesFamLayout.createSequentialGroup()
-                .addGap(520, 520, 520)
-                .addComponent(jLabel17)
-                .addGap(54, 54, 54)
-                .addComponent(textNumJefesFam, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(PanelJefesFamLayout.createSequentialGroup()
-                .addGap(760, 760, 760)
-                .addComponent(jLabel9))
-            .addGroup(PanelJefesFamLayout.createSequentialGroup()
-                .addGap(500, 500, 500)
-                .addComponent(jLabel10)
-                .addGap(35, 35, 35)
-                .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 490, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(PanelJefesFamLayout.createSequentialGroup()
-                .addGap(500, 500, 500)
-                .addComponent(jLabel11)
-                .addGap(27, 27, 27)
-                .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 490, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(PanelJefesFamLayout.createSequentialGroup()
-                .addGap(500, 500, 500)
-                .addComponent(jLabel12)
-                .addGap(31, 31, 31)
-                .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 490, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(PanelJefesFamLayout.createSequentialGroup()
-                .addGap(500, 500, 500)
-                .addComponent(jLabel22)
-                .addGap(45, 45, 45)
-                .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 490, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(PanelJefesFamLayout.createSequentialGroup()
-                .addGap(500, 500, 500)
-                .addComponent(jLabel23)
-                .addGap(9, 9, 9)
-                .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, 490, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(PanelJefesFamLayout.createSequentialGroup()
-                .addGap(500, 500, 500)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 580, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(PanelJefesFamLayout.createSequentialGroup()
-                .addGap(520, 520, 520)
-                .addComponent(jButton8)
-                .addGap(20, 20, 20)
-                .addComponent(jButton9)
-                .addGap(9, 9, 9)
-                .addComponent(jButton10)
-                .addGap(26, 26, 26)
+            PanelJefesFamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PanelJefesFamLayout.createSequentialGroup()
+                .addContainerGap(519, Short.MAX_VALUE)
                 .addGroup(PanelJefesFamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton11)
-                    .addGroup(PanelJefesFamLayout.createSequentialGroup()
-                        .addGap(90, 90, 90)
-                        .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(PanelJefesFamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(PanelJefesFamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelJefesFamLayout.createSequentialGroup()
+                                .addComponent(jLabel11)
+                                .addGap(27, 27, 27)
+                                .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 490, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelJefesFamLayout.createSequentialGroup()
+                                .addComponent(jLabel12)
+                                .addGap(31, 31, 31)
+                                .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 490, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelJefesFamLayout.createSequentialGroup()
+                                .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(35, 35, 35)
+                                .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 490, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelJefesFamLayout.createSequentialGroup()
+                                .addGroup(PanelJefesFamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(PanelJefesFamLayout.createSequentialGroup()
+                                        .addComponent(jLabel23)
+                                        .addGap(9, 9, 9))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelJefesFamLayout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 4, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel18)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                                .addGroup(PanelJefesFamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, 476, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, 490, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelJefesFamLayout.createSequentialGroup()
+                                .addGroup(PanelJefesFamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(PanelJefesFamLayout.createSequentialGroup()
+                                        .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(txtNumJefeFam, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(15, 15, 15))
+                                    .addGroup(PanelJefesFamLayout.createSequentialGroup()
+                                        .addComponent(jButton8)
+                                        .addGap(20, 20, 20)
+                                        .addComponent(jButton9)
+                                        .addGap(9, 9, 9)
+                                        .addComponent(jButton10)))
+                                .addGap(26, 26, 26)
+                                .addComponent(jButton11)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 598, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelJefesFamLayout.createSequentialGroup()
+                                .addComponent(jLabel10)
+                                .addGap(35, 35, 35)
+                                .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 490, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelJefesFamLayout.createSequentialGroup()
+                            .addComponent(jLabel17)
+                            .addGap(123, 123, 123)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelJefesFamLayout.createSequentialGroup()
+                        .addComponent(jLabel9)
+                        .addGap(200, 200, 200)))
+                .addGap(38, 38, 38)
+                .addComponent(textNumJefesFam, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         PanelJefesFamLayout.setVerticalGroup(
             PanelJefesFamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelJefesFamLayout.createSequentialGroup()
-                .addGap(150, 150, 150)
-                .addGroup(PanelJefesFamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel17)
-                    .addComponent(textNumJefesFam, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(5, 5, 5)
+                .addGap(33, 33, 33)
+                .addComponent(textNumJefesFam, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(700, Short.MAX_VALUE))
+            .addGroup(PanelJefesFamLayout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(jLabel17)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel9)
-                .addGap(19, 19, 19)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(PanelJefesFamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel10)
                     .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1020,23 +1165,33 @@ public class Administrador extends javax.swing.JFrame {
                         .addGap(10, 10, 10)
                         .addComponent(jLabel12))
                     .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(19, 19, 19)
-                .addGroup(PanelJefesFamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel22)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(15, 15, 15)
+                .addGroup(PanelJefesFamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel22))
                 .addGap(21, 21, 21)
                 .addGroup(PanelJefesFamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel23)
                     .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23)
+                .addGap(24, 24, 24)
+                .addGroup(PanelJefesFamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel18)
+                    .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(PanelJefesFamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton8)
                     .addComponent(jButton9)
                     .addComponent(jButton10)
-                    .addComponent(jButton11)
-                    .addComponent(jButton12)))
+                    .addGroup(PanelJefesFamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jButton11)
+                        .addComponent(jButton12)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(PanelJefesFamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNumJefeFam, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
 
         jTabbedPane1.addTab("JF", PanelJefesFam);
@@ -1313,9 +1468,27 @@ public class Administrador extends javax.swing.JFrame {
         jTabbedPane1.getSelectedIndex();
     }//GEN-LAST:event_jButton5ActionPerformed
 
-    private void TablaJefFamMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TablaJefFamMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TablaJefFamMouseClicked
+    private void TablaJefeFamiliaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TablaJefeFamiliaMouseClicked
+if (evt.getButton()==1){
+            int fila = TablaJefeFamilia.getSelectedRow();
+            try {
+                HabilitarTablaJefFam(false);
+                String sql = "SELECT codUsr,nombreUsr,dirUsr,telfUsr,correoUsr,contrUsr,ZonaCensal from usuario where  codUsr="+TablaJefeFamilia.getValueAt(fila,0);
+                sent = conn.createStatement();
+                ResultSet rs = sent.executeQuery(sql);
+                rs.next(); // SI O SI PONER PARA LO RESULTADOS
+                jTextField5.setText(rs.getString("nombreUsr"));
+                jTextField6.setText(rs.getString("dirUsr"));
+                jTextField7.setText(rs.getString("telfUsr"));
+                jTextField8.setText(rs.getString("correoUsr"));
+                jTextField14.setText(rs.getString("ZonaCensal"));
+                jTextField18.setText(rs.getString("contrUsr"));
+                
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_TablaJefeFamiliaMouseClicked
 
     private void jTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField8ActionPerformed
         // TODO add your handling code here:
@@ -1323,22 +1496,85 @@ public class Administrador extends javax.swing.JFrame {
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
         // TODO add your handling code here:
+        int r =JOptionPane.showOptionDialog(this, "¿Está seguro de cerrar la sesión?", "Cerrar sesión", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, new Object[] {"Si", "No"}, "No");
+        if (r == 0){
+            this.setVisible(false);
+            new InicioSesion().setVisible(true);
+        }
     }//GEN-LAST:event_jButton12ActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
         // TODO add your handling code here:
+        try {
+            int fila = TablaJefeFamilia.getSelectedRow();
+            String sql = "DELETE from usuario where codUsr="+TablaJefeFamilia.getValueAt(fila, 0);
+            sent=conn.createStatement();
+            int n = sent.executeUpdate(sql);
+            if(n>0){
+                JOptionPane.showMessageDialog(null, "Registro Eliminado");
+                llenarTablaJefFam();
+                LimpiarTablaJefFam();
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,"Error"+ e.getMessage());
+        }
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
         // TODO add your handling code here:
+        try {
+            String sql = "UPDATE usuario set nombreUsr=?, dirUsr=?, telfUsr=?, correoUsr=?, ZonaCensal=? ,contrUsr=?"
+            + "where codUsr=?";
+            int fila = TablaJefeFamilia.getSelectedRow();
+            String id = (String)TablaJefeFamilia.getValueAt(fila, 0);
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, jTextField5.getText());
+            ps.setString(2, jTextField6.getText());
+            ps.setString(3, jTextField7.getText());
+            ps.setString(4, jTextField8.getText());
+            ps.setString(5, jTextField14.getText());
+            ps.setString(6, jTextField18.getText());
+            ps.setString(7, id);
+            int n = ps.executeUpdate();
+            if(n>0){ // Si se ejecuto
+                JOptionPane.showMessageDialog(null,"Registro modificado");
+                LimpiarTablaJefFam();
+                llenarTablaJefFam();
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,"Error"+ e.getMessage());
+        }
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         // TODO add your handling code here:
+        try {
+            String sql = "INSERT into usuario (nombreUsr,dirUsr,telfUsr,correoUsr,tipoUsr, contrUsr,ZonaCensal)"+
+            "values(?,?,?,?,?,?,?)";
+            PreparedStatement ps = conn.prepareCall(sql);
+            ps.setString(1, jTextField5.getText());
+            ps.setString(2, jTextField6.getText());
+            ps.setString(3, jTextField7.getText());
+            ps.setString(4, jTextField8.getText());
+            ps.setString(5, "Jefe de Familia");
+            ps.setString(6, jTextField14.getText());
+            ps.setString(7, jTextField18.getText());
+
+            int n = ps.executeUpdate();
+            if(n>0){
+                JOptionPane.showMessageDialog(null, "Registro guardado correctamente");
+            }
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,"Error"+ e.getMessage());
+        }
+        llenarTablaJefes();
+        LimpiarTablaJefFam();
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        // TODO add your handling code here:
+        LimpiarTablaJefFam();
+        HabilitarTablaJefFam(true);        // TODO add your handling code here:
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jTextField15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField15ActionPerformed
@@ -1367,6 +1603,34 @@ public class Administrador extends javax.swing.JFrame {
     private void txtCodUsrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodUsrActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCodUsrActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField5ActionPerformed
+
+    private void jTextField18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField18ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField18ActionPerformed
+
+    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField2ActionPerformed
+
+    private void jTextField16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField16ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField16ActionPerformed
+
+    private void jTextField14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField14ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField14ActionPerformed
+
+    private void txtNumJefeFamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumJefeFamActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNumJefeFamActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1412,7 +1676,7 @@ public class Administrador extends javax.swing.JFrame {
     private javax.swing.JPanel PanelNavegador;
     private javax.swing.JPanel PanelReportes;
     private javax.swing.JPanel PanelViviendas;
-    private javax.swing.JTable TablaJefFam;
+    private javax.swing.JTable TablaJefeFamilia;
     private javax.swing.JTable TablaReporte;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
@@ -1440,6 +1704,7 @@ public class Administrador extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
@@ -1455,6 +1720,7 @@ public class Administrador extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -1479,6 +1745,7 @@ public class Administrador extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField15;
     private javax.swing.JTextField jTextField16;
     private javax.swing.JTextField jTextField17;
+    private javax.swing.JTextField jTextField18;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
@@ -1498,5 +1765,6 @@ public class Administrador extends javax.swing.JFrame {
     private javax.swing.JTextField textNumJefesZona;
     private javax.swing.JTextField textNumViviendas;
     private javax.swing.JTextField txtCodUsr;
+    private javax.swing.JTextField txtNumJefeFam;
     // End of variables declaration//GEN-END:variables
 }
