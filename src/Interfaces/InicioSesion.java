@@ -382,41 +382,31 @@ public class InicioSesion extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         //boton INICIAR SECION
-
-        // ------------------------------------
-        boolean NoEncontrado = true;
+        //DatosUsuario usr1  = new DatosUsuario(txtUsuario.getText());
+        
         setCodUsuario(Integer.parseInt(txtUsuario.getText()));
         setZona();
         setNombre();
 
+        int resultado = 0;
         String tip    = jComboBox1.getSelectedItem().toString(); //recuperamos tipo usr
         String usr    = txtUsuario.getText(); //recuperamos el usr
         String contra = txtContra.getText(); //recuperadmos contraseña
-
-        int num = 0;
-
-        while(num<listUsr.size() && NoEncontrado){ //busqueda de datos
-
-            String tipoUsr    = listTUsuario.get(num);
-            String usuario    = listUsr.get(num);
-            String contraseña = listContr.get(num);
-
-            if(tip.equals(tipoUsr) && usr.equals(usuario) && contra.equals(contraseña)){
-                NoEncontrado = false;
+        String sql = "SELECT tipoUsr, codUsr, contrUsr FROM usuario "
+                + "WHERE tipoUsr = '" + tip + "' and codUsr = "+usr+" and contrUsr = "+ contra;
+        
+        try {
+            sent = conn.createStatement(); // para procesar la sentencia sql y obtener los resultados
+            ResultSet rs = sent.executeQuery(sql); //obiene los resultados de la consulta sql
+            
+            if(rs.next()){
                 verificarVentana();
-                this.setVisible(false); // lo destruye xd
+                this.setVisible(false);
             }else{
-                if(num == listUsr.size()){
-                    if(tip.equals(tipoUsr) == false){
-                        JOptionPane.showMessageDialog(null,"Tipo de usuario incorrecto",
-                            " error al ingresar ",JOptionPane.ERROR_MESSAGE);
-                    } else {
-                        JOptionPane.showMessageDialog(null,"usuario o contraseña incorrectos, revise los datos introducidos porfavor ",
-                            " error al ingresar ",JOptionPane.ERROR_MESSAGE);
-                    }
-                }
-                num++;
+                JOptionPane.showMessageDialog(null, "Error de acceso, revise bien sus datos");
             }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error"+ e.getMessage());
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
