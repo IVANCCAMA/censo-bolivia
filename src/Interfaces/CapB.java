@@ -439,7 +439,7 @@ public class CapB extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         jLabel2.setText("1-Tipo vivienda ");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 8, 97, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 8, 160, -1));
 
         jButton3.setText("Pase al capitulo F");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -585,7 +585,7 @@ public class CapB extends javax.swing.JFrame {
 
         jLabel16.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         jLabel16.setText("2. La vivienda esta ...");
-        jPanel10.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 8, -1, -1));
+        jPanel10.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 8, 190, -1));
 
         jLabel17.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         jLabel17.setText("Vivienda ocupadas ");
@@ -1452,7 +1452,7 @@ public class CapB extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-if(jTextField5.getText().isEmpty()){
+    if(jTextField5.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Ingrese Codigo de Vivienda porfavor");
         }else{
             this.setVisible(false);
@@ -1460,20 +1460,20 @@ if(jTextField5.getText().isEmpty()){
         this.setVisible(false);
         new CapC().setVisible(true);
         
-        preg1.setActionCommand("Casa/Choza/Pahuichi");
-        jRadioButton2.setActionCommand("Departamento");
-        jRadioButton3.setActionCommand("Cuarto(s)o habitacion(es) suelta(s)");
-        jRadioButton4.setActionCommand("Vivienda improvisada");
-        jRadioButton5.setActionCommand("Local  no destinado para vivienda ");
+        preg1.setActionCommand("Particular: Casa/Choza/Pahuichi");
+        jRadioButton2.setActionCommand("Particular: Departamento");
+        jRadioButton3.setActionCommand("Particular: Cuarto(s)o habitacion(es) suelta(s)");
+        jRadioButton4.setActionCommand("Particular: Vivienda improvisada");
+        jRadioButton5.setActionCommand("Particular: Local  no destinado para vivienda ");
         //
-        jRadioButton8.setActionCommand("Vivienda colectiva");
-        jRadioButton7.setActionCommand("Persona que vive en la calle ");
+        jRadioButton8.setActionCommand("Colectiva: Vivienda colectiva");
+        jRadioButton7.setActionCommand("Colectiva: Persona que vive en la calle ");
         //2
-        jRadioButton12.setActionCommand("ocupada por personas presentes ");
-        jRadioButton13.setActionCommand("ocupada con personas temporalmente ausentes ");
-        jRadioButton9.setActionCommand("para alquilar y/o vender ");
-        jRadioButton10.setActionCommand("en construccion o reparacion");
-        jRadioButton11.setActionCommand("abandonada");
+        jRadioButton12.setActionCommand("Sin vivienda: ocupada por personas presentes ");
+        jRadioButton13.setActionCommand("Sin vivienda: ocupada con personas temporalmente ausentes ");
+        jRadioButton9.setActionCommand("Sin vivienda: para alquilar y/o vender ");
+        jRadioButton10.setActionCommand("Sin vivienda: en construccion o reparacion");
+        jRadioButton11.setActionCommand("Sin vivienda: abandonada");
         //3
         jRadioButton17.setActionCommand("Ladrillo, bloque de cemento, hormigón");
         jRadioButton18.setActionCommand("Adobe,tapial");
@@ -1924,7 +1924,7 @@ jRadioButton51.setActionCommand("");
     }//GEN-LAST:event_jRadioButton95ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-if(jTextField5.getText().isEmpty()){
+    if(jTextField5.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Ingrese Codigo de Vivienda porfavor");
         }else{
            /* this.setVisible(false);

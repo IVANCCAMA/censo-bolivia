@@ -97,7 +97,7 @@ public class JefeFamilia extends javax.swing.JFrame {
         jTabbedPane1.setTabPlacement(javax.swing.JTabbedPane.LEFT);
         jTabbedPane1.setToolTipText("");
 
-        PanelEstado.setBackground(new java.awt.Color(255, 204, 0));
+        PanelEstado.setBackground(new java.awt.Color(255, 255, 255));
         PanelEstado.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         BotonAtras1.setText("Atras");
@@ -122,7 +122,7 @@ public class JefeFamilia extends javax.swing.JFrame {
                 txtNombreActionPerformed(evt);
             }
         });
-        PanelEstado.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 340, 330, 30));
+        PanelEstado.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 330, 330, 40));
 
         jLabel2.setBackground(new java.awt.Color(0, 0, 0));
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
@@ -194,8 +194,7 @@ public class JefeFamilia extends javax.swing.JFrame {
         //PanelNavegador.setVisible(false);
         
         this.setVisible(false);
-        CapA capituloA = new CapA();
-        capituloA.setVisible(true);
+        new Encuesta().setVisible(true);
         //capituloA.llenarCapA();
         
     }//GEN-LAST:event_BotonEstadoEncActionPerformed

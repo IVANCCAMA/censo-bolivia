@@ -517,7 +517,7 @@ public class Administrador extends javax.swing.JFrame {
         jLabel1.setText("ADMINISTRADOR");
         PanelNavegador.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, -1, -1));
 
-        jPanel1.add(PanelNavegador, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 320, 750));
+        jPanel1.add(PanelNavegador, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 320, 760));
 
         jTabbedPane1.setBackground(new java.awt.Color(255, 255, 255));
         jTabbedPane1.setTabPlacement(javax.swing.JTabbedPane.LEFT);
@@ -762,7 +762,7 @@ public class Administrador extends javax.swing.JFrame {
 
         textNumEnc.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         textNumEnc.setBorder(null);
-        panelEncuestador.add(textNumEnc, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 700, 150, 20));
+        panelEncuestador.add(textNumEnc, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 700, 150, 30));
 
         jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel13.setText("DATOS USUARIO");
@@ -873,7 +873,7 @@ public class Administrador extends javax.swing.JFrame {
 
         jLabel29.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel29.setText("TOTAL ENCUESTADORES:");
-        panelEncuestador.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 700, -1, 20));
+        panelEncuestador.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 700, 210, 30));
 
         jTabbedPane1.addTab("ENC", panelEncuestador);
 
@@ -897,11 +897,16 @@ public class Administrador extends javax.swing.JFrame {
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel4.setText("VIVIENDAS CENSADAS:");
-        PanelViviendas.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(343, 35, -1, -1));
+        PanelViviendas.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 30, 200, 30));
 
         textNumViviendas.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         textNumViviendas.setBorder(null);
-        PanelViviendas.add(textNumViviendas, new org.netbeans.lib.awtextra.AbsoluteConstraints(603, 0, 132, 29));
+        textNumViviendas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textNumViviendasActionPerformed(evt);
+            }
+        });
+        PanelViviendas.add(textNumViviendas, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 30, 132, 29));
 
         jTabbedPane1.addTab("VIV", PanelViviendas);
 
@@ -943,10 +948,10 @@ public class Administrador extends javax.swing.JFrame {
                 txtCodUsrActionPerformed(evt);
             }
         });
-        PanelReportes.add(txtCodUsr, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 90, 160, -1));
+        PanelReportes.add(txtCodUsr, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 100, 100, -1));
 
         jLabel2.setText("codUsr");
-        PanelReportes.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 90, -1, -1));
+        PanelReportes.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 100, -1, -1));
 
         jTabbedPane1.addTab("REP", PanelReportes);
 
@@ -1078,9 +1083,12 @@ public class Administrador extends javax.swing.JFrame {
         PanelJefesFamLayout.setHorizontalGroup(
             PanelJefesFamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PanelJefesFamLayout.createSequentialGroup()
-                .addContainerGap(519, Short.MAX_VALUE)
+                .addContainerGap(438, Short.MAX_VALUE)
                 .addGroup(PanelJefesFamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PanelJefesFamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelJefesFamLayout.createSequentialGroup()
+                        .addComponent(jLabel17)
+                        .addGap(161, 161, 161))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelJefesFamLayout.createSequentialGroup()
                         .addGroup(PanelJefesFamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelJefesFamLayout.createSequentialGroup()
                                 .addComponent(jLabel11)
@@ -1106,35 +1114,33 @@ public class Administrador extends javax.swing.JFrame {
                                 .addGroup(PanelJefesFamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, 476, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, 490, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelJefesFamLayout.createSequentialGroup()
-                                .addGroup(PanelJefesFamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(PanelJefesFamLayout.createSequentialGroup()
-                                        .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(txtNumJefeFam, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(15, 15, 15))
-                                    .addGroup(PanelJefesFamLayout.createSequentialGroup()
-                                        .addComponent(jButton8)
-                                        .addGap(20, 20, 20)
-                                        .addComponent(jButton9)
-                                        .addGap(9, 9, 9)
-                                        .addComponent(jButton10)))
-                                .addGap(26, 26, 26)
-                                .addComponent(jButton11)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 598, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelJefesFamLayout.createSequentialGroup()
                                 .addComponent(jLabel10)
                                 .addGap(35, 35, 35)
-                                .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 490, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelJefesFamLayout.createSequentialGroup()
-                            .addComponent(jLabel17)
-                            .addGap(123, 123, 123)))
+                                .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 490, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelJefesFamLayout.createSequentialGroup()
+                                .addGroup(PanelJefesFamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelJefesFamLayout.createSequentialGroup()
+                                        .addComponent(jButton8)
+                                        .addGap(20, 20, 20)
+                                        .addComponent(jButton9)
+                                        .addGap(9, 9, 9))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelJefesFamLayout.createSequentialGroup()
+                                        .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(28, 28, 28)))
+                                .addGroup(PanelJefesFamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtNumJefeFam, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(PanelJefesFamLayout.createSequentialGroup()
+                                        .addComponent(jButton10)
+                                        .addGap(26, 26, 26)
+                                        .addComponent(jButton11)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addGap(38, 38, 38))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelJefesFamLayout.createSequentialGroup()
                         .addComponent(jLabel9)
-                        .addGap(200, 200, 200)))
-                .addGap(38, 38, 38)
+                        .addGap(238, 238, 238)))
                 .addComponent(textNumJefesFam, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -1631,6 +1637,10 @@ if (evt.getButton()==1){
     private void txtNumJefeFamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumJefeFamActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNumJefeFamActionPerformed
+
+    private void textNumViviendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textNumViviendasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textNumViviendasActionPerformed
 
     /**
      * @param args the command line arguments

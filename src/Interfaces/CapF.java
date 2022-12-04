@@ -3882,7 +3882,11 @@ public class CapF extends javax.swing.JFrame {
    
        int r = JOptionPane.showOptionDialog(this, "Los datos que guardara estan correctos?", "GUARDAR DATOS",JOptionPane.YES_NO_OPTION, 
                  JOptionPane.QUESTION_MESSAGE, null, null, null);
-        if(r==0) llenarDatos();
+        if(r==0){
+            llenarDatos();
+            this.setVisible(false);
+            new CapF().setVisible(true);
+        }
 
         
     }//GEN-LAST:event_jButton1ActionPerformed
