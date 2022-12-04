@@ -31,20 +31,15 @@ public class JefeFamilia extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        PanelFondo = new javax.swing.JPanel();
         PanelNavegador = new javax.swing.JPanel();
-        BotonEstadoEnc = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        BotonReporte = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jTabbedPane1 = new javax.swing.JTabbedPane();
-        PanelEstado = new javax.swing.JPanel();
-        BotonAtras1 = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
         txtNombre = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
+        BotonReporte = new javax.swing.JButton();
+        BotonEstadoEnc = new javax.swing.JButton();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
         PanelReporte = new javax.swing.JPanel();
         BotonAtras2 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -54,67 +49,30 @@ public class JefeFamilia extends javax.swing.JFrame {
         jTextArea2 = new javax.swing.JTextArea();
         jLabel6 = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
+        PanelEstado = new javax.swing.JPanel();
+        BotonAtras1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        PanelFondo.setBackground(new java.awt.Color(255, 255, 255));
+        PanelFondo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        PanelNavegador.setBackground(new java.awt.Color(0, 0, 255));
-        PanelNavegador.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        PanelNavegador.setBackground(new java.awt.Color(4, 22, 47));
+        PanelNavegador.setForeground(new java.awt.Color(255, 255, 255));
 
-        BotonEstadoEnc.setText("VER ESTADO DE ENCUESTA");
-        BotonEstadoEnc.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotonEstadoEncActionPerformed(evt);
-            }
-        });
-        PanelNavegador.add(BotonEstadoEnc, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, 230, 80));
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("Nombre:");
 
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("ENVIAR REPORTE ");
-        PanelNavegador.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 390, -1, -1));
+        jLabel9.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setText("JEFE DE FAMILIA");
 
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("EN CASO DE ALGUN ERROR");
-        PanelNavegador.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 410, -1, -1));
-
-        BotonReporte.setText("ENVIAR REPORTE");
-        BotonReporte.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotonReporteActionPerformed(evt);
-            }
-        });
-        PanelNavegador.add(BotonReporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 450, 230, 70));
-
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("JEFE DE FAMILIA");
-        PanelNavegador.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
-
-        jPanel1.add(PanelNavegador, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 290, 730));
-
-        jTabbedPane1.setTabPlacement(javax.swing.JTabbedPane.LEFT);
-        jTabbedPane1.setToolTipText("");
-
-        PanelEstado.setBackground(new java.awt.Color(255, 255, 255));
-        PanelEstado.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        BotonAtras1.setText("Atras");
-        BotonAtras1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotonAtras1ActionPerformed(evt);
-            }
-        });
-        PanelEstado.add(BotonAtras1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 690, -1, -1));
-
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel4.setText("NOMBRE:");
-        PanelEstado.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 340, -1, -1));
+        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Encuestador.jpg"))); // NOI18N
 
         txtNombre.setEditable(false);
         txtNombre.setBackground(new java.awt.Color(255, 255, 255));
-        txtNombre.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        txtNombre.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         txtNombre.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtNombre.setBorder(null);
         txtNombre.addActionListener(new java.awt.event.ActionListener() {
@@ -122,17 +80,70 @@ public class JefeFamilia extends javax.swing.JFrame {
                 txtNombreActionPerformed(evt);
             }
         });
-        PanelEstado.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 330, 330, 40));
 
-        jLabel2.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        jLabel2.setText("BIENVENIDO");
-        PanelEstado.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 150, -1, -1));
-        PanelEstado.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 200, 290, 10));
+        BotonReporte.setBackground(new java.awt.Color(204, 255, 255));
+        BotonReporte.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        BotonReporte.setText("ENVIAR REPORTE");
+        BotonReporte.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonReporteActionPerformed(evt);
+            }
+        });
 
-        jTabbedPane1.addTab("1", PanelEstado);
+        BotonEstadoEnc.setBackground(new java.awt.Color(204, 255, 255));
+        BotonEstadoEnc.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        BotonEstadoEnc.setText("VER ESTADO DE ENCUESTA");
+        BotonEstadoEnc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonEstadoEncActionPerformed(evt);
+            }
+        });
 
-        PanelReporte.setBackground(new java.awt.Color(0, 255, 102));
+        javax.swing.GroupLayout PanelNavegadorLayout = new javax.swing.GroupLayout(PanelNavegador);
+        PanelNavegador.setLayout(PanelNavegadorLayout);
+        PanelNavegadorLayout.setHorizontalGroup(
+            PanelNavegadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelNavegadorLayout.createSequentialGroup()
+                .addGroup(PanelNavegadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(PanelNavegadorLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(PanelNavegadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE)
+                            .addComponent(txtNombre)))
+                    .addGroup(PanelNavegadorLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(BotonEstadoEnc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(PanelNavegadorLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(BotonReporte, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(20, Short.MAX_VALUE))
+        );
+        PanelNavegadorLayout.setVerticalGroup(
+            PanelNavegadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelNavegadorLayout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(jLabel9)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(jLabel7)
+                .addGap(17, 17, 17)
+                .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(80, 80, 80)
+                .addComponent(BotonEstadoEnc, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addComponent(BotonReporte, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(245, Short.MAX_VALUE))
+        );
+
+        PanelFondo.add(PanelNavegador, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        jTabbedPane1.setBackground(new java.awt.Color(255, 255, 255));
+        jTabbedPane1.setToolTipText("");
+
+        PanelReporte.setBackground(new java.awt.Color(204, 255, 255));
         PanelReporte.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         BotonAtras2.setText("Atras");
@@ -147,7 +158,7 @@ public class JefeFamilia extends javax.swing.JFrame {
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
-        PanelReporte.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 340, 720, 300));
+        PanelReporte.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 320, 720, 300));
 
         jButton1.setText("ENVIAR");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -155,7 +166,7 @@ public class JefeFamilia extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        PanelReporte.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 670, -1, -1));
+        PanelReporte.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 650, -1, -1));
 
         jTextArea2.setColumns(20);
         jTextArea2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -164,26 +175,39 @@ public class JefeFamilia extends javax.swing.JFrame {
         jTextArea2.setBorder(null);
         jScrollPane2.setViewportView(jTextArea2);
 
-        PanelReporte.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 150, 720, 170));
+        PanelReporte.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 130, 720, 170));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jLabel6.setText("REPORTE");
-        PanelReporte.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 50, 170, 60));
-        PanelReporte.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 100, 240, 10));
+        PanelReporte.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 30, 170, 60));
+        PanelReporte.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 80, 240, 10));
 
-        jTabbedPane1.addTab("2", PanelReporte);
+        jTabbedPane1.addTab("Reporte", PanelReporte);
 
-        jPanel1.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-40, 0, 1220, 730));
+        PanelEstado.setBackground(new java.awt.Color(204, 255, 255));
+        PanelEstado.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        BotonAtras1.setText("Atras");
+        BotonAtras1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonAtras1ActionPerformed(evt);
+            }
+        });
+        PanelEstado.add(BotonAtras1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 620, -1, -1));
+
+        jTabbedPane1.addTab("Encuesta", PanelEstado);
+
+        PanelFondo.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 0, 960, 730));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(PanelFondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 732, Short.MAX_VALUE)
+            .addComponent(PanelFondo, javax.swing.GroupLayout.DEFAULT_SIZE, 732, Short.MAX_VALUE)
         );
 
         pack();
@@ -291,19 +315,16 @@ public class JefeFamilia extends javax.swing.JFrame {
     private javax.swing.JButton BotonEstadoEnc;
     private javax.swing.JButton BotonReporte;
     private javax.swing.JPanel PanelEstado;
+    private javax.swing.JPanel PanelFondo;
     private javax.swing.JPanel PanelNavegador;
     private javax.swing.JPanel PanelReporte;
     private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextArea jTextArea1;
