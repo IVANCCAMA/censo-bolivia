@@ -49,8 +49,6 @@ public class JefeFamilia extends javax.swing.JFrame {
         jTextArea2 = new javax.swing.JTextArea();
         jLabel6 = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
-        PanelEstado = new javax.swing.JPanel();
-        BotonAtras1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -184,19 +182,6 @@ public class JefeFamilia extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Reporte", PanelReporte);
 
-        PanelEstado.setBackground(new java.awt.Color(204, 255, 255));
-        PanelEstado.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        BotonAtras1.setText("Atras");
-        BotonAtras1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotonAtras1ActionPerformed(evt);
-            }
-        });
-        PanelEstado.add(BotonAtras1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 620, -1, -1));
-
-        jTabbedPane1.addTab("Encuesta", PanelEstado);
-
         PanelFondo.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 0, 960, 730));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -215,7 +200,6 @@ public class JefeFamilia extends javax.swing.JFrame {
 
     private void BotonEstadoEncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonEstadoEncActionPerformed
         // VER ESTADO DE ENCUESTA
-        //PanelNavegador.setVisible(false);
         
         this.setVisible(false);
         new Encuesta().setVisible(true);
@@ -226,7 +210,7 @@ public class JefeFamilia extends javax.swing.JFrame {
     private void BotonReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonReporteActionPerformed
         // ENVIAR REPORTE AL ADMINISTRADOR
         jTextArea1.setText("");
-        jTabbedPane1.setSelectedIndex(1);
+        jTabbedPane1.setSelectedIndex(0);
         jTabbedPane1.getSelectedIndex();
         jTextArea2.setEditable(false);
         
@@ -238,12 +222,6 @@ public class JefeFamilia extends javax.swing.JFrame {
         this.setVisible(false);
         new InicioSesion().setVisible(true);
     }//GEN-LAST:event_BotonAtras2ActionPerformed
-
-    private void BotonAtras1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAtras1ActionPerformed
-        // BOTON ATRAS
-        this.setVisible(false);
-        new InicioSesion().setVisible(true);
-    }//GEN-LAST:event_BotonAtras1ActionPerformed
 
     private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
         // TODO add your handling code here:
@@ -310,11 +288,9 @@ public class JefeFamilia extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BotonAtras1;
     private javax.swing.JButton BotonAtras2;
     private javax.swing.JButton BotonEstadoEnc;
     private javax.swing.JButton BotonReporte;
-    private javax.swing.JPanel PanelEstado;
     private javax.swing.JPanel PanelFondo;
     private javax.swing.JPanel PanelNavegador;
     private javax.swing.JPanel PanelReporte;

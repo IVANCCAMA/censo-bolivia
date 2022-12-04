@@ -14,15 +14,12 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author ARMAGEDON
+ * @author GRUPO MTTP
  */
 public class Administrador extends javax.swing.JFrame {
     Connection conn;
     DefaultTableModel model;
     Statement sent;
-    
-    public String usuario;
-    public String zona;
     
     public Administrador() {
         initComponents();
@@ -131,9 +128,9 @@ public class Administrador extends javax.swing.JFrame {
                 rs.next(); // SI O SI PONER PARA LO RESULTADOS
                 total = rs.getString("cantVivienda");
 
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         textNumViviendas.setText(total);
         textNumViviendas.setEditable(false);
     }
@@ -448,7 +445,7 @@ public class Administrador extends javax.swing.JFrame {
                 BotonJefesActionPerformed(evt);
             }
         });
-        PanelNavegador.add(BotonJefes, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 260, 70));
+        PanelNavegador.add(BotonJefes, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 260, 70));
 
         BotonAtras.setText("Atras");
         BotonAtras.addActionListener(new java.awt.event.ActionListener() {

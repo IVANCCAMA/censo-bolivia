@@ -694,7 +694,7 @@
                               <Component id="jLabel42" alignment="0" min="-2" pref="133" max="-2" attributes="0"/>
                               <Component id="jTextField18" min="-2" pref="385" max="-2" attributes="0"/>
                               <Component id="jTextField19" min="-2" pref="385" max="-2" attributes="0"/>
-                              <Component id="jLabel36" min="-2" pref="270" max="-2" attributes="0"/>
+                              <Component id="jLabel36" alignment="0" min="-2" pref="365" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="139" max="-2" attributes="0"/>
                       </Group>
