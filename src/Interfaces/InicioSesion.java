@@ -358,7 +358,6 @@ public class InicioSesion extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         //boton INICIAR SECION
-        //DatosUsuario usr1  = new DatosUsuario(txtUsuario.getText());
         
         setCodUsuario(Integer.parseInt(txtUsuario.getText()));
         setZona();

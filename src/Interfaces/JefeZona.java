@@ -55,9 +55,9 @@ public class JefeZona extends javax.swing.JFrame {
                 rs.next(); // SI O SI PONER PARA LO RESULTADOS
                 total = rs.getString("cantVivienda");
 
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         textNumViv.setText(total);
         textNumViv.setEditable(false);
     }

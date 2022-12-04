@@ -237,10 +237,11 @@ public class Registrarse extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addGap(68, 68, 68)
-                        .addComponent(jCmbBoxTipoUrs, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addGap(97, 97, 97)
+                        .addComponent(jButton2)
+                        .addGap(21, 21, 21))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
@@ -254,20 +255,18 @@ public class Registrarse extends javax.swing.JFrame {
                                 .addGap(68, 68, 68))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel14)
-                                .addGap(60, 60, 60)))
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtCI, javax.swing.GroupLayout.DEFAULT_SIZE, 258, Short.MAX_VALUE)
-                            .addComponent(txtContra)
-                            .addComponent(txtCorreo)
-                            .addComponent(txtTelefono)
-                            .addComponent(txtDireccion)
-                            .addComponent(txtZonaCensal)
-                            .addComponent(txtNombre)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addGap(97, 97, 97)
-                        .addComponent(jButton2)
-                        .addGap(21, 21, 21)))
+                                .addGap(60, 60, 60))
+                            .addComponent(jLabel5))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jCmbBoxTipoUrs, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(txtCI, javax.swing.GroupLayout.DEFAULT_SIZE, 258, Short.MAX_VALUE)
+                                .addComponent(txtContra)
+                                .addComponent(txtCorreo)
+                                .addComponent(txtTelefono)
+                                .addComponent(txtDireccion)
+                                .addComponent(txtZonaCensal)
+                                .addComponent(txtNombre)))))
                 .addContainerGap(30, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -359,11 +358,11 @@ public class Registrarse extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try {
-            String sql = "insert into usuario (nombreUsr, CI, dirUsr, telfUsr, correoUsr, tipoUsr, contrUsr, ZonaCensal)"+
+            String sql = "insert into usuario (codUsr, nombreUsr, dirUsr, telfUsr, correoUsr, tipoUsr, contrUsr, ZonaCensal)"+
                     "values(?,?,?,?,?,?,?,?)";
             PreparedStatement ps = conn.prepareCall(sql);
-            ps.setString(1, txtNombre.getText());
-            ps.setString(2, txtCI.getText());
+            ps.setString(1, txtCI.getText());
+            ps.setString(2, txtNombre.getText());
             ps.setString(3, txtDireccion.getText());
             ps.setString(4, txtTelefono.getText());
             ps.setString(5, txtCorreo.getText());
@@ -386,19 +385,8 @@ public class Registrarse extends javax.swing.JFrame {
 
     
     private String GetCodUsr() throws SQLException{
-        String CodUsuario="";
         String CI = txtCI.getText();
-        try {
-            String sql = "SELECT codUsr FROM usuario WHERE CI = '"+CI+"'";
-            sent = conn.createStatement();
-            ResultSet rs = sent.executeQuery(sql);
-            rs.next(); // SI O SI PONER PARA LO RESULTADOS
-            CodUsuario = rs.getString("CodUsr");
-        }catch(Exception e){
-            e.printStackTrace();
-        }
-        
-        return CodUsuario;
+        return CI;
     }
     private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
         // TODO add your handling code here:
