@@ -23,28 +23,22 @@ import javax.swing.JPanel;
  */
 public class CapC extends javax.swing.JFrame {
 
-    /**
-     * Creates new form CapC
-     */
     fondoPanel fondo = new fondoPanel();
     
-    private int cantidad;
+    private int cantidadPerson;
     private int i;
     private boolean codViv;
     
-    DefaultTableModel model;
+    DefaultTableModel model; // para manipulara el modelo de la tabla
     Connection conn;
     Statement sent;
     
     public CapC() {
-        this.setContentPane(fondo);
-        
+        this.setContentPane(fondo);        
         initComponents();
-        
         conn = Mysql.getConnection();
-        
         i = 1;
-        cantidad = 0;
+        cantidadPerson = 0;
     }
     
     private void LlenarPersonasFuera(){
@@ -101,18 +95,18 @@ public class CapC extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         JtxfNumero = new javax.swing.JTextField();
-        Jtxf2NomP = new javax.swing.JTextField();
+        JtxfNomP = new javax.swing.JTextField();
         JtxfAnioSalida = new javax.swing.JTextField();
         JtxfEdad = new javax.swing.JTextField();
         JtxfPais = new javax.swing.JTextField();
         JrbHombre = new javax.swing.JRadioButton();
         JrbMujer = new javax.swing.JRadioButton();
-        jButton4 = new javax.swing.JButton();
+        jButtonGuardar = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
+        jButtonSiguiente = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        JtxfCodV = new javax.swing.JTextField();
+        jTxtCodVid = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -129,6 +123,11 @@ public class CapC extends javax.swing.JFrame {
 
         buttonGroup1.add(JrbSi);
         JrbSi.setText("Si");
+        JrbSi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JrbSiActionPerformed(evt);
+            }
+        });
         jPanel3.add(JrbSi, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 50, -1, -1));
 
         jLabel3.setText("¿Cuántas personas?");
@@ -137,6 +136,11 @@ public class CapC extends javax.swing.JFrame {
 
         buttonGroup1.add(JrbNo);
         JrbNo.setText("No");
+        JrbNo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JrbNoActionPerformed(evt);
+            }
+        });
         jPanel3.add(JrbNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 50, -1, -1));
 
         jButton1.setText("Pase a la pregunta 21 ");
@@ -188,12 +192,12 @@ public class CapC extends javax.swing.JFrame {
         });
         jPanel4.add(JtxfNumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 119, 60, -1));
 
-        Jtxf2NomP.addActionListener(new java.awt.event.ActionListener() {
+        JtxfNomP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Jtxf2NomPActionPerformed(evt);
+                JtxfNomPActionPerformed(evt);
             }
         });
-        jPanel4.add(Jtxf2NomP, new org.netbeans.lib.awtextra.AbsoluteConstraints(127, 119, 180, -1));
+        jPanel4.add(JtxfNomP, new org.netbeans.lib.awtextra.AbsoluteConstraints(127, 119, 180, -1));
         jPanel4.add(JtxfAnioSalida, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 120, 151, -1));
         jPanel4.add(JtxfEdad, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 120, 125, -1));
         jPanel4.add(JtxfPais, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 120, 199, -1));
@@ -216,26 +220,26 @@ public class CapC extends javax.swing.JFrame {
         });
         jPanel4.add(JrbMujer, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 150, 85, -1));
 
-        jButton4.setText("Guardar");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        jButtonGuardar.setText("Guardar");
+        jButtonGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                jButtonGuardarActionPerformed(evt);
             }
         });
-        jPanel4.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 160, 100, -1));
+        jPanel4.add(jButtonGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 180, 100, -1));
 
         jLabel11.setText("(Anote en el siguiente cuadro, los datos de cada una de las personas que actualmente viven en otro pais)");
         jPanel4.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, -1, -1));
 
         jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, 1084, 367));
 
-        jButton3.setText("Siguiente");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        jButtonSiguiente.setText("Siguiente");
+        jButtonSiguiente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                jButtonSiguienteActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 570, -1, -1));
+        jPanel1.add(jButtonSiguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 570, 110, -1));
 
         jTabbedPane1.addTab("Capítulo C", jPanel1);
 
@@ -249,45 +253,49 @@ public class CapC extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         jLabel2.setText("Codigo Vivienda");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(922, 33, -1, -1));
-        getContentPane().add(JtxfCodV, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 30, 110, -1));
+        getContentPane().add(jTxtCodVid, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 30, 110, -1));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void Jtxf2NomPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jtxf2NomPActionPerformed
+    private void JtxfNomPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JtxfNomPActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Jtxf2NomPActionPerformed
+    }//GEN-LAST:event_JtxfNomPActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void jButtonSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSiguienteActionPerformed
         // BOTON SIGUIENTE Y GUARDAR
-        
-        if(JtxfCodV.getText().isEmpty()){
+        int r = JOptionPane.showOptionDialog(this, "Los datos que guardara estan correctos?", "GUARDAR DATOS",JOptionPane.YES_NO_OPTION, 
+                 JOptionPane.QUESTION_MESSAGE, null, null, null);
+        if(r==0){
+            llenarDatos();
+        }
+    }//GEN-LAST:event_jButtonSiguienteActionPerformed
+    private void llenarDatos(){
+        if(jTxtCodVid.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Ingrese Codigo de Vivienda porfavor");
         }else{
-            this.setVisible(false);
-            new CapD().setVisible(true);
             // Guardar datos en bd
             try {
             String sql = "insert into cap_c values(?,?,?)";
             PreparedStatement ps = conn.prepareCall(sql);
-            ps.setString(1, JtxfCodV.getText());
+            ps.setString(1, jTxtCodVid.getText());
             ps.setString(2, seleccionado());
             ps.setString(3, JtxfCanP.getText());
  
             int n = ps.executeUpdate();
             if(n>0){
                 JOptionPane.showMessageDialog(null, "Datos guardados correctamente");
+                // PASR A CAPD
+                this.setVisible(false);
+                new CapD().setVisible(true);
             }
 
             } catch (Exception e) {
-                //JOptionPane.showMessageDialog(null,"Error ");
                 JOptionPane.showMessageDialog(null,"Error "+ e.getMessage());
             }
         }
-        
-    }//GEN-LAST:event_jButton3ActionPerformed
-
+    }
     private String seleccionado(){
         String sel;
         if(JrbSi.isSelected()){
@@ -300,57 +308,57 @@ public class CapC extends javax.swing.JFrame {
         return sel;
     }
     
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void jButtonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarActionPerformed
         // BOTON GUARDAR datos en tabla PersonasFuera en bd
 
-        codViv = JtxfCodV.getText().isEmpty();
+        codViv = jTxtCodVid.getText().isEmpty();
         
         boolean hayCantidadP = JtxfCanP.getText().isEmpty();  // verifica si esta vacio en campo de cantidad de personas
         
         if(JrbSi.isSelected() && (hayCantidadP != true) && (codViv != true)){
-            cantidad = Integer.parseInt(JtxfCanP.getText()); // cantidad de personas fuera del pais
-            if(i <= cantidad){
-                // Guardar datos en bd
-                    try {
-                        String sql = "insert into cap_cpersfuera values(?,?,?,?,?,?,?)";
-                        PreparedStatement ps = conn.prepareCall(sql);
-                        ps.setString(1, JtxfCodV.getText());       
-                        ps.setString(2, JtxfNumero.getText()); 
-                        ps.setString(3, Jtxf2NomP.getText()); 
-                        ps.setString(4, getSexo());                  
-                        ps.setString(5, JtxfAnioSalida.getText()); 
-                        ps.setString(6, JtxfEdad.getText());
-                        ps.setString(7, JtxfPais.getText()); 
-
-                        int n = ps.executeUpdate();
-                        if(n>0){
-                            JOptionPane.showMessageDialog(null, "Datos guardados correctamente");
-                        }
-                    } catch (Exception e) {
-                        JOptionPane.showMessageDialog(null,"Error"+ e.getMessage());
-                    }
-                    LlenarPersonasFuera();
-                    limpiar();  // limpiar datos 
-                    i++;
+            cantidadPerson = Integer.parseInt(JtxfCanP.getText()); // cantidad de personas fuera del pais
+            if(i <= cantidadPerson){
+                    // Guardar datos en bd
+                    llenarPersonasFuera();
             }else{
                 JOptionPane.showMessageDialog(null, "ya no puede llenar mas");
             }
-            
         }else{
             if(codViv){
                 JOptionPane.showMessageDialog(null, "Por favor ingrese Codigo de vivienda");
             }else{
-                JOptionPane.showMessageDialog(null, "Por favor seleccione la opcion (si) y ingrese la cantidad");
+                JOptionPane.showMessageDialog(null, "Por favor seleccione la opcion (si) e ingrese la cantidad");
             }
-            
         }
         
-    }//GEN-LAST:event_jButton4ActionPerformed
-    
+    }//GEN-LAST:event_jButtonGuardarActionPerformed
+    private void llenarPersonasFuera(){
+        try {
+            String sql = "insert into cap_cpersfuera values(?,?,?,?,?,?,?)";
+            PreparedStatement ps = conn.prepareCall(sql);
+            ps.setString(1, jTxtCodVid.getText());       
+            ps.setString(2, JtxfNumero.getText()); 
+            ps.setString(3, JtxfNomP.getText()); 
+            ps.setString(4, getSexo());                  
+            ps.setString(5, JtxfAnioSalida.getText()); 
+            ps.setString(6, JtxfEdad.getText());
+            ps.setString(7, JtxfPais.getText()); 
+
+            int n = ps.executeUpdate();
+            if(n>0){
+                JOptionPane.showMessageDialog(null, "Datos guardados correctamente");
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,"Error"+ e.getMessage());
+        }
+        LlenarPersonasFuera();
+        limpiar();  // limpiar datos 
+        i++;
+    }
     private void limpiar(){
         
         JtxfNumero.setText("");
-        Jtxf2NomP.setText("");
+        JtxfNomP.setText("");
         JtxfAnioSalida.setText("");
         JtxfEdad.setText("");
         JtxfPais.setText("");
@@ -370,7 +378,7 @@ public class CapC extends javax.swing.JFrame {
     
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // BOTON PASAR A LA PREGUNTA 21
-        codViv = JtxfCodV.getText().isEmpty(); // Poner codVivienda
+        codViv = jTxtCodVid.getText().isEmpty(); // Poner codVivienda
         
         if(JrbNo.isSelected() && (codViv != true)){
             this.setVisible(false);
@@ -379,7 +387,7 @@ public class CapC extends javax.swing.JFrame {
             try {
             String sql = "insert into cap_c values(?,?,?)";
             PreparedStatement ps = conn.prepareCall(sql);
-            ps.setString(1, JtxfCodV.getText());
+            ps.setString(1, jTxtCodVid.getText());
             ps.setString(2, seleccionado());
             ps.setString(3, "0");
  
@@ -413,6 +421,30 @@ public class CapC extends javax.swing.JFrame {
     private void JrbHombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JrbHombreActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_JrbHombreActionPerformed
+
+    private void JrbNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JrbNoActionPerformed
+        // NO SEA EDITABLE 
+        JtxfNumero.setEnabled(false);
+        JtxfNomP.setEnabled(false);
+        JrbHombre.setEnabled(false);
+        JrbMujer.setEnabled(false);
+        JtxfAnioSalida.setEnabled(false);
+        JtxfEdad.setEnabled(false);
+        JtxfPais.setEnabled(false);
+        jButtonGuardar.setEnabled(false);
+    }//GEN-LAST:event_JrbNoActionPerformed
+
+    private void JrbSiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JrbSiActionPerformed
+        // DESBLOQUEA EN CASO DE SI
+        JtxfNumero.setEnabled(true);
+        JtxfNomP.setEnabled(true);
+        JrbHombre.setEnabled(true);
+        JrbMujer.setEnabled(true);
+        JtxfAnioSalida.setEnabled(true);
+        JtxfEdad.setEnabled(true);
+        JtxfPais.setEnabled(true);
+        jButtonGuardar.setEnabled(true);
+    }//GEN-LAST:event_JrbSiActionPerformed
 
     /**
      * @param args the command line arguments
@@ -454,18 +486,17 @@ public class CapC extends javax.swing.JFrame {
     private javax.swing.JRadioButton JrbMujer;
     private javax.swing.JRadioButton JrbNo;
     private javax.swing.JRadioButton JrbSi;
-    private javax.swing.JTextField Jtxf2NomP;
     private javax.swing.JTextField JtxfAnioSalida;
     private javax.swing.JTextField JtxfCanP;
-    private javax.swing.JTextField JtxfCodV;
     private javax.swing.JTextField JtxfEdad;
+    private javax.swing.JTextField JtxfNomP;
     private javax.swing.JTextField JtxfNumero;
     private javax.swing.JTextField JtxfPais;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButtonGuardar;
+    private javax.swing.JButton jButtonSiguiente;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -481,6 +512,7 @@ public class CapC extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTextField jTxtCodVid;
     // End of variables declaration//GEN-END:variables
     class fondoPanel extends JPanel{
         private Image imagen;

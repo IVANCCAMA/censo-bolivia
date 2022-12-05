@@ -6,60 +6,30 @@ package Interfaces;
 
 /**
  *
- * @author User
+ * @author GRUPO MTTP
+ * 
  */
-import javax.swing.table.DefaultTableModel;
 import dba.Mysql;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet; 
-import java.sql.SQLException;
-import java.sql.Statement;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class CapA extends javax.swing.JFrame {
-    /**
-     * Creates new form CapA
-     */
-    fondoPanel fondo = new fondoPanel();
     
-    DefaultTableModel model;
-    Connection conn;
-    Statement sent;
+    fondoPanel fondo = new fondoPanel();
+    Connection conn; // para hcer conexion con bd
     
     public CapA() {
-        this.setContentPane(fondo);
-        
+        this.setContentPane(fondo);    
         initComponents();
         conn=Mysql.getConnection();
-        //llenarCapA();
     }
     
-    
-    @SuppressWarnings("unchecked")
-    
-    public void llenarCapA(){
-        txtCodVivienda.setText(DatosUsuario.codVivienda);
-        txtCodMun.setText(codMunicipal(DatosUsuario.usuario, DatosUsuario.codVivienda));
-    }
-    
-    public String codMunicipal(String codUsuario, String codVivienda){
-        String codM = "";
-        try {
-                String sql = "SELECT codMunicipal FROM usuario, cap_a WHERE codUsr = "+ codUsuario + "and cap_a.codVivienda  = " + codVivienda;
-                sent = conn.createStatement();
-                ResultSet rs = sent.executeQuery(sql);
-                rs.next(); // SI O SI PONER PARA LO RESULTADOS
-                codM = rs.getString("ZonaCensal");
-
-            } catch (SQLException e) {
-            }
-        return codM;
-    }
+    @SuppressWarnings("unchecked") // suprime advertencias no comprobadas
     
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -116,7 +86,7 @@ public class CapA extends javax.swing.JFrame {
         txtNumMuj = new javax.swing.JTextField();
         jLabel25 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
-        txtCodVivienda = new javax.swing.JTextField();
+        jTxtCodVid = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
 
@@ -124,6 +94,7 @@ public class CapA extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jTabbedPane1.setBackground(new java.awt.Color(255, 255, 255));
         jTabbedPane1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -287,9 +258,9 @@ public class CapA extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Capítulo A", jPanel1);
 
-        txtCodVivienda.addActionListener(new java.awt.event.ActionListener() {
+        jTxtCodVid.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCodViviendaActionPerformed(evt);
+                jTxtCodVidActionPerformed(evt);
             }
         });
 
@@ -311,7 +282,7 @@ public class CapA extends javax.swing.JFrame {
                 .addGap(38, 38, 38)
                 .addComponent(jLabel28)
                 .addGap(29, 29, 29)
-                .addComponent(txtCodVivienda, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTxtCodVid, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18))
             .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1132, Short.MAX_VALUE)
         );
@@ -321,10 +292,10 @@ public class CapA extends javax.swing.JFrame {
                 .addGap(9, 9, 9)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel28)
-                    .addComponent(txtCodVivienda, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTxtCodVid, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jTabbedPane1))
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 642, Short.MAX_VALUE))
         );
 
         pack();
@@ -344,58 +315,63 @@ public class CapA extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNumPuertaActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // boton siguiente y guarda datos
-        if(txtCodVivienda.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null, "Ingrese Codigo de Vivienda porfavor");
-        }else{
-            this.setVisible(false);
-            new CapB().setVisible(true);
-        
-        try {
-            String sql = "insert into cap_a values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-            PreparedStatement ps = conn.prepareCall(sql);
-            ps.setString(1, txtCodVivienda.getText());
-            ps.setString(2, txtCodMun.getText());
-            ps.setString(3, txtDistrito.getText());
-            ps.setString(4, txtCiudad.getText());
-            ps.setString(5, txtZonaCensal.getText());
-            ps.setString(6, txtSector.getText());
-            ps.setString(7, txtSegmento.getText());
-            ps.setString(8, txtManzana.getText());
-            ps.setString(9, txtCiudadCom.getText());
-            ps.setString(10, txtLocalidad.getText());
-            ps.setString(11, txtBarrio.getText());
-            ps.setString(12, txtCalle.getText());
-            ps.setString(13, txtNumPuerta.getText());
-            ps.setString(14, txtPiso.getText());
-            ps.setString(15, txtNumDep.getText());
-            ps.setString(16, txtNombreEd.getText());
-            ps.setString(17, txtNumOrdenV.getText());
-            ps.setString(18, txtNumBoleta.getText());
-            ps.setString(19, txtTotalPers.getText());
-            ps.setString(20, txtNumHom.getText());
-            ps.setString(21, txtNumMuj.getText());
- 
-            int n = ps.executeUpdate();
-            if(n>0){
-                JOptionPane.showMessageDialog(null, "Datos guardados correctamente");
-            }
-
-        } catch (Exception e) {
-                JOptionPane.showMessageDialog(null,"Error"+ e.getMessage());
+        // BOTON SIGUIENTE Y GUARDAR
+        int r = JOptionPane.showOptionDialog(this, "Los datos que guardara estan correctos?", "GUARDAR DATOS",JOptionPane.YES_NO_OPTION, 
+                 JOptionPane.QUESTION_MESSAGE, null, null, null);
+        if(r==0){
+            llenarDatos();
         }
-        }
-       
     }//GEN-LAST:event_jButton2ActionPerformed
+    
+    private void llenarDatos(){
+        if(jTxtCodVid.getText().isEmpty()){ // verifica codVivienda
+            JOptionPane.showMessageDialog(null, "Ingrese Codigo de Vivienda porfavor");
+        }else{ 
+            try {
+                String sql = "insert into cap_a values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                PreparedStatement ps = conn.prepareCall(sql);
+                ps.setString(1, jTxtCodVid.getText());
+                ps.setString(2, txtCodMun.getText());
+                ps.setString(3, txtDistrito.getText());
+                ps.setString(4, txtCiudad.getText());
+                ps.setString(5, txtZonaCensal.getText());
+                ps.setString(6, txtSector.getText());
+                ps.setString(7, txtSegmento.getText());
+                ps.setString(8, txtManzana.getText());
+                ps.setString(9, txtCiudadCom.getText());
+                ps.setString(10, txtLocalidad.getText());
+                ps.setString(11, txtBarrio.getText());
+                ps.setString(12, txtCalle.getText());
+                ps.setString(13, txtNumPuerta.getText());
+                ps.setString(14, txtPiso.getText());
+                ps.setString(15, txtNumDep.getText());
+                ps.setString(16, txtNombreEd.getText());
+                ps.setString(17, txtNumOrdenV.getText());
+                ps.setString(18, txtNumBoleta.getText());
+                ps.setString(19, txtTotalPers.getText());
+                ps.setString(20, txtNumHom.getText());
+                ps.setString(21, txtNumMuj.getText());
 
+                int n = ps.executeUpdate();
+                if(n>0){
+                    JOptionPane.showMessageDialog(null, "Datos guardados correctamente");
+                    // PASAR A CAPB
+                    this.setVisible(false);
+                    new CapB().setVisible(true);
+                }
+            } catch (Exception e) {
+                    JOptionPane.showMessageDialog(null,"Error"+ e.getMessage());
+            }
+        }
+    }
+    
     private void txtNumHomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumHomActionPerformed
         // TODO add your handling code here:
-        
     }//GEN-LAST:event_txtNumHomActionPerformed
 
-    private void txtCodViviendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodViviendaActionPerformed
+    private void jTxtCodVidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxtCodVidActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtCodViviendaActionPerformed
+    }//GEN-LAST:event_jTxtCodVidActionPerformed
 
     /**
      * @param args the command line arguments
@@ -469,12 +445,12 @@ public class CapA extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTextField jTxtCodVid;
     private javax.swing.JTextField txtBarrio;
     private javax.swing.JTextField txtCalle;
     private javax.swing.JTextField txtCiudad;
     private javax.swing.JTextField txtCiudadCom;
     private javax.swing.JTextField txtCodMun;
-    private javax.swing.JTextField txtCodVivienda;
     private javax.swing.JTextField txtDistrito;
     private javax.swing.JTextField txtLocalidad;
     private javax.swing.JTextField txtManzana;
@@ -491,6 +467,7 @@ public class CapA extends javax.swing.JFrame {
     private javax.swing.JTextField txtTotalPers;
     private javax.swing.JTextField txtZonaCensal;
     // End of variables declaration//GEN-END:variables
+    
     class fondoPanel extends JPanel{
         private Image imagen;
         

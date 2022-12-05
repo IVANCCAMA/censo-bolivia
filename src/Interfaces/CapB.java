@@ -10,14 +10,9 @@ import java.awt.Graphics;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
-import javax.swing.table.DefaultTableModel;
 import dba.Mysql;
-import java.sql.Array.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.Statement;
-import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
@@ -25,14 +20,10 @@ import javax.swing.JOptionPane;
  * @author User
  */
 public class CapB extends javax.swing.JFrame {
-
-    DefaultTableModel model;
     Connection conn;
-    Statement sent;
     FondoPanel fondo = new FondoPanel();
     
     public CapB() {
-        
         this.setContentPane(fondo);
         initComponents();
         conn=Mysql.getConnection();
@@ -49,39 +40,35 @@ public class CapB extends javax.swing.JFrame {
         jRadioButton113.setActionCommand("No");
         jRadioButton107.setActionCommand("Si");
         jRadioButton112.setActionCommand("No");
-        String result;
-        String radio;
-        String tele;
-        String comp;
-        String internet;
-        String telf;
         
-           if(buttonGroup16.getSelection().getActionCommand()=="Si"){
-               radio = "Radio";
-           }else{
-               radio = "no";
-           }
-           
-           if(buttonGroup17.getSelection().getActionCommand()=="Si"){
-               tele = "Televisor";
-           }else{
-               tele = "no";
-           }
-          if(buttonGroup18.getSelection().getActionCommand()=="Si"){
-               comp = "Computadora";
-           }else{
-               comp = "no";
-           }
-          if(buttonGroup19.getSelection().getActionCommand()=="Si"){
-               internet = "Servicio de internet";
-           }else{
-               internet = "no";
-           }
-          if(buttonGroup20.getSelection().getActionCommand()=="Si"){
-               telf = "Servicio de telefonia fija o celular";
-           }else{
-               telf = "no";
-           }
+        String result,radio,tele,comp,internet,telf;
+        
+        if("Si".equals(buttonGroup16.getSelection().getActionCommand())){
+            radio = "Radio";
+        }else{
+            radio = "no";
+        }
+
+        if("Si".equals(buttonGroup17.getSelection().getActionCommand())){
+            tele = "Televisor";
+        }else{
+            tele = "no";
+        }
+       if("Si".equals(buttonGroup18.getSelection().getActionCommand())){
+            comp = "Computadora";
+        }else{
+            comp = "no";
+        }
+       if("Si".equals(buttonGroup19.getSelection().getActionCommand())){
+            internet = "Servicio de internet";
+        }else{
+            internet = "no";
+        }
+       if("Si".equals(buttonGroup20.getSelection().getActionCommand())){
+            telf = "Servicio de telefonia fija o celular";
+        }else{
+            telf = "no";
+        }
         result = radio+", "+ tele+", "+ comp+", "+ internet+", "+telf;    
         return result;
     }
@@ -98,39 +85,34 @@ public class CapB extends javax.swing.JFrame {
         jRadioButton94.setActionCommand("Si");
         jRadioButton89.setActionCommand("No");
         
-        String result ;
-        String veh;
-        String bici;
-        String moto;
-        String carr;
-        String des;
+        String result,veh,bici,moto,carr,des;
         
-           if(buttonGroup21.getSelection().getActionCommand()=="Si"){
-               veh = "Vehiculo automotor";
-           }else{
-               veh = "no";
-           }
-           
-           if(buttonGroup22.getSelection().getActionCommand()=="Si"){
-                bici= "Bicicleta";
-           }else{
-               bici = "no";
-           }
-          if(buttonGroup23.getSelection().getActionCommand()=="Si"){
-               moto = "Motocicleta o cuadratrac";
-           }else{
-               moto = "no";
-           }
-          if(buttonGroup24.getSelection().getActionCommand()=="Si"){
-               carr = "carreta o carretón";
-           }else{
-               carr = "no";
-           }
-          if(buttonGroup25.getSelection().getActionCommand()=="Si"){
-               des = "deslizador, balsa, canoa o bote";
-           }else{
-               des = "no";
-           }
+        if("Si".equals(buttonGroup21.getSelection().getActionCommand())){
+            veh = "Vehiculo automotor";
+        }else{
+            veh = "no";
+        }
+
+        if("Si".equals(buttonGroup22.getSelection().getActionCommand())){
+             bici= "Bicicleta";
+        }else{
+            bici = "no";
+        }
+       if("Si".equals(buttonGroup23.getSelection().getActionCommand())){
+            moto = "Motocicleta o cuadratrac";
+        }else{
+            moto = "no";
+        }
+       if("Si".equals(buttonGroup24.getSelection().getActionCommand())){
+            carr = "carreta o carretón";
+        }else{
+            carr = "no";
+        }
+       if("Si".equals(buttonGroup25.getSelection().getActionCommand())){
+            des = "deslizador, balsa, canoa o bote";
+        }else{
+            des = "no";
+        }
         result = veh+", "+ bici+", "+ moto+", "+ carr+", "+des;    
         return result;
     }
@@ -168,7 +150,7 @@ public class CapB extends javax.swing.JFrame {
         jPanel5 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jRadioButton8 = new javax.swing.JRadioButton();
-        preg1 = new javax.swing.JRadioButton();
+        jRadioButton1 = new javax.swing.JRadioButton();
         jRadioButton2 = new javax.swing.JRadioButton();
         jRadioButton3 = new javax.swing.JRadioButton();
         jRadioButton4 = new javax.swing.JRadioButton();
@@ -240,7 +222,7 @@ public class CapB extends javax.swing.JFrame {
         jRadioButton47 = new javax.swing.JRadioButton();
         jPanel13 = new javax.swing.JPanel();
         jRadioButton48 = new javax.swing.JRadioButton();
-        jRadioButton49 = new javax.swing.JRadioButton();
+        jRadioNoTiene = new javax.swing.JRadioButton();
         jLabel5 = new javax.swing.JLabel();
         jRadioButton50 = new javax.swing.JRadioButton();
         jLabel26 = new javax.swing.JLabel();
@@ -335,7 +317,7 @@ public class CapB extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        jTxtCodVid = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -359,14 +341,14 @@ public class CapB extends javax.swing.JFrame {
         });
         jPanel1.add(jRadioButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 233, -1, -1));
 
-        buttonGroup1.add(preg1);
-        preg1.setText("Casa/Choza/Pahuichi");
-        preg1.addActionListener(new java.awt.event.ActionListener() {
+        buttonGroup1.add(jRadioButton1);
+        jRadioButton1.setText("Casa/Choza/Pahuichi");
+        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                preg1ActionPerformed(evt);
+                jRadioButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(preg1, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 52, 205, 15));
+        jPanel1.add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 52, 205, 15));
 
         buttonGroup1.add(jRadioButton2);
         jRadioButton2.setText("Departamento");
@@ -647,7 +629,7 @@ public class CapB extends javax.swing.JFrame {
         jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
-        jLabel9.setText("4. ¿Las paredes interiores de esta vivienda tienen revoque?");
+        jLabel9.setText("<HTML>4. ¿Las paredes interiores de esta vivienda <P>tienen revoque?");
         jPanel8.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 8, -1, -1));
 
         buttonGroup6.add(jRadioButton15);
@@ -657,11 +639,11 @@ public class CapB extends javax.swing.JFrame {
                 jRadioButton15ActionPerformed(evt);
             }
         });
-        jPanel8.add(jRadioButton15, new org.netbeans.lib.awtextra.AbsoluteConstraints(72, 30, 147, -1));
+        jPanel8.add(jRadioButton15, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 147, -1));
 
         buttonGroup6.add(jRadioButton16);
         jRadioButton16.setText("No");
-        jPanel8.add(jRadioButton16, new org.netbeans.lib.awtextra.AbsoluteConstraints(72, 63, 117, -1));
+        jPanel8.add(jRadioButton16, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, 117, -1));
 
         jPanel5.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 270, 380, 150));
 
@@ -858,14 +840,14 @@ public class CapB extends javax.swing.JFrame {
         jRadioButton48.setText("Sí, de uso compartido");
         jPanel13.add(jRadioButton48, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 63, -1, -1));
 
-        buttonGroup11.add(jRadioButton49);
-        jRadioButton49.setText("No tiene");
-        jRadioButton49.addActionListener(new java.awt.event.ActionListener() {
+        buttonGroup11.add(jRadioNoTiene);
+        jRadioNoTiene.setText("No tiene");
+        jRadioNoTiene.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton49ActionPerformed(evt);
+                jRadioNoTieneActionPerformed(evt);
             }
         });
-        jPanel13.add(jRadioButton49, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 96, 139, -1));
+        jPanel13.add(jRadioNoTiene, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, 139, -1));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         jLabel5.setText("9. ¿Tiene servicio sanitario, baño o letrina?");
@@ -883,7 +865,7 @@ public class CapB extends javax.swing.JFrame {
         jLabel26.setText("Pase a la pregunta 11");
         jPanel13.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(218, 99, -1, -1));
 
-        jPanel4.add(jPanel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 205, 460, -1));
+        jPanel4.add(jPanel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 205, 460, 150));
 
         jPanel14.setBackground(new java.awt.Color(255, 255, 255));
         jPanel14.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -895,7 +877,7 @@ public class CapB extends javax.swing.JFrame {
 
         buttonGroup12.add(jRadioButton51);
         jRadioButton51.setText("al alcantarillado?");
-        jPanel14.add(jRadioButton51, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 30, 154, -1));
+        jPanel14.add(jRadioButton51, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, 154, 40));
 
         buttonGroup12.add(jRadioButton52);
         jRadioButton52.setText("a una camara septica?  ");
@@ -904,7 +886,7 @@ public class CapB extends javax.swing.JFrame {
                 jRadioButton52ActionPerformed(evt);
             }
         });
-        jPanel14.add(jRadioButton52, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 63, 154, -1));
+        jPanel14.add(jRadioButton52, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 90, 154, 40));
 
         buttonGroup12.add(jRadioButton53);
         jRadioButton53.setText("a un pozo ciego?");
@@ -913,11 +895,11 @@ public class CapB extends javax.swing.JFrame {
                 jRadioButton53ActionPerformed(evt);
             }
         });
-        jPanel14.add(jRadioButton53, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 96, 154, -1));
+        jPanel14.add(jRadioButton53, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 120, 154, 40));
 
         buttonGroup12.add(jRadioButton54);
         jRadioButton54.setText("a la calle?");
-        jPanel14.add(jRadioButton54, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 129, 154, -1));
+        jPanel14.add(jRadioButton54, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, 154, 40));
 
         buttonGroup12.add(jRadioButton55);
         jRadioButton55.setText("a la quebrada, rio?");
@@ -926,13 +908,13 @@ public class CapB extends javax.swing.JFrame {
                 jRadioButton55ActionPerformed(evt);
             }
         });
-        jPanel14.add(jRadioButton55, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 162, -1, -1));
+        jPanel14.add(jRadioButton55, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 190, -1, 40));
 
         buttonGroup12.add(jRadioButton56);
         jRadioButton56.setText("a un lago ,laguna ,curichi");
-        jPanel14.add(jRadioButton56, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 195, -1, -1));
+        jPanel14.add(jRadioButton56, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 230, -1, 40));
 
-        jPanel4.add(jPanel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 348, 460, 310));
+        jPanel4.add(jPanel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 368, 460, 290));
 
         jPanel15.setBackground(new java.awt.Color(255, 255, 255));
         jPanel15.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -985,7 +967,7 @@ public class CapB extends javax.swing.JFrame {
 
         jLabel14.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         jLabel14.setText("11. ¿Tienen energía eléctrica que proviene de…");
-        jPanel15.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 8, 270, -1));
+        jPanel15.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 8, 310, -1));
 
         jPanel4.add(jPanel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 32, 333, 159));
 
@@ -1008,7 +990,7 @@ public class CapB extends javax.swing.JFrame {
 
         buttonGroup13.add(jRadioButton63);
         jRadioButton63.setText("Gas en garrafa");
-        jPanel16.add(jRadioButton63, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 79, 98, -1));
+        jPanel16.add(jRadioButton63, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 79, 170, -1));
 
         buttonGroup13.add(jRadioButton64);
         jRadioButton64.setText("Electricidad");
@@ -1017,11 +999,11 @@ public class CapB extends javax.swing.JFrame {
                 jRadioButton64ActionPerformed(evt);
             }
         });
-        jPanel16.add(jRadioButton64, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 112, 98, -1));
+        jPanel16.add(jRadioButton64, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 112, 170, -1));
 
         buttonGroup13.add(jRadioButton65);
         jRadioButton65.setText("Energia solar ");
-        jPanel16.add(jRadioButton65, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 145, 98, -1));
+        jPanel16.add(jRadioButton65, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 145, 170, -1));
 
         buttonGroup13.add(jRadioButton66);
         jRadioButton66.setText("Leña");
@@ -1039,7 +1021,7 @@ public class CapB extends javax.swing.JFrame {
                 jRadioButton67ActionPerformed(evt);
             }
         });
-        jPanel16.add(jRadioButton67, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 211, 98, -1));
+        jPanel16.add(jRadioButton67, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 211, 190, -1));
 
         buttonGroup13.add(jRadioButton68);
         jRadioButton68.setText("Otro");
@@ -1059,7 +1041,7 @@ public class CapB extends javax.swing.JFrame {
         });
         jPanel16.add(jRadioButton69, new org.netbeans.lib.awtextra.AbsoluteConstraints(203, 112, -1, -1));
 
-        jPanel4.add(jPanel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(496, 197, 337, 207));
+        jPanel4.add(jPanel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(496, 197, 337, 250));
 
         jPanel17.setBackground(new java.awt.Color(255, 255, 255));
         jPanel17.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -1067,7 +1049,7 @@ public class CapB extends javax.swing.JFrame {
 
         jLabel21.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         jLabel21.setText("13. ¿Tiene un cuarto sólo para cocinar?");
-        jPanel17.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 2, 222, -1));
+        jPanel17.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 2, 290, -1));
 
         buttonGroup14.add(jRadioButton70);
         jRadioButton70.setText("Si");
@@ -1076,7 +1058,7 @@ public class CapB extends javax.swing.JFrame {
                 jRadioButton70ActionPerformed(evt);
             }
         });
-        jPanel17.add(jRadioButton70, new org.netbeans.lib.awtextra.AbsoluteConstraints(54, 19, 98, -1));
+        jPanel17.add(jRadioButton70, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, 98, -1));
 
         buttonGroup14.add(jRadioButton71);
         jRadioButton71.setText("No");
@@ -1085,9 +1067,9 @@ public class CapB extends javax.swing.JFrame {
                 jRadioButton71ActionPerformed(evt);
             }
         });
-        jPanel17.add(jRadioButton71, new org.netbeans.lib.awtextra.AbsoluteConstraints(158, 19, 104, -1));
+        jPanel17.add(jRadioButton71, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, 104, 30));
 
-        jPanel4.add(jPanel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 420, 337, 240));
+        jPanel4.add(jPanel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 470, 337, 190));
 
         jPanel18.setBackground(new java.awt.Color(255, 255, 255));
         jPanel18.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -1102,9 +1084,9 @@ public class CapB extends javax.swing.JFrame {
                 jTextField2ActionPerformed(evt);
             }
         });
-        jPanel18.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(57, 46, 159, -1));
+        jPanel18.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 260, -1));
 
-        jPanel4.add(jPanel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 32, 430, 90));
+        jPanel4.add(jPanel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 32, 430, 100));
 
         jPanel19.setBackground(new java.awt.Color(255, 255, 255));
         jPanel19.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -1113,9 +1095,9 @@ public class CapB extends javax.swing.JFrame {
         jLabel23.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         jLabel23.setText("<html>15. Del total de cuartos o habitaciones<p> ¿cuántos se utilizan sólo para dormir?");
         jPanel19.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 8, -1, -1));
-        jPanel19.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(56, 46, 163, -1));
+        jPanel19.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 260, -1));
 
-        jPanel4.add(jPanel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 133, 430, 90));
+        jPanel4.add(jPanel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 150, 430, 150));
 
         jPanel20.setBackground(new java.awt.Color(255, 255, 255));
         jPanel20.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -1132,7 +1114,7 @@ public class CapB extends javax.swing.JFrame {
                 jRadioButton73ActionPerformed(evt);
             }
         });
-        jPanel20.add(jRadioButton73, new org.netbeans.lib.awtextra.AbsoluteConstraints(2, 28, 437, -1));
+        jPanel20.add(jRadioButton73, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 437, -1));
 
         buttonGroup15.add(jRadioButton74);
         jRadioButton74.setText("Utilizan el servicio público de recolección (carro basurero)");
@@ -1141,7 +1123,7 @@ public class CapB extends javax.swing.JFrame {
                 jRadioButton74ActionPerformed(evt);
             }
         });
-        jPanel20.add(jRadioButton74, new org.netbeans.lib.awtextra.AbsoluteConstraints(2, 61, 437, -1));
+        jPanel20.add(jRadioButton74, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 437, -1));
 
         buttonGroup15.add(jRadioButton75);
         jRadioButton75.setText("La botan en un terreno baldío o en la calle");
@@ -1150,7 +1132,7 @@ public class CapB extends javax.swing.JFrame {
                 jRadioButton75ActionPerformed(evt);
             }
         });
-        jPanel20.add(jRadioButton75, new org.netbeans.lib.awtextra.AbsoluteConstraints(2, 94, 342, -1));
+        jPanel20.add(jRadioButton75, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 342, -1));
 
         buttonGroup15.add(jRadioButton76);
         jRadioButton76.setText("La botan al rio");
@@ -1159,21 +1141,21 @@ public class CapB extends javax.swing.JFrame {
                 jRadioButton76ActionPerformed(evt);
             }
         });
-        jPanel20.add(jRadioButton76, new org.netbeans.lib.awtextra.AbsoluteConstraints(2, 127, 104, -1));
+        jPanel20.add(jRadioButton76, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 104, -1));
 
         buttonGroup15.add(jRadioButton77);
         jRadioButton77.setText("La queman ");
-        jPanel20.add(jRadioButton77, new org.netbeans.lib.awtextra.AbsoluteConstraints(2, 160, 104, -1));
+        jPanel20.add(jRadioButton77, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 104, -1));
 
         buttonGroup15.add(jRadioButton78);
         jRadioButton78.setText("La entierran");
-        jPanel20.add(jRadioButton78, new org.netbeans.lib.awtextra.AbsoluteConstraints(2, 193, 104, -1));
+        jPanel20.add(jRadioButton78, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 104, -1));
 
         buttonGroup15.add(jRadioButton72);
         jRadioButton72.setText("Otra forma");
-        jPanel20.add(jRadioButton72, new org.netbeans.lib.awtextra.AbsoluteConstraints(2, 249, 104, -1));
+        jPanel20.add(jRadioButton72, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, 104, -1));
 
-        jPanel4.add(jPanel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(849, 242, 430, 420));
+        jPanel4.add(jPanel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(849, 322, 430, 340));
 
         jTabbedPane1.addTab("CapituloB2", jPanel4);
 
@@ -1361,7 +1343,7 @@ public class CapB extends javax.swing.JFrame {
 
         jLabel36.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         jLabel36.setText("18. ¿Este hogar tiene…");
-        jPanel22.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 133, -1));
+        jPanel22.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 210, -1));
 
         jPanel3.add(jPanel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 20, 380, 620));
 
@@ -1414,7 +1396,7 @@ public class CapB extends javax.swing.JFrame {
 
         jLabel37.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         jLabel37.setText("19. ¿La vivienda que ocupa este hogar es…");
-        jPanel23.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 8, 255, -1));
+        jPanel23.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 8, 330, -1));
 
         jPanel3.add(jPanel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 20, 350, 620));
 
@@ -1440,58 +1422,109 @@ public class CapB extends javax.swing.JFrame {
         jLabel4.setText("Codigo Vivienda");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 30, 120, -1));
 
-        jTextField5.addActionListener(new java.awt.event.ActionListener() {
+        jTxtCodVid.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField5ActionPerformed(evt);
+                jTxtCodVidActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(1170, 20, 110, -1));
+        getContentPane().add(jTxtCodVid, new org.netbeans.lib.awtextra.AbsoluteConstraints(1170, 20, 110, -1));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-    if(jTextField5.getText().isEmpty()){
+        // BOTON SIGUIENTE Y GUARDAR
+        int r = JOptionPane.showOptionDialog(this, "Los datos que guardara estan correctos?", "GUARDAR DATOS",JOptionPane.YES_NO_OPTION, 
+                 JOptionPane.QUESTION_MESSAGE, null, null, null);
+        if(r==0){
+            llenarDatos();
+        }  
+    }//GEN-LAST:event_jButton2ActionPerformed
+    
+    private void llenarDatos(){
+        
+        if(jTxtCodVid.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Ingrese Codigo de Vivienda porfavor");
         }else{
-            this.setVisible(false);
-            new CapB().setVisible(true);	
-            this.setVisible(false);
-            new CapC().setVisible(true);
-        
-        preg1.setActionCommand("Particular: Casa/Choza/Pahuichi");
+            setBotones(); // llenamos radio botones
+            try {
+                String sql = "insert into cap_b (codVivienda, tipo, estado, materialPared,"
+                        + " interiorRevoque , materialTecho, materialPiso , agua , aguaDistribuye , sanitario, sanitarioDesague,"
+                        + " energiaElectrica, energiaCocina, cuartoCocina, cuartoOcupado, cuartoDormir, basuraelimina, hogarTiene, "
+                        + " hogarTiene2, vivienda) "
+                        +" values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                PreparedStatement ps = conn.prepareCall(sql);
+                ps.setString(1,  jTxtCodVid.getText());
+                ps.setString(2,  buttonGroup1.getSelection().getActionCommand());
+                ps.setString(3,  buttonGroup3.getSelection().getActionCommand());
+                ps.setString(4,  buttonGroup7.getSelection().getActionCommand());
+                ps.setString(5,  buttonGroup6.getSelection().getActionCommand());
+                ps.setString(6,  buttonGroup9.getSelection().getActionCommand());
+                ps.setString(7,  buttonGroup5.getSelection().getActionCommand());
+                ps.setString(8,  buttonGroup8.getSelection().getActionCommand());
+                ps.setString(9,  buttonGroup10.getSelection().getActionCommand());
+                ps.setString(10, buttonGroup11.getSelection().getActionCommand());
+                ps.setString(11, pregunta10());
+                ps.setString(12, buttonGroup2.getSelection().getActionCommand());
+                ps.setString(13, buttonGroup13.getSelection().getActionCommand());
+                ps.setString(14, buttonGroup14.getSelection().getActionCommand());
+                ps.setString(15, jTextField2.getText());
+                ps.setString(16, jTextField3.getText());
+                ps.setString(17, buttonGroup15.getSelection().getActionCommand());
+                ps.setString(18, preg17());
+                ps.setString(19, preg18());
+                ps.setString(20, buttonGroup26.getSelection().getActionCommand());
+                
+                int n = ps.executeUpdate();
+                if(n>0){
+                    JOptionPane.showMessageDialog(null, "Datos guardados correctamente");
+                    // PASAR A CAPC
+                    this.setVisible(false);
+                    new CapC().setVisible(true);
+                }
+
+        } catch (Exception e) {
+                JOptionPane.showMessageDialog(null,"Error"+ e.getMessage());
+        }
+    }
+    }
+    
+    private void setBotones(){
+        // LLENA DAATOS A LOS RADIO BUTTON'S
+        // Preg1
+        jRadioButton1.setActionCommand("Particular: Casa/Choza/Pahuichi");
         jRadioButton2.setActionCommand("Particular: Departamento");
         jRadioButton3.setActionCommand("Particular: Cuarto(s)o habitacion(es) suelta(s)");
         jRadioButton4.setActionCommand("Particular: Vivienda improvisada");
         jRadioButton5.setActionCommand("Particular: Local  no destinado para vivienda ");
-        //
+        
         jRadioButton8.setActionCommand("Colectiva: Vivienda colectiva");
         jRadioButton7.setActionCommand("Colectiva: Persona que vive en la calle ");
-        //2
+        // Preg2
         jRadioButton12.setActionCommand("Sin vivienda: ocupada por personas presentes ");
         jRadioButton13.setActionCommand("Sin vivienda: ocupada con personas temporalmente ausentes ");
         jRadioButton9.setActionCommand("Sin vivienda: para alquilar y/o vender ");
         jRadioButton10.setActionCommand("Sin vivienda: en construccion o reparacion");
         jRadioButton11.setActionCommand("Sin vivienda: abandonada");
-        //3
+        // Preg3
         jRadioButton17.setActionCommand("Ladrillo, bloque de cemento, hormigón");
         jRadioButton18.setActionCommand("Adobe,tapial");
         jRadioButton19.setActionCommand("Tabique,quinche");
         jRadioButton23.setActionCommand("Madera");
         jRadioButton25.setActionCommand("Caña,palma,tronco");
         jRadioButton27.setActionCommand("otro");
-        //4
+        // Preg4
         jRadioButton15.setActionCommand("Si");
         jRadioButton16.setActionCommand("No");
-        //5
+        // Preg5
         jRadioButton20.setActionCommand("Calamina o plancha metálica");
         jRadioButton22.setActionCommand("Persona en vivienda colectiva");
         jRadioButton24.setActionCommand("Losa de hormigón armado");
         jRadioButton26.setActionCommand("Paja, palma, caña, barro");
         jRadioButton14.setActionCommand("Otro");
         jRadioButton21.setActionCommand("Piedra");
-        //6
+        // Preg6
         jRadioButton28.setActionCommand("Tierra");
         jRadioButton29.setActionCommand("Tablon de madera");
         jRadioButton30.setActionCommand("Machihembre");
@@ -1501,7 +1534,7 @@ public class CapB extends javax.swing.JFrame {
         jRadioButton34.setActionCommand("Mosaico,baldosa");
         jRadioButton35.setActionCommand("Ladrillo");
         jRadioButton36.setActionCommand("Otro");
-        //7
+        // Preg7
         jRadioButton43.setActionCommand("cañería de red?");
         jRadioButton37.setActionCommand("pileta pública?");
         jRadioButton38.setActionCommand("carro repartidor (aguatero)?");
@@ -1509,24 +1542,23 @@ public class CapB extends javax.swing.JFrame {
         jRadioButton40.setActionCommand("pozo o noria sin bomba?");
         jRadioButton41.setActionCommand("lluvia, río, vertiente, acequia?");
         jRadioButton42.setActionCommand("lago, laguna, curichi?");
-        //8
+        // Preg8
         jRadioButton44.setActionCommand("por cañería dentro de la vivienda");
         jRadioButton45.setActionCommand("por cañería fuera de la vivienda pero dentro del lote o terreno");
         jRadioButton46.setActionCommand("por cañería fuera de la vivienda y del lote o terreno");
         jRadioButton47.setActionCommand(" no se distribuye por cañería");
-        //9
+        // Preg9
         jRadioButton50.setActionCommand("Sí, de uso privado");
         jRadioButton48.setActionCommand("Sí, de uso compartido");
-        jRadioButton49.setActionCommand("No tiene");
-        //10
-        //pregunta10();
-        //11
+        jRadioNoTiene.setActionCommand("No tiene");
+        // Preg10
+        // Preg11
         jRadioButton57.setActionCommand("red de empresa eléctrica (servicio público)?");
         jRadioButton58.setActionCommand("motor propio?");
         jRadioButton59.setActionCommand("panel solar?");
         jRadioButton60.setActionCommand("otra?");
         jRadioButton61.setActionCommand("no tiene?");
-        //12
+        // Preg12
         jRadioButton62.setActionCommand("Gas domiciliario (por cañeria)");
         jRadioButton63.setActionCommand("Gas en garrafa");
         jRadioButton64.setActionCommand("Electricidad");
@@ -1535,10 +1567,10 @@ public class CapB extends javax.swing.JFrame {
         jRadioButton67.setActionCommand("Guano,bostia o taquia");
         jRadioButton68.setActionCommand("Otro");
         jRadioButton69.setActionCommand("No cocina");
-        //13
+        // Preg13
         jRadioButton70.setActionCommand("Si");
         jRadioButton71.setActionCommand("No");
-        //16
+        // Preg16
         jRadioButton73.setActionCommand("La depositan en el basurero público o contenedor");
         jRadioButton74.setActionCommand("Utilizan el servicio público de recolección (carro basurero)");
         jRadioButton75.setActionCommand("La botan en un terreno baldío o en la calle");
@@ -1546,7 +1578,7 @@ public class CapB extends javax.swing.JFrame {
         jRadioButton77.setActionCommand("La queman");
         jRadioButton78.setActionCommand("La entierran");
         jRadioButton72.setActionCommand("Otra forma");
-        //19
+        // Preg17
         jRadioButton105.setActionCommand("propia?");
         jRadioButton104.setActionCommand("alquilada");
         jRadioButton103.setActionCommand("en contrato anticrético?");
@@ -1554,72 +1586,28 @@ public class CapB extends javax.swing.JFrame {
         jRadioButton101.setActionCommand("cedida por servicios?");
         jRadioButton100.setActionCommand("prestada por parientes o amigos?");
         jRadioButton99.setActionCommand("otra?");
-        
-        
-        
-        try {
-            String sql = "insert into cap_b (codVivienda, tipo, estado, materialPared,"
-                    + " interiorRevoque , materialTecho, materialPiso , agua , aguaDistribuye , sanitario, sanitarioDesague,"
-                    + " energiaElectrica, energiaCocina, cuartoCocina, cuartoOcupado, cuartoDormir, basuraelimina, hogarTiene, "
-                    + " hogarTiene2, vivienda) "
-                    +" values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-            PreparedStatement ps = conn.prepareCall(sql);
-            ps.setString(1, jTextField5.getText());
-            ps.setString(2, buttonGroup1.getSelection().getActionCommand());
-            ps.setString(3, buttonGroup3.getSelection().getActionCommand());
-            ps.setString(4, buttonGroup7.getSelection().getActionCommand());
-            ps.setString(5, buttonGroup6.getSelection().getActionCommand());
-            ps.setString(6, buttonGroup9.getSelection().getActionCommand());
-            ps.setString(7, buttonGroup5.getSelection().getActionCommand());
-            ps.setString(8, buttonGroup8.getSelection().getActionCommand());
-            ps.setString(9, buttonGroup10.getSelection().getActionCommand());
-            ps.setString(10, buttonGroup11.getSelection().getActionCommand());
-            ps.setString(11, pregunta10());
-            ps.setString(12, buttonGroup2.getSelection().getActionCommand());
-            ps.setString(13, buttonGroup13.getSelection().getActionCommand());
-            ps.setString(14, buttonGroup14.getSelection().getActionCommand());
-            ps.setString(15, jTextField2.getText());
-            ps.setString(16, jTextField3.getText());
-            ps.setString(17, buttonGroup15.getSelection().getActionCommand());
-            ps.setString(18,preg17());
-            ps.setString(19, preg18());
-            ps.setString(20, buttonGroup26.getSelection().getActionCommand());
-            
-           
-            int n = ps.executeUpdate();
-            if(n>0){
-                JOptionPane.showMessageDialog(null, "Datos guardados correctamente");
-            }
-
-        } catch (Exception e) {
-                JOptionPane.showMessageDialog(null,"Error"+ e.getMessage());
-        }
-}  
-    }//GEN-LAST:event_jButton2ActionPerformed
-
+    }
+    
     private String pregunta10(){
         String respuesta;
-        if(jRadioButton49.isSelected()){
-        jRadioButton51.setActionCommand("");
-        jRadioButton52.setActionCommand(" ");
-        jRadioButton53.setActionCommand("");
-        jRadioButton54.setActionCommand("");
-        jRadioButton55.setActionCommand("");
-        jRadioButton56.setActionCommand("");
+        if(jRadioNoTiene.isSelected()){
+            jRadioButton51.setActionCommand("");
+            jRadioButton52.setActionCommand("");
+            jRadioButton53.setActionCommand("");
+            jRadioButton54.setActionCommand("");
+            jRadioButton55.setActionCommand("");
+            jRadioButton56.setActionCommand("");
             respuesta="";
-
         }else{
-        jRadioButton51.setActionCommand("al alcantarillado?");
+            jRadioButton51.setActionCommand("al alcantarillado?");
             jRadioButton52.setActionCommand("a una camara septica?  ");
             jRadioButton53.setActionCommand("a un pozo ciego?");
             jRadioButton54.setActionCommand("a la calle?");
             jRadioButton55.setActionCommand("a la quebrada, rio?");
             jRadioButton56.setActionCommand("a un lago ,laguna ,curichi");
-               respuesta=buttonGroup12.getSelection().getActionCommand();
-
+            respuesta=buttonGroup12.getSelection().getActionCommand();
         }
         return respuesta;
-    
     }
                       
     private void jRadioButton104ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton104ActionPerformed
@@ -1736,16 +1724,22 @@ public class CapB extends javax.swing.JFrame {
 
     private void jRadioButton50ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton50ActionPerformed
         // TODO add your handling code here:
+        jRadioButton51.setEnabled(true);
+        jRadioButton52.setEnabled(true);
+        jRadioButton53.setEnabled(true);
+        jRadioButton54.setEnabled(true);
+        jRadioButton55.setEnabled(true);
+        jRadioButton56.setEnabled(true);
     }//GEN-LAST:event_jRadioButton50ActionPerformed
 
-    private void jRadioButton49ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton49ActionPerformed
-    jRadioButton51.setEnabled(false);
-    jRadioButton52.setEnabled(false);
-    jRadioButton53.setEnabled(false);
-    jRadioButton54.setEnabled(false);
-    jRadioButton55.setEnabled(false);
-    jRadioButton56.setEnabled(false);
-    }//GEN-LAST:event_jRadioButton49ActionPerformed
+    private void jRadioNoTieneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioNoTieneActionPerformed
+        jRadioButton51.setEnabled(false);
+        jRadioButton52.setEnabled(false);
+        jRadioButton53.setEnabled(false);
+        jRadioButton54.setEnabled(false);
+        jRadioButton55.setEnabled(false);
+        jRadioButton56.setEnabled(false);
+    }//GEN-LAST:event_jRadioNoTieneActionPerformed
 
     private void jRadioButton45ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton45ActionPerformed
         // TODO add your handling code here:
@@ -1887,9 +1881,9 @@ public class CapB extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButton2ActionPerformed
 
-    private void preg1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_preg1ActionPerformed
+    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_preg1ActionPerformed
+    }//GEN-LAST:event_jRadioButton1ActionPerformed
 
     private void jRadioButton47ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton47ActionPerformed
         // TODO add your handling code here:
@@ -1915,78 +1909,79 @@ public class CapB extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButton114ActionPerformed
 
-    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+    private void jTxtCodVidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxtCodVidActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField5ActionPerformed
+    }//GEN-LAST:event_jTxtCodVidActionPerformed
 
     private void jRadioButton95ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton95ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButton95ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-    if(jTextField5.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null, "Ingrese Codigo de Vivienda porfavor");
-        }else{
-           /* this.setVisible(false);
-            new CapB().setVisible(true);*/	
-        this.setVisible(false);
-        new CapF().setVisible(true);
-        preg1.setActionCommand("Casa/Choza/Pahuichi");
-        jRadioButton2.setActionCommand("Departamento");
-        jRadioButton3.setActionCommand("Cuarto(s)o habitacion(es) suelta(s)");
-        jRadioButton4.setActionCommand("Vivienda improvisada");
-        jRadioButton5.setActionCommand("Local  no destinado para vivienda ");
-        
-        //
-        jRadioButton8.setActionCommand("Vivienda colectiva");
-        jRadioButton6.setActionCommand("En transito ");
-        jRadioButton7.setActionCommand("Persona que vive en la calle ");
-        //2
-        
-        
-        
-        
-        try {
-            String sql = "insert into cap_b (codVivienda, tipo, estado, materialPared,"
-                    + " interiorRevoque , materialTecho, materialPiso , agua , aguaDistribuye , sanitario, sanitarioDesague,"
-                    + " energiaElectrica, energiaCocina, cuartoCocina, cuartoOcupado, cuartoDormir, basuraelimina, hogarTiene, "
-                    + " hogarTiene2, vivienda) "
-                    +" values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-            PreparedStatement ps = conn.prepareCall(sql);
-            ps.setString(1, jTextField5.getText());
-            ps.setString(2, buttonGroup1.getSelection().getActionCommand());
-            ps.setString(3, "");
-            ps.setString(4, "");
-            ps.setString(5, "");
-            ps.setString(6, "");
-            ps.setString(7, "");
-            ps.setString(8, "");
-            ps.setString(9, "");
-            ps.setString(10, "");
-            ps.setString(11, "");
-            ps.setString(12, "");
-            ps.setString(13, "");
-            ps.setString(14, "");
-            ps.setString(15, "");
-            ps.setString(16, "");
-            ps.setString(17, "");
-            ps.setString(18,"");
-            ps.setString(19, "");
-            ps.setString(20, "");
-            
-           
-            int n = ps.executeUpdate();
-            if(n>0){
-                JOptionPane.showMessageDialog(null, "Datos guardados correctamente");
-            }
-
-        } catch (Exception e) {
-                JOptionPane.showMessageDialog(null,"Error"+ e.getMessage());
-        }
-            
+        // BOTON GUARDAR Y PASAR A CAPF
+        int r = JOptionPane.showOptionDialog(this, "Los datos que guardara estan correctos?", "GUARDAR DATOS",JOptionPane.YES_NO_OPTION, 
+                 JOptionPane.QUESTION_MESSAGE, null, null, null);
+        if(r==0){
+            llenarDatosPasarCapF();
         }
     }//GEN-LAST:event_jButton3ActionPerformed
-
+    
+    private void llenarDatosPasarCapF(){
+        if(jTxtCodVid.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Ingrese Codigo de Vivienda porfavor");
+        }else{
+            // SET PREG1 RADIO BUTTON
+            jRadioButton1.setActionCommand("Casa/Choza/Pahuichi");
+            jRadioButton2.setActionCommand("Departamento");
+            jRadioButton3.setActionCommand("Cuarto(s)o habitacion(es) suelta(s)");
+            jRadioButton4.setActionCommand("Vivienda improvisada");
+            jRadioButton5.setActionCommand("Local  no destinado para vivienda ");
+            
+            jRadioButton8.setActionCommand("Vivienda colectiva");
+            jRadioButton6.setActionCommand("En transito ");
+            jRadioButton7.setActionCommand("Persona que vive en la calle ");
+            
+            try {
+                String sql = "insert into cap_b (codVivienda, tipo, estado, materialPared,"
+                        + " interiorRevoque , materialTecho, materialPiso , agua , aguaDistribuye , sanitario, sanitarioDesague,"
+                        + " energiaElectrica, energiaCocina, cuartoCocina, cuartoOcupado, cuartoDormir, basuraelimina, hogarTiene, "
+                        + " hogarTiene2, vivienda) "
+                        +" values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                PreparedStatement ps = conn.prepareCall(sql);
+                ps.setString(1, jTxtCodVid.getText());
+                ps.setString(2, buttonGroup1.getSelection().getActionCommand());
+                ps.setString(3, "");
+                ps.setString(4, "");
+                ps.setString(5, "");
+                ps.setString(6, "");
+                ps.setString(7, "");
+                ps.setString(8, "");
+                ps.setString(9, "");
+                ps.setString(10, "");
+                ps.setString(11, "");
+                ps.setString(12, "");
+                ps.setString(13, "");
+                ps.setString(14, "");
+                ps.setString(15, "");
+                ps.setString(16, "");
+                ps.setString(17, "");
+                ps.setString(18,"");
+                ps.setString(19, "");
+                ps.setString(20, "");
+                
+                int n = ps.executeUpdate();
+                if(n>0){
+                    JOptionPane.showMessageDialog(null, "Datos guardados correctamente");
+                    // PASAR AL SIGUIENTE CAP
+                    this.setVisible(false);
+                    new CapF().setVisible(true);
+                }
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null,"Error"+ e.getMessage());
+            }
+        }
+    }
+    
     private void jRadioButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton8ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButton8ActionPerformed
@@ -2126,6 +2121,7 @@ public class CapB extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
+    private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton10;
     private javax.swing.JRadioButton jRadioButton100;
     private javax.swing.JRadioButton jRadioButton101;
@@ -2184,7 +2180,6 @@ public class CapB extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioButton46;
     private javax.swing.JRadioButton jRadioButton47;
     private javax.swing.JRadioButton jRadioButton48;
-    private javax.swing.JRadioButton jRadioButton49;
     private javax.swing.JRadioButton jRadioButton5;
     private javax.swing.JRadioButton jRadioButton50;
     private javax.swing.JRadioButton jRadioButton51;
@@ -2230,11 +2225,11 @@ public class CapB extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioButton97;
     private javax.swing.JRadioButton jRadioButton98;
     private javax.swing.JRadioButton jRadioButton99;
+    private javax.swing.JRadioButton jRadioNoTiene;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JRadioButton preg1;
+    private javax.swing.JTextField jTxtCodVid;
     // End of variables declaration//GEN-END:variables
 }
 class FondoPanel extends JPanel{

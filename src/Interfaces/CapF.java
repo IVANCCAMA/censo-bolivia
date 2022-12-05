@@ -3462,7 +3462,6 @@ public class CapF extends javax.swing.JFrame {
             .addGroup(jPanel39Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel39Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel72)
                     .addGroup(jPanel39Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(jRadioButton98)
                         .addComponent(jRadioButton97)
@@ -3472,7 +3471,10 @@ public class CapF extends javax.swing.JFrame {
                         .addGroup(jPanel39Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jRadioButton100)
                             .addComponent(jRadioButton99)
-                            .addComponent(jRadioButton101))))
+                            .addComponent(jRadioButton101)))
+                    .addGroup(jPanel39Layout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(jLabel72)))
                 .addContainerGap(149, Short.MAX_VALUE))
         );
         jPanel39Layout.setVerticalGroup(

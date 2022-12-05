@@ -7,6 +7,7 @@ package Interfaces;
 import dba.Mysql;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 
@@ -17,17 +18,31 @@ import javax.swing.JOptionPane;
 public class JefeFamilia extends javax.swing.JFrame {
     Connection conn;
     Statement sent;
+    public static String codVivienda;
     
     public JefeFamilia() {
         initComponents();
         conn=Mysql.getConnection();
         
         txtNombre.setText(InicioSesion.nombreUrs);
+        setCodVivienda();
         
     }
-
-    
     @SuppressWarnings("unchecked")
+    
+    private void setCodVivienda(){
+        try {
+                String sql = "SELECT codVivienda FROM censo.usuario Where codUsr = "+InicioSesion.codUsuario;
+                sent = conn.createStatement();
+                ResultSet rs = sent.executeQuery(sql);
+                rs.next(); // SI O SI PONER PARA LO RESULTADOS
+                codVivienda = rs.getString("codVivienda");
+                txtCodigoViv.setText(codVivienda);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+    }
+    
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -39,16 +54,19 @@ public class JefeFamilia extends javax.swing.JFrame {
         txtNombre = new javax.swing.JTextField();
         BotonReporte = new javax.swing.JButton();
         BotonEstadoEnc = new javax.swing.JButton();
+        txtCodigoViv = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         PanelReporte = new javax.swing.JPanel();
         BotonAtras2 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jButton1 = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
         jLabel6 = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTextArea3 = new javax.swing.JTextArea();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -97,6 +115,21 @@ public class JefeFamilia extends javax.swing.JFrame {
             }
         });
 
+        txtCodigoViv.setEditable(false);
+        txtCodigoViv.setBackground(new java.awt.Color(255, 255, 255));
+        txtCodigoViv.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtCodigoViv.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtCodigoViv.setBorder(null);
+        txtCodigoViv.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCodigoVivActionPerformed(evt);
+            }
+        });
+
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("Codigo Vivienda");
+
         javax.swing.GroupLayout PanelNavegadorLayout = new javax.swing.GroupLayout(PanelNavegador);
         PanelNavegador.setLayout(PanelNavegadorLayout);
         PanelNavegadorLayout.setHorizontalGroup(
@@ -104,18 +137,20 @@ public class JefeFamilia extends javax.swing.JFrame {
             .addGroup(PanelNavegadorLayout.createSequentialGroup()
                 .addGroup(PanelNavegadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(PanelNavegadorLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(PanelNavegadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE)
-                            .addComponent(txtNombre)))
-                    .addGroup(PanelNavegadorLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(BotonEstadoEnc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(PanelNavegadorLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(BotonReporte, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(BotonReporte, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(PanelNavegadorLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(PanelNavegadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE)
+                            .addComponent(txtNombre)
+                            .addComponent(txtCodigoViv))))
                 .addContainerGap(20, Short.MAX_VALUE))
         );
         PanelNavegadorLayout.setVerticalGroup(
@@ -129,7 +164,11 @@ public class JefeFamilia extends javax.swing.JFrame {
                 .addComponent(jLabel7)
                 .addGap(17, 17, 17)
                 .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(80, 80, 80)
+                .addGap(12, 12, 12)
+                .addComponent(jLabel8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtCodigoViv, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(BotonEstadoEnc, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
                 .addComponent(BotonReporte, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -141,7 +180,7 @@ public class JefeFamilia extends javax.swing.JFrame {
         jTabbedPane1.setBackground(new java.awt.Color(255, 255, 255));
         jTabbedPane1.setToolTipText("");
 
-        PanelReporte.setBackground(new java.awt.Color(204, 255, 255));
+        PanelReporte.setBackground(new java.awt.Color(255, 255, 255));
         PanelReporte.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         BotonAtras2.setText("Atras");
@@ -154,9 +193,10 @@ public class JefeFamilia extends javax.swing.JFrame {
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
+        jTextArea1.setBorder(javax.swing.BorderFactory.createTitledBorder("Escrina aquí"));
         jScrollPane1.setViewportView(jTextArea1);
 
-        PanelReporte.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 320, 720, 300));
+        PanelReporte.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 280, 720, 300));
 
         jButton1.setText("ENVIAR");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -164,21 +204,26 @@ public class JefeFamilia extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        PanelReporte.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 640, -1, -1));
-
-        jTextArea2.setColumns(20);
-        jTextArea2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jTextArea2.setRows(5);
-        jTextArea2.setText("         AVISO: \t\n         ESCRIBA LA DESCRIPCIÓN DEL PROBLEMA QUE ENCONTRO EN SU ENCUENTA\n\t\n         DICHO REPORTE SE LE ENVIARÁ A UN ADMINISTRADOR\n\n         TENGA EN CUENTA QUE SOLO SOLO PUEDE INGRESAR MAXIMO 100 CARACTERES ");
-        jTextArea2.setBorder(null);
-        jScrollPane2.setViewportView(jTextArea2);
-
-        PanelReporte.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 130, 720, 170));
+        PanelReporte.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 620, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jLabel6.setText("REPORTE");
         PanelReporte.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 30, 170, 60));
         PanelReporte.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 80, 240, 10));
+
+        jTextArea3.setEditable(false);
+        jTextArea3.setColumns(20);
+        jTextArea3.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        jTextArea3.setRows(5);
+        jTextArea3.setText("AVISO: \t\nEscriba la descripción del problema que encontro en su encuesta\nDicho reporte se le enviará al un adminitrador");
+        jTextArea3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jScrollPane3.setViewportView(jTextArea3);
+
+        PanelReporte.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 90, 470, 130));
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 15)); // NOI18N
+        jLabel1.setText("(tenga en cuenta que solo puede ingresar un maximo de 100 carecteres)");
+        PanelReporte.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 250, -1, -1));
 
         jTabbedPane1.addTab("Reporte", PanelReporte);
 
@@ -196,15 +241,12 @@ public class JefeFamilia extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotonEstadoEncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonEstadoEncActionPerformed
         // VER ESTADO DE ENCUESTA
-        
-        this.setVisible(false);
         new Encuesta().setVisible(true);
-        //capituloA.llenarCapA();
-        
     }//GEN-LAST:event_BotonEstadoEncActionPerformed
 
     private void BotonReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonReporteActionPerformed
@@ -212,9 +254,6 @@ public class JefeFamilia extends javax.swing.JFrame {
         jTextArea1.setText("");
         jTabbedPane1.setSelectedIndex(0);
         jTabbedPane1.getSelectedIndex();
-        jTextArea2.setEditable(false);
-        
-        
     }//GEN-LAST:event_BotonReporteActionPerformed
 
     private void BotonAtras2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAtras2ActionPerformed
@@ -251,6 +290,10 @@ public class JefeFamilia extends javax.swing.JFrame {
             jTextArea1.setText("");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void txtCodigoVivActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoVivActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCodigoVivActionPerformed
 
     /**
      * @param args the command line arguments
@@ -295,16 +338,19 @@ public class JefeFamilia extends javax.swing.JFrame {
     private javax.swing.JPanel PanelNavegador;
     private javax.swing.JPanel PanelReporte;
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextArea jTextArea2;
+    private javax.swing.JTextArea jTextArea3;
+    private javax.swing.JTextField txtCodigoViv;
     private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
 }
