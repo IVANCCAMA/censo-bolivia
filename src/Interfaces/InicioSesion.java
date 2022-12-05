@@ -367,7 +367,7 @@ public class InicioSesion extends javax.swing.JFrame {
         String usr    = txtUsuario.getText(); //recuperamos el usr
         String contra = txtContra.getText(); //recuperadmos contraseña
         String sql = "SELECT tipoUsr, codUsr, contrUsr FROM usuario "
-                + "WHERE tipoUsr = '" + tip + "' and codUsr = "+usr+" and contrUsr = "+ contra;
+                + "WHERE tipoUsr = '" + tip + "' and codUsr = "+usr+" and contrUsr = '"+contra+"'";
         
         try {
             sent = conn.createStatement(); // para procesar la sentencia sql y obtener los resultados
