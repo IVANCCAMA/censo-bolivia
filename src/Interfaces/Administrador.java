@@ -54,21 +54,22 @@ public class Administrador extends javax.swing.JFrame {
     
     private void nuevo(){
     }
-    private void guardar(String usr, javax.swing.JTextField nombre, javax.swing.JTextField dir, 
+    private void guardar(javax.swing.JTextField  CI,String TipoUsr, javax.swing.JTextField nombre, javax.swing.JTextField dir, 
         javax.swing.JTextField telef, javax.swing.JTextField correo, 
         javax.swing.JTextField zona, javax.swing.JTextField contra, javax.swing.JTable tabla){
         // BOTON GUARDAR 
         try {
-            String sql = "INSERT into usuario (nombreUsr,dirUsr,telfUsr,correoUsr,tipoUsr, contrUsr,ZonaCensal)"+
-            "values(?,?,?,?,?,?,?)";
+            String sql = "INSERT into usuario (codUsr, nombreUsr,dirUsr,telfUsr,correoUsr,tipoUsr, contrUsr,ZonaCensal)"+
+            "values(?,?,?,?,?,?,?,?)";
             PreparedStatement ps = conn.prepareCall(sql);
-            ps.setString(1, nombre.getText());
-            ps.setString(2, dir.getText());
-            ps.setString(3, telef.getText());
-            ps.setString(4, correo.getText());
-            ps.setString(5, usr); // usuario a gurdar
-            ps.setString(6, zona.getText());
-            ps.setString(7, contra.getText());
+            ps.setString(1, CI.getText());
+            ps.setString(2, nombre.getText());
+            ps.setString(3, dir.getText());
+            ps.setString(4, telef.getText());
+            ps.setString(5, correo.getText());
+            ps.setString(6, TipoUsr); // usuario a gurdar
+            ps.setString(7, zona.getText());
+            ps.setString(8, contra.getText());
 
             int n = ps.executeUpdate();
             if(n>0){
@@ -78,7 +79,7 @@ public class Administrador extends javax.swing.JFrame {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null,"Error"+ e.getMessage());
         }
-        llenarTabla(usr, tabla);
+        llenarTabla(TipoUsr, tabla);
         LimpiarTablas();
     }
   
@@ -94,7 +95,7 @@ public class Administrador extends javax.swing.JFrame {
     private void llenarTabla(String usr, javax.swing.JTable tabla){
         try {
             conn = Mysql.getConnection();
-            String[]titulos = {"codUsr", "nombreUsr", "dirUsr", "telfUsr", "correoUsr", "ZonaCensal"}; // colocar mismos nombres de la tabla
+            String[]titulos = {"CI", "nombreUsr", "dirUsr", "telfUsr", "correoUsr", "ZonaCensal"}; // colocar mismos nombres de la tabla
             String sql = "select codUsr,nombreUsr,dirUsr,telfUsr,correoUsr,ZonaCensal from usuario " // Consulta
                     + "where tipoUsr = '" + usr + "'";
             model = new DefaultTableModel(null, titulos);
@@ -1129,9 +1130,9 @@ public class Administrador extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 4, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel18)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
-                        .addGroup(PanelJefesFamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtContraJF, javax.swing.GroupLayout.PREFERRED_SIZE, 476, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtZonaJF, javax.swing.GroupLayout.PREFERRED_SIZE, 490, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(PanelJefesFamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtZonaJF, javax.swing.GroupLayout.DEFAULT_SIZE, 490, Short.MAX_VALUE)
+                            .addComponent(txtContraJF)))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 598, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(PanelJefesFamLayout.createSequentialGroup()
                         .addComponent(jLabel10)
@@ -1338,24 +1339,25 @@ public class Administrador extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // BOTON GUARDAR JEFE DE ZONA
-        guardar("Jefe de Zona", txtNombreJZ, txtDirJZ, txtTelfJZ, txtCorreoJZ,
+        guardar(txtCIJZ,"Jefe de Zona", txtNombreJZ, txtDirJZ, txtTelfJZ, txtCorreoJZ,
                 txtZonaJZ, txtContraJZ, tablaJefeZona);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // BOTON ACTUALIZAR JEFE DE ZONA
         try {
-            String sql = "UPDATE usuario set nombreUsr=?, dirUsr=?, telfUsr=?, correoUsr=?, ZonaCensal=?"
+            String sql = "UPDATE usuario set codUsr=?, nombreUsr=?, dirUsr=?, telfUsr=?, correoUsr=?, ZonaCensal=?"
             + "where codUsr=?";
             int fila = tablaJefeZona.getSelectedRow();
             String id = (String)tablaJefeZona.getValueAt(fila, 0);
             PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setString(1, txtNombreJZ.getText());
-            ps.setString(2, txtDirJZ.getText());
-            ps.setString(3, txtTelfJZ.getText());
-            ps.setString(4, txtCorreoJZ.getText());
-            ps.setString(5, txtZonaJZ.getText());
-            ps.setString(6, id);
+            ps.setString(1, txtCIJZ.getText());
+            ps.setString(2, txtNombreJZ.getText());
+            ps.setString(3, txtDirJZ.getText());
+            ps.setString(4, txtTelfJZ.getText());
+            ps.setString(5, txtCorreoJZ.getText());
+            ps.setString(6, txtZonaJZ.getText());
+            ps.setString(7, id);
             int n = ps.executeUpdate();
             if(n>0){ // Si se ejecuto
                 JOptionPane.showMessageDialog(null,"Registro modificado");
@@ -1426,24 +1428,25 @@ public class Administrador extends javax.swing.JFrame {
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
         // BOTON GUARDAR ENCUESTADOR
-        guardar("Encuestador", txtNombreEnc, txtDirEnc, txtTelfEnc, txtCorreoEnc,
+        guardar(txtCIEnc, "Encuestador", txtNombreEnc, txtDirEnc, txtTelfEnc, txtCorreoEnc,
                 txtZonaEnc, txtContrEnc, tablaEncuestador);
     }//GEN-LAST:event_jButton14ActionPerformed
 
     private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
         // BOTON ACTUALIZAR ENCUESTADOR
         try {
-            String sql = "UPDATE usuario set nombreUsr=?, dirUsr=?, telfUsr=?, correoUsr=?, ZonaCensal=?"
+            String sql = "UPDATE usuario set codUsr=?, nombreUsr=?, dirUsr=?, telfUsr=?, correoUsr=?, ZonaCensal=?"
             + "where codUsr=?";
             int fila = tablaEncuestador.getSelectedRow();
             String id = (String)tablaEncuestador.getValueAt(fila, 0);
             PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setString(1, txtNombreEnc.getText());
-            ps.setString(2, txtDirEnc.getText());
-            ps.setString(3, txtTelfEnc.getText());
-            ps.setString(4, txtCorreoEnc.getText());
-            ps.setString(5, txtZonaEnc.getText());
-            ps.setString(6, id);
+            ps.setString(1, txtCIEnc.getText());
+            ps.setString(2, txtNombreEnc.getText());
+            ps.setString(3, txtDirEnc.getText());
+            ps.setString(4, txtTelfEnc.getText());
+            ps.setString(5, txtCorreoEnc.getText());
+            ps.setString(6, txtZonaEnc.getText());
+            ps.setString(7, id);
             int n = ps.executeUpdate();
             if(n>0){ // Si se ejecuto
                 JOptionPane.showMessageDialog(null,"Registro modificado");
@@ -1574,20 +1577,21 @@ if (evt.getButton()==1){
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-        // ACTULIZAR JEFE FAMILIA
+        // ACTUALIZAR JEFE FAMILIA
         try {
-            String sql = "UPDATE usuario set nombreUsr=?, dirUsr=?, telfUsr=?, correoUsr=?, ZonaCensal=? ,contrUsr=?"
+            String sql = "UPDATE usuario set codUsr=?, nombreUsr=?, dirUsr=?, telfUsr=?, correoUsr=?, ZonaCensal=? ,contrUsr=?"
             + "where codUsr=?";
             int fila = TablaJefeFamilia.getSelectedRow();
             String id = (String)TablaJefeFamilia.getValueAt(fila, 0);
             PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setString(1, txtNombreJF.getText());
-            ps.setString(2, txtDirJF.getText());
-            ps.setString(3, txtTelfJF.getText());
-            ps.setString(4, txtCorreoJF.getText());
-            ps.setString(5, txtZonaJF.getText());
-            ps.setString(6, txtContraJF.getText());
-            ps.setString(7, id);
+            ps.setString(1, txtCIJFam.getText());
+            ps.setString(2, txtNombreJF.getText());
+            ps.setString(3, txtDirJF.getText());
+            ps.setString(4, txtTelfJF.getText());
+            ps.setString(5, txtCorreoJF.getText());
+            ps.setString(6, txtZonaJF.getText());
+            ps.setString(7, txtContraJF.getText());
+            ps.setString(8, id);
             int n = ps.executeUpdate();
             if(n>0){ // Si se ejecuto
                 JOptionPane.showMessageDialog(null,"Registro modificado");
@@ -1601,7 +1605,7 @@ if (evt.getButton()==1){
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         // BOTON GUARDAR JEFE FAMILIA
-        guardar("Jefe de Familia", txtNombreJF, txtDirJF, txtTelfJF, txtCorreoJF,
+        guardar(txtCIJFam,"Jefe de Familia", txtNombreJF, txtDirJF, txtTelfJF, txtCorreoJF,
                 txtZonaJF, txtContraJF, TablaJefeFamilia);
     }//GEN-LAST:event_jButton9ActionPerformed
 
