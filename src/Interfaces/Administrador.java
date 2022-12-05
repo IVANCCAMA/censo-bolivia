@@ -239,6 +239,7 @@ public class Administrador extends javax.swing.JFrame {
         txtCorreoJZ.setText("");
         txtZonaJZ.setText("");
         txtContraJZ.setText("");
+        txtCIJZ.setText("");
         
         // JEFE FAMILIA
         txtNombreJF.setText("");
@@ -247,6 +248,7 @@ public class Administrador extends javax.swing.JFrame {
         txtCorreoJF.setText("");
         txtZonaJF.setText("");
         txtContraJF.setText("");
+        txtCIJFam.setText("");
         
         // ECUESTADORES
         txtNombreEnc.setText("");
@@ -255,6 +257,7 @@ public class Administrador extends javax.swing.JFrame {
         txtCorreoEnc.setText("");
         txtZonaEnc.setText("");
         txtContrEnc.setText("");
+        txtCIEnc.setText("");
     }
     
     void DeshabilitarTablaJefeZona(){
@@ -264,6 +267,7 @@ public class Administrador extends javax.swing.JFrame {
        txtCorreoJZ.setEditable(false);
        txtZonaJZ.setEditable(false);
        txtContraJZ.setEditable(false);
+       txtCIJZ.setEditable(false);
     }
     void DeshabilitarTablaEncuestadores(){
        txtNombreEnc.setEditable(false);
@@ -272,6 +276,7 @@ public class Administrador extends javax.swing.JFrame {
        txtCorreoEnc.setEditable(false);
        txtZonaEnc.setEditable(false);
        txtContrEnc.setEditable(false);
+       txtCIEnc.setEditable(false);
     }
     void DeshabilitarTablaReporte(){
        jTextArea1.setEditable(false);
@@ -285,6 +290,7 @@ public class Administrador extends javax.swing.JFrame {
        txtCorreoJF.setEditable(false);
        txtZonaJF.setEditable(false);
        txtContraJF.setEditable(false);
+       txtCIJFam.setEditable(false);
     }
     void HabilitarTablaJefeZona(boolean modContra){
        txtNombreJZ.setEditable(true);
@@ -292,6 +298,7 @@ public class Administrador extends javax.swing.JFrame {
        txtTelfJZ.setEditable(true);
        txtCorreoJZ.setEditable(true);
        txtZonaJZ.setEditable(true);
+       txtCIJZ.setEditable(true);
        if (modContra) txtContraJZ.setEditable(true);
        txtNombreJZ.requestFocus();
     }
@@ -302,6 +309,7 @@ public class Administrador extends javax.swing.JFrame {
        txtCorreoJF.setEditable(true);
        txtZonaJF.setEditable(true);
        txtContraJF.setEditable(true);
+       txtCIJFam.setEditable(true);
        if (modContra) txtContraJZ.setEditable(true);
        txtNombreJF.requestFocus();
     }
@@ -311,6 +319,7 @@ public class Administrador extends javax.swing.JFrame {
        txtTelfEnc.setEditable(true);
        txtCorreoEnc.setEditable(true);
        txtZonaEnc.setEditable(true);
+       txtCIEnc.setEditable(true);
        if (modPassword) txtContrEnc.setEditable(true);
        txtNombreEnc.requestFocus();
     }
@@ -1232,7 +1241,6 @@ public class Administrador extends javax.swing.JFrame {
                         .addGap(162, 162, 162)
                         .addGroup(PanelJefesFamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelJefesFamLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(PanelJefesFamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel23)
                                     .addComponent(jLabel18))
@@ -1334,9 +1342,9 @@ public class Administrador extends javax.swing.JFrame {
                         .addComponent(jButton11)
                         .addComponent(jButton12)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(PanelJefesFamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtNumJefeFam, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel32))
+                .addGroup(PanelJefesFamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel32)
+                    .addComponent(txtNumJefeFam, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(7, Short.MAX_VALUE))
         );
 
