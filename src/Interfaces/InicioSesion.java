@@ -28,7 +28,7 @@ public class InicioSesion extends javax.swing.JFrame {
     Connection conn;
     Statement sent;
     
-    public static int codUsuario; //codUsr
+    public static String codUsuario; //codUsr
     public static String zona;
     public static String nombreUrs;
     
@@ -47,17 +47,16 @@ public class InicioSesion extends javax.swing.JFrame {
         listUsr = new ArrayList<>();
         listContr = new ArrayList<>();
         
-        
         llenarTUsr(); // para llenar la lista de Tusr
         llenarUsr();
         llenarContr();
     }
     
-    public void setCodUsuario(int codigo){
-        codUsuario = codigo;
+    public void setCodUsuario(){
+        codUsuario = txtUsuario.getText();
     }
     
-    public int getCodUsuario(){
+    public String getCodUsuario(){
         return codUsuario;
     }
     
@@ -359,7 +358,7 @@ public class InicioSesion extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         //boton INICIAR SECION
         
-        setCodUsuario(Integer.parseInt(txtUsuario.getText()));
+        setCodUsuario(); //
         setZona();
         setNombre();
 

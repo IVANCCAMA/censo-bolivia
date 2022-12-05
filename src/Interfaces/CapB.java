@@ -1457,8 +1457,8 @@ public class CapB extends javax.swing.JFrame {
         }else{
             this.setVisible(false);
             new CapB().setVisible(true);	
-        this.setVisible(false);
-        new CapC().setVisible(true);
+            this.setVisible(false);
+            new CapC().setVisible(true);
         
         preg1.setActionCommand("Particular: Casa/Choza/Pahuichi");
         jRadioButton2.setActionCommand("Particular: Departamento");
@@ -1599,8 +1599,8 @@ public class CapB extends javax.swing.JFrame {
 
     private String pregunta10(){
         String respuesta;
-    if(jRadioButton49.isSelected()){
-jRadioButton51.setActionCommand("");
+        if(jRadioButton49.isSelected()){
+        jRadioButton51.setActionCommand("");
         jRadioButton52.setActionCommand(" ");
         jRadioButton53.setActionCommand("");
         jRadioButton54.setActionCommand("");
@@ -1608,17 +1608,17 @@ jRadioButton51.setActionCommand("");
         jRadioButton56.setActionCommand("");
             respuesta="";
 
-    }else{
-    jRadioButton51.setActionCommand("al alcantarillado?");
-        jRadioButton52.setActionCommand("a una camara septica?  ");
-        jRadioButton53.setActionCommand("a un pozo ciego?");
-        jRadioButton54.setActionCommand("a la calle?");
-        jRadioButton55.setActionCommand("a la quebrada, rio?");
-        jRadioButton56.setActionCommand("a un lago ,laguna ,curichi");
-           respuesta=buttonGroup12.getSelection().getActionCommand();
- 
-    }
-    return respuesta;
+        }else{
+        jRadioButton51.setActionCommand("al alcantarillado?");
+            jRadioButton52.setActionCommand("a una camara septica?  ");
+            jRadioButton53.setActionCommand("a un pozo ciego?");
+            jRadioButton54.setActionCommand("a la calle?");
+            jRadioButton55.setActionCommand("a la quebrada, rio?");
+            jRadioButton56.setActionCommand("a un lago ,laguna ,curichi");
+               respuesta=buttonGroup12.getSelection().getActionCommand();
+
+        }
+        return respuesta;
     
     }
                       

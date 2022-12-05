@@ -30,7 +30,6 @@ public class Encuestador extends javax.swing.JFrame {
         jTextField2.setText(InicioSesion.nombreUrs);
         jTextField3.setText(InicioSesion.zona);
         listCodVivienda = new ArrayList<>();
-        llenarCodVivienda(); // para llenar la lista de Tusr
         
     }
     
@@ -497,6 +496,8 @@ public class Encuestador extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
        //boton Iniciar Encuesta
+        llenarCodVivienda();
+       
         boolean NoEncontrado = true;
         String codV  = jTextField1.getText(); //recuperamos el codigo de vivienda
         int posicion = 0;
@@ -577,6 +578,7 @@ public class Encuestador extends javax.swing.JFrame {
         txtTelf.setText("");
         txtCorreo.setText("");
         txtZona.setText("");
+        txtContra.setText("");
         txtCodViviend.setText("");
     }
         

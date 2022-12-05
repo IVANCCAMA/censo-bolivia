@@ -260,7 +260,7 @@ public class CapC extends javax.swing.JFrame {
     }//GEN-LAST:event_Jtxf2NomPActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // BOTON SIGUIENTE
+        // BOTON SIGUIENTE Y GUARDAR
         
         if(JtxfCodV.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Ingrese Codigo de Vivienda porfavor");

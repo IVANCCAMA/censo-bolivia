@@ -22,7 +22,7 @@ public class JefeFamilia extends javax.swing.JFrame {
         initComponents();
         conn=Mysql.getConnection();
         
-        txtNombre.setText(DatosUsuario.nombre);
+        txtNombre.setText(InicioSesion.nombreUrs);
         
     }
 
@@ -164,7 +164,7 @@ public class JefeFamilia extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        PanelReporte.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 650, -1, -1));
+        PanelReporte.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 640, -1, -1));
 
         jTextArea2.setColumns(20);
         jTextArea2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -238,7 +238,7 @@ public class JefeFamilia extends javax.swing.JFrame {
             try {
                 String sql = "insert into censo.reporte values(?,?)";
                 PreparedStatement ps = conn.prepareCall(sql);
-                ps.setString(1,DatosUsuario.usuario);
+                ps.setString(1,InicioSesion.codUsuario);
                 ps.setString(2,jTextArea1.getText());
 
                 int n = ps.executeUpdate();
