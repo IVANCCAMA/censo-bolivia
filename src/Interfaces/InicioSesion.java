@@ -62,7 +62,7 @@ public class InicioSesion extends javax.swing.JFrame {
     
     public void setZona(){
         try {
-                String sql = "select ZonaCensal from censo.usuario where codUsr = " +  codUsuario;
+                String sql = "select ZonaCensal from censo.usuario where codUsr = " +  txtUsuario.getText();
                 sent = conn.createStatement();
                 ResultSet rs = sent.executeQuery(sql);
                 rs.next(); // SI O SI PONER PARA LO RESULTADOS
@@ -75,7 +75,7 @@ public class InicioSesion extends javax.swing.JFrame {
     
     public void setNombre(){
         try {
-                String sql = "select nombreUsr from censo.usuario where codUsr = " +  codUsuario;
+                String sql = "select nombreUsr from censo.usuario where codUsr = " +  txtUsuario.getText();
                 sent = conn.createStatement();
                 ResultSet rs = sent.executeQuery(sql);
                 rs.next(); // SI O SI PONER PARA LO RESULTADOS
@@ -458,10 +458,7 @@ public class InicioSesion extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         //boton INICIAR SECION
-        
-        setCodUsuario(); //
-        setZona();
-        setNombre();
+        try {
 
         int resultado = 0;
         String tip    = jComboBox1.getSelectedItem().toString(); //recuperamos tipo usr
@@ -470,11 +467,14 @@ public class InicioSesion extends javax.swing.JFrame {
         String sql = "SELECT tipoUsr, codUsr, contrUsr FROM usuario "
                 + "WHERE tipoUsr = '" + tip + "' and codUsr = "+usr+" and contrUsr = '"+contra+"'";
         
-        try {
+        
             sent = conn.createStatement(); // para procesar la sentencia sql y obtener los resultados
             ResultSet rs = sent.executeQuery(sql); //obiene los resultados de la consulta sql
             
             if(rs.next()){
+                setCodUsuario(); //
+                setZona();
+                setNombre();
                 verificarVentana();
                 this.setVisible(false);
             }else{
