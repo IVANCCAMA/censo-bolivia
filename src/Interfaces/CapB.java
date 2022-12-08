@@ -28,96 +28,6 @@ public class CapB extends javax.swing.JFrame {
         initComponents();
         conn=Mysql.getConnection();
     }
-   
-    private String preg17(){
-        jRadioButton111.setActionCommand("Si");
-        jRadioButton106.setActionCommand("No");
-        jRadioButton110.setActionCommand("Si");
-        jRadioButton115.setActionCommand("No");
-        jRadioButton108.setActionCommand("Si");
-        jRadioButton114.setActionCommand("No");
-        jRadioButton109.setActionCommand("Si");
-        jRadioButton113.setActionCommand("No");
-        jRadioButton107.setActionCommand("Si");
-        jRadioButton112.setActionCommand("No");
-        
-        String result,radio,tele,comp,internet,telf;
-        
-        if("Si".equals(buttonGroup16.getSelection().getActionCommand())){
-            radio = "Radio";
-        }else{
-            radio = "no";
-        }
-
-        if("Si".equals(buttonGroup17.getSelection().getActionCommand())){
-            tele = "Televisor";
-        }else{
-            tele = "no";
-        }
-       if("Si".equals(buttonGroup18.getSelection().getActionCommand())){
-            comp = "Computadora";
-        }else{
-            comp = "no";
-        }
-       if("Si".equals(buttonGroup19.getSelection().getActionCommand())){
-            internet = "Servicio de internet";
-        }else{
-            internet = "no";
-        }
-       if("Si".equals(buttonGroup20.getSelection().getActionCommand())){
-            telf = "Servicio de telefonia fija o celular";
-        }else{
-            telf = "no";
-        }
-        result = radio+", "+ tele+", "+ comp+", "+ internet+", "+telf;    
-        return result;
-    }
-    
-    private String preg18(){
-        jRadioButton98.setActionCommand("Si");
-        jRadioButton93.setActionCommand("No");
-        jRadioButton97.setActionCommand("Si");
-        jRadioButton92.setActionCommand("No");
-        jRadioButton96.setActionCommand("Si");
-        jRadioButton91.setActionCommand("No");
-        jRadioButton95.setActionCommand("Si");
-        jRadioButton90.setActionCommand("No");
-        jRadioButton94.setActionCommand("Si");
-        jRadioButton89.setActionCommand("No");
-        
-        String result,veh,bici,moto,carr,des;
-        
-        if("Si".equals(buttonGroup21.getSelection().getActionCommand())){
-            veh = "Vehiculo automotor";
-        }else{
-            veh = "no";
-        }
-
-        if("Si".equals(buttonGroup22.getSelection().getActionCommand())){
-             bici= "Bicicleta";
-        }else{
-            bici = "no";
-        }
-       if("Si".equals(buttonGroup23.getSelection().getActionCommand())){
-            moto = "Motocicleta o cuadratrac";
-        }else{
-            moto = "no";
-        }
-       if("Si".equals(buttonGroup24.getSelection().getActionCommand())){
-            carr = "carreta o carretón";
-        }else{
-            carr = "no";
-        }
-       if("Si".equals(buttonGroup25.getSelection().getActionCommand())){
-            des = "deslizador, balsa, canoa o bote";
-        }else{
-            des = "no";
-        }
-        result = veh+", "+ bici+", "+ moto+", "+ carr+", "+des;    
-        return result;
-    }
-
-    @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -1105,7 +1015,7 @@ public class CapB extends javax.swing.JFrame {
 
         jLabel24.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         jLabel24.setText("16. ¿Cómo eliminan principalmente la basura?");
-        jPanel20.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 5, 282, -1));
+        jPanel20.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 5, 320, -1));
 
         buttonGroup15.add(jRadioButton73);
         jRadioButton73.setText("La depositan en el basurero público o contenedor");
@@ -1451,9 +1361,10 @@ public class CapB extends javax.swing.JFrame {
             try {
                 String sql = "insert into cap_b (codVivienda, tipo, estado, materialPared,"
                         + " interiorRevoque , materialTecho, materialPiso , agua , aguaDistribuye , sanitario, sanitarioDesague,"
-                        + " energiaElectrica, energiaCocina, cuartoCocina, cuartoOcupado, cuartoDormir, basuraelimina, hogarTiene, "
-                        + " hogarTiene2, vivienda) "
-                        +" values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                        + " energiaElectrica, energiaCocina, cuartoCocina, cuartoOcupado, cuartoDormir, basuraelimina, tieneRadio, "
+                        + " tieneTelevisor, tieneComputadora, tieneServicioDeInternet, tieneServicioDeTelefonia, tieneVehiculoAutomotor,"
+                        + " tieneBicicleta, tieneMotocicletaOCuadratac, tieneCarretaOCarreton, tieneBote, vivienda) "
+                        +" values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
                 PreparedStatement ps = conn.prepareCall(sql);
                 ps.setString(1,  jTxtCodVid.getText());
                 ps.setString(2,  buttonGroup1.getSelection().getActionCommand());
@@ -1472,9 +1383,20 @@ public class CapB extends javax.swing.JFrame {
                 ps.setString(15, jTextField2.getText());
                 ps.setString(16, jTextField3.getText());
                 ps.setString(17, buttonGroup15.getSelection().getActionCommand());
-                ps.setString(18, preg17());
-                ps.setString(19, preg18());
-                ps.setString(20, buttonGroup26.getSelection().getActionCommand());
+                ps.setString(18, buttonGroup16.getSelection().getActionCommand());
+                ps.setString(19, buttonGroup17.getSelection().getActionCommand());
+                ps.setString(20, buttonGroup18.getSelection().getActionCommand());
+                ps.setString(21, buttonGroup19.getSelection().getActionCommand());
+                ps.setString(22, buttonGroup20.getSelection().getActionCommand());
+                ps.setString(23, buttonGroup21.getSelection().getActionCommand());
+                ps.setString(24, buttonGroup22.getSelection().getActionCommand());
+                ps.setString(25, buttonGroup23.getSelection().getActionCommand());
+                ps.setString(26, buttonGroup24.getSelection().getActionCommand());
+                ps.setString(27, buttonGroup25.getSelection().getActionCommand());
+                ps.setString(28, buttonGroup26.getSelection().getActionCommand());
+               // ps.setString(18, preg17());
+                //ps.setString(19, preg18());
+                //ps.setString(20, buttonGroup26.getSelection().getActionCommand());
                 
                 int n = ps.executeUpdate();
                 if(n>0){
@@ -1485,7 +1407,7 @@ public class CapB extends javax.swing.JFrame {
                 }
 
         } catch (Exception e) {
-                JOptionPane.showMessageDialog(null,"Error"+ e.getMessage());
+                JOptionPane.showMessageDialog(null,"Error "+ e.getMessage());
         }
     }
     }
@@ -1578,7 +1500,29 @@ public class CapB extends javax.swing.JFrame {
         jRadioButton77.setActionCommand("La queman");
         jRadioButton78.setActionCommand("La entierran");
         jRadioButton72.setActionCommand("Otra forma");
-        // Preg17
+        //preg17
+        jRadioButton111.setActionCommand("Si");
+        jRadioButton106.setActionCommand("No");
+        jRadioButton110.setActionCommand("Si");
+        jRadioButton115.setActionCommand("No");
+        jRadioButton108.setActionCommand("Si");
+        jRadioButton114.setActionCommand("No");
+        jRadioButton109.setActionCommand("Si");
+        jRadioButton113.setActionCommand("No");
+        jRadioButton107.setActionCommand("Si");
+        jRadioButton112.setActionCommand("No");
+        //preg18
+        jRadioButton98.setActionCommand("Si");
+        jRadioButton93.setActionCommand("No");
+        jRadioButton97.setActionCommand("Si");
+        jRadioButton92.setActionCommand("No");
+        jRadioButton96.setActionCommand("Si");
+        jRadioButton91.setActionCommand("No");
+        jRadioButton95.setActionCommand("Si");
+        jRadioButton90.setActionCommand("No");
+        jRadioButton94.setActionCommand("Si");
+        jRadioButton89.setActionCommand("No");
+        // Preg19
         jRadioButton105.setActionCommand("propia?");
         jRadioButton104.setActionCommand("alquilada");
         jRadioButton103.setActionCommand("en contrato anticrético?");
@@ -1944,9 +1888,10 @@ public class CapB extends javax.swing.JFrame {
             try {
                 String sql = "insert into cap_b (codVivienda, tipo, estado, materialPared,"
                         + " interiorRevoque , materialTecho, materialPiso , agua , aguaDistribuye , sanitario, sanitarioDesague,"
-                        + " energiaElectrica, energiaCocina, cuartoCocina, cuartoOcupado, cuartoDormir, basuraelimina, hogarTiene, "
-                        + " hogarTiene2, vivienda) "
-                        +" values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                        + " energiaElectrica, energiaCocina, cuartoCocina, cuartoOcupado, cuartoDormir, basuraelimina, tieneRadio, "
+                        + " tieneTelevisor, tieneComputadora, tieneServicioDeInternet, tieneServicioDeTelefonia, tieneVehiculoAutomotor,"
+                        + " tieneBicicleta, tieneMotocicletaOCuadratac, tieneCarretaOCarreton, tieneBote, vivienda) "
+                        +" values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
                 PreparedStatement ps = conn.prepareCall(sql);
                 ps.setString(1, jTxtCodVid.getText());
                 ps.setString(2, buttonGroup1.getSelection().getActionCommand());
@@ -1968,6 +1913,14 @@ public class CapB extends javax.swing.JFrame {
                 ps.setString(18,"");
                 ps.setString(19, "");
                 ps.setString(20, "");
+                ps.setString(21, "");
+                ps.setString(22, "");
+                ps.setString(23, "");
+                ps.setString(24, "");
+                ps.setString(25, "");
+                ps.setString(26, "");
+                ps.setString(27, "");
+                ps.setString(28, "");
                 
                 int n = ps.executeUpdate();
                 if(n>0){
