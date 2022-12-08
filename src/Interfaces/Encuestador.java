@@ -18,7 +18,7 @@ import javax.swing.JOptionPane;
  */
 public class Encuestador extends javax.swing.JFrame {
       Connection conn;
-     
+      public static String codVivienda;
       Statement sent;
    
       ArrayList <String> listCodVivienda;
@@ -67,7 +67,7 @@ public class Encuestador extends javax.swing.JFrame {
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtCodViv = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
@@ -201,9 +201,9 @@ public class Encuestador extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel1.setText("INGRESE CODIGO DE VIVIENDA PARA INICIAR ENCUESTA");
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        txtCodViv.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                txtCodVivActionPerformed(evt);
             }
         });
 
@@ -259,7 +259,7 @@ public class Encuestador extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(113, 113, 113)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtCodViv, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(144, 144, 144)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -281,7 +281,7 @@ public class Encuestador extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtCodViv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jButton1)
                         .addGap(128, 128, 128)
@@ -499,7 +499,7 @@ public class Encuestador extends javax.swing.JFrame {
         llenarCodVivienda();
        
         boolean NoEncontrado = true;
-        String codV  = jTextField1.getText(); //recuperamos el codigo de vivienda
+        String codV  = txtCodViv.getText(); //recuperamos el codigo de vivienda
         int posicion = 0;
 
         while(posicion<listCodVivienda.size() && NoEncontrado){ //busqueda de datos
@@ -508,8 +508,10 @@ public class Encuestador extends javax.swing.JFrame {
                
             if(codV.equals(codigoVi)){
                 NoEncontrado = false;
-                 new CapA().setVisible(true);
-                 this.setVisible(false);
+                codVivienda = txtCodViv.getText(); // recuperamos el codVivienda 
+                
+                new CapA().setVisible(true);
+                this.setVisible(false);
             }else{
                 posicion++;
             } 
@@ -534,9 +536,9 @@ public class Encuestador extends javax.swing.JFrame {
         if(r==0) System.exit(0);
     }//GEN-LAST:event_jButton4ActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void txtCodVivActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodVivActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_txtCodVivActionPerformed
 
     private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
         // TODO add your handling code here:
@@ -666,10 +668,10 @@ public class Encuestador extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField txtCI;
+    private javax.swing.JTextField txtCodViv;
     private javax.swing.JTextField txtCodViviend;
     private javax.swing.JTextField txtContra;
     private javax.swing.JTextField txtCorreo;

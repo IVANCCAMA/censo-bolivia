@@ -27,6 +27,9 @@ public class CapB extends javax.swing.JFrame {
         this.setContentPane(fondo);
         initComponents();
         conn=Mysql.getConnection();
+        
+        txtCodVivienda.setText(Encuestador.codVivienda);
+        txtCodVivienda.setEditable(false);
     }
     
     private void deshabilitarBton(){
@@ -234,7 +237,7 @@ public class CapB extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jTxtCodVid = new javax.swing.JTextField();
+        txtCodVivienda = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -1339,12 +1342,12 @@ public class CapB extends javax.swing.JFrame {
         jLabel4.setText("Codigo Vivienda");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 30, 120, -1));
 
-        jTxtCodVid.addActionListener(new java.awt.event.ActionListener() {
+        txtCodVivienda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTxtCodVidActionPerformed(evt);
+                txtCodViviendaActionPerformed(evt);
             }
         });
-        getContentPane().add(jTxtCodVid, new org.netbeans.lib.awtextra.AbsoluteConstraints(1170, 20, 110, -1));
+        getContentPane().add(txtCodVivienda, new org.netbeans.lib.awtextra.AbsoluteConstraints(1170, 20, 110, -1));
 
         pack();
         setLocationRelativeTo(null);
@@ -1361,7 +1364,7 @@ public class CapB extends javax.swing.JFrame {
     
     private void llenarDatos(){
         
-        if(jTxtCodVid.getText().isEmpty()){
+        if(txtCodVivienda.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Ingrese Codigo de Vivienda porfavor");
         }else{
             setBotones(); // llenamos radio botones
@@ -1373,7 +1376,7 @@ public class CapB extends javax.swing.JFrame {
                         + " tieneBicicleta, tieneMotocicletaOCuadratac, tieneCarretaOCarreton, tieneBote, vivienda) "
                         +" values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
                 PreparedStatement ps = conn.prepareCall(sql);
-                ps.setString(1,  jTxtCodVid.getText());
+                ps.setString(1,  txtCodVivienda.getText());
                 ps.setString(2,  buttonGroup1.getSelection().getActionCommand());
                 ps.setString(3,  buttonGroup3.getSelection().getActionCommand());
                 ps.setString(4,  buttonGroup7.getSelection().getActionCommand());
@@ -1860,9 +1863,9 @@ public class CapB extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButton114ActionPerformed
 
-    private void jTxtCodVidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxtCodVidActionPerformed
+    private void txtCodViviendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodViviendaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTxtCodVidActionPerformed
+    }//GEN-LAST:event_txtCodViviendaActionPerformed
 
     private void jRadioButton95ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton95ActionPerformed
         // TODO add your handling code here:
@@ -1878,7 +1881,7 @@ public class CapB extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
     
     private void llenarDatosPasarCapF(){
-        if(jTxtCodVid.getText().isEmpty()){
+        if(txtCodVivienda.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Ingrese Codigo de Vivienda porfavor");
         }else{
             // SET PREG1 RADIO BUTTON
@@ -1900,7 +1903,7 @@ public class CapB extends javax.swing.JFrame {
                         + " tieneBicicleta, tieneMotocicletaOCuadratac, tieneCarretaOCarreton, tieneBote, vivienda) "
                         +" values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
                 PreparedStatement ps = conn.prepareCall(sql);
-                ps.setString(1, jTxtCodVid.getText());
+                ps.setString(1, txtCodVivienda.getText());
                 ps.setString(2, buttonGroup1.getSelection().getActionCommand());
                 ps.setString(3, "");
                 ps.setString(4, "");
@@ -2189,7 +2192,7 @@ public class CapB extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTxtCodVid;
+    private javax.swing.JTextField txtCodVivienda;
     // End of variables declaration//GEN-END:variables
 }
 class FondoPanel extends JPanel{

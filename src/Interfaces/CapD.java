@@ -40,6 +40,9 @@ public class CapD extends javax.swing.JFrame {
         conn = Mysql.getConnection();
         i = 1;
         cantidad = 0;
+        
+        txtCodVivienda.setText(Encuestador.codVivienda);
+        txtCodVivienda.setEditable(false);
     }
     
     private void LlenarPersonasMuertas(){
@@ -82,7 +85,7 @@ public class CapD extends javax.swing.JFrame {
         buttonGroup3 = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        JtxfCodV = new javax.swing.JTextField();
+        txtCodVivienda = new javax.swing.JTextField();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
@@ -125,9 +128,9 @@ public class CapD extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         jLabel2.setText("Codigo Vivienda");
 
-        JtxfCodV.addActionListener(new java.awt.event.ActionListener() {
+        txtCodVivienda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JtxfCodVActionPerformed(evt);
+                txtCodViviendaActionPerformed(evt);
             }
         });
 
@@ -315,7 +318,7 @@ public class CapD extends javax.swing.JFrame {
                 .addGap(155, 155, 155)
                 .addComponent(jLabel2)
                 .addGap(57, 57, 57)
-                .addComponent(JtxfCodV, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtCodVivienda, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25))
             .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1200, Short.MAX_VALUE)
         );
@@ -324,7 +327,7 @@ public class CapD extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(36, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(JtxfCodV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCodVivienda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2)
                     .addComponent(jLabel1))
                 .addGap(18, 18, 18)
@@ -335,9 +338,9 @@ public class CapD extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void JtxfCodVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JtxfCodVActionPerformed
+    private void txtCodViviendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodViviendaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_JtxfCodVActionPerformed
+    }//GEN-LAST:event_txtCodViviendaActionPerformed
 
     private void JrbSiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JrbSiActionPerformed
         // TODO add your handling code here:
@@ -372,7 +375,7 @@ public class CapD extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
               
         // BOTON PASAR A LA PREGUNTA 22
-        codViv = JtxfCodV.getText().isEmpty(); // Poner codVivienda
+        codViv = txtCodVivienda.getText().isEmpty(); // Poner codVivienda
         
         if(JrbNo.isSelected() && (codViv != true)){
             this.setVisible(false);
@@ -381,7 +384,7 @@ public class CapD extends javax.swing.JFrame {
             try {
             String sql = "insert into cap_d values(?,?,?)";
             PreparedStatement ps = conn.prepareCall(sql);
-            ps.setString(1, JtxfCodV.getText());
+            ps.setString(1, txtCodVivienda.getText());
             ps.setString(2, seleccionado());
             ps.setString(3, "0");
  
@@ -403,7 +406,7 @@ public class CapD extends javax.swing.JFrame {
         
         // BOTON GUARDAR datos en tabla Personas Muertas en bd
         
-        codViv = JtxfCodV.getText().isEmpty();
+        codViv = txtCodVivienda.getText().isEmpty();
         boolean hayCantidadP = JtxfCantP.getText().isEmpty();  // verifica si esta vacio en campo de cantidad de personas
         
         if(JrbSi.isSelected() && (hayCantidadP != true) && (codViv != true)){
@@ -413,7 +416,7 @@ public class CapD extends javax.swing.JFrame {
                     try {
                         String sql = "insert into cap_dmuertos values(?,?,?,?,?,?)";
                         PreparedStatement ps = conn.prepareCall(sql);
-                        ps.setString(1, JtxfCodV.getText());       
+                        ps.setString(1, txtCodVivienda.getText());       
                         ps.setString(2, JtxfNumero.getText()); 
                         ps.setString(3, JtxfNomP.getText());                   
                         ps.setString(4, JtxfEdadMuerte.getText());
@@ -494,7 +497,7 @@ public class CapD extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        if(JtxfCodV.getText().isEmpty()){
+        if(txtCodVivienda.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Ingrese Codigo de Vivienda porfavor");
         }else{
             this.setVisible(false);
@@ -503,7 +506,7 @@ public class CapD extends javax.swing.JFrame {
             try {
             String sql = "insert into cap_d values(?,?,?)";
             PreparedStatement ps = conn.prepareCall(sql);
-            ps.setString(1, JtxfCodV.getText());
+            ps.setString(1, txtCodVivienda.getText());
             ps.setString(2, seleccionado());
             ps.setString(3, JtxfCantP.getText());
  
@@ -566,7 +569,6 @@ public class CapD extends javax.swing.JFrame {
     private javax.swing.JRadioButton JrbSi;
     private javax.swing.JRadioButton JrbSobreparto;
     private javax.swing.JTextField JtxfCantP;
-    private javax.swing.JTextField JtxfCodV;
     private javax.swing.JTextField JtxfEdadMuerte;
     private javax.swing.JTextField JtxfNomP;
     private javax.swing.JTextField JtxfNumero;
@@ -593,6 +595,7 @@ public class CapD extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTextField txtCodVivienda;
     // End of variables declaration//GEN-END:variables
 
 

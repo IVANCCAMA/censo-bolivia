@@ -27,6 +27,9 @@ public class CapA extends javax.swing.JFrame {
         this.setContentPane(fondo);    
         initComponents();
         conn=Mysql.getConnection();
+        
+        txtCodVivienda.setText(Encuestador.codVivienda); //recuperamos el codVivienda 
+        txtCodVivienda.setEditable(false);
     }
     
     @SuppressWarnings("unchecked") // suprime advertencias no comprobadas
@@ -86,7 +89,7 @@ public class CapA extends javax.swing.JFrame {
         txtNumMuj = new javax.swing.JTextField();
         jLabel25 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
-        jTxtCodVid = new javax.swing.JTextField();
+        txtCodVivienda = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
 
@@ -258,9 +261,9 @@ public class CapA extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Capítulo A", jPanel1);
 
-        jTxtCodVid.addActionListener(new java.awt.event.ActionListener() {
+        txtCodVivienda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTxtCodVidActionPerformed(evt);
+                txtCodViviendaActionPerformed(evt);
             }
         });
 
@@ -282,7 +285,7 @@ public class CapA extends javax.swing.JFrame {
                 .addGap(38, 38, 38)
                 .addComponent(jLabel28)
                 .addGap(29, 29, 29)
-                .addComponent(jTxtCodVid, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtCodVivienda, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18))
             .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1132, Short.MAX_VALUE)
         );
@@ -292,7 +295,7 @@ public class CapA extends javax.swing.JFrame {
                 .addGap(9, 9, 9)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel28)
-                    .addComponent(jTxtCodVid, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCodVivienda, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 642, Short.MAX_VALUE))
@@ -324,13 +327,13 @@ public class CapA extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
     
     private void llenarDatos(){
-        if(jTxtCodVid.getText().isEmpty()){ // verifica codVivienda
+        if(txtCodVivienda.getText().isEmpty()){ // verifica codVivienda
             JOptionPane.showMessageDialog(null, "Ingrese Codigo de Vivienda porfavor");
         }else{ 
             try {
                 String sql = "insert into cap_a values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
                 PreparedStatement ps = conn.prepareCall(sql);
-                ps.setString(1, jTxtCodVid.getText());
+                ps.setString(1, txtCodVivienda.getText());
                 ps.setString(2, txtCodMun.getText());
                 ps.setString(3, txtDistrito.getText());
                 ps.setString(4, txtCiudad.getText());
@@ -369,9 +372,9 @@ public class CapA extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNumHomActionPerformed
 
-    private void jTxtCodVidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxtCodVidActionPerformed
+    private void txtCodViviendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodViviendaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTxtCodVidActionPerformed
+    }//GEN-LAST:event_txtCodViviendaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -445,12 +448,12 @@ public class CapA extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextField jTxtCodVid;
     private javax.swing.JTextField txtBarrio;
     private javax.swing.JTextField txtCalle;
     private javax.swing.JTextField txtCiudad;
     private javax.swing.JTextField txtCiudadCom;
     private javax.swing.JTextField txtCodMun;
+    private javax.swing.JTextField txtCodVivienda;
     private javax.swing.JTextField txtDistrito;
     private javax.swing.JTextField txtLocalidad;
     private javax.swing.JTextField txtManzana;

@@ -39,6 +39,9 @@ public class CapC extends javax.swing.JFrame {
         conn = Mysql.getConnection();
         i = 1;
         cantidadPerson = 0;
+        
+        txtCodVivienda.setText(Encuestador.codVivienda);
+        txtCodVivienda.setEditable(false);
     }
     
     private void LlenarPersonasFuera(){
@@ -106,7 +109,7 @@ public class CapC extends javax.swing.JFrame {
         jButtonSiguiente = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTxtCodVid = new javax.swing.JTextField();
+        txtCodVivienda = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -253,7 +256,7 @@ public class CapC extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         jLabel2.setText("Codigo Vivienda");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(922, 33, -1, -1));
-        getContentPane().add(jTxtCodVid, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 30, 110, -1));
+        getContentPane().add(txtCodVivienda, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 30, 110, -1));
 
         pack();
         setLocationRelativeTo(null);
@@ -272,14 +275,14 @@ public class CapC extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButtonSiguienteActionPerformed
     private void llenarDatos(){
-        if(jTxtCodVid.getText().isEmpty()){
+        if(txtCodVivienda.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Ingrese Codigo de Vivienda porfavor");
         }else{
             // Guardar datos en bd
             try {
             String sql = "insert into cap_c values(?,?,?)";
             PreparedStatement ps = conn.prepareCall(sql);
-            ps.setString(1, jTxtCodVid.getText());
+            ps.setString(1, txtCodVivienda.getText());
             ps.setString(2, seleccionado());
             ps.setString(3, JtxfCanP.getText());
  
@@ -311,7 +314,7 @@ public class CapC extends javax.swing.JFrame {
     private void jButtonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarActionPerformed
         // BOTON GUARDAR datos en tabla PersonasFuera en bd
 
-        codViv = jTxtCodVid.getText().isEmpty();
+        codViv = txtCodVivienda.getText().isEmpty();
         
         boolean hayCantidadP = JtxfCanP.getText().isEmpty();  // verifica si esta vacio en campo de cantidad de personas
         
@@ -336,7 +339,7 @@ public class CapC extends javax.swing.JFrame {
         try {
             String sql = "insert into cap_cpersfuera values(?,?,?,?,?,?,?)";
             PreparedStatement ps = conn.prepareCall(sql);
-            ps.setString(1, jTxtCodVid.getText());       
+            ps.setString(1, txtCodVivienda.getText());       
             ps.setString(2, JtxfNumero.getText()); 
             ps.setString(3, JtxfNomP.getText()); 
             ps.setString(4, getSexo());                  
@@ -378,7 +381,7 @@ public class CapC extends javax.swing.JFrame {
     
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // BOTON PASAR A LA PREGUNTA 21
-        codViv = jTxtCodVid.getText().isEmpty(); // Poner codVivienda
+        codViv = txtCodVivienda.getText().isEmpty(); // Poner codVivienda
         
         if(JrbNo.isSelected() && (codViv != true)){
             this.setVisible(false);
@@ -387,7 +390,7 @@ public class CapC extends javax.swing.JFrame {
             try {
             String sql = "insert into cap_c values(?,?,?)";
             PreparedStatement ps = conn.prepareCall(sql);
-            ps.setString(1, jTxtCodVid.getText());
+            ps.setString(1, txtCodVivienda.getText());
             ps.setString(2, seleccionado());
             ps.setString(3, "0");
  
@@ -512,7 +515,7 @@ public class CapC extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextField jTxtCodVid;
+    private javax.swing.JTextField txtCodVivienda;
     // End of variables declaration//GEN-END:variables
     class fondoPanel extends JPanel{
         private Image imagen;

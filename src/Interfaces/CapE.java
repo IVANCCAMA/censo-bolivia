@@ -39,6 +39,9 @@ public class CapE extends javax.swing.JFrame {
         PersonaDificultad();
         i = 1;
         nroDePersonas = 0;
+        
+        txtCodVivienda.setText(Encuestador.codVivienda);
+        txtCodVivienda.setEditable(false);
     }
 
     private void PersonaDificultad(){
@@ -131,7 +134,7 @@ public class CapE extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
+        txtCodVivienda = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -318,9 +321,9 @@ public class CapE extends javax.swing.JFrame {
         jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         jLabel12.setText("Código vivienda");
 
-        jTextField7.addActionListener(new java.awt.event.ActionListener() {
+        txtCodVivienda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField7ActionPerformed(evt);
+                txtCodViviendaActionPerformed(evt);
             }
         });
 
@@ -334,7 +337,7 @@ public class CapE extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
                 .addComponent(jLabel12)
                 .addGap(18, 18, 18)
-                .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtCodVivienda, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addComponent(jTabbedPane2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -348,7 +351,7 @@ public class CapE extends javax.swing.JFrame {
                         .addGap(7, 7, 7)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel12)
-                            .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(txtCodVivienda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jTabbedPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 662, Short.MAX_VALUE))
         );
@@ -387,7 +390,7 @@ public class CapE extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // BOTON PASAR A LA PREGUNTA 23
-        codViv = jTextField7.getText().isEmpty(); // Verificar que codVivienda no este vacío
+        codViv = txtCodVivienda.getText().isEmpty(); // Verificar que codVivienda no este vacío
         jRadioButton1.setActionCommand ("Sí");
         jRadioButton2.setActionCommand ("No");
         //Verificamos que hayan seleccionado la opción "No"
@@ -398,7 +401,7 @@ public class CapE extends javax.swing.JFrame {
             try {
             String sql = "insert into cap_e values(?,?,?)";
             PreparedStatement ps = conn.prepareCall(sql);
-            ps.setString(1, jTextField7.getText());
+            ps.setString(1, txtCodVivienda.getText());
             ps.setString(2, buttonGroup1.getSelection().getActionCommand());
             ps.setString(3, "0");
  
@@ -430,7 +433,7 @@ public class CapE extends javax.swing.JFrame {
         jRadioButton7.setActionCommand("hablar, comunicarse o conversar");
         jRadioButton8.setActionCommand("caminar o subir escalones");
         jRadioButton9.setActionCommand ("recordar o concentrarse");
-        codViv = jTextField7.getText().isEmpty();
+        codViv = txtCodVivienda.getText().isEmpty();
         boolean personaConDif = jTextField3.getText().isEmpty();  // verificamos si esta vacio el campo de cant. de personas
         
         if(jRadioButton1.isSelected() && (personaConDif != true) && (codViv != true)){
@@ -440,7 +443,7 @@ public class CapE extends javax.swing.JFrame {
                     try {
                         String sql = "insert into  datos_persona_dif (codVivienda, nroDePersona, nombre, edad, genero, dificultad)  values(?,?,?,?,?,?)";
                         PreparedStatement ps = conn.prepareCall(sql);
-                        ps.setString(1, jTextField7.getText());//Código de vivienda       
+                        ps.setString(1, txtCodVivienda.getText());//Código de vivienda       
                         ps.setString(2, jTextField4.getText());//Nº de persona 
                         ps.setString(3, jTextField1.getText());//Nombre 
                         ps.setString(4, jTextField2.getText());//Edad                  
@@ -488,16 +491,16 @@ public class CapE extends javax.swing.JFrame {
         buttonGroup3.clearSelection();
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
+    private void txtCodViviendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodViviendaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField7ActionPerformed
+    }//GEN-LAST:event_txtCodViviendaActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
     //Botón SIGUIENTE que nos redirige al cap F
         jRadioButton1.setActionCommand ("Sí");
         jRadioButton2.setActionCommand ("No");
 
-    if(jTextField7.getText().isEmpty()){
+    if(txtCodVivienda.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Ingrese Codigo de Vivienda porfavor");
     }else{
         this.setVisible(false);
@@ -506,7 +509,7 @@ public class CapE extends javax.swing.JFrame {
         try {
             String sql = "insert into cap_e values(?,?,?)";
             PreparedStatement ps = conn.prepareCall(sql);
-            ps.setString(1, jTextField7.getText());//Código vivienda
+            ps.setString(1, txtCodVivienda.getText());//Código vivienda
             ps.setString(2, buttonGroup1.getSelection().getActionCommand());//persona con dificultad?
             ps.setString(3, jTextField3.getText());
  
@@ -600,6 +603,6 @@ public class CapE extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField7;
+    private javax.swing.JTextField txtCodVivienda;
     // End of variables declaration//GEN-END:variables
 }

@@ -40,7 +40,7 @@
               <EmptySpace min="-2" pref="155" max="-2" attributes="0"/>
               <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
-              <Component id="JtxfCodV" min="-2" pref="120" max="-2" attributes="0"/>
+              <Component id="txtCodVivienda" min="-2" pref="120" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
           </Group>
           <Component id="jTabbedPane1" alignment="0" pref="1200" max="32767" attributes="0"/>
@@ -51,7 +51,7 @@
           <Group type="102" attributes="0">
               <EmptySpace pref="36" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="JtxfCodV" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtCodVivienda" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
@@ -82,9 +82,9 @@
         <Property name="text" type="java.lang.String" value="Codigo Vivienda"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="JtxfCodV">
+    <Component class="javax.swing.JTextField" name="txtCodVivienda">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JtxfCodVActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCodViviendaActionPerformed"/>
       </Events>
     </Component>
     <Container class="javax.swing.JTabbedPane" name="jTabbedPane1">
