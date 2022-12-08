@@ -28,6 +28,13 @@ public class CapB extends javax.swing.JFrame {
         initComponents();
         conn=Mysql.getConnection();
     }
+    
+    private void deshabilitarBton(){
+            jButton3.setEnabled(false);
+    }
+    private void habilitarBton(){
+            jButton3.setEnabled(true);
+    }
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -339,7 +346,7 @@ public class CapB extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(239, 291, -1, -1));
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 280, -1, -1));
 
         jPanel5.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 450, 397));
 
@@ -1802,31 +1809,31 @@ public class CapB extends javax.swing.JFrame {
     }//GEN-LAST:event_jRadioButton17ActionPerformed
 
     private void jRadioButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton6ActionPerformed
-        // TODO add your handling code here:
+        habilitarBton();
     }//GEN-LAST:event_jRadioButton6ActionPerformed
 
     private void jRadioButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton7ActionPerformed
-        // TODO add your handling code here:
+        habilitarBton();
     }//GEN-LAST:event_jRadioButton7ActionPerformed
 
     private void jRadioButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton5ActionPerformed
-        // TODO add your handling code here:
+        deshabilitarBton();
     }//GEN-LAST:event_jRadioButton5ActionPerformed
 
     private void jRadioButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton4ActionPerformed
-        // TODO add your handling code here:
+        deshabilitarBton();
     }//GEN-LAST:event_jRadioButton4ActionPerformed
 
     private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
-        // TODO add your handling code here:
+        deshabilitarBton();
     }//GEN-LAST:event_jRadioButton3ActionPerformed
 
     private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
-        // TODO add your handling code here:
+        deshabilitarBton();
     }//GEN-LAST:event_jRadioButton2ActionPerformed
 
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
-        // TODO add your handling code here:
+        deshabilitarBton();
     }//GEN-LAST:event_jRadioButton1ActionPerformed
 
     private void jRadioButton47ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton47ActionPerformed
@@ -1936,7 +1943,7 @@ public class CapB extends javax.swing.JFrame {
     }
     
     private void jRadioButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton8ActionPerformed
-        // TODO add your handling code here:
+        habilitarBton();
     }//GEN-LAST:event_jRadioButton8ActionPerformed
 
     private void jRadioButton101ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton101ActionPerformed
