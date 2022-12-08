@@ -38,6 +38,10 @@ public class CapF extends javax.swing.JFrame {
         initComponents();
         
         conn=Mysql.getConnection();
+        
+        
+        jTextField27.setText(Encuestador.codVivienda);
+        jTextField27.setEditable(false);
     }
   
     
@@ -3497,14 +3501,20 @@ public class CapF extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jButton1.setText("Guardar");
+        jButton1.setBackground(new java.awt.Color(4, 22, 47));
+        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setText("GUARDAR Y GUARDAR");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Nuevo");
+        jButton2.setBackground(new java.awt.Color(4, 22, 47));
+        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jButton2.setText("SALIR");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -3529,11 +3539,11 @@ public class CapF extends javax.swing.JFrame {
                         .addGroup(jPanel32Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jPanel38, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jPanel39, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(49, Short.MAX_VALUE))
+                        .addContainerGap(53, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel32Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton2)
-                        .addGap(27, 27, 27)
+                        .addGap(18, 18, 18)
                         .addComponent(jButton1)
                         .addGap(39, 39, 39))))
         );
@@ -3561,7 +3571,7 @@ public class CapF extends javax.swing.JFrame {
                             .addComponent(jButton1)
                             .addComponent(jButton2))
                         .addGap(28, 28, 28)))
-                .addContainerGap(78, Short.MAX_VALUE))
+                .addContainerGap(85, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Capítulo F5", jPanel32);
@@ -3894,8 +3904,7 @@ public class CapF extends javax.swing.JFrame {
     }//GEN-LAST:event_jRadioButton92ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-   
-       int r = JOptionPane.showOptionDialog(this, "Los datos que guardara estan correctos?", "GUARDAR DATOS",JOptionPane.YES_NO_OPTION, 
+    int r = JOptionPane.showOptionDialog(this, "Los datos que guardara estan correctos?", "GUARDAR DATOS",JOptionPane.YES_NO_OPTION, 
                  JOptionPane.QUESTION_MESSAGE, null, null, null);
         if(r==0){
             llenarDatos();
@@ -3903,6 +3912,8 @@ public class CapF extends javax.swing.JFrame {
             new CapF().setVisible(true);
         }
 
+    this.dispose();
+        new CapF().setVisible(true);
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -3926,9 +3937,8 @@ public class CapF extends javax.swing.JFrame {
     }//GEN-LAST:event_jRadioButton103ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        
         this.dispose();
-        new CapF().setVisible(true);
+        new Encuestador().setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jRadioButton37ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton37ActionPerformed
