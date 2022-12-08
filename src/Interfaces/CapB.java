@@ -466,7 +466,7 @@ public class CapB extends javax.swing.JFrame {
                 jRadioButton19ActionPerformed(evt);
             }
         });
-        jPanel2.add(jRadioButton19, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, -1, 15));
+        jPanel2.add(jRadioButton19, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 115, -1, 20));
 
         buttonGroup7.add(jRadioButton23);
         jRadioButton23.setText("Madera");

@@ -17,7 +17,7 @@ import javax.swing.JOptionPane;
  * @author ARMAGEDON
  */
 public class Encuestador extends javax.swing.JFrame {
-     Connection conn;
+      Connection conn;
      
       Statement sent;
    
