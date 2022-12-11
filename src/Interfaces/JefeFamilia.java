@@ -196,7 +196,7 @@ public class JefeFamilia extends javax.swing.JFrame {
         jTextArea1.setBorder(javax.swing.BorderFactory.createTitledBorder("Escriba Aquí"));
         jScrollPane1.setViewportView(jTextArea1);
 
-        PanelReporte.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 280, 720, 300));
+        PanelReporte.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 280, 720, 300));
 
         jButton1.setText("ENVIAR");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -204,7 +204,7 @@ public class JefeFamilia extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        PanelReporte.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 620, -1, -1));
+        PanelReporte.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 620, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jLabel6.setText("REPORTE");
@@ -213,7 +213,6 @@ public class JefeFamilia extends javax.swing.JFrame {
 
         jTextArea3.setEditable(false);
         jTextArea3.setColumns(20);
-        jTextArea3.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         jTextArea3.setRows(5);
         jTextArea3.setText("AVISO: \t\nEscriba la descripción del problema que encontro en su encuesta\nDicho reporte se le enviará al un adminitrador");
         jTextArea3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
