@@ -248,7 +248,11 @@ public class Registrarse extends javax.swing.JFrame {
                 .addGap(122, 122, 122))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addGap(86, 86, 86)
+                        .addComponent(jButton2))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel3)
@@ -270,14 +274,8 @@ public class Registrarse extends javax.swing.JFrame {
                             .addComponent(txtDireccion)
                             .addComponent(txtZonaCensal)
                             .addComponent(txtNombre)
-                            .addComponent(txtCodVivienda))
-                        .addContainerGap(30, Short.MAX_VALUE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1)
-                        .addGap(86, 86, 86)
-                        .addComponent(jButton2)
-                        .addGap(78, 78, 78))))
+                            .addComponent(txtCodVivienda))))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -320,11 +318,11 @@ public class Registrarse extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(txtCodVivienda)
                     .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(25, 25, 25)
+                .addGap(28, 28, 28)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
-                .addGap(24, 24, 24))
+                .addGap(21, 21, 21))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -367,7 +365,12 @@ public class Registrarse extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jCmbBoxTipoUrsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCmbBoxTipoUrsActionPerformed
-    if(jCmbBoxTipoUrs.getSelectedItem().toString().equals("Jefe de Zona")||jCmbBoxTipoUrs.getSelectedItem().toString().equals("Encuestador")){
+    if(jCmbBoxTipoUrs.getSelectedItem().toString().equals("Jefe de Familia")){
+          txtCodVivienda.setEnabled(true);
+      }else{
+          txtCodVivienda.setEnabled(false);
+      }
+        if(jCmbBoxTipoUrs.getSelectedItem().toString().equals("Jefe de Zona")||jCmbBoxTipoUrs.getSelectedItem().toString().equals("Encuestador")){
           txtZonaCensal.setEnabled(true);
       }else{
           txtZonaCensal.setEnabled(false);
