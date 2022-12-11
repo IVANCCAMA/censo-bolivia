@@ -12,7 +12,6 @@ import javax.swing.table.DefaultTableModel;
 import dba.Mysql;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
@@ -26,6 +25,7 @@ public class Registrarse extends javax.swing.JFrame {
     public Registrarse() {
         initComponents();
         txtCodVivienda.setEnabled(false);
+        txtZonaCensal.setEnabled(false);
         
         conn=Mysql.getConnection();
         
@@ -366,13 +366,22 @@ public class Registrarse extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jCmbBoxTipoUrsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCmbBoxTipoUrsActionPerformed
-    if(jCmbBoxTipoUrs.getSelectedItem().toString().equals("Jefe de Familia")){
-          txtCodVivienda.setEnabled(true);
+    if(jCmbBoxTipoUrs.getSelectedItem().toString().equals("Jefe de Zona")||jCmbBoxTipoUrs.getSelectedItem().toString().equals("Encuestador")){
+          txtZonaCensal.setEnabled(true);
       }else{
-          txtCodVivienda.setEnabled(false);
-      }       
+          txtZonaCensal.setEnabled(false);
+      }
     }//GEN-LAST:event_jCmbBoxTipoUrsActionPerformed
-
+    private String getTextoCensal(){
+      String texto = "";
+      if(jCmbBoxTipoUrs.getSelectedItem().toString().equals("Jefe de Zona")||jCmbBoxTipoUrs.getSelectedItem().toString().equals("Encuestador")){
+          texto = txtZonaCensal.getText();
+      }else{
+          texto = "";
+      }
+      return texto;
+    }
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try {
             String sql = "insert into usuario (codUsr, nombreUsr, dirUsr, telfUsr, correoUsr, tipoUsr, contrUsr, ZonaCensal, codVivienda)"+
