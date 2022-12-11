@@ -635,6 +635,12 @@ public class Administrador extends javax.swing.JFrame {
         jLabel20.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel20.setText("Correo");
 
+        txtZonaJZ.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtZonaJZActionPerformed(evt);
+            }
+        });
+
         jLabel21.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel21.setText("Zona Censal");
 
@@ -1333,6 +1339,7 @@ public class Administrador extends javax.swing.JFrame {
         jTextArea1.setBackground(new java.awt.Color(204, 204, 204));
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
+        jTextArea1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jScrollPane6.setViewportView(jTextArea1);
 
         PanelReportes.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 80, 790, 260));
@@ -1730,6 +1737,10 @@ if (evt.getButton()==1){
     private void textNumViviendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textNumViviendasActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_textNumViviendasActionPerformed
+
+    private void txtZonaJZActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtZonaJZActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtZonaJZActionPerformed
 
     /**
      * @param args the command line arguments

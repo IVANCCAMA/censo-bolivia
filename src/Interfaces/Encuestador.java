@@ -340,6 +340,11 @@ public class Encuestador extends javax.swing.JFrame {
         txtCorreo.setBorder(null);
 
         txtZona.setBorder(null);
+        txtZona.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtZonaActionPerformed(evt);
+            }
+        });
 
         txtContra.setBorder(null);
 
@@ -593,6 +598,10 @@ public class Encuestador extends javax.swing.JFrame {
          // TODO add your handling code here:
         jTabbedPane1.setSelectedIndex(1);
     }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void txtZonaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtZonaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtZonaActionPerformed
 
     /**
      * @param args the command line arguments

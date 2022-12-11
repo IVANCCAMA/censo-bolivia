@@ -25,11 +25,11 @@ public class Registrarse extends javax.swing.JFrame {
     
     public Registrarse() {
         initComponents();
+        txtCodVivienda.setEnabled(false);
         
         conn=Mysql.getConnection();
         
     }
-    
  
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -65,6 +65,8 @@ public class Registrarse extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         txtCI = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        txtCodVivienda = new javax.swing.JTextField();
 
         jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel12.setText("Nombre");
@@ -158,7 +160,7 @@ public class Registrarse extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel5.setText("Tipo de Usuario");
 
-        jCmbBoxTipoUrs.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jCmbBoxTipoUrs.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jCmbBoxTipoUrs.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Jefe de Zona", "Encuestador", "Jefe de Familia" }));
         jCmbBoxTipoUrs.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -169,17 +171,17 @@ public class Registrarse extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setText("Nombre");
 
-        txtNombre.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtNombre.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel2.setText("Dirección");
 
-        txtDireccion.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtDireccion.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel8.setText("ZonaCensal");
+        jLabel8.setText("Zona Censal");
 
-        txtZonaCensal.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtZonaCensal.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtZonaCensal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtZonaCensalActionPerformed(evt);
@@ -189,17 +191,17 @@ public class Registrarse extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel3.setText("Telefono");
 
-        txtTelefono.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtTelefono.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel4.setText("Correo");
 
-        txtCorreo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtCorreo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel6.setText("Contraseña");
 
-        txtContra.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtContra.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         jButton1.setBackground(new java.awt.Color(4, 22, 47));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -221,10 +223,20 @@ public class Registrarse extends javax.swing.JFrame {
             }
         });
 
-        txtCI.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtCI.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         jLabel14.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel14.setText("Carnet de ID");
+
+        jLabel15.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel15.setText("Código de Vivienda");
+
+        txtCodVivienda.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtCodVivienda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCodViviendaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -243,7 +255,7 @@ public class Registrarse extends javax.swing.JFrame {
                         .addComponent(jButton2)
                         .addGap(21, 21, 21))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel3)
                             .addComponent(jLabel4)
                             .addComponent(jLabel6)
@@ -251,18 +263,19 @@ public class Registrarse extends javax.swing.JFrame {
                             .addComponent(jLabel2)
                             .addComponent(jLabel8)
                             .addComponent(jLabel14)
-                            .addComponent(jLabel5))
+                            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(32, 32, 32)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jCmbBoxTipoUrs, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(txtCI, javax.swing.GroupLayout.DEFAULT_SIZE, 258, Short.MAX_VALUE)
-                                .addComponent(txtContra)
-                                .addComponent(txtCorreo)
-                                .addComponent(txtTelefono)
-                                .addComponent(txtDireccion)
-                                .addComponent(txtZonaCensal)
-                                .addComponent(txtNombre)))))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jCmbBoxTipoUrs, 0, 258, Short.MAX_VALUE)
+                            .addComponent(txtCI, javax.swing.GroupLayout.DEFAULT_SIZE, 258, Short.MAX_VALUE)
+                            .addComponent(txtContra)
+                            .addComponent(txtCorreo)
+                            .addComponent(txtTelefono)
+                            .addComponent(txtDireccion)
+                            .addComponent(txtZonaCensal)
+                            .addComponent(txtNombre)
+                            .addComponent(txtCodVivienda))))
                 .addContainerGap(30, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -290,19 +303,23 @@ public class Registrarse extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtZonaCensal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8))
-                .addGap(10, 10, 10)
+                .addGap(7, 7, 7)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel3)
+                    .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel4)
+                    .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
-                .addGap(15, 15, 15)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(txtContra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(44, 44, 44)
+                    .addComponent(txtContra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtCodVivienda, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
+                    .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(25, 25, 25)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
@@ -341,7 +358,7 @@ public class Registrarse extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(23, Short.MAX_VALUE))))
+                        .addContainerGap(78, Short.MAX_VALUE))))
         );
 
         pack();
@@ -349,13 +366,17 @@ public class Registrarse extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jCmbBoxTipoUrsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCmbBoxTipoUrsActionPerformed
-        
+    if(jCmbBoxTipoUrs.getSelectedItem().toString().equals("Jefe de Familia")){
+          txtCodVivienda.setEnabled(true);
+      }else{
+          txtCodVivienda.setEnabled(false);
+      }       
     }//GEN-LAST:event_jCmbBoxTipoUrsActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try {
-            String sql = "insert into usuario (codUsr, nombreUsr, dirUsr, telfUsr, correoUsr, tipoUsr, contrUsr, ZonaCensal)"+
-                    "values(?,?,?,?,?,?,?,?)";
+            String sql = "insert into usuario (codUsr, nombreUsr, dirUsr, telfUsr, correoUsr, tipoUsr, contrUsr, ZonaCensal, codVivienda)"+
+                    "values(?,?,?,?,?,?,?,?,?)";
             PreparedStatement ps = conn.prepareCall(sql);
             ps.setString(1, txtCI.getText());
             ps.setString(2, txtNombre.getText());
@@ -365,6 +386,7 @@ public class Registrarse extends javax.swing.JFrame {
             ps.setString(6, jCmbBoxTipoUrs.getSelectedItem().toString());
             ps.setString(7, txtContra.getText());
             ps.setString(8, txtZonaCensal.getText());
+            ps.setString(9, getCodVivienda());
             
             int n = ps.executeUpdate();
             if(n>0){
@@ -378,7 +400,15 @@ public class Registrarse extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null,"Error"+ e.getMessage());
         }
     }//GEN-LAST:event_jButton1ActionPerformed
-
+    private String getCodVivienda(){
+      String codigo = "";
+      if(jCmbBoxTipoUrs.getSelectedItem().toString().equals("Jefe de Familia")){
+          codigo = txtCodVivienda.getText();
+      }else{
+          codigo = "";
+      }
+      return codigo;
+    }
     
     private String GetCodUsr() throws SQLException{
         String CI = txtCI.getText();
@@ -399,6 +429,10 @@ public class Registrarse extends javax.swing.JFrame {
     private void txtZonaCensalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtZonaCensalActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtZonaCensalActionPerformed
+
+    private void txtCodViviendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodViviendaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCodViviendaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -445,6 +479,7 @@ public class Registrarse extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -459,6 +494,7 @@ public class Registrarse extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JTextField txtCI;
+    private javax.swing.JTextField txtCodVivienda;
     private javax.swing.JTextField txtContra;
     private javax.swing.JTextField txtCorreo;
     private javax.swing.JTextField txtDireccion;
