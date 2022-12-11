@@ -3504,7 +3504,7 @@ public class CapF extends javax.swing.JFrame {
         jButton1.setBackground(new java.awt.Color(4, 22, 47));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("GUARDAR Y GUARDAR");
+        jButton1.setText("GUARDAR Y NUEVO");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -3908,11 +3908,11 @@ public class CapF extends javax.swing.JFrame {
                  JOptionPane.QUESTION_MESSAGE, null, null, null);
         if(r==0){
             llenarDatos();
-            this.setVisible(false);
+            this.dispose();
             new CapF().setVisible(true);
         }
 
-    this.dispose();
+        this.dispose();
         new CapF().setVisible(true);
         
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -3937,6 +3937,8 @@ public class CapF extends javax.swing.JFrame {
     }//GEN-LAST:event_jRadioButton103ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        llenarDatos();
+        this.setVisible(false);
         this.dispose();
         new Encuestador().setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
