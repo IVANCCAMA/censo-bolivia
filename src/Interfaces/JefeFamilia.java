@@ -84,11 +84,11 @@ public class JefeFamilia extends javax.swing.JFrame {
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("JEFE DE FAMILIA");
 
-        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Encuestador.jpg"))); // NOI18N
+        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/JefeFamilia.jpg"))); // NOI18N
 
         txtNombre.setEditable(false);
         txtNombre.setBackground(new java.awt.Color(255, 255, 255));
-        txtNombre.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtNombre.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         txtNombre.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtNombre.setBorder(null);
         txtNombre.addActionListener(new java.awt.event.ActionListener() {
@@ -117,7 +117,7 @@ public class JefeFamilia extends javax.swing.JFrame {
 
         txtCodigoViv.setEditable(false);
         txtCodigoViv.setBackground(new java.awt.Color(255, 255, 255));
-        txtCodigoViv.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtCodigoViv.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         txtCodigoViv.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtCodigoViv.setBorder(null);
         txtCodigoViv.addActionListener(new java.awt.event.ActionListener() {
@@ -148,7 +148,7 @@ public class JefeFamilia extends javax.swing.JFrame {
                             .addComponent(jLabel8)
                             .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE)
+                            .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(txtNombre)
                             .addComponent(txtCodigoViv))))
                 .addContainerGap(20, Short.MAX_VALUE))
@@ -193,7 +193,7 @@ public class JefeFamilia extends javax.swing.JFrame {
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
-        jTextArea1.setBorder(javax.swing.BorderFactory.createTitledBorder("Escrina aquí"));
+        jTextArea1.setBorder(javax.swing.BorderFactory.createTitledBorder("Escriba Aquí"));
         jScrollPane1.setViewportView(jTextArea1);
 
         PanelReporte.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 280, 720, 300));
@@ -213,7 +213,7 @@ public class JefeFamilia extends javax.swing.JFrame {
 
         jTextArea3.setEditable(false);
         jTextArea3.setColumns(20);
-        jTextArea3.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        jTextArea3.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         jTextArea3.setRows(5);
         jTextArea3.setText("AVISO: \t\nEscriba la descripción del problema que encontro en su encuesta\nDicho reporte se le enviará al un adminitrador");
         jTextArea3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
