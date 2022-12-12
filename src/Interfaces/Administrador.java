@@ -339,6 +339,7 @@ public class Administrador extends javax.swing.JFrame {
         textNombre = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel37 = new javax.swing.JLabel();
+        jButton21 = new javax.swing.JButton();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         panelJefe = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
@@ -431,6 +432,11 @@ public class Administrador extends javax.swing.JFrame {
         jTextArea1 = new javax.swing.JTextArea();
         txtCodUsr = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jButton18 = new javax.swing.JButton();
+        jButton19 = new javax.swing.JButton();
+        jButton20 = new javax.swing.JButton();
+        jLabel38 = new javax.swing.JLabel();
         jLabel36 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -484,13 +490,13 @@ public class Administrador extends javax.swing.JFrame {
 
         jButton4.setBackground(new java.awt.Color(204, 255, 255));
         jButton4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton4.setText("VER REPORTES");
+        jButton4.setText("VER ESTADISTICOS");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
             }
         });
-        PanelNavegador.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 580, 170, 30));
+        PanelNavegador.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 640, 170, 30));
 
         jButton5.setBackground(new java.awt.Color(204, 255, 255));
         jButton5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -519,6 +525,16 @@ public class Administrador extends javax.swing.JFrame {
         jLabel37.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Administrador.jpg"))); // NOI18N
         jLabel37.setText("\n\n");
         PanelNavegador.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 170, 160));
+
+        jButton21.setBackground(new java.awt.Color(204, 255, 255));
+        jButton21.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jButton21.setText("VER REPORTES");
+        jButton21.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton21ActionPerformed(evt);
+            }
+        });
+        PanelNavegador.add(jButton21, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 580, 170, 30));
 
         jPanel1.add(PanelNavegador, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 220, 820));
 
@@ -778,7 +794,7 @@ public class Administrador extends javax.swing.JFrame {
                 .addContainerGap(29, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("JZ", panelJefe);
+        jTabbedPane1.addTab("JEFE ZONA", panelJefe);
 
         panelEncuestador.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -1019,7 +1035,7 @@ public class Administrador extends javax.swing.JFrame {
                 .addGap(11, 11, 11))
         );
 
-        jTabbedPane1.addTab("ENC", panelEncuestador);
+        jTabbedPane1.addTab("ENCUESTADOR", panelEncuestador);
 
         PanelJefesFam.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -1274,7 +1290,7 @@ public class Administrador extends javax.swing.JFrame {
                 .addContainerGap(19, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("JF", PanelJefesFam);
+        jTabbedPane1.addTab("JEFE FAMILIA", PanelJefesFam);
 
         PanelViviendas.setBackground(new java.awt.Color(255, 255, 255));
         PanelViviendas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -1307,7 +1323,7 @@ public class Administrador extends javax.swing.JFrame {
         });
         PanelViviendas.add(textNumViviendas, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, 132, 20));
 
-        jTabbedPane1.addTab("VIV", PanelViviendas);
+        jTabbedPane1.addTab("VIVIENDA", PanelViviendas);
 
         PanelReportes.setBackground(new java.awt.Color(255, 255, 255));
         PanelReportes.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -1355,7 +1371,70 @@ public class Administrador extends javax.swing.JFrame {
         jLabel2.setText("Carnet de Usr:");
         PanelReportes.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 50, -1, -1));
 
-        jTabbedPane1.addTab("REP", PanelReportes);
+        jTabbedPane1.addTab("REPORTE", PanelReportes);
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+
+        jButton18.setText("POBLACIÓN GENERAL");
+        jButton18.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton18ActionPerformed(evt);
+            }
+        });
+
+        jButton19.setText("CARATERISTICAS DE VIVIENDAS");
+        jButton19.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton19ActionPerformed(evt);
+            }
+        });
+
+        jButton20.setText("DIFICULTADES, MORTALIDAD, EXTERIOR");
+        jButton20.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton20ActionPerformed(evt);
+            }
+        });
+
+        jLabel38.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        jLabel38.setForeground(new java.awt.Color(0, 51, 153));
+        jLabel38.setText("ESTADISTICOS DE CENSO BOLIVIA");
+        jLabel38.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(132, 132, 132)
+                        .addComponent(jButton18)
+                        .addGap(185, 185, 185)
+                        .addComponent(jButton19))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(290, 290, 290)
+                        .addComponent(jLabel38))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(285, 285, 285)
+                        .addComponent(jButton20)))
+                .addContainerGap(211, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(69, 69, 69)
+                .addComponent(jLabel38)
+                .addGap(159, 159, 159)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton18)
+                    .addComponent(jButton19))
+                .addGap(92, 92, 92)
+                .addComponent(jButton20)
+                .addContainerGap(288, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("ESTADISTICAS", jPanel2);
 
         jPanel1.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 80, 970, 740));
 
@@ -1573,7 +1652,7 @@ public class Administrador extends javax.swing.JFrame {
     }//GEN-LAST:event_tablaEncuestadorMouseClicked
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        jTabbedPane1.setSelectedIndex(4);
+        jTabbedPane1.setSelectedIndex(5);
         jTabbedPane1.getSelectedIndex();
     }//GEN-LAST:event_jButton4ActionPerformed
 
@@ -1742,6 +1821,25 @@ if (evt.getButton()==1){
         // TODO add your handling code here:
     }//GEN-LAST:event_txtZonaJZActionPerformed
 
+    private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
+        // VER ESTADISTICOS DE POBLACION GENERAL
+        new EstPoblacionGeneral().setVisible(true);
+    }//GEN-LAST:event_jButton18ActionPerformed
+
+    private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
+        // TODO add your handling code here:
+        new EstadisticasCapB().setVisible(true);
+    }//GEN-LAST:event_jButton19ActionPerformed
+
+    private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
+        // TODO add your handling code here:
+        new Estadistica_capC().setVisible(true);
+    }//GEN-LAST:event_jButton20ActionPerformed
+
+    private void jButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton21ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton21ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1797,7 +1895,11 @@ if (evt.getButton()==1){
     private javax.swing.JButton jButton15;
     private javax.swing.JButton jButton16;
     private javax.swing.JButton jButton17;
+    private javax.swing.JButton jButton18;
+    private javax.swing.JButton jButton19;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton20;
+    private javax.swing.JButton jButton21;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
@@ -1836,6 +1938,7 @@ if (evt.getButton()==1){
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -1843,6 +1946,7 @@ if (evt.getButton()==1){
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
