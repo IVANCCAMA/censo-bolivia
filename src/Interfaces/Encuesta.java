@@ -25,6 +25,7 @@ public class Encuesta extends javax.swing.JFrame {
         conn=Mysql.getConnection();
         
         txtCodVivienda.setText(JefeFamilia.codVivienda);
+        txtCodVivienda.setEditable(false);
         llenarDatosEncuesta();
     }
     
@@ -36,11 +37,12 @@ public class Encuesta extends javax.swing.JFrame {
         llenarCapC();
         llenarCapD();
         llenarCapE();
-        llenarCapF();
+        //llenarCapF();
         
         llenarTablaC();
         llenarTablaD();
         llenarTablaE();
+        llenarTablaF();
     }
     
     private void llenarCapA(){
@@ -101,8 +103,17 @@ public class Encuesta extends javax.swing.JFrame {
             txtB14.setText(rs.getString("cuartoOcupado"));
             txtB15.setText(rs.getString("cuartoDormir"));
             txtB16.setText(rs.getString("basuraelimina"));
-            txtB17.setText(rs.getString("hogarTiene"));
-            txtB18.setText(rs.getString("hogarTiene2"));
+            txtB17.setText(rs.getString("tieneRadio"));
+            txtB18.setText(rs.getString("tieneTelevisor"));
+            txtB19.setText(rs.getString("tieneComputadora"));
+            // aniadir mas jtxf y arregalr disenio
+            txtB19.setText(rs.getString("tieneServicioDeInternet"));
+            txtB19.setText(rs.getString("tieneServicioDeTelefonia"));
+            txtB19.setText(rs.getString("tieneVehiculoAutomotor"));
+            txtB19.setText(rs.getString("tieneBicicleta"));
+            txtB19.setText(rs.getString("tieneMotocicletaOCuadratac"));
+            txtB19.setText(rs.getString("tieneCarretaOCarreton"));
+            txtB19.setText(rs.getString("tieneBote"));
             txtB19.setText(rs.getString("vivienda"));
         }
         catch (Exception e) {
@@ -286,7 +297,34 @@ public class Encuesta extends javax.swing.JFrame {
         catch (Exception e) {
             e.printStackTrace();
         }
+    }
     
+    private void llenarTablaF(){
+        try {
+            conn = Mysql.getConnection();
+            String[]titulos = {"codVivienda", "numPersona", "nomPersona", "parentesco", "sexo","edad"}; // colocar mismos nombres de la tabla
+            
+            String sql = "select * from cap_f Where codVivienda = " + JefeFamilia.codVivienda;
+            model = new DefaultTableModel(null, titulos);
+            sent= conn.createStatement(); //sent = estado para ejecutar sql
+            ResultSet rs=sent.executeQuery(sql); // 
+            
+            String[]fila = new String[6];
+            while(rs.next()){
+                fila[0]=rs.getString("codVivienda"); //No colocar repetidos
+                fila[1]=rs.getString("numPersona");
+                fila[2]=rs.getString("nomPersona");
+                fila[3]=rs.getString("parentesco");
+                fila[4]=rs.getString("sexo");
+                fila[5]=rs.getString("edad");
+                model.addRow(fila);
+            }
+            TablaF.setModel(model); // para agregar datos a la tabla
+            
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
     }
     
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -428,7 +466,7 @@ public class Encuesta extends javax.swing.JFrame {
         jTabbedPane2 = new javax.swing.JTabbedPane();
         PanelBDPersonas = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
-        TablaPesonasDelHogar = new javax.swing.JTable();
+        TablaF = new javax.swing.JTable();
         PanelF1 = new javax.swing.JPanel();
         jLabel126 = new javax.swing.JLabel();
         jLabel127 = new javax.swing.JLabel();
@@ -504,7 +542,6 @@ public class Encuesta extends javax.swing.JFrame {
         jLabel78 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1200, 750));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -856,7 +893,6 @@ public class Encuesta extends javax.swing.JFrame {
                     .addComponent(jLabel36))
                 .addGroup(PanelCapBLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PanelCapBLayout.createSequentialGroup()
-                        .addGap(0, 0, 0)
                         .addComponent(txtB11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, 0)
                         .addComponent(jLabel37, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1178,7 +1214,7 @@ public class Encuesta extends javax.swing.JFrame {
 
         PanelBDPersonas.setBackground(new java.awt.Color(255, 255, 255));
 
-        TablaPesonasDelHogar.setModel(new javax.swing.table.DefaultTableModel(
+        TablaF.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -1189,7 +1225,12 @@ public class Encuesta extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane4.setViewportView(TablaPesonasDelHogar);
+        TablaF.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TablaFMouseClicked(evt);
+            }
+        });
+        jScrollPane4.setViewportView(TablaF);
 
         javax.swing.GroupLayout PanelBDPersonasLayout = new javax.swing.GroupLayout(PanelBDPersonas);
         PanelBDPersonas.setLayout(PanelBDPersonasLayout);
@@ -1202,8 +1243,8 @@ public class Encuesta extends javax.swing.JFrame {
         PanelBDPersonasLayout.setVerticalGroup(
             PanelBDPersonasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelBDPersonasLayout.createSequentialGroup()
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 481, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(5, 5, 5))
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Personas", PanelBDPersonas);
@@ -1442,7 +1483,7 @@ public class Encuesta extends javax.swing.JFrame {
                 .addComponent(jLabel61)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtF38, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout PanelF2Layout = new javax.swing.GroupLayout(PanelF2);
@@ -1692,7 +1733,7 @@ public class Encuesta extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelCapFLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton2)
-                .addGap(96, 96, 96))
+                .addGap(58, 58, 58))
         );
         PanelCapFLayout.setVerticalGroup(
             PanelCapFLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1700,15 +1741,15 @@ public class Encuesta extends javax.swing.JFrame {
                 .addGap(5, 5, 5)
                 .addComponent(jLabel70, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 494, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 510, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton2)
-                .addContainerGap(52, Short.MAX_VALUE))
+                .addGap(23, 23, 23))
         );
 
         jTabbedPane1.addTab("CapÍtulo F", PanelCapF);
 
-        jPanel1.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 1200, 670));
+        jPanel1.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 1200, 670));
 
         jLabel45.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel45.setForeground(new java.awt.Color(4, 22, 47));
@@ -1797,6 +1838,54 @@ public class Encuesta extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtB11ActionPerformed
 
+    private void TablaFMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TablaFMouseClicked
+        // MOUSE CLICKED DE TABLA JEFE DE FAMILIA
+        if (evt.getButton()==1){
+            int fila = TablaF.getSelectedRow();
+            try {
+                //HabilitarTablaJefeZona(false);
+                String sql = "SELECT * from cap_f WHERE numPersona = " + TablaF.getValueAt(fila,1);
+                sent = conn.createStatement();
+                ResultSet rs = sent.executeQuery(sql);
+                rs.next(); // SI O SI PONER PARA LO RESULTADOS
+                
+                txtF1.setText(rs.getString("numPersona"));
+                txtF2.setText(rs.getString("nomPersona"));
+
+                txtF23.setText(rs.getString("parentesco"));
+                txtF24.setText(rs.getString("sexo"));
+                txtF25.setText(rs.getString("edad"));
+                txtF26.setText(rs.getString("nacInscrito"));
+                txtF27.setText(rs.getString("carnet"));
+                txtF28.setText(rs.getString("problemaSaludAcude"));
+                txtF29.setText(rs.getString("indigenaOriginario"));
+                txtF30.setText(rs.getString("primerIdioma"));
+                txtF31.setText(rs.getString("hablaIdiomas"));
+                txtF32.setText(rs.getString("dondeNacio"));
+                txtF33.setText(rs.getString("dondeVive"));
+                txtF34.setText(rs.getString("viviaHace"));
+                txtF35.setText(rs.getString("leerEscribir"));
+                txtF36.setText(rs.getString("acudeColegio"));
+                txtF37.setText(rs.getString("nivelEstudio"));
+                txtF38.setText(rs.getString("nivelAprobado"));
+                txtF39.setText(rs.getString("trabajo"));
+                txtF40.setText(rs.getString("trabajoSemana"));
+                txtF41.setText(rs.getString("duranteSemana"));
+                txtF42.setText(rs.getString("ocupacion"));
+                txtF43.setText(rs.getString("ocupacionTrabajo"));
+                txtF44.setText(rs.getString("produceVende"));
+                txtF45.setText(rs.getString("estadoCivil"));
+                txtF46.setText(rs.getString("hijos"));
+                txtF47.setText(rs.getString("hijoViven"));
+                txtF48.setText(rs.getString("ultHijoNacio"));
+                txtF49.setText(rs.getString("vive"));
+                txtF50.setText(rs.getString("lugarParto"));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }//GEN-LAST:event_TablaFMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -1847,7 +1936,7 @@ public class Encuesta extends javax.swing.JFrame {
     private javax.swing.JTable TablaC;
     private javax.swing.JTable TablaD;
     private javax.swing.JTable TablaE;
-    private javax.swing.JTable TablaPesonasDelHogar;
+    private javax.swing.JTable TablaF;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
