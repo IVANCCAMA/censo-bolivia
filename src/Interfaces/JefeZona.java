@@ -343,7 +343,7 @@ public class JefeZona extends javax.swing.JFrame {
         jButton1.setBackground(new java.awt.Color(204, 255, 255));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButton1.setForeground(new java.awt.Color(4, 22, 47));
-        jButton1.setText("<html><center>DATOS<br>DE ENCUESTADORES<center><html> "); // NOI18N
+        jButton1.setText("<html><center>DATOS<br>DE  JEFES DE FAMILIA<center><html> "); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -363,7 +363,7 @@ public class JefeZona extends javax.swing.JFrame {
         jButton13.setBackground(new java.awt.Color(204, 255, 255));
         jButton13.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButton13.setForeground(new java.awt.Color(4, 22, 47));
-        jButton13.setText("<html><center>DATOS<br>JEFES DE FAMILIA<center><html>");
+        jButton13.setText("<html><center>DATOS<br>DE ENCUESTADORES<center><html>");
         jButton13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton13ActionPerformed(evt);
@@ -380,7 +380,7 @@ public class JefeZona extends javax.swing.JFrame {
             }
         });
 
-        textNombre.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        textNombre.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         textNombre.setBorder(null);
         textNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -388,7 +388,7 @@ public class JefeZona extends javax.swing.JFrame {
             }
         });
 
-        textZona.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        textZona.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         textZona.setBorder(null);
         textZona.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -442,7 +442,7 @@ public class JefeZona extends javax.swing.JFrame {
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap(75, Short.MAX_VALUE)
+                .addContainerGap(85, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel23)
@@ -798,8 +798,7 @@ public class JefeZona extends javax.swing.JFrame {
                         .addGap(5, 5, 5)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel34)
-                            .addComponent(jTextField23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, 0)))
+                            .addComponent(jTextField23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField24, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel35))
@@ -854,7 +853,6 @@ public class JefeZona extends javax.swing.JFrame {
                 "CI", "Nombre", "Dirección", "Telf/Cel", "Correo", "ZonaCensal", "Contraseña", "Codigo Vivienda"
             }
         ));
-        jTable3.setSelectionBackground(new java.awt.Color(242, 242, 242));
         jTable3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTable3MouseClicked(evt);
@@ -1048,9 +1046,7 @@ public class JefeZona extends javax.swing.JFrame {
                     .addGroup(jPanel9Layout.createSequentialGroup()
                         .addComponent(jLabel24)
                         .addGap(1, 1, 1))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
-                        .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, 0)))
+                    .addComponent(jTextField14, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(4, 4, 4)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
