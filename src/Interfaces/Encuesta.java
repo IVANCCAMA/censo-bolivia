@@ -486,6 +486,7 @@ public class Encuesta extends javax.swing.JFrame {
         PanelBDPersonas = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
         TablaF = new javax.swing.JTable();
+        jLabel44 = new javax.swing.JLabel();
         PanelF1 = new javax.swing.JPanel();
         jLabel126 = new javax.swing.JLabel();
         jLabel127 = new javax.swing.JLabel();
@@ -1348,6 +1349,9 @@ public class Encuesta extends javax.swing.JFrame {
         });
         jScrollPane4.setViewportView(TablaF);
 
+        jLabel44.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        jLabel44.setText("NOTA: SELECCIONE EL NUMERO DE PERSONA PARA PODER VER LOS DATOS");
+
         javax.swing.GroupLayout PanelBDPersonasLayout = new javax.swing.GroupLayout(PanelBDPersonas);
         PanelBDPersonas.setLayout(PanelBDPersonasLayout);
         PanelBDPersonasLayout.setHorizontalGroup(
@@ -1355,12 +1359,18 @@ public class Encuesta extends javax.swing.JFrame {
             .addGroup(PanelBDPersonasLayout.createSequentialGroup()
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 1111, Short.MAX_VALUE)
                 .addContainerGap())
+            .addGroup(PanelBDPersonasLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel44)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         PanelBDPersonasLayout.setVerticalGroup(
             PanelBDPersonasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelBDPersonasLayout.createSequentialGroup()
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
+                .addComponent(jLabel44)
+                .addContainerGap(81, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Personas", PanelBDPersonas);
@@ -1599,7 +1609,7 @@ public class Encuesta extends javax.swing.JFrame {
                 .addComponent(jLabel61)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtF38, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout PanelF2Layout = new javax.swing.GroupLayout(PanelF2);
@@ -1846,7 +1856,7 @@ public class Encuesta extends javax.swing.JFrame {
                 .addGap(5, 5, 5)
                 .addComponent(jLabel70, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 510, Short.MAX_VALUE)
+                .addComponent(jTabbedPane2)
                 .addGap(70, 70, 70))
         );
 
@@ -2106,6 +2116,7 @@ public class Encuesta extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel43;
+    private javax.swing.JLabel jLabel44;
     private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel47;
