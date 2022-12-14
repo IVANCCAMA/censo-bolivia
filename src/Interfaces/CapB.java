@@ -1404,13 +1404,9 @@ public class CapB extends javax.swing.JFrame {
                 ps.setString(26, buttonGroup24.getSelection().getActionCommand());
                 ps.setString(27, buttonGroup25.getSelection().getActionCommand());
                 ps.setString(28, buttonGroup26.getSelection().getActionCommand());
-               // ps.setString(18, preg17());
-                //ps.setString(19, preg18());
-                //ps.setString(20, buttonGroup26.getSelection().getActionCommand());
                 
                 int n = ps.executeUpdate();
                 if(n>0){
-                    JOptionPane.showMessageDialog(null, "Datos guardados correctamente");
                     // PASAR A CAPC
                     this.setVisible(false);
                     new CapC().setVisible(true);
@@ -1934,7 +1930,6 @@ public class CapB extends javax.swing.JFrame {
                 
                 int n = ps.executeUpdate();
                 if(n>0){
-                    JOptionPane.showMessageDialog(null, "Datos guardados correctamente");
                     // PASAR AL SIGUIENTE CAP
                     this.setVisible(false);
                     new CapF().setVisible(true);

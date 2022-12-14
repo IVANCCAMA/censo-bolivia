@@ -357,7 +357,6 @@ public class CapA extends javax.swing.JFrame {
 
                 int n = ps.executeUpdate();
                 if(n>0){
-                    JOptionPane.showMessageDialog(null, "Datos guardados correctamente");
                     // PASAR A CAPB
                     this.setVisible(false);
                     new CapB().setVisible(true);

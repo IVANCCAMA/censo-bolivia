@@ -29,6 +29,9 @@ public class Encuestador extends javax.swing.JFrame {
         
         jTextField2.setText(InicioSesion.nombreUrs);
         jTextField3.setText(InicioSesion.zona);
+        
+        jTextField2.setEditable(false);
+        jTextField3.setEditable(false);
         listCodVivienda = new ArrayList<>();
         
     }
