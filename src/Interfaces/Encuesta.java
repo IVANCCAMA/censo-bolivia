@@ -555,10 +555,10 @@ public class Encuesta extends javax.swing.JFrame {
         txtF47 = new javax.swing.JTextField();
         jLabel92 = new javax.swing.JLabel();
         txtF50 = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
         jLabel45 = new javax.swing.JLabel();
         txtCodVivienda = new javax.swing.JTextField();
         jLabel78 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -752,7 +752,7 @@ public class Encuesta extends javax.swing.JFrame {
                 .addGroup(PanelCapALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(55, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("CapÍtulo A", PanelCapA);
@@ -1229,7 +1229,7 @@ public class Encuesta extends javax.swing.JFrame {
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("CapÍtulo D", PanelCapD);
@@ -1315,7 +1315,7 @@ public class Encuesta extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(62, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("CapÍtulo E", PanelCapE);
@@ -1826,13 +1826,6 @@ public class Encuesta extends javax.swing.JFrame {
 
         jTabbedPane2.addTab("F4     F5", PanelF4F5);
 
-        jButton2.setText("CERRAR");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout PanelCapFLayout = new javax.swing.GroupLayout(PanelCapF);
         PanelCapF.setLayout(PanelCapFLayout);
         PanelCapFLayout.setHorizontalGroup(
@@ -1846,10 +1839,6 @@ public class Encuesta extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelCapFLayout.createSequentialGroup()
                         .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 1117, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(41, Short.MAX_VALUE))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelCapFLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2)
-                .addGap(58, 58, 58))
         );
         PanelCapFLayout.setVerticalGroup(
             PanelCapFLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1857,15 +1846,13 @@ public class Encuesta extends javax.swing.JFrame {
                 .addGap(5, 5, 5)
                 .addComponent(jLabel70, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTabbedPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 510, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton2)
-                .addGap(23, 23, 23))
+                .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 510, Short.MAX_VALUE)
+                .addGap(70, 70, 70))
         );
 
         jTabbedPane1.addTab("CapÍtulo F", PanelCapF);
 
-        jPanel1.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 1200, 670));
+        jPanel1.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 1200, 620));
 
         jLabel45.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel45.setForeground(new java.awt.Color(4, 22, 47));
@@ -1883,6 +1870,14 @@ public class Encuesta extends javax.swing.JFrame {
         jLabel78.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         jLabel78.setText("Codigo Vivienda:");
         jPanel1.add(jLabel78, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 10, -1, -1));
+
+        jButton2.setText("CERRAR");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 710, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

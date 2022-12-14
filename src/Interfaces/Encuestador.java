@@ -590,9 +590,9 @@ public class Encuestador extends javax.swing.JFrame {
             ps.setString(3, txtDirec.getText());
             ps.setString(4, txtTelf.getText());
             ps.setString(5, txtCorreo.getText());
-            ps.setString(6, getTipoUsuarioJF());
-            ps.setString(7, txtZona.getText());
-            ps.setString(8, txtContra.getText());
+            ps.setString(6, getTipoUsuarioJF());    
+            ps.setString(7, txtContra.getText());
+            ps.setString(8, txtZona.getText());
             ps.setString(9, txtCodViviend.getText());
             int n = ps.executeUpdate();
             if(n>0){

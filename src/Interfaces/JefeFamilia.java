@@ -56,6 +56,7 @@ public class JefeFamilia extends javax.swing.JFrame {
         BotonEstadoEnc = new javax.swing.JButton();
         txtCodigoViv = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
+        BotonAtras = new javax.swing.JButton();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         PanelReporte = new javax.swing.JPanel();
         BotonAtras2 = new javax.swing.JButton();
@@ -130,27 +131,41 @@ public class JefeFamilia extends javax.swing.JFrame {
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Codigo Vivienda");
 
+        BotonAtras.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        BotonAtras.setForeground(new java.awt.Color(4, 22, 47));
+        BotonAtras.setText("Atras");
+        BotonAtras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonAtrasActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout PanelNavegadorLayout = new javax.swing.GroupLayout(PanelNavegador);
         PanelNavegador.setLayout(PanelNavegadorLayout);
         PanelNavegadorLayout.setHorizontalGroup(
             PanelNavegadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelNavegadorLayout.createSequentialGroup()
-                .addGroup(PanelNavegadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(PanelNavegadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanelNavegadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(PanelNavegadorLayout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(BotonEstadoEnc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(PanelNavegadorLayout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(BotonReporte, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(PanelNavegadorLayout.createSequentialGroup()
+                            .addGap(18, 18, 18)
+                            .addGroup(PanelNavegadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtCodigoViv, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(PanelNavegadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel8)
+                                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(txtNombre)))))
                     .addGroup(PanelNavegadorLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(BotonEstadoEnc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(PanelNavegadorLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(BotonReporte, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(PanelNavegadorLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(PanelNavegadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtNombre)
-                            .addComponent(txtCodigoViv))))
+                        .addGap(57, 57, 57)
+                        .addComponent(BotonAtras)))
                 .addContainerGap(20, Short.MAX_VALUE))
         );
         PanelNavegadorLayout.setVerticalGroup(
@@ -166,13 +181,15 @@ public class JefeFamilia extends javax.swing.JFrame {
                 .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12)
                 .addComponent(jLabel8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(txtCodigoViv, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(61, 61, 61)
+                .addGap(49, 49, 49)
                 .addComponent(BotonEstadoEnc, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
                 .addComponent(BotonReporte, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(193, Short.MAX_VALUE))
+                .addGap(76, 76, 76)
+                .addComponent(BotonAtras)
+                .addContainerGap(93, Short.MAX_VALUE))
         );
 
         PanelFondo.add(PanelNavegador, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -242,10 +259,31 @@ public class JefeFamilia extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+    private boolean realizoEnc(){
+        boolean realizo = false;
+        try {
+        String sql = "SELECT codVivienda FROM cap_a WHERE codVivienda = '" + txtCodigoViv.getText()+"'";        
+            sent = conn.createStatement(); // para procesar la sentencia sql y obtener los resultados
+            ResultSet rs = sent.executeQuery(sql); //obiene los resultados de la consulta sql
+            
+            if(rs.next()){ 
+                realizo = true;
+            }else{
+                realizo = false;
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error"+ e.getMessage());
+        }
+        return realizo;
+    }
     private void BotonEstadoEncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonEstadoEncActionPerformed
         // VER ESTADO DE ENCUESTA
-        new Encuesta().setVisible(true);
+        if(realizoEnc()){
+            new Encuesta().setVisible(true);
+        }else{
+            JOptionPane.showMessageDialog(null, "Aun no realizó ninguna encuesta");
+        }
+        
     }//GEN-LAST:event_BotonEstadoEncActionPerformed
 
     private void BotonReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonReporteActionPerformed
@@ -294,6 +332,12 @@ public class JefeFamilia extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCodigoVivActionPerformed
 
+    private void BotonAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAtrasActionPerformed
+        //Boton atras
+        new InicioSesion().setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_BotonAtrasActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -330,6 +374,7 @@ public class JefeFamilia extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BotonAtras;
     private javax.swing.JButton BotonAtras2;
     private javax.swing.JButton BotonEstadoEnc;
     private javax.swing.JButton BotonReporte;
