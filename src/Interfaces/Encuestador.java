@@ -502,9 +502,32 @@ public class Encuestador extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private boolean FueCensado(){
+        boolean fueCensado = false;
+        try {
+            conn = Mysql.getConnection(); //conexion con sql
+            String sql = "select codVivienda from cap_a Where codVivienda= '"+txtCodViv.getText()+"'";
+            sent = conn.createStatement(); // para procesar la sentencia sql y obtener los resultados
+            ResultSet rs = sent.executeQuery(sql); //obiene los resultados de la consulta sql
+            if(rs.next()){
+                fueCensado = true;
+            }else{
+                fueCensado = false;
+            }
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        return fueCensado;
+    }
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
        //boton Iniciar Encuesta
-        llenarCodVivienda();
+       
+       if(FueCensado()){
+           JOptionPane.showMessageDialog(null,"El Código de Vivienda ingresado ya fue CENSADO, igrese uno nuevo"); 
+       }else{
+           llenarCodVivienda();
        
         boolean NoEncontrado = true;
         String codV  = txtCodViv.getText(); //recuperamos el codigo de vivienda
@@ -522,12 +545,13 @@ public class Encuestador extends javax.swing.JFrame {
                 this.setVisible(false);
             }else{
                 posicion++;
-            } 
-           
+            }
         }
         if(NoEncontrado == true){
             JOptionPane.showMessageDialog(null,"El Código de Vivienda ingresado no existe"); 
         }
+       }
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed

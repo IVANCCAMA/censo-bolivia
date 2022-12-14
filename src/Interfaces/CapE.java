@@ -180,6 +180,11 @@ public class CapE extends javax.swing.JFrame {
 
         buttonGroup1.add(jRadioButton2);
         jRadioButton2.setText("No");
+        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton2ActionPerformed(evt);
+            }
+        });
         jPanel2.add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(723, 114, -1, 16));
 
         jButton1.setText("Pase a la preg. 23");
@@ -503,8 +508,6 @@ public class CapE extends javax.swing.JFrame {
     if(txtCodVivienda.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Ingrese Codigo de Vivienda porfavor");
     }else{
-        this.setVisible(false);
-        new CapF().setVisible(true);
         // Guardar datos en bd
         try {
             String sql = "insert into cap_e values(?,?,?)";
@@ -515,7 +518,8 @@ public class CapE extends javax.swing.JFrame {
  
             int n = ps.executeUpdate();
             if(n>0){
-                JOptionPane.showMessageDialog(null, "Datos guardados correctamente");
+                this.setVisible(false);
+                new CapF().setVisible(true);
             }
         } catch (Exception e) {
                 //JOptionPane.showMessageDialog(null,"Error ");
@@ -527,7 +531,40 @@ public class CapE extends javax.swing.JFrame {
 
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
         // TODO add your handling code here:
+        
+        jTextField4.setEnabled(true);
+        jTextField1.setEnabled(true);
+        jTextField2.setEnabled(true);
+        jRadioButton3.setEnabled(true);
+        jRadioButton4.setEnabled(true);
+        jRadioButton5.setEnabled(true);
+        jRadioButton6.setEnabled(true);
+        jRadioButton7.setEnabled(true);
+        jRadioButton8.setEnabled(true);
+        jRadioButton9.setEnabled(true);
+        
+        jButton1.setEnabled(false);
+        jButton2.setEnabled(true);
+        jButton3.setEnabled(true);
     }//GEN-LAST:event_jRadioButton1ActionPerformed
+
+    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+        // TODO add your handling code here:
+        jTextField4.setEnabled(false);
+        jTextField1.setEnabled(false);
+        jTextField2.setEnabled(false);
+        jRadioButton3.setEnabled(false);
+        jRadioButton4.setEnabled(false);
+        jRadioButton5.setEnabled(false);
+        jRadioButton6.setEnabled(false);
+        jRadioButton7.setEnabled(false);
+        jRadioButton8.setEnabled(false);
+        jRadioButton9.setEnabled(false);
+        
+        jButton1.setEnabled(true);
+        jButton2.setEnabled(false);
+        jButton3.setEnabled(false);
+    }//GEN-LAST:event_jRadioButton2ActionPerformed
 
     /**
      * @param args the command line arguments

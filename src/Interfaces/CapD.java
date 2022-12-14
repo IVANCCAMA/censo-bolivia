@@ -169,6 +169,11 @@ public class CapD extends javax.swing.JFrame {
 
         buttonGroup1.add(JrbNo);
         JrbNo.setText("No");
+        JrbNo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JrbNoActionPerformed(evt);
+            }
+        });
         jPanel3.add(JrbNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 40, 60, -1));
 
         jButton1.setText("Pase a la pregunta 22");
@@ -344,6 +349,19 @@ public class CapD extends javax.swing.JFrame {
 
     private void JrbSiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JrbSiActionPerformed
         // TODO add your handling code here:
+        JtxfNumero.setEnabled(true);
+        JtxfNomP.setEnabled(true);
+        JtxfEdadMuerte.setEnabled(true);
+        JrbHombre.setEnabled(true);
+        JrbMujer.setEnabled(true);
+        JrbEmbarazo.setEnabled(true);
+        JrbParto.setEnabled(true);
+        JrbSobreparto.setEnabled(true);
+        JrbOtraCausa.setEnabled(true);
+        
+        jButton1.setEnabled(false);
+        jButton4.setEnabled(true);
+        jButton3.setEnabled(true);
     }//GEN-LAST:event_JrbSiActionPerformed
 
     private void JtxfCantPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JtxfCantPActionPerformed
@@ -500,8 +518,6 @@ public class CapD extends javax.swing.JFrame {
         if(txtCodVivienda.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Ingrese Codigo de Vivienda porfavor");
         }else{
-            this.setVisible(false);
-            new CapE().setVisible(true);
             // Guardar datos en bd
             try {
             String sql = "insert into cap_d values(?,?,?)";
@@ -512,7 +528,8 @@ public class CapD extends javax.swing.JFrame {
  
             int n = ps.executeUpdate();
             if(n>0){
-                JOptionPane.showMessageDialog(null, "Datos guardados correctamente");
+                this.setVisible(false);
+                new CapE().setVisible(true);
             }
 
             } catch (Exception e) {
@@ -522,6 +539,23 @@ public class CapD extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void JrbNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JrbNoActionPerformed
+        // TODO add your handling code here:
+        JtxfNumero.setEnabled(false);
+        JtxfNomP.setEnabled(false);
+        JtxfEdadMuerte.setEnabled(false);
+        JrbHombre.setEnabled(false);
+        JrbMujer.setEnabled(false);
+        JrbEmbarazo.setEnabled(false);
+        JrbParto.setEnabled(false);
+        JrbSobreparto.setEnabled(false);
+        JrbOtraCausa.setEnabled(false);
+        
+        jButton1.setEnabled(true);
+        jButton4.setEnabled(false);
+        jButton3.setEnabled(false);
+    }//GEN-LAST:event_JrbNoActionPerformed
 
     /**
      * @param args the command line arguments

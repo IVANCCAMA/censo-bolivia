@@ -288,7 +288,6 @@ public class CapC extends javax.swing.JFrame {
  
             int n = ps.executeUpdate();
             if(n>0){
-                JOptionPane.showMessageDialog(null, "Datos guardados correctamente");
                 // PASR A CAPD
                 this.setVisible(false);
                 new CapD().setVisible(true);
@@ -434,7 +433,10 @@ public class CapC extends javax.swing.JFrame {
         JtxfAnioSalida.setEnabled(false);
         JtxfEdad.setEnabled(false);
         JtxfPais.setEnabled(false);
+        
         jButtonGuardar.setEnabled(false);
+        jButton1.setEnabled(true);
+        jButtonSiguiente.setEnabled(false);
     }//GEN-LAST:event_JrbNoActionPerformed
 
     private void JrbSiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JrbSiActionPerformed
@@ -446,7 +448,10 @@ public class CapC extends javax.swing.JFrame {
         JtxfAnioSalida.setEnabled(true);
         JtxfEdad.setEnabled(true);
         JtxfPais.setEnabled(true);
+        
         jButtonGuardar.setEnabled(true);
+        jButton1.setEnabled(false);
+        jButtonSiguiente.setEnabled(true);
     }//GEN-LAST:event_JrbSiActionPerformed
 
     /**

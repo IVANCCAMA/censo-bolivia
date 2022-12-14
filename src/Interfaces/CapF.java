@@ -10,12 +10,9 @@ import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 import dba.Mysql;
-import java.sql.Array.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.Statement;
-import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
@@ -23,9 +20,7 @@ import javax.swing.JOptionPane;
  * @author User
  */
 public class CapF extends javax.swing.JFrame {
-    DefaultTableModel model;
     Connection conn;
-    Statement sent;
     /**
      * Creates new form CapF
      */
@@ -46,18 +41,6 @@ public class CapF extends javax.swing.JFrame {
   
     
     private String preg23(){
-        /*
-        jRadioButton1.setActionCommand("Jefa o jefe del hogar");
-        jRadioButton2.setActionCommand("Esposo/a, conviviente o concubino/a");
-        jRadioButton3.setActionCommand("Hija o hijo");
-        jRadioButton4.setActionCommand("Nuera o Yerno");
-        jRadioButton5.setActionCommand("Nieta o nieto");
-        jRadioButton6.setActionCommand("Hermana/o o cuñada/o");
-        jRadioButton7.setActionCommand("Padre, madre, suegra/o");
-        jRadioButton8.setActionCommand("Otro pariente");
-        jRadioButton9.setActionCommand("Trabajador/a del hogar");
-        jRadioButton10.setActionCommand("Otro no pariente");
-        jRadioButton11.setActionCommand("Persona en vivienda colectiva");*/
         
         String resp;
         if(jRadioButton1.isSelected()){resp = "Jefa o jefe del hogar";}
@@ -78,8 +61,6 @@ public class CapF extends javax.swing.JFrame {
     }
     
     private String preg24(){
-        /*jRadioButton12.setActionCommand("Mujer");
-        jRadioButton12.setActionCommand("Hombre");*/
         
         String resp;
         if(jRadioButton12.isSelected()){resp = "Mujer";}
@@ -91,8 +72,7 @@ public class CapF extends javax.swing.JFrame {
     }
     
     private String preg26(){
-        /*jRadioButton17.setActionCommand("Si");
-        jRadioButton16.setActionCommand("No");*/
+
         
         String resp;
         if(jRadioButton17.isSelected()){resp = "Si";}
@@ -105,9 +85,6 @@ public class CapF extends javax.swing.JFrame {
     
     private String preg27(){
         
-        /*jRadioButton18.setActionCommand("Si");
-        jRadioButton19.setActionCommand("No");*/
-        
         String resp;
         if(jRadioButton18.isSelected()){resp = "Si";}
         else if(jRadioButton19.isSelected()){resp = "No";}
@@ -117,13 +94,6 @@ public class CapF extends javax.swing.JFrame {
         return resp;
     }
     private String preg28(){
-      /*jRadioButton20.setActionCommand("caja de salud (CNS, COSSMIL, u otras)");
-        jRadioButton21.setActionCommand("seguro desalud privado");
-        jRadioButton22.setActionCommand("establecimiento de salud privado");
-        jRadioButton23.setActionCommand("establecimiento de salud publico");
-        jRadioButton24.setActionCommand("medico tradicional");
-        jRadioButton25.setActionCommand("soluciones caceras");
-        jRadioButton26.setActionCommand("la farmacia o se automedica");*/
         
         String resp;
         if(jRadioButton20.isSelected()){resp = "caja de salud (CNS, COSSMIL, u otras)";}
@@ -141,9 +111,6 @@ public class CapF extends javax.swing.JFrame {
 
     
     private String preg29(){
-      /*jRadioButton33.setActionCommand("Si");
-        jRadioButton34.setActionCommand("No pertenece");
-        jRadioButton35.setActionCommand("No soy boliviana o boliviano");*/
         String resp;
         if(jRadioButton33.isSelected()){
             resp = "Si, "+jTextField4.getText();
@@ -185,25 +152,7 @@ public class CapF extends javax.swing.JFrame {
         }
         return result;
     }
-    
-    /*private String preg32(){
-        jRadioButton38.setActionCommand("Aqui");
-        jRadioButton39.setActionCommand("En otro lugar del pais");
-        jRadioButton40.setActionCommand("En el exterior");
-        
-        String result = "";
-       
-           
-           if(buttonGroup7.getSelection().getActionCommand()=="Aqui"){
-               result = "Aqui";
-           }else if(buttonGroup7.getSelection().getActionCommand()=="En otro lugar del pais"){
-               result = "En otro lugar del pais, "+jTextField13+", "+jTextField12+", "+jTextField11;
-           }else if(buttonGroup7.getSelection().getActionCommand()=="En el exterior"){
-               result = "En el exterior, "+  jTextField14;
-           }
-           
-           return result;
-    }*/
+
     private String preg32(){
             
         String resp;
@@ -238,25 +187,6 @@ public class CapF extends javax.swing.JFrame {
         return resp;
 
     }
-    /*private String preg33b(){
-        //33
-        jRadioButton41.setActionCommand("Aqui");
-        jRadioButton42.setActionCommand("En otro lugar del pais");
-        jRadioButton43.setActionCommand("En el exterior");
-        
-        String result = "";
-      
-           
-           if(buttonGroup8.getSelection().getActionCommand()=="Aqui"){
-               result = "Aqui";
-           }else if(buttonGroup8.getSelection().getActionCommand()=="En otro lugar del pais"){
-               result = "En otro lugar del pais, "+jTextField17+", "+jTextField16+", "+jTextField15;
-           }else if(buttonGroup8.getSelection().getActionCommand()=="En el exterior"){
-               result = "En el exterior, "+  jTextField18;
-           }
-           
-           return result;
-    }*/
     
     private String preg34(){
             
@@ -275,35 +205,9 @@ public class CapF extends javax.swing.JFrame {
         return resp;
 
     }
-    
-    /*private String preg34b(){
-        
-        //34
-        jRadioButton44.setActionCommand("Aqui");
-        jRadioButton45.setActionCommand("En otro lugar del pais");
-        jRadioButton46.setActionCommand("En el exterior");
-        jRadioButton46.setActionCommand("Aún no había nacido");
-        
-        String result = "";
-       
-           
-           if(buttonGroup9.getSelection().getActionCommand()=="Aqui"){
-               result = "Aqui";
-           }else if(buttonGroup9.getSelection().getActionCommand()=="En otro lugar del pais"){
-               result = "En otro lugar del pais, "+jTextField21+", "+jTextField20+", "+jTextField19;
-           }else if(buttonGroup9.getSelection().getActionCommand()=="En el exterior"){
-               result = "En el exterior, "+  jTextField18;
-           }else if(buttonGroup9.getSelection().getActionCommand()=="Aún no había nacido"){
-               result = "Aún no había nacido";
-           }
-           
-           return result;
-    }*/
+
     
     private String preg35(){
-        //35
-        /*jRadioButton32.setActionCommand("Si");
-        jRadioButton36.setActionCommand("No");*/
         String resp;
         if(jRadioButton32.isSelected()){resp = "Si";}
         else if(jRadioButton36.isSelected()){resp = "No";}
@@ -314,11 +218,6 @@ public class CapF extends javax.swing.JFrame {
     }
     
     private String preg36(){
-        //36
-        /*jRadioButton28.setActionCommand("Sí, a una pública");
-        jRadioButton29.setActionCommand("Sí, a una privada");
-        jRadioButton30.setActionCommand("Sí, a una de convenio");
-        jRadioButton31.setActionCommand("No asiste");*/
         String resp;
         if(jRadioButton28.isSelected()){resp = "Sí, a una pública";}
         else if(jRadioButton29.isSelected()){resp = "Sí, a una privada";}
@@ -331,25 +230,6 @@ public class CapF extends javax.swing.JFrame {
     }
     
     private String preg37(){
-        //37
-        /*jRadioButton47.setActionCommand("Ninguno");
-        jRadioButton48.setActionCommand("Curso de alfabetización");
-        jRadioButton49.setActionCommand("Inicial (Pre kínder, kínder)");
-        jRadioButton50.setActionCommand("Básico (1 a 5 años)");
-        jRadioButton51.setActionCommand("Intermedio (1 a 3 años)");
-        jRadioButton52.setActionCommand("Medio (1 a 4 años)");
-        jRadioButton53.setActionCommand("Primaria (1 a 8 años)");
-        jRadioButton54.setActionCommand("Secundaria (1 a 4 años)");
-        jRadioButton55.setActionCommand("Primaria (1 a 6 años)");
-        jRadioButton56.setActionCommand("Secundaria (1 a 6 años)");
-        jRadioButton57.setActionCommand("Técnico universitario");
-        jRadioButton58.setActionCommand("Licenciatura");
-        jRadioButton59.setActionCommand("Maestría");
-        jRadioButton60.setActionCommand("Doctorado");
-        jRadioButton61.setActionCommand("Normal Superior");
-        jRadioButton62.setActionCommand("Militar o Policial");
-        jRadioButton63.setActionCommand("Técnico de Instituto");
-        jRadioButton64.setActionCommand("Otro");*/
         String resp;
         if(jRadioButton47.isSelected()){resp = "Ninguno";}
         else if(jRadioButton48.isSelected()){resp = "Curso de alfabetización";}
@@ -377,15 +257,6 @@ public class CapF extends javax.swing.JFrame {
     }
     
     private String preg38(){
-        //38
-        /*jRadioButton65.setActionCommand("Básico (1 a 5 años)");
-        jRadioButton66.setActionCommand("Intermedio (1 a 3 años)");
-        jRadioButton67.setActionCommand("Medio (1 a 4 años)");
-        jRadioButton68.setActionCommand("Primaria (1 a 8 años)");
-        jRadioButton69.setActionCommand("Secundaria (1 a 4 años)");
-        jRadioButton70.setActionCommand("Primaria (1 a 6 años)");
-        jRadioButton71.setActionCommand("Secundaria (1 a 6 años)");*/
-        
         String resp;
         if(jRadioButton47.isSelected()){resp = "Ninguno";}
         else if(jRadioButton65.isSelected()){resp = "Básico (1 a 5 años)";}
@@ -404,11 +275,6 @@ public class CapF extends javax.swing.JFrame {
     
     
     private String preg39(){
-        //39
-        /*jRadioButton72.setActionCommand("Si");
-        jRadioButton73.setActionCommand("No");*/
-        
-        
         String resp;
         if(jRadioButton72.isSelected()){resp = "Si";}
         else if(jRadioButton73.isSelected()){resp = "No";}
@@ -419,13 +285,6 @@ public class CapF extends javax.swing.JFrame {
     }
     
     private String preg40(){
-        //40
-        /*jRadioButton37.setActionCommand("Tenia trabajo, pero no trabajó por que estuvo de vacacion, enfermo o por falta de materiales");
-        jRadioButton74.setActionCommand("Atendió o ayudó en los cultivos agrícolas o en la crianza de animales");
-        jRadioButton75.setActionCommand("Atendió o ayudó en algún negocio propio o familiar");
-        jRadioButton102.setActionCommand("Realizó alguna actividad por ingreso");
-        jRadioButton103.setActionCommand("No trabajó");*/
-        
         String resp;
         if(jRadioButton37.isSelected()){resp = "Tenia trabajo, pero no trabajó por que estuvo de vacacion, enfermo o por falta de materiales";}
         else if(jRadioButton74.isSelected()){resp = "Atendió o ayudó en los cultivos agrícolas o en la crianza de animales";}
@@ -439,15 +298,6 @@ public class CapF extends javax.swing.JFrame {
     }
     
     private String preg41(){
-        //41
-        /*jRadioButton79.setActionCommand("Buscó trabajo habiendo trabajado antes");
-        jRadioButton80.setActionCommand("Buscó trabajo por primera vez");
-        jRadioButton81.setActionCommand("Estuvo estudiando");
-        jRadioButton82.setActionCommand("Realizó labores de casa");
-        jRadioButton83.setActionCommand("Es jubilado, pensionista o rentista");
-        jRadioButton84.setActionCommand("Otra");*/
-        
-        
         String resp;
         if(jRadioButton79.isSelected()){resp = "Buscó trabajo habiendo trabajado antes";}
         else if(jRadioButton80.isSelected()){resp = "Buscó trabajo por primera vez";}
@@ -502,15 +352,6 @@ public class CapF extends javax.swing.JFrame {
     }
     
     private String preg43(){
-        //43
-        /*jRadioButton85.setActionCommand("obrera/o o empleada/o");
-        jRadioButton86.setActionCommand("trabajadora/or por cuenta propia");
-        jRadioButton87.setActionCommand("empleada/or o socia/o");
-        jRadioButton88.setActionCommand("trabajador familiar o aprendiz sin remuneración");
-        jRadioButton89.setActionCommand("trabajador del hogar");
-        jRadioButton90.setActionCommand("cooperativista de produccion/servicios");*/
-        
-        
         String resp;
         if(jRadioButton85.isSelected()){resp = "obrera/o o empleada/o";}
         else if(jRadioButton86.isSelected()){resp = "trabajadora/or por cuenta propia";}
@@ -525,18 +366,6 @@ public class CapF extends javax.swing.JFrame {
     }
     
     private String preg45(){
-       
-        /*
-        //45
-        jRadioButton91.setActionCommand("Soltera/o");
-        jRadioButton92.setActionCommand("Casada/o");
-        jRadioButton93.setActionCommand("Conviviente o concubina/o");
-        jRadioButton94.setActionCommand("Separada/o");
-        jRadioButton95.setActionCommand("Divorciada/o");
-        jRadioButton96.setActionCommand("Viuda/o");*/
-        
-        
-        
         String resp;
         if(jRadioButton91.isSelected()){resp = "Soltera/o";}
         else if(jRadioButton92.isSelected()){resp = "Casada/o";}
@@ -566,9 +395,7 @@ public class CapF extends javax.swing.JFrame {
     }
     
     private String preg49b(){
-       /* jRadioButton99.setActionCommand("En un establecimiento de salud");
-        jRadioButton100.setActionCommand("En un domicilio");
-        jRadioButton101.setActionCommand("En otro lugar");*/
+
         
         String resp;
         if(jRadioButton99.isSelected()){resp = "En un establecimiento de salud";}
@@ -3671,14 +3498,7 @@ public class CapF extends javax.swing.JFrame {
         jTextField13.setEnabled(false);
         jTextField14.setEnabled(false);
         jTextField28.setEnabled(false);
-        //33
-       /* jTextField15.setEnabled(true);
-        jTextField16.setEnabled(true);
-        jTextField17.setEnabled(true);
-        jTextField18.setEnabled(true);
-        jRadioButton41.setEnabled(true);
-        jRadioButton42.setEnabled(true);
-        jRadioButton43.setEnabled(true);*/
+  
         
     }//GEN-LAST:event_jRadioButton38ActionPerformed
 
@@ -3688,16 +3508,7 @@ public class CapF extends javax.swing.JFrame {
         jTextField13.setEnabled(true);
         jTextField14.setEnabled(false);
         jTextField28.setEnabled(false);
-        
-       //33
-        /*jTextField15.setEnabled(false);
-        jTextField16.setEnabled(false);
-        jTextField17.setEnabled(false);
-        jTextField18.setEnabled(false);
-        
-        jRadioButton41.setEnabled(false);
-        jRadioButton42.setEnabled(false);
-        jRadioButton43.setEnabled(false);*/
+    
 
     }//GEN-LAST:event_jRadioButton39ActionPerformed
 
@@ -3711,16 +3522,7 @@ public class CapF extends javax.swing.JFrame {
         jTextField13.setEnabled(false);
         jTextField14.setEnabled(true);
         jTextField28.setEnabled(true);
-        
-        //33
-       /* jTextField15.setEnabled(false);
-        jTextField16.setEnabled(false);
-        jTextField17.setEnabled(false);
-        jTextField18.setEnabled(false);
-        
-        jRadioButton41.setEnabled(false);
-        jRadioButton42.setEnabled(false);
-        jRadioButton43.setEnabled(false);*/
+  
     }//GEN-LAST:event_jRadioButton40ActionPerformed
 
     private void jRadioButton41ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton41ActionPerformed
@@ -3746,15 +3548,7 @@ public class CapF extends javax.swing.JFrame {
         jTextField17.setEnabled(true);
         jTextField18.setEnabled(false);
         
-        //34
-       /* jTextField19.setEnabled(false);
-        jTextField20.setEnabled(false);
-        jTextField21.setEnabled(false);
-        jTextField22.setEnabled(false);
-        jRadioButton44.setEnabled(false);
-        jRadioButton45.setEnabled(false);
-        jRadioButton46.setEnabled(false);
-        jRadioButton27.setEnabled(false);*/
+    
     }//GEN-LAST:event_jRadioButton42ActionPerformed
 
     private void jTextField15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField15ActionPerformed
@@ -3767,15 +3561,7 @@ public class CapF extends javax.swing.JFrame {
         jTextField17.setEnabled(false);
         jTextField18.setEnabled(true);
         
-        //34
-        /*jTextField19.setEnabled(false);
-        jTextField20.setEnabled(false);
-        jTextField21.setEnabled(false);
-        jTextField22.setEnabled(false);
-        jRadioButton44.setEnabled(false);
-        jRadioButton45.setEnabled(false);
-        jRadioButton46.setEnabled(false);
-        jRadioButton27.setEnabled(false);*/
+    
     }//GEN-LAST:event_jRadioButton43ActionPerformed
 
     private void jRadioButton44ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton44ActionPerformed
@@ -3908,13 +3694,9 @@ public class CapF extends javax.swing.JFrame {
                  JOptionPane.QUESTION_MESSAGE, null, null, null);
         if(r==0){
             llenarDatos();
-            this.dispose();
+            this.setVisible(false);
             new CapF().setVisible(true);
         }
-
-        this.dispose();
-        new CapF().setVisible(true);
-        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jRadioButton74ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton74ActionPerformed
@@ -3938,7 +3720,7 @@ public class CapF extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         llenarDatos();
-        this.setVisible(false);
+        //this.setVisible(false);
         this.dispose();
         new Encuestador().setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
