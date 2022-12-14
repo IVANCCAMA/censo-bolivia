@@ -376,15 +376,7 @@ public class Registrarse extends javax.swing.JFrame {
           txtZonaCensal.setEnabled(false);
       }
     }//GEN-LAST:event_jCmbBoxTipoUrsActionPerformed
-    private String getTextoCensal(){
-      String texto = "";
-      if(jCmbBoxTipoUrs.getSelectedItem().toString().equals("Jefe de Zona")||jCmbBoxTipoUrs.getSelectedItem().toString().equals("Encuestador")){
-          texto = txtZonaCensal.getText();
-      }else{
-          texto = "";
-      }
-      return texto;
-    }
+    
     
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try {
