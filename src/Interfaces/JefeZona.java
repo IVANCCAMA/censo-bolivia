@@ -1161,6 +1161,7 @@ public class JefeZona extends javax.swing.JFrame {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null,"Error"+ e.getMessage());
         }
+        setNumJefesFamilia();
     }//GEN-LAST:event_jButton18ActionPerformed
 
     private void jTextField13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField13ActionPerformed
@@ -1320,7 +1321,7 @@ private String getTipoUsuarioEnc(){
     private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
        // BOTON ACTUALIZAR CAMBIOS DE JEFES DE FAMILIA
             try {
-            String sql = "update usuario set  nombreUrs=?, dirUrs=?, telfUrs=?, correoUrs=?, tipoUsr=?, contrUrs=?, ZonaCensal=?, codVivienda=?"
+            String sql = "update usuario set  nombreUsr=?, dirUsr=?, telfUsr=?, correoUsr=?, tipoUsr=?, contrUsr=?, ZonaCensal=?, codVivienda=?"
                     + "where codUsr=?";
             int fila = jTable3.getSelectedRow();
             String dao = (String)jTable3.getValueAt(fila, 0);
@@ -1345,12 +1346,13 @@ private String getTipoUsuarioEnc(){
                 JOptionPane.showMessageDialog(null,"Error"+ e.getMessage());
 
         }
+            setNumViviendas();
     }//GEN-LAST:event_jButton16ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // BOTON ACTUALIZAR CAMBIOS DE ENCUESTADORES
         try {
-            String sql = "update usuario set nombreUrs=?, dirUrs=?, telfUrs=?, correoUrs=?, tipoUsr=?, contrUrs=?, ZonaCensal=?"
+            String sql = "update usuario set nombreUsr=?, dirUsr=?, telfUsr=?, correoUsr=?, tipoUsr=?, contrUsr=?, ZonaCensal=?"
                     + "where codUsr=?";
             int fila = jTable1.getSelectedRow();
             String dao = (String)jTable1.getValueAt(fila, 0);
@@ -1374,6 +1376,7 @@ private String getTipoUsuarioEnc(){
                 JOptionPane.showMessageDialog(null,"Error"+ e.getMessage());
 
         }
+        setNumEnc();
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
@@ -1391,6 +1394,7 @@ private String getTipoUsuarioEnc(){
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null,"Error"+ e.getMessage());
         }
+            setNumEnc();
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
