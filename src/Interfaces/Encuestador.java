@@ -523,7 +523,6 @@ public class Encuestador extends javax.swing.JFrame {
     
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
        //boton Iniciar Encuesta
-       
        if(FueCensado()){
            JOptionPane.showMessageDialog(null,"El Código de Vivienda ingresado ya fue CENSADO, igrese uno nuevo"); 
        }else{

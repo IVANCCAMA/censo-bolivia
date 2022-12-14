@@ -112,7 +112,6 @@ public class Administrador extends javax.swing.JFrame {
                 model.addRow(fila);
             }
             tabla.setModel(model);// setea los datos recuperados a la tablaJesfes
-
         }
         catch (Exception e) {
             e.printStackTrace();
@@ -1333,7 +1332,7 @@ public class Administrador extends javax.swing.JFrame {
         });
         PanelViviendas.add(textNumViviendas, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, 132, 20));
 
-        jTabbedPane1.addTab("VIVIENDA", PanelViviendas);
+        jTabbedPane1.addTab("VIVIENDAS CENSADAS", PanelViviendas);
 
         PanelReportes.setBackground(new java.awt.Color(255, 255, 255));
         PanelReportes.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -1436,7 +1435,7 @@ public class Administrador extends javax.swing.JFrame {
                         .addGap(332, 332, 332)
                         .addComponent(jLabel38))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(314, 314, 314)
+                        .addGap(317, 317, 317)
                         .addComponent(jLabel39))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(65, 65, 65)
@@ -1847,7 +1846,7 @@ if (evt.getButton()==1){
 
     private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
         // VER ESTADISTICOS DE POBLACION GENERAL
-        new EstPoblacionGeneral().setVisible(true);
+        new EstPoblacionGeneral().setVisible(true); 
     }//GEN-LAST:event_jButton18ActionPerformed
 
     private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
@@ -1861,7 +1860,9 @@ if (evt.getButton()==1){
     }//GEN-LAST:event_jButton20ActionPerformed
 
     private void jButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton21ActionPerformed
-        // TODO add your handling code here:
+        // TODO add your handling code here:\
+        jTabbedPane1.setSelectedIndex(4);
+        jTabbedPane1.getSelectedIndex();
     }//GEN-LAST:event_jButton21ActionPerformed
 
     /**

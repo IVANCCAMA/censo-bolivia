@@ -27,6 +27,7 @@ public class Encuesta extends javax.swing.JFrame {
         txtCodVivienda.setText(JefeFamilia.codVivienda);
         txtCodVivienda.setEditable(false);
         llenarDatosEncuesta();
+        llenarTablas();
     }
     
     @SuppressWarnings("unchecked")
@@ -37,8 +38,8 @@ public class Encuesta extends javax.swing.JFrame {
         llenarCapC();
         llenarCapD();
         llenarCapE();
-        //llenarCapF();
-        
+    }
+    private void llenarTablas(){
         llenarTablaC();
         llenarTablaD();
         llenarTablaE();
@@ -237,7 +238,6 @@ public class Encuesta extends javax.swing.JFrame {
                 model.addRow(fila);
             }
             TablaC.setModel(model); // para agregar datos a la tabla
-            
         }
         catch (Exception e) {
             e.printStackTrace();

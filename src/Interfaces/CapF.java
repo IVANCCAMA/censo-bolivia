@@ -3719,12 +3719,15 @@ public class CapF extends javax.swing.JFrame {
     }//GEN-LAST:event_jRadioButton103ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        terminarEncuesta();
+    }//GEN-LAST:event_jButton2ActionPerformed
+    
+    private void terminarEncuesta(){
         llenarDatos();
         //this.setVisible(false);
         this.dispose();
         new Encuestador().setVisible(true);
-    }//GEN-LAST:event_jButton2ActionPerformed
-
+    }
     private void jRadioButton37ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton37ActionPerformed
         deshabilitar41();
         habilitar42();

@@ -381,7 +381,7 @@ public class InicioSesion extends javax.swing.JFrame {
             
             if(rs.next()){
                 setCodUsuario(); 
-                setZona();
+                setZona();  
                 setNombre();
                 verificarVentana();
                 this.setVisible(false);
