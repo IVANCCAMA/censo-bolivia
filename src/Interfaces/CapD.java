@@ -632,8 +632,6 @@ public class CapD extends javax.swing.JFrame {
     private javax.swing.JTextField txtCodVivienda;
     // End of variables declaration//GEN-END:variables
 
-
-}
 class FondoPanel extends JPanel{
         private Image imagen;
         @Override
@@ -646,4 +644,5 @@ class FondoPanel extends JPanel{
             
             super.paint(g);
         }
-    }
+}
+}
