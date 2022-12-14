@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Interfaces;
-
 /**
  *
  * @author GRUPO MTTP
@@ -27,15 +26,10 @@ public class InicioSesion extends javax.swing.JFrame {
         conn = Mysql.getConnection();
     }
     
-    public void setCodUsuario(){
+    private void setCodUsuario(){
         codUsuario = txtUsuario.getText();
     }
-    
-    public String getCodUsuario(){
-        return codUsuario;
-    }
-    
-    public void setZona(){
+    private void setZona(){
         try {
                 String sql = "select ZonaCensal from censo.usuario where codUsr = " +  txtUsuario.getText();
                 sent = conn.createStatement();
@@ -48,7 +42,7 @@ public class InicioSesion extends javax.swing.JFrame {
             }
     }
     
-    public void setNombre(){
+    private void setNombre(){
         try {
                 String sql = "select nombreUsr from censo.usuario where codUsr = " +  txtUsuario.getText();
                 sent = conn.createStatement();
@@ -60,11 +54,6 @@ public class InicioSesion extends javax.swing.JFrame {
                 e.printStackTrace();
             }
     }
-    
-    public String getZona(){
-        return zona;
-    }
-
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
