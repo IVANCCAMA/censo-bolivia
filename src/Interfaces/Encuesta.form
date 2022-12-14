@@ -680,7 +680,7 @@
                                   <Component id="jLabel35" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace pref="153" max="32767" attributes="0"/>
+                          <EmptySpace pref="157" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabel43" min="-2" pref="221" max="-2" attributes="0"/>
                               <Component id="jLabel40" alignment="0" min="-2" pref="312" max="-2" attributes="0"/>
@@ -697,11 +697,11 @@
                               <Component id="txtB17" min="-2" pref="385" max="-2" attributes="0"/>
                               <Component id="txtB19" min="-2" pref="385" max="-2" attributes="0"/>
                               <Component id="txtB18" min="-2" pref="385" max="-2" attributes="0"/>
-                              <Component id="jLabel42" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel44" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel41" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel39" min="-2" pref="402" max="-2" attributes="0"/>
                               <Component id="jLabel36" alignment="0" min="-2" pref="385" max="-2" attributes="0"/>
+                              <Component id="jLabel42" alignment="0" min="-2" pref="233" max="-2" attributes="0"/>
+                              <Component id="jLabel44" alignment="0" min="-2" pref="310" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="125" max="-2" attributes="0"/>
                       </Group>
